@@ -1,0 +1,26 @@
+#finder
+alias o='open . &'
+alias sf='open -a Safari'
+
+#top
+alias tu='top -o cpu' # top sorted by cpu
+alias tm='top -o vsize' # top sorted by memory
+
+#git
+alias g='git status'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gd='git diff'
+
+#common
+alias ifc='ifconfig -L en1'
+alias l="ls -lhGt"
+alias ..="cd .."
+alias h="history"
+alias hf="history|awk '{a[$2]++ } END{for(i in a){print a[i] \" \" i}}'|sort -rn|head -n 10"
+function take {
+  mkdir $1
+  cd $1
+}
