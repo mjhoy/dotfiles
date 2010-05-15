@@ -24,3 +24,7 @@ function take {
   mkdir $1
   cd $1
 }
+# pretty print code, from http://gist.github.com/23914
+function pless {
+  pygmentize $1 | less -r
+}
