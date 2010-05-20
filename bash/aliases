@@ -7,15 +7,17 @@ alias tu='top -o cpu' # top sorted by cpu
 alias tm='top -o vsize' # top sorted by memory
 
 #git
-alias g='git status'
+alias gs='git status'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gd='git diff'
+alias gcob='git checkout -b'
 
 #common
-alias ifc='ifconfig -L en1'
+alias m="mate" # textmate, all that is holy, the blessed bread, panagia.
+alias ifc='ifconfig -L en1' # help me find my ip address
 alias l="ls -lhGt"
 alias ..="cd .."
 alias h="history"
