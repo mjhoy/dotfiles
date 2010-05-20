@@ -38,10 +38,10 @@ set nobackup                      " Don't make a backup before overwriting a fil
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
-" UNCOMMENT TO USE
-"set tabstop=2                    " Global tab width.
-"set shiftwidth=2                 " And again, related.
-"set expandtab                    " Use spaces instead of tabs
+" 2 spaces for tabs.
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
@@ -65,11 +65,14 @@ map <leader>tm :tabmove
 "map <Leader>t :FuzzyFinderTextMate<Enter>
 
 " Controversial...swap colon and semicolon for easier commands
-"nnoremap ; :
-"nnoremap : ;
+" OK. Jumping in!
+" Reason / I'm not quick enough letting go of shift, and I type
+" in capitalized key commands when I don't intend to. 
+nnoremap ; :
+nnoremap : ;
 
-"vnoremap ; :
-"vnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby set foldmethod=syntax
