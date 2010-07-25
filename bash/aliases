@@ -7,12 +7,13 @@ alias tu='top -o cpu' # top sorted by cpu
 alias tm='top -o vsize' # top sorted by memory
 
 #git
-alias gs='git status'
+alias gs='git status -sb'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gd='git diff'
+alias gco='git checkout'
 alias gcob='git checkout -b'
 
 #common
