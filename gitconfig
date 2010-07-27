@@ -1,0 +1,11 @@
+[user]
+	name = Michael Hoy
+	email = michael.john.hoy@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	editor = mate -w
+[git-tmbundle]
+	gitx-path = ~/Apps/GitX.app
