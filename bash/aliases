@@ -15,6 +15,7 @@ alias gca='git commit -v -a'
 alias gd='git diff'
 alias gco='git checkout'
 alias gcob='git checkout -b'
+alias glo='git log --pretty=format:"%h - %an, %ar : %s"'
 
 #common
 alias m="mate" # textmate, all that is holy, the blessed bread, panagia.
