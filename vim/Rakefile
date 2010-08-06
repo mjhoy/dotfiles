@@ -13,9 +13,9 @@ namespace :update do
 
   BUNDLES = {
     # plugins
-    :vim_git        => "git://github.com/tpope/vim-git.git",
-    :vim_fugitive   => "git://github.com/tpope/vim-fugitive.git"
-    
+    :git        => "git://github.com/tpope/vim-git.git",
+    :fugitive   => "git://github.com/tpope/vim-fugitive.git",
+    :ragtag     => "git://github.com/tpope/vim-ragtag.git"
     # syntax definitions
     # ...
   }
