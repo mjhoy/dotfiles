@@ -6,6 +6,7 @@
 	status = auto
 	branch = auto
 [core]
-	editor = mate -w
+# use default
+#	editor = mate -w
 [git-tmbundle]
 	gitx-path = ~/Apps/GitX.app
