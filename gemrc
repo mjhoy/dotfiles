@@ -1,0 +1,4 @@
+--- 
+:benchmark: false
+:verbose: true
+gem: --no-ri --no-rdoc
