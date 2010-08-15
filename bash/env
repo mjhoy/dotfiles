@@ -5,6 +5,9 @@ export PATH="~/bin:~/.gem/ruby/1.8/bin:/usr/local/bin:/usr/local/sbin:/usr/local
 
 SSH_ENV="$HOME/.ssh/environment"
 
+# grep 
+GREP_OPTIONS="--color"
+
 function start_agent {
   echo "Initializing new SSH agent..."
   /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
