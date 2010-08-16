@@ -2,3 +2,4 @@
 ssh/*
 *.sw?
 vim/bundle
+vim/.netrwhist
