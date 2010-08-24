@@ -1,16 +1,16 @@
 [user]
-	name = Michael Hoy
-	email = michael.john.hoy@gmail.com
+  name = Michael Hoy
+  email = michael.john.hoy@gmail.com
 [alias]
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+  diff = auto
+  status = auto
+  branch = auto
 [core]
 # use default
 #	editor = mate -w
 [git-tmbundle]
-	gitx-path = ~/Apps/GitX.app
+  gitx-path = ~/Apps/GitX.app
 # some of the above taken from:
 # http://github.com/bitserf/dotfiles/blob/master/.gitconfig
