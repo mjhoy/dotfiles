@@ -1,0 +1,3 @@
+io:format("Hello from Erlang!~n").
+% note: I can't seem to get erlang to read a symbolic link,
+% so this file should be copied to ~/.erlang
