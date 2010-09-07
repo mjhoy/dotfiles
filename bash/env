@@ -8,6 +8,9 @@ SSH_ENV="$HOME/.ssh/environment"
 # grep 
 GREP_OPTIONS="--color"
 
+# set vim
+set -o vi
+
 function start_agent {
   echo "Initializing new SSH agent..."
   /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
