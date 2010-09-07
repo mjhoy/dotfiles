@@ -20,7 +20,8 @@ alias glo='git log --pretty=format:"%h - %an, %ar : %s"'
 #common
 alias m="mate" # textmate, all that is holy, the blessed bread, panagia.
 alias ifc='ifconfig -L en1' # help me find my ip address
-alias l="ls -lhGt"
+alias l="\ls -lhGt"
+alias ls="ls -F"
 alias ..="cd .."
 alias h="history"
 alias hf="history|awk '{a[$2]++ } END{for(i in a){print a[i] \" \" i}}'|sort -rn|head -n 10"
