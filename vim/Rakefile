@@ -15,7 +15,8 @@ namespace :update do
     # plugins
     :git        => "git://github.com/tpope/vim-git.git",
     :fugitive   => "git://github.com/tpope/vim-fugitive.git",
-    :ragtag     => "git://github.com/tpope/vim-ragtag.git"
+    :ragtag     => "git://github.com/tpope/vim-ragtag.git",
+    :rails      => "git://github.com/tpope/vim-rails.git"
     # syntax definitions
     # ...
   }
