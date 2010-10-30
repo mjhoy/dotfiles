@@ -8,6 +8,7 @@
   status = auto
   branch = auto
 [core]
+  excludesfile = "~/bin/dotfiles/gitignore"
 # use default
 #	editor = mate -w
 [git-tmbundle]
