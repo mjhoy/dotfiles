@@ -13,10 +13,11 @@ namespace :update do
 
   BUNDLES = {
     # plugins
-    :git        => "git://github.com/tpope/vim-git.git",
-    :fugitive   => "git://github.com/tpope/vim-fugitive.git",
-    :ragtag     => "git://github.com/tpope/vim-ragtag.git",
-    :rails      => "git://github.com/tpope/vim-rails.git"
+    :git          => "git://github.com/tpope/vim-git.git",
+    :fugitive     => "git://github.com/tpope/vim-fugitive.git",
+    :ragtag       => "git://github.com/tpope/vim-ragtag.git",
+    :rails        => "git://github.com/tpope/vim-rails.git",
+    :coffeescript => "git://github.com/kchmck/vim-coffee-script.git"
     # syntax definitions
     # ...
   }
@@ -31,7 +32,7 @@ namespace :update do
       target_path = bundle_home + bundle.to_s
 
       puts "*" * 72
-      puts "*** Instaling #{bundle} to #{target_path} from #{location}"
+      puts "*** Installing #{bundle} to #{target_path} from #{location}"
       puts # blank line
 
       rm_rf target_path
