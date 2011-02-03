@@ -9,6 +9,7 @@
   di = diff
   dc = diff --cached
   cob = checkout -b
+  aa = add --all
 [color]
   diff = auto
   status = auto
