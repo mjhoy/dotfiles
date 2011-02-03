@@ -3,6 +3,12 @@
   email = michael.john.hoy@gmail.com
 [alias]
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  st = status -sb
+  ci = commit
+  co = checkout
+  di = diff
+  dc = diff --cached
+  cob = checkout -b
 [color]
   diff = auto
   status = auto
