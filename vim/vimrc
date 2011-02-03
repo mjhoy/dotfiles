@@ -46,6 +46,9 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+" no coffeescript trailing space error indication
+let coffee_no_trailing_space_error = 1
+
 " Use magic
 set magic
 
