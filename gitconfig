@@ -10,6 +10,7 @@
   dc = diff --cached
   cob = checkout -b
   aa = add --all
+  amend-head = commit --amend -C HEAD
 [color]
   diff = auto
   status = auto
