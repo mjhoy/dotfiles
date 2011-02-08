@@ -89,3 +89,5 @@ autocmd FileType ruby set foldmethod=syntax
 
 " Gemfiles are ruby files
 autocmd BufRead,BufNewFile Gemfile set filetype=ruby
+" *.md -> markdown files
+autocmd BufRead,BufNewFile *.md set filetype=markdown
