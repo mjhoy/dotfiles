@@ -1,24 +1,28 @@
 [user]
   name = Michael Hoy
   email = michael.john.hoy@gmail.com
+
 [alias]
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-  st = status -sb
-  ci = commit
-  co = checkout
-  di = diff
-  dc = diff --cached
+  lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  s   = status -sb
+  ci  = commit
+  co  = checkout
+  di  = diff
+  dc  = diff --cached
   cob = checkout -b
-  aa = add --all
+  aa  = add --all
+# amend last commit, reusing msg
   amend-head = commit --amend -C HEAD
+
 [color]
   diff = auto
   status = auto
   branch = auto
+
 [core]
   excludesfile = "~/bin/dotfiles/gitignore"
-# use default
 #	editor = mate -w
+
 [git-tmbundle]
   gitx-path = ~/Apps/GitX.app
 # some of the above taken from:
