@@ -57,7 +57,7 @@ set laststatus=2                  " Show the status line all the time
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 " Or use vividchalk
-colorscheme topfunky-light
+colorscheme vividchalk
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -83,6 +83,11 @@ nnoremap : ;
 vnoremap ; :
 vnoremap : ;
 
+" <C-L> to clear search
+if exists(":nohls")
+  nnoremap <silent> <C-L> :nohls<CR><C-L>
+endif
+
 " Automatic fold settings for specific files. Uncomment to use.
 autocmd FileType ruby set foldmethod=syntax
 " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
@@ -91,3 +96,8 @@ autocmd FileType ruby set foldmethod=syntax
 autocmd BufRead,BufNewFile Gemfile set filetype=ruby
 " *.md -> markdown files
 autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+" DiffOrig -- diff original file w/ buffer in new vert
+" from help :DiffOrig
+" (http://vimdoc.sourceforge.net/htmldoc/diff.html#:DiffOrig)
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis

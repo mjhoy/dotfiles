@@ -1,5 +1,4 @@
-# use MacVim
-export EDITOR="mvim -f"
+export EDITOR="vim"
 
 export PATH="~/bin:~/.gem/ruby/1.8/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
 export NODE_PATH="/usr/local/lib/node"
