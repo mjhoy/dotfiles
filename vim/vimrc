@@ -73,6 +73,8 @@ map <leader>tm :tabmove
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>
 
+" Gundo plugin for easy undo/redo tree browsing
+map <leader>g :GundoToggle<cr>
 
 " <C-L> to clear search
 if exists(":nohls")

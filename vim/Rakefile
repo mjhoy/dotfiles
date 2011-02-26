@@ -17,7 +17,8 @@ namespace :update do
     :fugitive     => "git://github.com/tpope/vim-fugitive.git",
     :ragtag       => "git://github.com/tpope/vim-ragtag.git",
     :rails        => "git://github.com/tpope/vim-rails.git",
-    :coffeescript => "git://github.com/kchmck/vim-coffee-script.git"
+    :coffeescript => "git://github.com/kchmck/vim-coffee-script.git",
+    :gundo        => "git://github.com/sjl/gundo.vim.git"
     # syntax definitions
     # ...
   }
