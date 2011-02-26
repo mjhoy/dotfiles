@@ -73,15 +73,6 @@ map <leader>tm :tabmove
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>
 
-" Controversial...swap colon and semicolon for easier commands
-" OK. Jumping in!
-" Reason / I'm not quick enough letting go of shift, and I type
-" in capitalized key commands when I don't intend to. 
-nnoremap ; :
-nnoremap : ;
-
-vnoremap ; :
-vnoremap : ;
 
 " <C-L> to clear search
 if exists(":nohls")
