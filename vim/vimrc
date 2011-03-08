@@ -96,3 +96,6 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 " from help :DiffOrig
 " (http://vimdoc.sourceforge.net/htmldoc/diff.html#:DiffOrig)
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+
+" No thanks for flying
+let &titleold=''
