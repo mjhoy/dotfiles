@@ -9,7 +9,7 @@ SSH_ENV="$HOME/.ssh/environment"
 GREP_OPTIONS="--color"
 
 # set vim
-set -o vi
+# set -o vi
 
 function start_agent {
   echo "Initializing new SSH agent..."
