@@ -1,5 +1,6 @@
 startup_message       off
 altscreen on
+defutf8 on
 
 # Get 256 colors working. See http://frexx.de/xterm-256-notes/
 # and https://wiki.archlinux.org/index.php/Screen_Tips#Use_256_colors
