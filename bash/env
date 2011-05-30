@@ -5,6 +5,9 @@ export NODE_PATH="/usr/local/lib/node"
 
 SSH_ENV="$HOME/.ssh/environment"
 
+# So iTerm works correctly. (otherwise, `ps` does strange things, e.g.)
+COMMAND_MODE=unix2003
+
 # grep 
 GREP_OPTIONS="--color"
 
