@@ -70,8 +70,11 @@ colorscheme vividchalk
 nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
 
-" Uncomment to use Jamis Buck's file opening plugin
-"map <Leader>t :FuzzyFinderTextMate<Enter>
+" Use comma for leader.
+let mapleader=","
+
+" Double leader switches to last buffer.
+nnoremap <leader><leader> <c-^>
 
 " Gundo plugin for easy undo/redo tree browsing
 map <leader>g :GundoToggle<cr>
