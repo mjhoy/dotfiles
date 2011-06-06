@@ -77,7 +77,14 @@ let mapleader=","
 nnoremap <leader><leader> <c-^>
 
 " Gundo plugin for easy undo/redo tree browsing
-map <leader>g :GundoToggle<cr>
+" Requires Vim 7.3
+map <leader>gu :GundoToggle<cr>
+
+" Map ,e and ,v to open files in the same directory as the current file
+" From Gary Bernhardt's vimrc
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
 
 " <C-L> to clear search
 if exists(":nohls")
