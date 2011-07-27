@@ -64,7 +64,7 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 set t_Co=256
 
 " Or use vividchalk
-colorscheme vividchalk
+colorscheme mjh
 
 " Map + and - keys to resize the split window.
 nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
