@@ -2,3 +2,4 @@
 runtime colors/vividchalk.vim
 
 hi LineNr ctermfg=darkgray
+set cursorline
