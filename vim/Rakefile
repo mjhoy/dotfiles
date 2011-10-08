@@ -20,7 +20,8 @@ namespace :update do
     :coffeescript => "git://github.com/kchmck/vim-coffee-script.git",
     :gundo        => "git://github.com/sjl/gundo.vim.git",
     :jade         => "git://github.com/vim-scripts/jade.vim.git",
-    :scss         => "git://github.com/cakebaker/scss-syntax.vim.git"
+    :scss         => "git://github.com/cakebaker/scss-syntax.vim.git",
+    :vimroom      => "git://github.com/mikewest/vimroom.git"
     # syntax definitions
     # ...
   }
