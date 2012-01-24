@@ -1,9 +1,8 @@
-" Example Vim configuration.
-" Copy or symlink to ~/.vimrc or ~/_vimrc.
+" This option goes first because it may have side-effects.
+set nocompatible
 
-set nocompatible                  " Must come first because it changes other options.
-
-silent! call pathogen#runtime_append_all_bundles() 
+" Pathogen loads all plugins in ~/.vim/bundle
+call pathogen#infect()
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
