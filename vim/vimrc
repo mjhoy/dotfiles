@@ -102,10 +102,6 @@ set t_Co=256
 " Or use vividchalk
 colorscheme mjh
 
-" Map + and - keys to resize the split window.
-nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
-
 " Use comma for leader.
 let mapleader=","
 
