@@ -21,7 +21,8 @@ namespace :update do
     :gundo        => "git://github.com/sjl/gundo.vim.git",
     :jade         => "git://github.com/vim-scripts/jade.vim.git",
     :scss         => "git://github.com/cakebaker/scss-syntax.vim.git",
-    :vimroom      => "git://github.com/mikewest/vimroom.git"
+    :vimroom      => "git://github.com/mikewest/vimroom.git",
+    :racket       => "git://github.com/wlangstroth/vim-racket.git"
     # syntax definitions
     # ...
   }
