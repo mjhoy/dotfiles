@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ln -s $HOME/bin/dotfiles/gemrc ~/.gemrc
+ln -s $HOME/bin/dotfiles/screenrc ~/.screenrc
+ln -s $HOME/bin/dotfiles/gitconfig ~/.gitconfig
+ln -s $HOME/bin/dotfiles/vim/vimrc ~/.vimrc
+ln -s $HOME/bin/dotfiles/vim ~/.vim
+ln -s $HOME/bin/dotfiles/bashrc ~/.bashrc
