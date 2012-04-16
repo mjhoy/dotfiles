@@ -145,6 +145,19 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile *.md set filetype=markdown
 augroup END
 
+" Multipurpose tab key
+" (tabs after whitespace, or completion after characters)
+" See https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
 
 " DiffOrig -- diff original file w/ buffer in new vert
 " from help :DiffOrig
