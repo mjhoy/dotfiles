@@ -123,17 +123,28 @@ if exists(":nohls")
   nnoremap <silent> <C-L> :nohls<CR><C-L>
 endif
 
-" Fold on syntax for ruby.
-autocmd FileType ruby set foldmethod=syntax
+" Autocommands
+augroup vimrcEx
+  " Remove ALL autocommands for the current group
+  autocmd!
 
-" Don't fold at the start.
-autocmd FileType ruby set nofoldenable
+  " Fold on syntax for ruby.
+  autocmd FileType ruby set foldmethod=syntax
 
-" Gemfiles are ruby files
-autocmd BufRead,BufNewFile Gemfile set filetype=ruby
+  " Jump to the last known position in a file just after opening it.
+  " See :help last-position-jump
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" *.md -> markdown files
-autocmd BufRead,BufNewFile *.md set filetype=markdown
+  " Don't fold at the start.
+  autocmd FileType ruby set nofoldenable
+
+  " Gemfiles are ruby files
+  autocmd BufRead,BufNewFile Gemfile set filetype=ruby
+
+  " *.md -> markdown files
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+augroup END
+
 
 " DiffOrig -- diff original file w/ buffer in new vert
 " from help :DiffOrig
