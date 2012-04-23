@@ -6,3 +6,7 @@ ln -s $HOME/bin/dotfiles/gitconfig ~/.gitconfig
 ln -s $HOME/bin/dotfiles/vim/vimrc ~/.vimrc
 ln -s $HOME/bin/dotfiles/vim ~/.vim
 ln -s $HOME/bin/dotfiles/bashrc ~/.bashrc
+
+# hushlogin: prevent the system from searching logs
+# to find the last time logged in.
+touch ~/.hushlogin
