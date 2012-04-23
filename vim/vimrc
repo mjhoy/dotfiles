@@ -99,8 +99,8 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%=%-16(\ %l,%c
 " Use 256 colors.
 set t_Co=256
 
-" Or use vividchalk
-colorscheme mjh
+set background=dark
+colorscheme solarized
 
 " Use comma for leader.
 let mapleader=","

@@ -22,7 +22,8 @@ namespace :update do
     :jade         => "git://github.com/vim-scripts/jade.vim.git",
     :scss         => "git://github.com/cakebaker/scss-syntax.vim.git",
     :vimroom      => "git://github.com/mikewest/vimroom.git",
-    :racket       => "git://github.com/wlangstroth/vim-racket.git"
+    :racket       => "git://github.com/wlangstroth/vim-racket.git",
+    :solarized    => "git://github.com/altercation/vim-colors-solarized.git"
     # syntax definitions
     # ...
   }
