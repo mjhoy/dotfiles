@@ -94,7 +94,7 @@ set magic
 set laststatus=2                  
 
 " Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%=%-16(\ %l,%c-%v\ %)%P
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %=%-16(\ %l,%c-%v\ %)%P
 
 " Use 256 colors.
 set t_Co=256
@@ -158,6 +158,47 @@ function! InsertTabWrapper()
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
+
+" Tab status line
+" see :help setting-tabline
+set tabline=%!MyTabLine()
+
+function! MyTabLine()
+
+  let s = ''
+  for i in range(tabpagenr('$'))
+
+    " Select highlighting
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
+    endif
+
+    " set the tab page number (for mouse clicks)
+    let s .= '%' . (i + 1) . 'T'
+
+    " the label is made by MyTabLabel()
+    let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+  endfor
+
+  " after the last tab fill with TabLineFill and reset tab page nr
+  let s .= '%#TabLineFill#%T'
+
+  " put git status in the upper right.
+  if tabpagenr('$') > 1
+    let s .= '%=%#Keyword#%999X%{fugitive#statusline()}'
+  endif
+
+  return s
+endfunction
+
+function! MyTabLabel(n)
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  return bufname(buflist[winnr - 1])
+endfunction
+
 
 function! RenameFile()
     let old_name = expand('%')
