@@ -1,6 +1,6 @@
 export EDITOR="vim"
 
-export PATH="~/bin:~/bin/android-sdk-macosx/tools:~/.gem/ruby/1.8/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
+export PATH="~/bin:~/bin/android-sdk-macosx/tools:~/bin/android-sdk-macosx/platform-tools:~/.gem/ruby/1.8/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
 export NODE_PATH="/usr/local/lib/node"
 
 SSH_ENV="$HOME/.ssh/environment"
