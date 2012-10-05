@@ -74,7 +74,7 @@ set nobackup
 set nowritebackup
 
 " Use the Mac OS X clipboard.
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " Use <F2> to turn off indenting for pasting.
 set pastetoggle=<F2>
