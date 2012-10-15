@@ -100,7 +100,7 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %=%-16(\ %l,%c-%v\ %)%P
 set t_Co=256
 
 set background=dark
-colorscheme solarized
+colorscheme Tomorrow-Night
 
 " Use comma for leader.
 let mapleader=","
