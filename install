@@ -1,12 +1,21 @@
-#!/bin/bash
+#!/usr/bin/env ruby
 
-ln -s $HOME/bin/dotfiles/gemrc ~/.gemrc
-ln -s $HOME/bin/dotfiles/screenrc ~/.screenrc
-ln -s $HOME/bin/dotfiles/gitconfig ~/.gitconfig
-ln -s $HOME/bin/dotfiles/vim/vimrc ~/.vimrc
-ln -s $HOME/bin/dotfiles/vim ~/.vim
-ln -s $HOME/bin/dotfiles/bashrc ~/.bashrc
-
-# hushlogin: prevent the system from searching logs
-# to find the last time logged in.
-touch ~/.hushlogin
+[
+  "gemrc",
+  "screenrc",
+  "gitconfig",
+  "vim/vimrc",
+  "vim",
+  "bashrc",
+  "ghci"
+].each do |conf|
+  filename = conf.match(/\/?(\w+)$/)[1]
+  command = "ln -s #{File.expand_path(conf)} ~/.#{filename}"
+  unless File.exists?(File.expand_path("~/.#{filename}"))
+    puts "Linking #{conf}..."
+    system command
+  end
+  # hushlogin: prevent the system from searching logs
+  # to find the last time logged in.
+  system "touch ~/.hushlogin"
+end
