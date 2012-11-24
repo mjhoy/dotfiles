@@ -143,6 +143,7 @@ augroup vimrcEx
 
   " *.md -> markdown files
   autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd FileType markdown set textwidth=80
 augroup END
 
 " Tab status line
