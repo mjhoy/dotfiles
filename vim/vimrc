@@ -102,6 +102,11 @@ set t_Co=256
 set background=dark
 colorscheme Tomorrow-Night
 
+" Highlight trailing whitespace
+" See: http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+\%#\@<!$/
+
 " Use comma for leader.
 let mapleader=","
 
