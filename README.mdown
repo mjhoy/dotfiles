@@ -1,6 +1,0 @@
-the “dotfiles” for my bash environment. i’m following along mostly now with Dan Benjamin’s excellent [advanced commandline screencast][peepcode] at peepcode. 
-
-The `bash_profile` isn’t actually used. These files live in `~/bin/dotfiles`. The prompt runs the script `vcprompt` (note `bash/env`) which does nice things like let you know whether you’re in a git repository, and if so what branch. you can find it [here][vcprompt]. I put the script in `~/bin`, which is added to my `$PATH` in `bash/env`.
-
-[peepcode]:http://peepcode.com/products/advanced-command-line
-[vcprompt]:http://vc.gerg.ca/hg/vcprompt/

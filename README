@@ -1,0 +1,8 @@
+My dotfiles.
+
+Mostly vim stuff. A few Mac-specific things, but I run it on Linux as well.
+
+The `install` script creates the actual dotfiles in $HOME as symbolic links.
+
+----------------------------------------
+Michael Hoy <michael.john.hoy@gmail.com>
