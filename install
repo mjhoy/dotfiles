@@ -7,9 +7,10 @@
   "vim/vimrc",
   "vim",
   "bashrc",
-  "ghci"
+  "ghci",
+  "tmux.conf"
 ].each do |conf|
-  filename = conf.match(/\/?(\w+)$/)[1]
+  filename = conf.match(/\/?([^\/]+)$/)[1]
   command = "ln -s #{File.expand_path(conf)} ~/.#{filename}"
   unless File.exists?(File.expand_path("~/.#{filename}"))
     puts "Linking #{conf}..."
