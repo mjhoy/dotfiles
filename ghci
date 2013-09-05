@@ -1,3 +1,4 @@
+let ghciEscapeChar arg = "'" ++ concatMap (\c -> if c == '\'' then "'\"'\"'" else [c]) arg ++ "'"
 :set prompt "ghci> "
-:def hoogle \x -> return $ ":!hoogle \"" ++ x ++ "\""
-:def doc \x -> return $ ":!hoogle --info \"" ++ x ++ "\""
+:def hoogle return . (":!hoogle --color " ++) . ghciEscapeChar
+:def doc return . (":!hoogle --info " ++) . ghciEscapeChar
