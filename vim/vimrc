@@ -86,12 +86,14 @@ set expandtab
 
 " no coffeescript trailing space error indication
 let coffee_no_trailing_space_error = 1
+let hs_highlight_delimiters = 1
+let ruby_no_expensive = 1
 
 " Use magic
 set magic
 
 " Show the status line all the time
-set laststatus=2                  
+set laststatus=2
 
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %=%-16(\ %l,%c-%v\ %)%P
@@ -152,6 +154,12 @@ augroup vimrcEx
 
   " .puppet -> puppet files
   autocmd BufRead,BufNewFile *.pp set filetype=puppet
+
+  " .module -> php files (for Drupal)
+  autocmd BufRead,BufNewFile *.module set filetype=php
+
+  " Vagrantfile -> ruby
+  autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 augroup END
 
 " Tab status line
