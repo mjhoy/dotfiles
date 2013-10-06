@@ -8,7 +8,7 @@ set nocompatible
 " Pathogen
 " --------
 " Loads all plugins in ~/.vim/bundle
-call pathogen#infect()
+execute pathogen#infect()
 
 " Common-sense stuff
 " ------------------
@@ -124,6 +124,9 @@ map <leader>gu :GundoToggle<cr>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
+
+" CtrlP (https://github.com/kien/ctrlp.vim)
+map <leader>f :CtrlP<cr>
 
 " <C-L> to clear search
 if exists(":nohls")

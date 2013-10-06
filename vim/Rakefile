@@ -23,7 +23,8 @@ namespace :update do
     :scss         => "git://github.com/cakebaker/scss-syntax.vim.git",
     :vimroom      => "git://github.com/mikewest/vimroom.git",
     :racket       => "git://github.com/wlangstroth/vim-racket.git",
-    :solarized    => "git://github.com/altercation/vim-colors-solarized.git"
+    :solarized    => "git://github.com/altercation/vim-colors-solarized.git",
+    :ctrl_p       => "git://github.com/kien/ctrlp.vim.git"
     # syntax definitions
     # ...
   }
