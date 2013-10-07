@@ -34,3 +34,12 @@ if [ -f "${SSH_ENV}" ]; then
 else
   start_agent;
 fi
+
+# Vim wants <C-S>
+vim()
+{
+  local STTYOPTS="$(stty --save)"
+  stty stop '' -ixoff
+  command vim "$@"
+  stty "$STTYOPTS"
+}
