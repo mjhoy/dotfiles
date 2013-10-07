@@ -128,6 +128,11 @@ map <leader>v :view %%
 " CtrlP (https://github.com/kien/ctrlp.vim)
 map <leader>f :CtrlP<cr>
 
+map <leader>z :sp ~/dotfiles/vim/vimrc<cr>
+imap <C-S> <ESC> :w<cr>
+map <C-E> $
+map <C-A> ^
+
 " <C-L> to clear search
 if exists(":nohls")
   nnoremap <silent> <C-L> :nohls<CR><C-L>
