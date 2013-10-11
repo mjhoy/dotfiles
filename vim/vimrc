@@ -132,6 +132,7 @@ map <leader>z :sp ~/dotfiles/vim/vimrc<cr>
 imap <C-S> <ESC> :w<cr>
 map <C-E> $
 map <C-A> ^
+map <leader>x :only<cr>
 
 " <C-L> to clear search
 if exists(":nohls")
