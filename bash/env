@@ -43,3 +43,12 @@ vim()
   command vim "$@"
   stty "$STTYOPTS"
 }
+
+# Tmux: correct 256 color
+alias tmux="tmux -2"
+
+# pman: open man pages in preview (Mac)
+# via http://apple.stackexchange.com/questions/5435
+pman () {
+  man -t "${1}" | open -f -a /Applications/Preview.app
+}
