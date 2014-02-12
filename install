@@ -9,7 +9,8 @@
   "bashrc",
   "ghci",
   "tmux.conf",
-  "mutt_color"
+  "mutt_color",
+  "emacs.d"
 ].each do |conf|
   filename = conf.match(/\/?([^\/]+)$/)[1]
   command = "ln -s #{File.expand_path(conf)} ~/.#{filename}"
