@@ -1,15 +1,24 @@
+;; ❄ emacs setup ❄
+
 (defun mjhoy/load-init-file (path &optional noerror)
   "Load a file from the ~/.emacs.d directory."
   (let ((file (file-name-sans-extension
 	       (expand-file-name path user-emacs-directory))))
     (load file noerror)))
 
-;; required for inf-ruby??
-(require 'thingatpt)
+;; load packages, functions
+(mjhoy/load-init-file "mjhoy/packages.el")
+(mjhoy/load-init-file "mjhoy/commands.el")
 
-;; backups under ~/.emacs.d
+(setq user-mail-address "michael.john.hoy@gmail.com")
+
+;; keep backups under ~/.emacs.d
 (setq backup-directory-alist
       (list (cons "." (expand-file-name "backups" user-emacs-directory))))
+
+
+;; interface
+;; =========
 
 ;; no menu bar
 (menu-bar-mode 0)
@@ -17,30 +26,29 @@
 ;; no splash screen
 (setq inhibit-splash-screen t)
 
-(mjhoy/load-init-file "mjhoy/packages.el")
-(mjhoy/load-init-file "mjhoy/commands.el")
-
-;; theme
-;;(load-theme 'zenburn t)
-;;(require 'color-theme-sanityinc-tomorrow)
+;; theme: tomorrow night bright
 (load-theme 'sanityinc-tomorrow-bright t)
 
-;; line number format: add a space
-(setq linum-format "%d ")
 
-;; begone, crazy command
-(global-unset-key (kbd "C-x C-u"))
+;; ido
+;; ===
 
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
 
-;; Ruby file extensions/naming
+
+;; ruby
+;; ====
+
 (add-to-list 'auto-mode-alist '("Rakefile\\'"   . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile\\'"    . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec\\'" . ruby-mode))
 
-;; hippy expand!
+
+;; hippy expand
+;; ============
+
 (setq hippie-expand-try-functions-list
       '(try-expand-all-abbrevs
         try-expand-dabbrev
@@ -50,23 +58,34 @@
         try-complete-file-name
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
-(global-set-key "\M- " 'hippie-expand)
-(setq user-mail-address "michael.john.hoy@gmail.com")
+
 
 ;; org mode
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c c") 'org-capture)
+;; ========
+
 (setq org-agenda-files (list "~/org/class.org"
 			     "~/org/work.org"
 			     "~/org/daily.org"))
 
-;; scss
-(setq scss-compile-at-save nil)
+;; global bindings
+;; ===============
 
-;; no tabs
-(setq-default indent-tabs-mode nil)
+;; begone, crazy command
+(global-unset-key (kbd "C-x C-u"))
 
-;; haskell mode
+;; hippy expand
+(global-set-key "\M- " 'hippie-expand)
+
+;; org agenda
+(global-set-key (kbd "C-c a") 'org-agenda)
+
+;; copy region without deleting
+(global-set-key (kbd "C-c C-w") 'copy-region-as-kill)
+
+
+;; haskell
+;; =======
+
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (defun mjhoy/define-haskell-keys ()
   (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-compile))
@@ -75,12 +94,25 @@
 (add-hook 'haskell-mode-hook 'mjhoy/define-haskell-keys)
 (add-hook 'haskell-cabal-hook 'mjhoy/define-haskell-cabal-keys)
 
-;; ensure newline at end of file
-(setq require-final-newline t)
 
-;; cc-mode
+;; cc mode
+;; =======
+
 (setq c-default-style "linux"
       c-basic-offset 6)
 (defun my-make-CR-do-indent ()
   (define-key c-mode-base-map "\C-m" 'c-context-line-break))
 (add-hook 'c-initialization-hook 'my-make-CR-do-indent)
+
+
+;; misc
+;; ====
+
+;; ensure newline at end of file
+(setq require-final-newline t)
+
+;; no tabs
+(setq-default indent-tabs-mode nil)
+
+;; scss
+(setq scss-compile-at-save nil)
