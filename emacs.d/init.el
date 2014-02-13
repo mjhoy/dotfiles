@@ -79,9 +79,6 @@
 ;; org agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-;; copy region without deleting
-(global-set-key (kbd "C-c C-w") 'copy-region-as-kill)
-
 
 ;; haskell
 ;; =======
