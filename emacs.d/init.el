@@ -67,8 +67,23 @@
 			     "~/org/work.org"
 			     "~/org/daily.org"))
 
+;; misc functions
+;; ==============
+
+(defun mjhoy/lookup-apple-dictionary ()
+  "Open Apple's dictionary app for the current word."
+  (interactive)
+  (let* ((myWord (thing-at-point 'symbol))
+         (myUrl (concat "dict://" myWord)))
+    (browse-url myUrl)))
+
+
 ;; global bindings
 ;; ===============
+
+; apple dictionary search of current word
+; (replaces 'describe-no-warranty)
+(global-set-key (kbd "C-h C-w") 'mjhoy/lookup-apple-dictionary)
 
 ;; begone, crazy command
 (global-unset-key (kbd "C-x C-u"))
