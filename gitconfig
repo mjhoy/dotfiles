@@ -3,17 +3,19 @@
   email = michael.john.hoy@gmail.com
 
 [alias]
-  lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   s   = status -sb
   b   = branch
   ci  = commit
   co  = checkout
-  di  = diff
-  dc  = diff --cached
+  di  = diff --color-words
+  dc  = diff --color-words --cached
   cob = checkout -b
   aa  = add --all
 # amend last commit, reusing msg
   amend-head = commit --amend -C HEAD
+  l   = log --pretty=format:'%h %s'
+  ld  = log --date=short --pretty=format:'%h %cd %s'
+  lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 # taken from http://pyrtsa.posterous.com/aligning-your-git-logs
   l50 = "!git log --abbrev-commit --date=short --pretty=format:'%x00%h%x00%cd%x00%s%x00%an%x00%d' | gawk -F '\\0' '{ printf \"%s\\033[31m%s\\033[0m \\033[32m%s\\033[0m  %-50s \\033[30;1m%s\\033[0m\\033[33m%s\\n\", $1, $2, $3, gensub(/(.{49}).{2,}/, \"\\\\1…\",\"g\",$4), $5, $6 }' | less -R"
   l80 = "!git log --abbrev-commit --date=short --pretty=format:'%x00%h%x00%cd%x00%s%x00%an%x00%d' | gawk -F '\\0' '{ printf \"%s\\033[31m%s\\033[0m \\033[32m%s\\033[0m  %-80s \\033[30;1m%s\\033[0m\\033[33m%s\\n\", $1, $2, $3, gensub(/(.{79}).{2,}/, \"\\\\1…\",\"g\",$4), $5, $6 }' | less -R"
