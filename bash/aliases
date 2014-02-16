@@ -16,3 +16,6 @@ alias m="mate" # textmate
 alias ifc='ifconfig -L en1' # help me find my ip address
 alias stat="stat -x"
 alias ec="emacsclient -c"
+
+# see: http://alpmestan.com/2013/06/27/ghc-core-by-example-episode-1/
+alias ghcdc='ghc -O2 -ddump-simpl -dsuppress-idinfo -dsuppress-coercions -dsuppress-type-applications -dsuppress-uniques -dsuppress-module-prefixes'
