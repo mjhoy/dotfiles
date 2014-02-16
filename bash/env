@@ -1,6 +1,6 @@
 export EDITOR="vim"
 
-export PATH="./bin:~/bin:~/.cabal/bin:~/Library/Haskell/bin:~/bin/android-sdk-macosx/tools:~/bin/android-sdk-macosx/platform-tools:~/.gem/ruby/1.8/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
+export PATH="./bin:~/bin:~/.cabal/bin:~/.rbenv/bin:/Users/mjhoy/Library/Haskell/bin:~/bin/android-sdk-macosx/tools:~/bin/android-sdk-macosx/platform-tools:~/.gem/ruby/1.8/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
 export NODE_PATH="/usr/local/lib/node"
 export PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
 
@@ -9,7 +9,7 @@ SSH_ENV="$HOME/.ssh/environment"
 # So iTerm works correctly. (otherwise, `ps` does strange things, e.g.)
 COMMAND_MODE=unix2003
 
-# grep 
+# grep
 GREP_OPTIONS="--color"
 
 # set vim
@@ -35,10 +35,17 @@ else
   start_agent;
 fi
 
+PLATFORM=`uname`
+
 # Vim wants <C-S>
 vim()
 {
-  local STTYOPTS="$(stty --save)"
+  local STTYOPTS=""
+  if [[ "$PLATFORM" == "Darwin" ]]; then
+    STTYOPTS="$(stty -g)"
+  else
+    STTYOPTS="$(stty --save)"
+  fi
   stty stop '' -ixoff
   command vim "$@"
   stty "$STTYOPTS"
