@@ -25,7 +25,8 @@ namespace :update do
     :racket       => "git://github.com/wlangstroth/vim-racket.git",
     :solarized    => "git://github.com/altercation/vim-colors-solarized.git",
     :ctrl_p       => "git://github.com/kien/ctrlp.vim.git",
-    :go           => "git://github.com/jnwhiteh/vim-golang.git"
+    :go           => "git://github.com/jnwhiteh/vim-golang.git",
+    :haskell_html => "git://github.com/pbrisbin/html-template-syntax.git"
     # syntax definitions
     # ...
   }
