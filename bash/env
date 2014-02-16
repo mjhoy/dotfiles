@@ -35,13 +35,11 @@ else
   start_agent;
 fi
 
-PLATFORM=`uname`
-
 # Vim wants <C-S>
 vim()
 {
   local STTYOPTS=""
-  if [[ "$PLATFORM" == "Darwin" ]]; then
+  if [[ "$OSTYPE" == "darwin"* ]]; then
     STTYOPTS="$(stty -g)"
   else
     STTYOPTS="$(stty --save)"
