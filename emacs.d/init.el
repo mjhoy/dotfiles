@@ -76,7 +76,12 @@
   (let* ((myWord (thing-at-point 'symbol))
          (myUrl (concat "dict://" myWord)))
     (browse-url myUrl)))
-
+(defun mjhoy/lookup-dash ()
+  "Query Dash.app for the current word."
+  (interactive)
+  (let* ((myWord (thing-at-point 'symbol))
+         (myUrl (concat "dash://" myWord)))
+    (browse-url myUrl)))
 
 ;; global bindings
 ;; ===============
@@ -84,6 +89,10 @@
 ; apple dictionary search of current word
 ; (replaces 'describe-no-warranty)
 (global-set-key (kbd "C-h C-w") 'mjhoy/lookup-apple-dictionary)
+
+;; dash lookup (mac)
+;; replaces 'view-emacs-debugging
+(global-set-key (kbd "C-h C-d") 'mjhoy/lookup-dash)
 
 ;; begone, crazy command
 (global-unset-key (kbd "C-x C-u"))
@@ -94,6 +103,10 @@
 ;; org agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
 
+;; magit stuff
+
+;; magit-blame-mode
+(global-set-key (kbd "C-x g b") 'magit-blame-mode)
 
 ;; haskell
 ;; =======
