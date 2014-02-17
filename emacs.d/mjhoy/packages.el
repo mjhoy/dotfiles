@@ -70,4 +70,5 @@
  'scss-mode
  'org
  'haskell-mode
+ 'php-mode
  )
