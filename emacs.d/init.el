@@ -3,12 +3,11 @@
 (defun mjhoy/load-init-file (path &optional noerror)
   "Load a file from the ~/.emacs.d directory."
   (let ((file (file-name-sans-extension
-	       (expand-file-name path user-emacs-directory))))
+               (expand-file-name path user-emacs-directory))))
     (load file noerror)))
 
-;; load packages, functions
+;; load packages
 (mjhoy/load-init-file "mjhoy/packages.el")
-(mjhoy/load-init-file "mjhoy/commands.el")
 
 (setq user-mail-address "michael.john.hoy@gmail.com")
 
@@ -64,8 +63,8 @@
 ;; ========
 
 (setq org-agenda-files (list "~/org/class.org"
-			     "~/org/work.org"
-			     "~/org/daily.org"))
+                             "~/org/work.org"
+                             "~/org/daily.org"))
 
 ;; misc functions
 ;; ==============
@@ -76,6 +75,7 @@
   (let* ((myWord (thing-at-point 'symbol))
          (myUrl (concat "dict://" myWord)))
     (browse-url myUrl)))
+
 (defun mjhoy/lookup-dash ()
   "Query Dash.app for the current word."
   (interactive)
