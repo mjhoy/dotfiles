@@ -144,5 +144,6 @@
 ;; no tabs
 (setq-default indent-tabs-mode nil)
 
-;; scss
+;; css/scss
 (setq scss-compile-at-save nil)
+(setq css-indent-offset 2)
