@@ -65,10 +65,12 @@
  'zenburn-theme
  'color-theme-sanityinc-tomorrow
  'inf-ruby
+ 'ruby-test-mode
  'idomenu
  'magit
  'scss-mode
  'org
  'haskell-mode
  'php-mode
+ 'yaml-mode
  )
