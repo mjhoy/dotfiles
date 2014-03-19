@@ -118,6 +118,9 @@
 ;; misc
 ;; ====
 
+;; tags are case sensitive
+(setq tags-case-fold-search nil)
+
 ;; ensure newline at end of file
 (setq require-final-newline t)
 
