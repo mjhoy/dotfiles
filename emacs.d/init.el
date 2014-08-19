@@ -15,6 +15,9 @@
 (setq backup-directory-alist
       (list (cons "." (expand-file-name "backups" user-emacs-directory))))
 
+;; add plugins to load path
+(add-to-list 'load-path "~/.emacs.d/site-lisp")
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 
 ;; interface
 ;; =========
@@ -114,6 +117,29 @@
 
 ;; drupal style conventions
 (add-hook 'php-mode-hook 'php-enable-drupal-coding-style)
+
+;; mu4e
+;; ====
+
+(require 'mu4e)
+(setq mu4e-maildir "~/.mail/michael.john.hoy-gmail.com")
+(setq mu4e-drafts-folder "/drafts")
+(setq mu4e-maildir-shortcuts
+    '( ("/INBOX"               . ?i)))
+(setq mu4e-get-mail-command "offlineimap")
+(setq
+   user-mail-address "michael.john.hoy@gmail.com"
+   user-full-name  "Michael Hoy")
+(setq message-send-mail-function 'smtpmail-send-it
+     starttls-use-gnutls t
+     smtpmail-starttls-credentials
+     '(("smtp.gmail.com" 587 nil nil))
+     smtpmail-default-smtp-server "smtp.gmail.com"
+     smtpmail-smtp-server "smtp.gmail.com"
+     smtpmail-auth-credentials
+     (expand-file-name "~/.authinfo.gpg")
+     smtpmail-smtp-service 587)
+(setq message-kill-buffer-on-exit t)
 
 ;; misc
 ;; ====
