@@ -2,3 +2,5 @@ tramp
 url
 backups
 elpa
+eshell
+auto-save-list
