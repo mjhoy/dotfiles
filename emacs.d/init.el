@@ -141,6 +141,12 @@
      smtpmail-smtp-service 587)
 (setq message-kill-buffer-on-exit t)
 
+;; twittering
+;; ==========
+
+(require 'twittering-mode)
+(setq twittering-use-master-password t)
+
 ;; misc
 ;; ====
 

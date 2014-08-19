@@ -73,4 +73,5 @@
  'haskell-mode
  'php-mode
  'yaml-mode
+ 'twittering-mode
  )
