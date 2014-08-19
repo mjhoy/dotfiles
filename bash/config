@@ -39,4 +39,4 @@ BCYAN='\e[46m'
 BWHITE='\e[47m'
 
 # runs the script 'vcprompt'
-PS1="\n\W \[$WHITE\]\$(vcprompt)\[$NO_COLOR\] \n⇲ "
+PS1="\n\W \[$GREEN\]\$(vcprompt -f "[%b%m%u]")\[$NO_COLOR\]\n$ "
