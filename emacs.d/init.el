@@ -9,7 +9,8 @@
 ;; load packages
 (mjhoy/load-init-file "mjhoy/packages.el")
 
-(setq user-mail-address "michael.john.hoy@gmail.com")
+(setq user-full-name "Michael Hoy"
+      user-mail-address "michael.john.hoy@gmail.com")
 
 ;; keep backups under ~/.emacs.d
 (setq backup-directory-alist
@@ -31,6 +32,15 @@
 ;; theme: tomorrow night bright
 (load-theme 'sanityinc-tomorrow-bright t)
 
+;; show matching parens
+(show-paren-mode t)
+
+;; utf-8
+(set-language-environment 'utf-8)
+(setq locale-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
 
 ;; ido
 ;; ===
@@ -126,10 +136,9 @@
 (setq mu4e-drafts-folder "/drafts")
 (setq mu4e-maildir-shortcuts
     '( ("/INBOX"               . ?i)))
-(setq mu4e-get-mail-command "offlineimap")
-(setq
-   user-mail-address "michael.john.hoy@gmail.com"
-   user-full-name  "Michael Hoy")
+(setq mu4e-get-mail-command "offlineimap -q")
+;; don't save message to Sent Messages, Gmail/IMAP takes care of this
+(setq mu4e-sent-messages-behavior 'delete)
 (setq message-send-mail-function 'smtpmail-send-it
      starttls-use-gnutls t
      smtpmail-starttls-credentials
@@ -140,6 +149,14 @@
      (expand-file-name "~/.authinfo.gpg")
      smtpmail-smtp-service 587)
 (setq message-kill-buffer-on-exit t)
+(setq mu4e-compose-signature-auto-include nil)
+;; rich text messages
+(setq mu4e-html2text-command "html2text -utf8 -width 72")
+;; bookmarks
+(add-to-list 'mu4e-bookmarks
+             '("date:14d..now AND maildir:/archive"  "Latest archive" ?a)
+             '("size:5M..500M"                       "Big messages"   ?b))
+(setq mu4e-attachment-dir  "~/Downloads")
 
 ;; twittering
 ;; ==========

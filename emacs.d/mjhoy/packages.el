@@ -74,4 +74,5 @@
  'php-mode
  'yaml-mode
  'twittering-mode
+ 'rainbow-mode
  )
