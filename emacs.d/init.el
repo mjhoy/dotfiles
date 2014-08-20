@@ -156,9 +156,10 @@
 ;; rich text messages
 (setq mu4e-html2text-command "html2text -utf8 -width 72")
 ;; bookmarks
-(add-to-list 'mu4e-bookmarks
-             '("date:14d..now AND maildir:/archive"  "Latest archive" ?a)
-             '("size:5M..500M"                       "Big messages"   ?b))
+(add-to-list 'mu4e-bookmarks '("date:14d..now AND maildir:/archive"  "Latest archive" ?a))
+(add-to-list 'mu4e-bookmarks '("date:14d..now AND maildir:/sent"     "Latest sent"    ?s))
+(add-to-list 'mu4e-bookmarks '("size:5M..500M"                       "Big messages"   ?b))
+
 (setq mu4e-attachment-dir  "~/Downloads")
 
 ;; twittering
