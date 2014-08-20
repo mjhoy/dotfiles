@@ -75,4 +75,6 @@
  'yaml-mode
  'twittering-mode
  'rainbow-mode
+ 'projectile
+ 'flx-ido
  )

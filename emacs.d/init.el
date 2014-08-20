@@ -42,6 +42,9 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;; projectile
+(projectile-global-mode)
+
 ;; ido
 ;; ===
 
