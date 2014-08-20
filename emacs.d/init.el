@@ -136,7 +136,7 @@
 (setq mu4e-drafts-folder "/drafts")
 (setq mu4e-maildir-shortcuts
     '( ("/INBOX"               . ?i)))
-(setq mu4e-get-mail-command "offlineimap -q")
+(setq mu4e-get-mail-command "offlineimap -q -f INBOX")
 ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
 (setq mu4e-sent-messages-behavior 'delete)
 (setq message-send-mail-function 'smtpmail-send-it
