@@ -1,0 +1,10 @@
+#+TITLE: mjhoy/dotfiles
+
+My "dotfiles" -- configuration files.
+
+vim/emacs/bash + others.
+
+Assumes rbenv, Mac OS X, vcprompt.
+
+The ~install~ script creates the actual dotfiles in $HOME as symbolic
+links.
