@@ -2,7 +2,7 @@
 
 My "dotfiles" -- configuration files.
 
-vim/[[./emacs.d/init.el][emacs]]/bash + others.
+[[./vim/vimrc][vim]]/[[./emacs.d/init.el][emacs]]/[[./bashrc][bash]] + others.
 
 Assumes rbenv, Mac OS X, vcprompt.
 
