@@ -8,6 +8,7 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 
+;; hello
 (setq user-full-name "Michael Hoy"
       user-mail-address "michael.john.hoy@gmail.com")
 
@@ -21,14 +22,22 @@
 ;; interface
 ;; =========
 
+;; gui only
+(set-face-attribute 'default nil :family "Input Mono")
+(set-face-attribute 'default nil :height 130)
+
+;; Input is a bit tight, increase line-spacing
+(setq-default line-spacing 0.2)
+
 ;; no menu bar
 (menu-bar-mode 0)
 
 ;; no splash screen
 (setq inhibit-splash-screen t)
 
-;; theme: tomorrow night bright
-(load-theme 'sanityinc-tomorrow-bright t)
+;; other color themes:
+;;   sanity-inc-tomorrow-night (/day/bright)
+(load-theme 'tango-plus t)
 
 ;; show matching parens
 (show-paren-mode t)
@@ -40,8 +49,44 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;; don't jump the screen
+(setq scroll-conservatively 10000)
+
 ;; projectile
 (projectile-global-mode)
+
+;; enable advanced emacs commands
+(put 'narrow-to-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)
+
+(defun mjhoy/proportional ()
+  "Use a proportional font"
+  (interactive)
+  (setq buffer-face-mode-face '(:family "Input Sans" :height 130))
+  (buffer-face-mode))
+
+(defun mjhoy/mono ()
+  "Use a monospace font"
+  (interactive)
+  (setq buffer-face-mode-face '(:family "Input Mono" :height 130))
+  (buffer-face-mode))
+
+;; compose/view setup.
+;; use proportional font (Input Sans) in email/twitter.
+(add-hook 'mu4e-compose-mode-hook
+          (lambda ()
+            (mjhoy/proportional)
+            (set-fill-column 72)
+            (flyspell-mode)))
+(add-hook 'mu4e-view-mode-hook 'mjhoy/proportional)
+(add-hook 'twittering-mode-hook 'mjhoy/proportional)
+
+;; disable scrollbars and menu bar on the mac. On Linux you can disable it in
+;; Xdefaults.
+(when (string-equal system-type "darwin")
+  (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+  (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+  (when (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
 
 ;; ido
 ;; ===
@@ -49,7 +94,6 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
-
 
 ;; ruby
 ;; ====
@@ -101,7 +145,6 @@
          (myUrl (concat "dash://" myWord)))
     (browse-url myUrl)))
 
-
 ;; haskell
 ;; =======
 
@@ -112,7 +155,6 @@
   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile))
 (add-hook 'haskell-mode-hook 'mjhoy/define-haskell-keys)
 (add-hook 'haskell-cabal-hook 'mjhoy/define-haskell-cabal-keys)
-
 
 ;; cc mode
 ;; =======
@@ -152,7 +194,7 @@
 (setq message-kill-buffer-on-exit t)
 (setq mu4e-compose-signature-auto-include nil)
 ;; rich text messages
-(setq mu4e-html2text-command "html2text -utf8 -width 72")
+(setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
 ;; bookmarks
 (add-to-list 'mu4e-bookmarks '("date:14d..now AND maildir:/archive"  "Latest archive" ?a))
 (add-to-list 'mu4e-bookmarks '("date:14d..now AND maildir:/sent"     "Latest sent"    ?s))
