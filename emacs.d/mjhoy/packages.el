@@ -62,8 +62,8 @@
   (jeg2/package-delete-unless-listed packages))
 
 (jeg2/package-install-and-remove-to-match-list
- 'zenburn-theme
  'color-theme-sanityinc-tomorrow
+ 'tango-plus-theme
  'inf-ruby
  'ruby-test-mode
  'idomenu
