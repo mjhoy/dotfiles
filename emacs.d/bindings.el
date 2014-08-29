@@ -15,12 +15,16 @@
 
 ;; begone, crazy command
 (global-unset-key (kbd "C-x C-u"))
+;; (we can safely enable it)
+(put 'upcase-region 'disabled nil)
 
 ;; hippy expand
 (global-set-key "\M- " 'hippie-expand)
 
-;; org agenda
+;; org mode keys
 (global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c l") 'org-store-link)
 
 ;; magit stuff
 
