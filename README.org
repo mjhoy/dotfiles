@@ -3,8 +3,8 @@
 My configuration.
 
 I'm currently working primarily on my emacs config (see my [[./emacs.d/init.el][init.el]]
-file), and some projects within emacs: org-mode, mu4e (an email
-client), various PL modes.
+file), and various configurations within emacs: org-mode, mu4e (an
+email client), various PL modes.
 
 I sometimes use vim. See my [[./vim/vimrc][vimrc]] file.
 
