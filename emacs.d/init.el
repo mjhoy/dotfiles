@@ -1,24 +1,22 @@
 ;; ❄ emacs setup ❄
 
-(defun mjhoy/load-init-file (path &optional noerror)
-  "Load a file from the ~/.emacs.d directory."
-  (let ((file (file-name-sans-extension
-               (expand-file-name path user-emacs-directory))))
-    (load file noerror)))
+(defvar config-dir (file-name-directory (or (buffer-file-name) load-file-name))
+  "Path to the configuration directory (usually ~/.emacs.d)")
 
-;; load packages
-(mjhoy/load-init-file "mjhoy/packages.el")
+;; set up load path
+(add-to-list 'load-path config-dir)
+(add-to-list 'load-path "~/.emacs.d/site-lisp")
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 
 (setq user-full-name "Michael Hoy"
       user-mail-address "michael.john.hoy@gmail.com")
 
+;; packages
+(load "mjhoy/packages")
+
 ;; keep backups under ~/.emacs.d
 (setq backup-directory-alist
       (list (cons "." (expand-file-name "backups" user-emacs-directory))))
-
-;; add plugins to load path
-(add-to-list 'load-path "~/.emacs.d/site-lisp")
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 
 ;; interface
 ;; =========
@@ -184,4 +182,4 @@
 (setq scss-compile-at-save nil)
 (setq css-indent-offset 2)
 
-(mjhoy/load-init-file "bindings.el")
+(load "bindings")
