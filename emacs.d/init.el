@@ -140,8 +140,26 @@
              "* %?\n%U\n%a")
         ("c" "Clock" item (clock)
              "%?\n%U\n%a")
+        ("e" "Emacs config" entry (file+headline "~/org/belch.org" "emacs config")
+             "* TODO %?\n%U\n%a")
         ("j" "Journal" entry (file+datetree "~/org/journal.org")
              "* %?\nEntered on %U\n%i\n%a")))
+
+;; prevent parent TODOs being marked 'Done' until their children are
+;; all marked done
+(setq org-enforce-todo-dependencies t)
+
+;; add timestamp to TODOs when marking DONE
+(setq org-log-done 'time)
+
+;; for TODOs with [%] or [/] summaries: mark DONE/TODO automatically
+;; based on children (from the org-mode manual)
+(defun org-summary-todo (n-done n-not-done)
+  "Switch entry to DONE when all subentries are done, to TODO otherwise."
+  (let (org-log-done org-log-states)   ; turn off logging
+    (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+
+(add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 
 ;; (directory-files (expand-file-name "~/org") t ".*.org$")
 
