@@ -1,10 +1,22 @@
 #+TITLE: mjhoy/dotfiles
 
-My "dotfiles" -- configuration files.
+My configuration.
 
-[[./vim/vimrc][vim]]/[[./emacs.d/init.el][emacs]]/[[./bashrc][bash]] + others.
+I'm currently working primarily on my emacs config (see my [[./emacs.d/init.el][init.el]]
+file), and some projects within emacs: org-mode, mu4e (an email
+client), various PL modes.
 
-Assumes rbenv, Mac OS X, vcprompt.
+I sometimes use vim. See my [[./vim/vimrc][vimrc]] file.
 
-The ~install~ script creates the actual dotfiles in $HOME as symbolic
-links.
+There are some other configuration files as well:
+
+- Haskell ([[./ghci][ghci]])
+- Ruby ([[./gemrc][gemrc]])
+- Git ([[./gitconfig][gitconfig]], [[./gitignore][gitignore]])
+- Bash ([[./bash/aliases][aliases]], [[./bash/env][environment config]])
+
+The bash setup assumes [[https://github.com/sstephenson/rbenv][rbenv]] and [[https://bitbucket.org/gward/vcprompt][vcprompt]]. I mostly run this on my
+Mac OS X machine, though I should test it against Linux as well...
+
+Running the [[./install][install]] script creates the actual dotfiles in $HOME as
+symbolic links.
