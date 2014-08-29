@@ -192,6 +192,7 @@
 ;; ====
 
 (require 'mu4e)
+(setq mail-user-agent 'mu4e-user-agent)
 (setq mu4e-maildir "~/.mail/michael.john.hoy-gmail.com")
 (setq mu4e-drafts-folder "/drafts")
 (setq mu4e-maildir-shortcuts
