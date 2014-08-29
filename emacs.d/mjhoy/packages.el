@@ -77,4 +77,5 @@
  'rainbow-mode
  'projectile
  'flx-ido
+ 'flycheck
  )
