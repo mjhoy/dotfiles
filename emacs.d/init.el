@@ -120,13 +120,30 @@
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
 
-
 ;; org mode
 ;; ========
 
-(setq org-agenda-files (list "~/org/class.org"
-                             "~/org/work.org"
-                             "~/org/daily.org"))
+(setq org-agenda-files
+      (list "~/org/organizer.org"
+            "~/org/belch.org"
+            "~/org/class.org"
+            "~/org/work.org"
+            "~/org/daily.org"))
+
+;; org captures
+(setq org-default-notes-file "~/org/belch.org")
+
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/organizer.org" "General")
+             "* TODO %?\n  %i\n  %a")
+        ("n" "Note" entry (file "~/org/belch.org")
+             "* %?\n%U\n%a")
+        ("c" "Clock" item (clock)
+             "%?\n%U\n%a")
+        ("j" "Journal" entry (file+datetree "~/org/journal.org")
+             "* %?\nEntered on %U\n%i\n%a")))
+
+;; (directory-files (expand-file-name "~/org") t ".*.org$")
 
 ;; misc functions
 ;; ==============
