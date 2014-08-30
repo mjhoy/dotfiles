@@ -123,12 +123,26 @@
 ;; org mode
 ;; ========
 
+;; my main org files:
+;;   organizer.org -> important todos and tasks
+;;   belch.org     -> unprocessed notes
+;;   work.org      -> work-related notes
+;;   dates.org     -> my datebook
+;;   projects.org  -> non-work stuff
+;;
+;; other files:
+;;   programming_notes.org
+;;   reading_notes.org
+;;   class.org             -> notes for classes
+;;   journal.org
+;;   dream.org             -> dream journal
+;;   writing.org           -> writing ideas
 (setq org-agenda-files
-      (list "~/org/organizer.org" ;; important todos/tasks
-            "~/org/belch.org"     ;; unprocessed thoughts
-            "~/org/work.org"      ;; work-related notes
-            "~/org/dates.org"     ;; scheduling
-            "~/org/projects.org"  ;; non-work stuff
+      (list "~/org/organizer.org"
+            "~/org/belch.org"
+            "~/org/work.org"
+            "~/org/dates.org"
+            "~/org/projects.org"
             ))
 
 ;; org captures
@@ -143,6 +157,10 @@
              "%?\n%U\n%a")
         ("e" "Emacs config" entry (file+headline "~/org/belch.org" "emacs config")
              "* TODO %?\n%U\n%a")
+        ("s" "Emacs tool sharpening" entry (file+olp "~/org/programming_notes.org"
+                                                     "Emacs"
+                                                     "Sharpening list")
+             "* %?\nsee %a\nentered on %U")
         ("d" "Dream" entry (file+datetree "~/org/dream.org")
              "* %?\nEntered on %U")
         ("j" "Journal" entry (file+datetree "~/org/journal.org")
