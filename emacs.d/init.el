@@ -124,11 +124,12 @@
 ;; ========
 
 (setq org-agenda-files
-      (list "~/org/organizer.org"
-            "~/org/belch.org"
-            "~/org/class.org"
-            "~/org/work.org"
-            "~/org/daily.org"))
+      (list "~/org/organizer.org" ;; important todos/tasks
+            "~/org/belch.org"     ;; unprocessed thoughts
+            "~/org/work.org"      ;; work-related notes
+            "~/org/dates.org"     ;; scheduling
+            "~/org/projects.org"  ;; non-work stuff
+            ))
 
 ;; org captures
 (setq org-default-notes-file "~/org/belch.org")
@@ -142,8 +143,10 @@
              "%?\n%U\n%a")
         ("e" "Emacs config" entry (file+headline "~/org/belch.org" "emacs config")
              "* TODO %?\n%U\n%a")
+        ("d" "Dream" entry (file+datetree "~/org/dream.org")
+             "* %?\nEntered on %U")
         ("j" "Journal" entry (file+datetree "~/org/journal.org")
-             "* %?\nEntered on %U\n%i\n%a")))
+             "* %?\nEntered on %U")))
 
 ;; prevent parent TODOs being marked 'Done' until their children are
 ;; all marked done
