@@ -1,6 +1,8 @@
 ;; global bindings
 ;; ===============
 
+;; idomenu
+(global-set-key (kbd "C-c s") 'idomenu)
 
 ; find-file-at-point (replaces 'set-fill-column)
 (global-set-key (kbd "C-x f") 'find-file-at-point)
