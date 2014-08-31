@@ -35,6 +35,10 @@
 ;; no splash screen
 (setq inhibit-splash-screen t)
 
+;; start with ~/org/welcome.org if it exists
+(if (file-exists-p "~/org/welcome.org")
+    (setq initial-buffer-choice "~/org/welcome.org"))
+
 ;; other color themes:
 ;;   sanity-inc-tomorrow-night (/day/bright)
 (load-theme 'tango-plus t)
