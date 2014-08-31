@@ -182,6 +182,9 @@
 ;; add timestamp to TODOs when marking DONE
 (setq org-log-done 'time)
 
+;; add a note when clocking out
+(setq org-log-note-clock-out t)
+
 ;; for TODOs with [%] or [/] summaries: mark DONE/TODO automatically
 ;; based on children (from the org-mode manual)
 (defun org-summary-todo (n-done n-not-done)
