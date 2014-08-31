@@ -39,6 +39,15 @@
 ;;   sanity-inc-tomorrow-night (/day/bright)
 (load-theme 'tango-plus t)
 
+(defun mjhoy/light ()
+  "switch to my light theme"
+  (interactive)
+  (load-theme 'tango-plus t))
+(defun mjhoy/dark ()
+  "switch to my dark theme"
+  (interactive)
+  (load-theme 'sanityinc-tomorrow-night t))
+
 ;; show matching parens
 (show-paren-mode t)
 
