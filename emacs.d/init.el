@@ -76,6 +76,10 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
 
+;; better buffer unique naming
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
 (defun mjhoy/proportional ()
   "Use a proportional font"
   (interactive)
