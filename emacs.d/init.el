@@ -150,6 +150,8 @@
 
 ;; org mode
 ;; ========
+(require 'org)
+(add-to-list 'org-modules 'org-habit)
 
 ;; my main org files:
 ;;   organizer.org -> important todos and tasks
@@ -157,6 +159,7 @@
 ;;   work.org      -> work-related notes
 ;;   dates.org     -> my datebook
 ;;   projects.org  -> non-work stuff
+;;   daily.org     -> habits
 ;;
 ;; other files:
 ;;   programming_notes.org
@@ -171,6 +174,7 @@
             "~/org/work.org"
             "~/org/dates.org"
             "~/org/projects.org"
+            "~/org/daily.org"
             ))
 
 ;; org captures
