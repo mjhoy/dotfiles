@@ -51,7 +51,7 @@
   "switch to my dark theme"
   (interactive)
   (load-theme 'sanityinc-tomorrow-night t))
-(defun mjhoy/dark-bright ()
+(defun mjhoy/bright ()
   "switch to my dark theme (bright)"
   (interactive)
   (load-theme 'sanityinc-tomorrow-bright t))
