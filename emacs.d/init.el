@@ -116,6 +116,13 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
+;; scheme
+;; ======
+
+;; use racket
+(setq scheme-program-name "racket")
+
+
 ;; ruby
 ;; ====
 
