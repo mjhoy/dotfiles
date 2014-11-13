@@ -17,9 +17,15 @@
   "Install a package by name unless it is already installed."
   (or (package-installed-p name) (jeg2/package-refresh-and-install name)))
 
+(defun jeg2/package-details-for (name)
+  (let ((v (cdr (assoc name package-archive-contents))))
+    (and v (if (consp v)
+	       (car v) ; emacs 24+
+	     v))))
+
 (defun jeg2/package-version-for (package)
   "Get the version of a loaded package."
-  (package-desc-vers (cdr (assoc package package-alist))))
+  (package-desc-vers (jeg2/package-details-for package)))
 
 (defun jeg2/package-delete-by-name (package)
   "Remove a package by name."
@@ -44,14 +50,13 @@
 
 (defun jeg2/package-requirements (package)
   "List of recursive dependencies for a package."
-  (let ((package-info (cdr (assoc package package-alist))))
+  (let ((package-info (jeg2/package-details-for package)))
      (cond ((null package-info) (list package))
            (t
             (jeg2/flatten
              (cons package
                    (mapcar 'jeg2/package-requirements
                            (mapcar 'car (package-desc-reqs package-info)))))))))
-
 
 (defun jeg2/package-install-and-remove-to-match-list (&rest packages)
   "Sync packages so the installed list matches the passed list."
