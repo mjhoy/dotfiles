@@ -1,10 +1,6 @@
 ;; ❄ emacs setup ❄
 
-(defvar config-dir (file-name-directory (or (buffer-file-name) load-file-name))
-  "Path to the configuration directory (usually ~/.emacs.d)")
-
 ;; set up load path
-(add-to-list 'load-path config-dir)
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 
