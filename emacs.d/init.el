@@ -1,5 +1,3 @@
-;; ❄ emacs setup ❄
-
 ;; set up load path
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
@@ -155,6 +153,12 @@
         try-complete-file-name
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
+
+
+;; flycheck mode
+;; =============
+(add-hook 'scss-mode-hook #'flycheck-mode)
+(add-hook 'js-mode-hook   #'flycheck-mode)
 
 ;; org mode
 ;; ========
