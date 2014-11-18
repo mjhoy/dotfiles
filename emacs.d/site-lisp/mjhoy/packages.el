@@ -73,6 +73,7 @@
  'ruby-test-mode
  'idomenu
  'ido-vertical-mode
+ 'smex
  'magit
  'scss-mode
  'org
