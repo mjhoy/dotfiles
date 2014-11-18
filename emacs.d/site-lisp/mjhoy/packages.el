@@ -72,6 +72,7 @@
  'inf-ruby
  'ruby-test-mode
  'idomenu
+ 'ido-vertical-mode
  'magit
  'scss-mode
  'org
