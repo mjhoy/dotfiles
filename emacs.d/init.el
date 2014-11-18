@@ -13,7 +13,9 @@
 
 ;; keep backups under ~/.emacs.d
 (setq backup-directory-alist
-      (list (cons "." (expand-file-name "backups" user-emacs-directory))))
+      (list (cons "."
+                  (expand-file-name "backups"
+                                    user-emacs-directory))))
 
 ;; interface
 ;; =========
