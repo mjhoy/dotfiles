@@ -89,14 +89,13 @@
   (buffer-face-mode))
 
 ;; compose/view setup.
-;; use proportional font (Input Sans) in email/twitter.
+;; use proportional font (Input Sans) in email.
 (add-hook 'mu4e-compose-mode-hook
           (lambda ()
             (mjhoy/proportional)
             (set-fill-column 72)
             (flyspell-mode)))
 (add-hook 'mu4e-view-mode-hook 'mjhoy/proportional)
-(add-hook 'twittering-mode-hook 'mjhoy/proportional)
 
 ;; disable scrollbars and menu bar on the mac. On Linux you can disable it in
 ;; Xdefaults.
@@ -282,12 +281,6 @@
 ;; complain if i have it on another system.
 (if (file-exists-p "/usr/local/share/emacs/site-lisp/mu4e")
     (load "mjhoy/mu4e"))
-
-;; twittering
-;; ==========
-
-(require 'twittering-mode)
-(setq twittering-use-master-password t)
 
 ;; misc
 ;; ====

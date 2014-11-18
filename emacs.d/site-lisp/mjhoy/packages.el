@@ -1,6 +1,8 @@
 ;; Idea from Ryan Davis:
 ;; http://blog.zenspider.com/blog/2013/06/my-emacs-setup-packages.html
 
+;; TODO deleting packages doesn't work in 24.4 yet :(
+
 (require 'package)
 
 (dolist (repo '(("elpa"      . "http://tromey.com/elpa/")
@@ -80,7 +82,6 @@
  'haskell-mode
  'php-mode
  'yaml-mode
- 'twittering-mode
  'rainbow-mode
  'projectile
  'flx-ido
