@@ -60,7 +60,7 @@ First, add a few entries to the package repositories.
 #+BEGIN_SRC emacs-lisp
 (dolist (repo '(("elpa"      . "http://tromey.com/elpa/")
                 ("marmalade" . "http://marmalade-repo.org/packages/")
-                ("melpa"     . "http://melpa.milkbox.net/packages/")))
+                ("melpa"     . "http://melpa.org/packages/")))
   (add-to-list 'package-archives repo))
 #+END_SRC
 
@@ -412,6 +412,18 @@ based on children (from the org-mode manual)
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 #+END_SRC
 
+* magit
+/Package: `magit/
+
+Let's define some global key bindings for magit commands.
+
+They will all begin C-c g, so for instance C-c g s ("git status") is
+magit-status.
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-c g s") 'magit-status)
+#+END_SRC
+
 * Programming languages
 ** Scheme
 
@@ -447,8 +459,8 @@ Just set the indent.
 #+END_SRC
 ** C
 #+BEGIN_SRC emacs-lisp
-(setq c-default-style "linux"
-      c-basic-offset 6)
+(setq c-default-style "linux")
+(setq c-basic-offset 6)
 (defun my-make-CR-do-indent ()
   (define-key c-mode-base-map "\C-m" 'c-context-line-break))
 (add-hook 'c-initialization-hook 'my-make-CR-do-indent)
