@@ -1,11 +1,12 @@
 (require 'mu4e)
+(setq mu4e-mu-binary "/usr/local/bin/mu")
 (setq mail-user-agent 'mu4e-user-agent)
 (setq mu4e-maildir "~/.mail/michael.john.hoy-gmail.com")
 (setq mu4e-drafts-folder "/drafts")
 (setq mu4e-maildir-shortcuts
       '( ("/INBOX"               . ?i)))
 ;; `check-inbox` is a wrapper script for offlineimap
-(setq mu4e-get-mail-command "check-inbox")
+(setq mu4e-get-mail-command "~/bin/check-inbox")
 ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
 (setq mu4e-sent-messages-behavior 'delete)
 (setq message-send-mail-function 'smtpmail-send-it
