@@ -1,0 +1,518 @@
+#+TITLE: My emacs configuration
+
+* Basics
+
+Hello!
+
+#+BEGIN_SRC emacs-lisp
+(setq user-full-name "Michael Hoy"
+      user-mail-address "michael.john.hoy@gmail.com")
+#+END_SRC
+
+Look for files in my site-lisp directory. Also, include my mu4e
+directory if it's there (an emacs email client).
+
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/.emacs.d/site-lisp")
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
+#+END_SRC
+
+Save backups in a directory in ~/.emacs.d.
+
+#+BEGIN_SRC emacs-lisp
+(setq backup-directory-alist
+      (list (cons "."
+                  (expand-file-name "backups"
+                                    user-emacs-directory))))
+#+END_SRC
+
+Inhibit the splash screen.
+
+#+BEGIN_SRC emacs-lisp
+(setq initial-buffer-choice "~/.emacs.d/emacs.org")
+(setq inhibit-splash-screen t)
+#+END_SRC
+
+Start with my welcome file, if it exists.
+
+#+BEGIN_SRC emacs-lisp
+(if (file-exists-p "~/org/welcome.org")
+    (setq initial-buffer-choice "~/org/welcome.org"))
+#+END_SRC
+
+Emacs should be as utf-8 friendly as possible.
+
+#+BEGIN_SRC emacs-lisp
+(set-language-environment 'utf-8)
+(setq locale-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+#+END_SRC
+
+* Packages
+#+BEGIN_SRC emacs-lisp
+(require 'package)
+#+END_SRC
+
+First, add a few entries to the package repositories.
+
+#+BEGIN_SRC emacs-lisp
+(dolist (repo '(("elpa"      . "http://tromey.com/elpa/")
+                ("marmalade" . "http://marmalade-repo.org/packages/")
+                ("melpa"     . "http://melpa.milkbox.net/packages/")))
+  (add-to-list 'package-archives repo))
+#+END_SRC
+
+Now install our packages if they are not there.
+
+#+BEGIN_SRC emacs-lisp
+(defun mjhoy/package-install (name)
+  "Refresh packages and install a package"
+  (package-refresh-contents)
+  (package-install name))
+
+(defun mjhoy/install-package-unless-installed (name)
+  "Install a package by name unless it is already installed."
+  (or (package-installed-p name) (mjhoy/package-install name)))
+
+(defun mjhoy/install-packages (&rest packages)
+  "Ensure a list of packages is installed."
+  (package-initialize)
+  (condition-case nil
+      (mapc 'mjhoy/install-package-unless-installed packages)
+    (error (message "Couldn't install package, no network connection?"))))
+
+(mjhoy/install-packages
+#+END_SRC
+
+** The package list
+
+#+BEGIN_SRC emacs-lisp
+ 'color-theme-sanityinc-tomorrow
+ 'tango-plus-theme
+ 'inf-ruby
+ 'ruby-test-mode
+ 'idomenu
+ 'ido-vertical-mode
+ 'smex
+ 'magit
+ 'scss-mode
+ 'org
+ 'haskell-mode
+ 'php-mode
+ 'yaml-mode
+ 'rainbow-mode
+ 'projectile
+ 'flx-ido
+ 'flycheck
+)
+#+END_SRC
+
+* UI
+
+** Font
+
+My favorite monospace font is Input Mono. (This only applies to GUI
+emacs. Otherwise it's whatever the terminal is set to.)
+
+#+BEGIN_SRC emacs-lisp
+(set-face-attribute 'default nil :family "Input Mono")
+(set-face-attribute 'default nil :height 130)
+#+END_SRC
+
+Input comes in a sans-serif as well.
+
+Define commands to switch between mono and proportional.
+
+#+BEGIN_SRC emacs-lisp
+(defun mjhoy/proportional ()
+  "Use a proportional font"
+  (interactive)
+  (setq buffer-face-mode-face '(:family "Input Sans" :height 130))
+  (buffer-face-mode))
+
+(defun mjhoy/mono ()
+  "Use a monospace font"
+  (interactive)
+  (setq buffer-face-mode-face '(:family "Input Mono" :height 130))
+  (buffer-face-mode))
+#+END_SRC
+
+Input is a little tight, so increase the line-spacing.
+
+#+BEGIN_SRC emacs-lisp
+(setq-default line-spacing 0.2)
+#+END_SRC
+
+** Theme
+
+Color theme.
+
+#+BEGIN_SRC emacs-lisp
+(load-theme 'sanityinc-tomorrow-night t)
+#+END_SRC
+
+I like to switch themes often, so define a few helper commands.
+
+#+BEGIN_SRC emacs-lisp
+(defun mjhoy/light ()
+  "switch to my light theme"
+  (interactive)
+  (load-theme 'tango-plus t))
+(defun mjhoy/dark ()
+  "switch to my dark theme"
+  (interactive)
+  (load-theme 'sanityinc-tomorrow-night t))
+(defun mjhoy/bright ()
+  "switch to my dark theme (bright)"
+  (interactive)
+  (load-theme 'sanityinc-tomorrow-bright t))
+#+END_SRC
+
+** GUI
+
+These only apply to GUI Emacs.
+
+Remove the menu bar.
+
+#+BEGIN_SRC emacs-lisp
+(menu-bar-mode 0)
+#+END_SRC
+
+Remove the scrollbar and menu bar on the mac (Emacs.app).
+
+#+BEGIN_SRC emacs-lisp
+(when (string-equal system-type "darwin")
+  (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+  (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+  (when (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
+#+END_SRC
+
+** Other
+
+Don't "jump" the screen when the cursor moves above the top or below
+the bottom.
+
+#+BEGIN_SRC emacs-lisp
+(setq scroll-conservatively 10000)
+#+END_SRC
+
+Show matching parens.
+
+#+BEGIN_SRC emacs-lisp
+(show-paren-mode t)
+#+END_SRC
+
+* Narrowing
+Enable these commands, as I find they are helpful.
+
+#+BEGIN_SRC emacs-lisp
+(put 'narrow-to-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)
+#+END_SRC
+
+* Projectile
+
+/Package: 'projectile/
+
+Use projectile globally.
+
+#+BEGIN_SRC emacs-lisp
+(projectile-global-mode)
+#+END_SRC
+* Uniquify
+
+In the case that buffers have the same name, use a better
+unique-naming algortihm.
+
+#+BEGIN_SRC emacs-lisp
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+#+END_SRC
+* ido
+
+** idomenu
+
+/Packages: 'idomenu and 'flx-ido/
+
+#+BEGIN_SRC emacs-lisp
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+#+END_SRC
+
+** ido vertical mode
+
+/Package: 'ido-vertical-mode/
+
+Necessary.
+
+#+BEGIN_SRC emacs-lisp
+(require 'ido-vertical-mode)
+(ido-vertical-mode 1)
+#+END_SRC
+
+** smex
+
+/Package: 'smex/
+
+smex brings ido autocompletion to M-x, very useful.
+
+#+BEGIN_SRC emacs-lisp
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+#+END_SRC
+
+Keep our old M-x bound.
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+#+END_SRC
+
+* mu4e
+
+mu4e is the email program I use.
+
+** Init
+
+mu4e is likely only to be set up on my os x system. Load the
+configuration in a separate file conditionally so emacs doesn't
+complain if i have it on another system.
+
+#+BEGIN_SRC emacs-lisp
+(if (file-exists-p "/usr/local/share/emacs/site-lisp/mu4e")
+    (load "mjhoy/mu4e"))
+#+END_SRC
+
+** Compose/view hook
+
+Use proportional font (Input Sans) in email. Also use a spellchecker.
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'mu4e-compose-mode-hook
+          (lambda ()
+            (mjhoy/proportional)
+            (set-fill-column 72)
+            (flyspell-mode)))
+(add-hook 'mu4e-view-mode-hook 'mjhoy/proportional)
+#+END_SRC
+* hippy expand
+
+#+BEGIN_SRC emacs-lisp
+(setq hippie-expand-try-functions-list
+      '(try-expand-all-abbrevs
+        try-expand-dabbrev
+        try-expand-dabbrev-all-buffers
+        try-expand-dabbrev-from-kill
+        try-complete-file-name-partially
+        try-complete-file-name
+        try-complete-lisp-symbol-partially
+        try-complete-lisp-symbol))
+#+END_SRC
+
+* flycheck
+/Package: 'flycheck/
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'scss-mode-hook #'flycheck-mode)
+(add-hook 'js-mode-hook   #'flycheck-mode)
+#+END_SRC
+
+* org mode
+
+#+BEGIN_SRC emacs-lisp
+(require 'org)
+(add-to-list 'org-modules 'org-habit)
+#+END_SRC
+
+my main org files:
+
+- organizer.org -> important todos and tasks
+- belch.org     -> unprocessed notes
+- work.org      -> work-related notes
+- dates.org     -> my datebook
+- projects.org  -> non-work stuff
+- daily.org     -> habits
+
+other files:
+
+- programming_notes.org
+- reading_notes.org
+- class.org             -> notes for classes
+- journal.org
+- dream.org             -> dream journal
+- writing.org           -> writing ideas
+
+#+BEGIN_SRC emacs-lisp
+(setq org-agenda-files
+      (list "~/org/organizer.org"
+            "~/org/belch.org"
+            "~/org/work.org"
+            "~/org/dates.org"
+            "~/org/projects.org"
+            "~/org/daily.org"
+            ))
+#+END_SRC
+
+Org captures.
+
+#+BEGIN_SRC emacs-lisp
+(setq org-default-notes-file "~/org/belch.org")
+
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/organizer.org" "General")
+             "* TODO %?\n  %i\n  %a")
+        ("n" "Note" entry (file "~/org/belch.org")
+             "* %?\n%U\n%a")
+        ("c" "Clock" item (clock)
+             "%?\n%U\n%a")
+        ("e" "Emacs config" entry (file+headline "~/org/belch.org" "emacs config")
+             "* TODO %?\n%U\n%a")
+        ("s" "Emacs tool sharpening" entry (file+olp "~/org/programming_notes.org"
+                                                     "Emacs"
+                                                     "Sharpening list")
+             "* %?\nsee %a\nentered on %U")
+        ("d" "Dream" entry (file+datetree "~/org/dream.org")
+             "* %?\nEntered on %U")
+        ("j" "Journal" entry (file+datetree "~/org/journal.org")
+             "* %?\nEntered on %U")))
+#+END_SRC
+
+Prevent parent TODOs being marked 'Done' until their children are
+all marked done.
+
+#+BEGIN_SRC emacs-lisp
+(setq org-enforce-todo-dependencies t)
+#+END_SRC
+
+Add timestamp to TODOs when marking DONE.
+
+#+BEGIN_SRC emacs-lisp
+(setq org-log-done 'time)
+#+END_SRC
+
+Add a note when clocking out.
+
+#+BEGIN_SRC emacs-lisp
+(setq org-log-note-clock-out t)
+#+END_SRC
+
+For TODOs with [%] or [/] summaries: mark DONE/TODO automatically
+based on children (from the org-mode manual)
+
+#+BEGIN_SRC emacs-lisp
+(defun org-summary-todo (n-done n-not-done)
+  "Switch entry to DONE when all subentries are done, to TODO otherwise."
+  (let (org-log-done org-log-states)   ; turn off logging
+    (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+
+(add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+#+END_SRC
+
+* Programming languages
+** Scheme
+
+Assume racket is installed, and use that.
+
+#+BEGIN_SRC emacs-lisp
+(setq scheme-program-name "racket")
+#+END_SRC
+
+** Ruby
+
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'auto-mode-alist '("Rakefile\\'"   . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile\\'"    . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.gemspec\\'" . ruby-mode))
+#+END_SRC
+** JavaScript
+
+Just set the indent.
+
+#+BEGIN_SRC emacs-lisp
+(setq js-indent-level 2)
+#+END_SRC
+** Haskell
+#+BEGIN_SRC emacs-lisp
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(defun mjhoy/define-haskell-keys ()
+  (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-compile))
+(defun mjhoy/define-haskell-cabal-keys ()
+  (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile))
+(add-hook 'haskell-mode-hook 'mjhoy/define-haskell-keys)
+(add-hook 'haskell-cabal-hook 'mjhoy/define-haskell-cabal-keys)
+#+END_SRC
+** C
+#+BEGIN_SRC emacs-lisp
+(setq c-default-style "linux"
+      c-basic-offset 6)
+(defun my-make-CR-do-indent ()
+  (define-key c-mode-base-map "\C-m" 'c-context-line-break))
+(add-hook 'c-initialization-hook 'my-make-CR-do-indent)
+#+END_SRC
+** PHP
+/Package: php-mode/
+
+Drupal coding convetions.
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'php-mode-hook 'php-enable-drupal-coding-style)
+#+END_SRC
+** CSS/SCSS
+#+BEGIN_SRC emacs-lisp
+(setq scss-compile-at-save nil)
+(setq css-indent-offset 2)
+#+END_SRC
+* Helpful commands
+
+Lookup in Apple's dictionary.
+
+#+BEGIN_SRC emacs-lisp
+(defun mjhoy/lookup-apple-dictionary ()
+  "Open Apple's dictionary app for the current word."
+  (interactive)
+  (let* ((myWord (thing-at-point 'symbol))
+         (myUrl (concat "dict://" myWord)))
+    (browse-url myUrl)))
+#+END_SRC
+
+Lookup in the Dash.app documentation viewer.
+
+#+BEGIN_SRC emacs-lisp
+(defun mjhoy/lookup-dash ()
+  "Query Dash.app for the current word."
+  (interactive)
+  (let* ((myWord (thing-at-point 'symbol))
+         (myUrl (concat "dash://" myWord)))
+    (browse-url myUrl)))
+#+END_SRC
+* Misc
+
+No tabs.
+
+#+BEGIN_SRC emacs-lisp
+(setq-default indent-tabs-mode nil)
+#+END_SRC
+
+Ensure newline at end of file.
+
+#+BEGIN_SRC emacs-lisp
+(setq require-final-newline t)
+#+END_SRC
+
+Tags are case sensitive.
+
+#+BEGIN_SRC emacs-lisp
+(setq tags-case-fold-search nil)
+#+END_SRC
+
+* Bindings
+
+For now load from my bindings file.
+
+#+BEGIN_SRC emacs-lisp
+(load "bindings")
+#+END_SRC
