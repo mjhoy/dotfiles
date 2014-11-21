@@ -319,6 +319,7 @@ Use proportional font (Input Sans) in email. Also use a spellchecker.
 #+BEGIN_SRC emacs-lisp
 (add-hook 'scss-mode-hook #'flycheck-mode)
 (add-hook 'js-mode-hook   #'flycheck-mode)
+(add-hook 'c-mode-hook    #'flycheck-mode)
 #+END_SRC
 
 * org mode
