@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ke
+# key: ke
+# --
+\$$1['$2'] = $3;

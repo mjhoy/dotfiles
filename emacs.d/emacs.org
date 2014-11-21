@@ -106,6 +106,7 @@ Now install our packages if they are not there.
  'projectile
  'flx-ido
  'flycheck
+ 'yasnippet
 )
 #+END_SRC
 
@@ -313,6 +314,13 @@ Use proportional font (Input Sans) in email. Also use a spellchecker.
         try-complete-lisp-symbol))
 #+END_SRC
 
+* yasnippet
+/Package: 'yasnippet/
+
+#+BEGIN_SRC emacs-lisp
+(require 'yasnippet)
+(yas-global-mode 1)
+#+END_SRC
 * flycheck
 /Package: 'flycheck/
 
@@ -553,4 +561,13 @@ For now load from my bindings file.
 
 #+BEGIN_SRC emacs-lisp
 (load "bindings")
+#+END_SRC
+* hmmm...
+For some reason I need to evaluate the following code AFTER I've
+loaded php-mode once, or else php-mode doesn't work. (huh???)
+
+To figure out later.
+
+#+BEGIN_SRC emacs-lisp
+(setq c-default-style "linux")
 #+END_SRC
