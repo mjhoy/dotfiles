@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: ar
+# name: array
 # key: ar
 # --
-array($1)
+array($0)

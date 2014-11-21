@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: kv
+# name: key value
 # key: kv
 # --
-'$1' => '$2',
+'$1' => $0,

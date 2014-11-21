@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: ke
+# name: [object] key equals
 # key: ke
 # --
-\$$1['$2'] = $3;
+\$$1['$2'] = $0;

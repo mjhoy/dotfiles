@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: fun
+# name: function
 # key: fun
 # --
 function ${1:name}($2) {
