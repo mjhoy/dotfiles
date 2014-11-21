@@ -1,1 +1,17 @@
 <?php
+
+/**
+ * @file
+ * __full-name__ module file
+ *
+ * __description__
+ */
+
+/**
+ * Implement hook_help().
+ */
+function __module-name__help($path, $arg) {
+  if ($path == 'admin/help#__module-name__') {
+    return t('__description__');
+  }
+}
