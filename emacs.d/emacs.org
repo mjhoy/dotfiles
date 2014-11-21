@@ -512,6 +512,21 @@ Lookup in the Dash.app documentation viewer.
          (myUrl (concat "dash://" myWord)))
     (browse-url myUrl)))
 #+END_SRC
+
+Start a bash ansi-term, ask for a name for the buffer.
+
+This is to save me time, because I usually end up with multiple, long
+running ansi terms (for things like `rails server`) and so almost
+always rename an ansi-term when I launch it.
+
+#+BEGIN_SRC emacs-lisp
+(defun mjhoy/ansi-term (&optional name)
+  "Start a new bash ansi-term and ask for a name"
+  (interactive (list (read-from-minibuffer "Buffer name: ")))
+  (if (and name (not (string= "" name)))
+      (ansi-term "/bin/bash" (concat name " ansi-term"))
+    (ansi-term "/bin/bash")))
+#+END_SRC
 * Misc
 
 No tabs.

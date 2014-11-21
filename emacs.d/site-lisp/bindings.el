@@ -15,6 +15,9 @@
 ;; replaces 'view-emacs-debugging
 (global-set-key (kbd "C-h C-d") 'mjhoy/lookup-dash)
 
+;; mjhoy/ansi-term
+(global-set-key (kbd "C-c t") 'mjhoy/ansi-term)
+
 ;; begone, crazy command
 (global-unset-key (kbd "C-x C-u"))
 ;; (we can safely enable it)
