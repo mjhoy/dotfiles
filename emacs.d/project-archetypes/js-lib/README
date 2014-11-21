@@ -1,0 +1,27 @@
+__project-name__
+----------
+
+  __description__
+
+development
+-----------
+
+  Inside the quickfilter directory run
+
+    $ npm install
+
+  Then
+
+    $ grunt
+
+  (you may need to run `npm install -g grunt-cli` first).
+  This runs the tests.
+
+license
+-------
+
+  MIT; see the LICENSE file
+
+
+-----------------------------------
+@mjhoy <michael.john.hoy@gmail.com>

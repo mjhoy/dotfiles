@@ -479,6 +479,16 @@ Drupal coding convetions.
 (setq scss-compile-at-save nil)
 (setq css-indent-offset 2)
 #+END_SRC
+* Project archetypes
+
+This script comes from magnars on github, whose emacs.d can be found at
+https://github.com/magnars/.emacs.d
+
+#+BEGIN_SRC emacs-lisp
+(require 'project-archetypes)
+#+END_SRC
+
+Project archetypes are defined in the project_archetypes/ directory.
 * Helpful commands
 
 Lookup in Apple's dictionary.
