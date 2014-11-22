@@ -2,22 +2,37 @@
 
 * Basics
 
-Hello!
+Hello! Let's set up emacs.
 
 #+BEGIN_SRC emacs-lisp
 (setq user-full-name "Michael Hoy"
       user-mail-address "michael.john.hoy@gmail.com")
 #+END_SRC
 
-Look for files in my site-lisp directory. Also, include my mu4e
-directory if it's there (an emacs email client).
+** The load path
+
+Additional lisp files will live in a =site-lisp= directory within my
+~/.emacs.d.
+
+The name "site-lisp" comes from directories already in the load path,
+=/usr/local/share/emacs/VERSION/site-lisp=, and
+=/usr/local/share/emacs/site-lisp=. These contain custom lisp files,
+while the "lisp" directories contain core emacs files.
+
+However, it probably would make as much sense to name it "lisp" here.
 
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 #+END_SRC
 
-Save backups in a directory in ~/.emacs.d.
+** Backups
+
+By default, when emacs saves a backup file, it is in the same
+directory with the same name with a tilde =~= appended.
+
+This is annoying.
+
+Let's instead save all backups in a directory in ~/.emacs.d.
 
 #+BEGIN_SRC emacs-lisp
 (setq backup-directory-alist
@@ -26,6 +41,17 @@ Save backups in a directory in ~/.emacs.d.
                                     user-emacs-directory))))
 #+END_SRC
 
+Inside this directory will be files with names such as
+=!Users!mjhoy!.emacs.d!emacs.org~=.
+
+I am not sure exactly when or why emacs creates backups, and couldn't
+immediately find out in the manual.
+
+I'm not too concerned about backup files, but later I may want to
+tweak this more. A good start is [[http://www.emacswiki.org/emacs/BackupDirectory][here]] at the emacswiki.
+
+** Splash
+
 Inhibit the splash screen.
 
 #+BEGIN_SRC emacs-lisp
@@ -33,12 +59,14 @@ Inhibit the splash screen.
 (setq inhibit-splash-screen t)
 #+END_SRC
 
-Start with my welcome file, if it exists.
+..And start with my welcome org, if it exists.
 
 #+BEGIN_SRC emacs-lisp
 (if (file-exists-p "~/org/welcome.org")
     (setq initial-buffer-choice "~/org/welcome.org"))
 #+END_SRC
+
+** Unicode
 
 Emacs should be as utf-8 friendly as possible.
 
@@ -49,6 +77,10 @@ Emacs should be as utf-8 friendly as possible.
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 #+END_SRC
+
+Fun: =C-x 8 RET= asks for a unicode code point, and autocompletes
+from a huge list, with items such as SMILING CAT FACE WITH HEART
+SHAPED EYES. 😻
 
 * Packages
 #+BEGIN_SRC emacs-lisp
@@ -284,8 +316,11 @@ configuration in a separate file conditionally so emacs doesn't
 complain if i have it on another system.
 
 #+BEGIN_SRC emacs-lisp
-(if (file-exists-p "/usr/local/share/emacs/site-lisp/mu4e")
-    (load "mjhoy/mu4e"))
+(let ((mu4e-path "/usr/local/share/emacs/site-lisp/mu4e"))
+  (if (file-exists-p mu4e-path)
+    (progn
+      (add-to-list 'load-path mu4e-path)
+      (load "mjhoy/mu4e"))))
 #+END_SRC
 
 ** Compose/view hook
