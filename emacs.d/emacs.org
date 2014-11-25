@@ -356,6 +356,16 @@ Use proportional font (Input Sans) in email. Also use a spellchecker.
 (require 'yasnippet)
 (yas-global-mode 1)
 #+END_SRC
+
+yassnippet interacts poorly with ansi-term for some reason (if it is
+enabeld, tab completion does not work).
+
+Disable it for term-mode:
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'term-mode-hook (lambda()
+                (yas-minor-mode -1)))
+#+END_SRC
 * flycheck
 /Package: 'flycheck/
 
