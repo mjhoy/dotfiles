@@ -476,6 +476,7 @@ magit-status.
 
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "C-c g s") 'magit-status)
+(global-set-key (kbd "C-c g l") 'magit-log)
 #+END_SRC
 
 * Programming languages
