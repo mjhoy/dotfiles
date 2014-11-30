@@ -469,14 +469,10 @@ based on children (from the org-mode manual)
 * magit
 /Package: `magit/
 
-Let's define some global key bindings for magit commands.
-
-They will all begin C-c g, so for instance C-c g s ("git status") is
-magit-status.
+Make it easy to get to magit-status.
 
 #+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "C-c g s") 'magit-status)
-(global-set-key (kbd "C-c g l") 'magit-log)
+(global-set-key (kbd "C-c g") 'magit-status)
 #+END_SRC
 
 * Programming languages
