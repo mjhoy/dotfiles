@@ -125,6 +125,7 @@ Now install our packages if they are not there.
  'tango-plus-theme
  'inf-ruby
  'ruby-test-mode
+ 'helm
  'idomenu
  'ido-vertical-mode
  'smex
