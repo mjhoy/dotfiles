@@ -470,6 +470,21 @@ based on children (from the org-mode manual)
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 #+END_SRC
 
+* helm
+/Package: `helm/
+
+Two helm ocmmands I want to use:
+
+=helm-show-kill-ring= and =helm-buffers-list=. Let's set key bindings.
+
+I don't want to override similar default commands. I'll use =C-c h=
+as a prefix for all helm commands.
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-c h k") 'helm-show-kill-ring)
+(global-set-key (kbd "C-c h b") 'helm-buffers-list)
+#+END_SRC
+
 * magit
 /Package: `magit/
 
