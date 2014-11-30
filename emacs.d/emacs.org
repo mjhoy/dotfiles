@@ -431,8 +431,8 @@ Org captures.
              "* %?\nsee %a\nentered on %U")
         ("d" "Dream" entry (file+datetree "~/org/dream.org")
              "* %?\nEntered on %U")
-        ("j" "Journal" entry (file+datetree "~/org/journal.org")
-             "* %?\nEntered on %U")))
+        ("j" "Journal" plain (file+datetree "~/org/journal.org")
+             "%?\nEntered on %U")))
 #+END_SRC
 
 Prevent parent TODOs being marked 'Done' until their children are
