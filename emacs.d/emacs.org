@@ -83,6 +83,9 @@ from a huge list, with items such as SMILING CAT FACE WITH HEART
 SHAPED EYES. 😻
 
 * Packages
+I have only used emacs since 24.3, which added facilities to download
+and install packages easily.
+
 #+BEGIN_SRC emacs-lisp
 (require 'package)
 #+END_SRC
