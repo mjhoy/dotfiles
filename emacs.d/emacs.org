@@ -50,22 +50,15 @@ immediately find out in the manual.
 I'm not too concerned about backup files, but later I may want to
 tweak this more. A good start is [[http://www.emacswiki.org/emacs/BackupDirectory][here]] at the emacswiki.
 
-** Splash
+** Startup
 
-Inhibit the splash screen.
+Inhibit the splash screen and start up with an org mode scratch
+buffer.
 
 #+BEGIN_SRC emacs-lisp
-(setq initial-buffer-choice "~/.emacs.d/emacs.org")
 (setq inhibit-splash-screen t)
+(setq initial-major-mode 'org-mode)
 #+END_SRC
-
-..And start with my welcome org, if it exists.
-
-#+BEGIN_SRC emacs-lisp
-(if (file-exists-p "~/org/welcome.org")
-    (setq initial-buffer-choice "~/org/welcome.org"))
-#+END_SRC
-
 ** Unicode
 
 Emacs should be as utf-8 friendly as possible.
