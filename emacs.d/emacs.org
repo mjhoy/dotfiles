@@ -135,6 +135,7 @@ Now install our packages if they are not there.
  'projectile
  'flx-ido
  'flycheck
+ 'flycheck-haskell
  'yasnippet
 )
 #+END_SRC
@@ -370,6 +371,8 @@ Disable it for term-mode:
 (add-hook 'scss-mode-hook #'flycheck-mode)
 (add-hook 'js-mode-hook   #'flycheck-mode)
 (add-hook 'c-mode-hook    #'flycheck-mode)
+(add-hook 'haskell-mode-hook #'flycheck-mode)
+(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup)
 #+END_SRC
 
 * org mode
