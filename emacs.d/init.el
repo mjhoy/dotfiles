@@ -193,6 +193,12 @@
             "~/Dropbox/org/daily.org"
             ))
 
+(defun mjhoy/open-organizer ()
+  (interactive)
+  (find-file "~/Dropbox/org/organizer.org"))
+
+(global-set-key (kbd "C-c o") 'mjhoy/open-organizer)
+
 (setq org-default-notes-file "~/Dropbox/org/belch.org")
 
 (setq org-capture-templates
