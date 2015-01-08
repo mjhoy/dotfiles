@@ -44,8 +44,6 @@
     (error (message "Couldn't install package, no network connection?"))))
 
 (mjhoy/install-packages
- 'color-theme-sanityinc-tomorrow
- 'tango-plus-theme
  'inf-ruby
  'ruby-test-mode
  'helm
@@ -64,6 +62,10 @@
  'flycheck
  'flycheck-haskell
  'yasnippet
+ ;; themes
+ 'color-theme-sanityinc-tomorrow
+ 'tango-plus-theme
+ 'boron-theme
  )
 
 ;;; UI
@@ -96,6 +98,10 @@
   "switch to my dark theme (bright)"
   (interactive)
   (load-theme 'sanityinc-tomorrow-bright t))
+(defun mjhoy/boron ()
+  "switch to boron theme"
+  (interactive)
+  (load-theme 'boron t))
 
 (menu-bar-mode 0)
 (when (string-equal system-type "darwin")
