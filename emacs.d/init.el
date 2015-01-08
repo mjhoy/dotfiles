@@ -185,32 +185,32 @@
 (add-to-list 'org-modules 'org-habit)
 
 (setq org-agenda-files
-      (list "~/org/organizer.org"
-            "~/org/belch.org"
-            "~/org/work.org"
-            "~/org/dates.org"
-            "~/org/projects.org"
-            "~/org/daily.org"
+      (list "~/Dropbox/org/organizer.org"
+            "~/Dropbox/org/belch.org"
+            "~/Dropbox/org/work.org"
+            "~/Dropbox/org/dates.org"
+            "~/Dropbox/org/projects.org"
+            "~/Dropbox/org/daily.org"
             ))
 
-(setq org-default-notes-file "~/org/belch.org")
+(setq org-default-notes-file "~/Dropbox/org/belch.org")
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/org/organizer.org" "General")
+      '(("t" "Todo" entry (file+headline "~/Dropbox/org/organizer.org" "General")
              "* TODO %?\n  %i\n  %a")
-        ("n" "Note" entry (file "~/org/belch.org")
+        ("n" "Note" entry (file "~/Dropbox/org/belch.org")
              "* %?\n%U\n%a")
         ("c" "Clock" item (clock)
              "%?\n%U\n%a")
-        ("e" "Emacs config" entry (file+headline "~/org/belch.org" "emacs config")
+        ("e" "Emacs config" entry (file+headline "~/Dropbox/org/belch.org" "emacs config")
              "* TODO %?\n%U\n%a")
-        ("s" "Emacs tool sharpening" entry (file+olp "~/org/programming_notes.org"
+        ("s" "Emacs tool sharpening" entry (file+olp "~/Dropbox/org/programming_notes.org"
                                                      "Emacs"
                                                      "Sharpening list")
              "* %?\nsee %a\nentered on %U")
-        ("d" "Dream" entry (file+datetree "~/org/dream.org")
+        ("d" "Dream" entry (file+datetree "~/Dropbox/org/dream.org")
              "* %?\nEntered on %U")
-        ("j" "Journal" plain (file+datetree "~/org/journal.org")
+        ("j" "Journal" plain (file+datetree "~/Dropbox/org/journal.org")
              "%?\nEntered on %U")))
 
 (setq org-enforce-todo-dependencies t)
