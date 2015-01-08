@@ -17,7 +17,7 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-;; packages
+;;; packages
 
 (require 'package)
 (package-initialize)
@@ -66,7 +66,7 @@
  'yasnippet
  )
 
-;; UI
+;;; UI
 
 (set-face-attribute 'default nil :family "Input Mono")
 (set-face-attribute 'default nil :height 130)
@@ -106,21 +106,21 @@
 (setq scroll-conservatively 10000)
 (show-paren-mode t)
 
-;; narrowing
+;;; narrowing
 
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
 
-;; projectile
+;;; projectile
 
 (projectile-global-mode)
 
-;; uniquify
+;;; uniquify
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
-;; ido
+;;; ido
 
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
@@ -135,9 +135,9 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-;; mu4e
+;;; mu4e
 
-; load config only if mu4e exists (my main laptop)
+;; load config only if mu4e exists (my main laptop)
 (let ((mu4e-path "/usr/local/share/emacs/site-lisp/mu4e"))
   (if (file-exists-p mu4e-path)
     (progn
@@ -151,7 +151,7 @@
             (flyspell-mode)))
 (add-hook 'mu4e-view-mode-hook 'mjhoy/proportional)
 
-;; hippy expand
+;;; hippy expand
 
 (setq hippie-expand-try-functions-list
       '(try-expand-all-abbrevs
@@ -163,7 +163,7 @@
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
 
-;; yasnippet
+;;; yasnippet
 
 (require 'yasnippet)
 (yas-global-mode 1)
@@ -171,7 +171,7 @@
 (add-hook 'term-mode-hook (lambda()     ; disable in term mode, yas
                 (yas-minor-mode -1)))   ; interacts poorly with it for
                                         ; some reason
-;; flycheck
+;;; flycheck
 
 (add-hook 'scss-mode-hook #'flycheck-mode)
 (add-hook 'js-mode-hook   #'flycheck-mode)
@@ -179,7 +179,7 @@
 (add-hook 'haskell-mode-hook #'flycheck-mode)
 (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup)
 
-;; org
+;;; org
 
 (require 'org)
 (add-to-list 'org-modules 'org-habit)
@@ -224,31 +224,30 @@
 
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 
-;; helm
+;;; helm
 
 (global-set-key (kbd "C-c h k") 'helm-show-kill-ring)
 (global-set-key (kbd "C-c h b") 'helm-buffers-list)
 
-;; magit
+;;; magit
 
 (global-set-key (kbd "C-c g") 'magit-status)
 
-;; scheme
+;;; scheme
 
 (setq scheme-program-name "racket")
 
-;; ruby
+;;; ruby
 
 (add-to-list 'auto-mode-alist '("Rakefile\\'"   . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile\\'"    . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec\\'" . ruby-mode))
 
-
-;; javascript
+;;; javascript
 
 (setq js-indent-level 2)
 
-;; haskell
+;;; haskell
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (defun mjhoy/define-haskell-keys ()
@@ -258,7 +257,7 @@
 (add-hook 'haskell-mode-hook 'mjhoy/define-haskell-keys)
 (add-hook 'haskell-cabal-hook 'mjhoy/define-haskell-cabal-keys)
 
-;; c
+;;; c
 
 (setq c-default-style "linux")
 (setq c-basic-offset 6)
@@ -266,20 +265,20 @@
   (define-key c-mode-base-map "\C-m" 'c-context-line-break))
 (add-hook 'c-initialization-hook 'my-make-CR-do-indent)
 
-;; php
+;;; php
 
 (add-hook 'php-mode-hook 'php-enable-drupal-coding-style)
 
-;; css/scss
+;;; css/scss
 
 (setq scss-compile-at-save nil)
 (setq css-indent-offset 2)
 
-;; project archetypes
+;;; project archetypes
 
 (require 'project-archetypes)
 
-;; helpful commands
+;;; helpful commands
 
 (defun mjhoy/lookup-apple-dictionary ()
   "Open Apple's dictionary app for the current word."
@@ -302,17 +301,17 @@
       (ansi-term "/bin/bash" (concat name " ansi-term"))
     (ansi-term "/bin/bash")))
 
-;; misc
+;;; misc
 
 (setq-default indent-tabs-mode nil)
 (setq require-final-newline t)
 (setq tags-case-fold-search nil)
 
-;; bindings
+;;; bindings
 
 (load "bindings")
 
-;; hmm
+;;; hmm
 
 (setq c-default-style "linux")          ; For some reason I need to
                                         ; evaluate this code AFTER
