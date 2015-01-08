@@ -1,3 +1,5 @@
+;;;; init.el / @mjhoy
+
 (setq user-full-name "Michael Hoy"
       user-mail-address "michael.john.hoy@gmail.com")
 
