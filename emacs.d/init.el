@@ -60,7 +60,6 @@
  'web-mode
  'php-mode
  'yaml-mode
- 'rainbow-mode
  'projectile
  'flx-ido
  'flycheck
