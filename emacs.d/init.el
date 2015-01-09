@@ -227,40 +227,49 @@
 (require 'org)
 (add-to-list 'org-modules 'org-habit)
 
+(setq org-directory "~/Dropbox/org/")
+
 (setq org-agenda-files
-      (list "~/Dropbox/org/organizer.org"
-            "~/Dropbox/org/belch.org"
-            "~/Dropbox/org/work.org"
-            "~/Dropbox/org/dates.org"
-            "~/Dropbox/org/projects.org"
-            "~/Dropbox/org/daily.org"
-            ))
+      (mapcar
+       (function (lambda (f) (concat org-directory f)))
+       (list "organizer.org"
+             "belch.org"
+             "work.org"
+             "dates.org"
+             "projects.org"
+             "daily.org")))
 
 (defun mjhoy/open-organizer ()
   (interactive)
-  (find-file "~/Dropbox/org/organizer.org"))
+  (find-file (concat org-directory "organizer.org")))
 
 (global-set-key (kbd "C-c o") 'mjhoy/open-organizer)
 
-(setq org-default-notes-file "~/Dropbox/org/belch.org")
+(setq org-default-notes-file (concat org-directory "belch.org"))
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/Dropbox/org/organizer.org" "General")
-             "* TODO %?\n  %i\n  %a")
-        ("n" "Note" entry (file "~/Dropbox/org/belch.org")
-             "* %?\n%U\n%a")
+      '(("t" "Todo"
+         entry (file+headline (concat org-directory "organizer.org") "General")
+         "* TODO %?\n  %i\n  %a")
+        ("n" "Note"
+         entry (file (concat org-directory "belch.org"))
+         "* %?\n%U\n%a")
         ("c" "Clock" item (clock)
-             "%?\n%U\n%a")
-        ("e" "Emacs config" entry (file+headline "~/Dropbox/org/belch.org" "emacs config")
-             "* TODO %?\n%U\n%a")
-        ("s" "Emacs tool sharpening" entry (file+olp "~/Dropbox/org/programming_notes.org"
-                                                     "Emacs"
-                                                     "Sharpening list")
-             "* %?\nsee %a\nentered on %U")
-        ("d" "Dream" entry (file+datetree "~/Dropbox/org/dream.org")
-             "* %?\nEntered on %U")
-        ("j" "Journal" plain (file+datetree "~/Dropbox/org/journal.org")
-             "%?\nEntered on %U")))
+         "%?\n%U\n%a")
+        ("e" "Emacs config"
+         entry (file+headline (concat org-directory "belch.org" "emacs config"))
+         "* TODO %?\n%U\n%a")
+        ("s" "Emacs tool sharpening"
+         entry (file+olp (concat org-directory "programming_notes.org")
+                         "Emacs"
+                         "Sharpening list")
+         "* %?\nsee %a\nentered on %U")
+        ("d" "Dream"
+         entry (file+datetree (concat org-directory "dream.org"))
+         "* %?\nEntered on %U")
+        ("j" "Journal"
+         plain (file+datetree (concat org-directory "journal.org"))
+         "%?\nEntered on %U")))
 
 (setq org-enforce-todo-dependencies t)
 (setq org-log-done 'time)
