@@ -261,8 +261,8 @@
                          "Emacs"
                          "Sharpening list")
          "* %?\nsee %a\nentered on %U")
-        ("d" "Dream"
-         entry (file+datetree (concat org-directory "dream.org"))
+        ("d" "Date"
+         entry (file+datetree+prompt (concat org-directory "dates.org"))
          "* %?\nEntered on %U")
         ("j" "Journal"
          plain (file+datetree (concat org-directory "journal.org"))
