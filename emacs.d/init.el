@@ -256,9 +256,6 @@
          "* %?\n%U\n%a")
         ("c" "Clock" item (clock)
          "%?\n%U\n%a")
-        ("e" "Emacs config"
-         entry (file+headline (concat org-directory "belch.org" "emacs config"))
-         "* TODO %?\n%U\n%a")
         ("s" "Emacs tool sharpening"
          entry (file+olp (concat org-directory "programming_notes.org")
                          "Emacs"
