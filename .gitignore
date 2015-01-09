@@ -3,3 +3,4 @@ ssh/*
 *.sw?
 vim/bundle
 vim/.netrwhist
+/emacs.d/geben/

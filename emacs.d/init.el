@@ -72,6 +72,14 @@
  'boron-theme
  )
 
+(defun mjhoy/install-optional-packages ()
+  "Install packages that may be highly dependent on my system"
+  (interactive)
+  (mjhoy/install-packages
+   ;; php debugging
+   'geben
+   ))
+
 ;;; UI
 
 (set-face-attribute 'default nil :family "Input Mono")
