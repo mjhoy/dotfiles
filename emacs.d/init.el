@@ -373,11 +373,3 @@
 ;;; bindings
 
 (load "bindings")
-
-;;; hmm
-
-(setq c-default-style "linux")          ; For some reason I need to
-                                        ; evaluate this code AFTER
-                                        ; I've loaded php-mode once,
-                                        ; or else php-mode doesn't
-                                        ; work. (huh???)
