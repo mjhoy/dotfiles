@@ -140,6 +140,23 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
+;;; sensitive mode
+
+;; see: http://anirudhsasikumar.net/blog/2005.01.21.html
+(define-minor-mode sensitive-mode
+  "Disable backup creation and auto saving."
+  nil
+  " Sensitive"
+  nil
+  (if (symbol-value sensitive-mode)
+      (progn
+        (set (make-local-variable 'backup-inhibited) t)
+        (if auto-save-default
+            (auto-save-mode -1)))
+    (kill-local-variable 'backup-inhibited)
+    (if auto-save-default
+        (auto-save-mode 1))))
+
 ;;; ido
 
 (setq ido-enable-flex-matching t)
