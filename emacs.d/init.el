@@ -157,6 +157,14 @@
     (if auto-save-default
         (auto-save-mode 1))))
 
+;;; opening files with sudo automatically
+
+(defun sudo-find-file (file)
+  "Opens FILE with root privileges."
+  (interactive "F")
+  (set-buffer (find-file (concat "/sudo::" file)))
+  (sensitive-mode))
+
 ;;; ido
 
 (setq ido-enable-flex-matching t)
