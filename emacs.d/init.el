@@ -262,7 +262,7 @@
          "* %?\nsee %a\nentered on %U")
         ("d" "Date"
          entry (file+datetree+prompt (concat org-directory "dates.org"))
-         "* %?\n%t")
+         "* %?\n%t\n\nsee %a")
         ("j" "Journal"
          plain (file+datetree (concat org-directory "journal.org"))
          "%?\nEntered on %U")))
