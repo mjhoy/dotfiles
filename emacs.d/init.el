@@ -287,8 +287,6 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-(helm-autoresize-mode 1)
-
 ;;; helm projectile integration
 
 (require 'helm-projectile)
