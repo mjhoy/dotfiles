@@ -61,6 +61,7 @@
  'php-mode
  'yaml-mode
  'projectile
+ 'helm-projectile
  'flx-ido
  'flycheck
  'flycheck-haskell
@@ -282,6 +283,13 @@
 
 (global-set-key (kbd "C-c h k") 'helm-show-kill-ring)
 (global-set-key (kbd "C-c h b") 'helm-buffers-list)
+
+(helm-autoresize-mode 1)
+
+;;; helm projectile integration
+
+(require 'helm-projectile)
+(helm-projectile-on)
 
 ;;; magit
 
