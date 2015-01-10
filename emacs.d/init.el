@@ -95,7 +95,7 @@
 (setq-default line-spacing 0.2)         ; input is a little tight,
                                         ; increase the line-spacing
 
-(load-theme 'sanityinc-tomorrow-night t)
+(load-theme 'boron t)
 (defun mjhoy/light ()
   "switch to my light theme"
   (interactive)
