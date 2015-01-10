@@ -232,11 +232,11 @@
 (setq org-agenda-files
       (mapcar
        (function (lambda (f) (concat org-directory f)))
-       (list "organizer.org"
-             "belch.org"
-             "work.org"
-             "dates.org"
-             "projects.org")))
+       (list "organizer.org"            ; main work/life todos
+             "belch.org"                ; all notes go here
+             "dates.org"                ; upcoming dates
+             "projects.org"             ; personal project notes
+             )))
 
 (defun mjhoy/open-organizer ()
   (interactive)
