@@ -291,7 +291,9 @@
 ;;; helm projectile integration
 
 (require 'helm-projectile)
-(helm-projectile-on)
+(global-set-key (kbd "C-c p h") 'helm-projectile)
+
+;(helm-projectile-on)
 
 ;;; magit
 
