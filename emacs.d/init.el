@@ -236,8 +236,7 @@
              "belch.org"
              "work.org"
              "dates.org"
-             "projects.org"
-             "daily.org")))
+             "projects.org")))
 
 (defun mjhoy/open-organizer ()
   (interactive)
