@@ -55,6 +55,7 @@
  'magit
  'scss-mode
  'org
+ 'org-magit
  'restclient
  'haskell-mode
  'web-mode
