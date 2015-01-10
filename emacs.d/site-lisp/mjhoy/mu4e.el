@@ -24,6 +24,8 @@
 ;; (setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
 (require 'mu4e-contrib)
 (setq mu4e-html2text-command 'mu4e-shr2text)
+;; org-mode: this allows me to capture links to email messages
+(require 'org-mu4e)
 ;; bookmarks
 (add-to-list 'mu4e-bookmarks '("date:14d..now AND maildir:/archive"  "Latest archive" ?a))
 (add-to-list 'mu4e-bookmarks '("date:14d..now AND maildir:/sent"     "Latest sent"    ?s))
