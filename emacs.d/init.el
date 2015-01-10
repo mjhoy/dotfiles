@@ -122,6 +122,7 @@
 
 (setq scroll-conservatively 10000)
 (show-paren-mode t)
+(setq ring-bell-function 'ignore)
 
 ;;; narrowing
 
