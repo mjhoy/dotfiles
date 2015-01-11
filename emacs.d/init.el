@@ -11,7 +11,6 @@
                                     user-emacs-directory))))
 
 (setq inhibit-splash-screen t)
-(setq initial-major-mode 'org-mode)
 
 (set-language-environment 'utf-8)
 (setq locale-coding-system 'utf-8)
