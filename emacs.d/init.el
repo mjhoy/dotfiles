@@ -225,7 +225,6 @@
 ;;; org
 
 (require 'org)
-(add-to-list 'org-modules 'org-habit)
 
 (setq org-directory "~/Dropbox/org/")
 
