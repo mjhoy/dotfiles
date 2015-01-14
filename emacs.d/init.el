@@ -302,6 +302,7 @@
 
 (global-set-key (kbd "C-c h k") 'helm-show-kill-ring)
 (global-set-key (kbd "C-c h b") 'helm-buffers-list)
+(global-set-key (kbd "C-c h i") 'helm-imenu)
 
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
