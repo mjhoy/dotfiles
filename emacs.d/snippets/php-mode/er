@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: equals array
+# key: er
+# --
+\$$1 = array($0);

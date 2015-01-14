@@ -65,6 +65,7 @@
  'flx-ido
  'flycheck
  'flycheck-haskell
+ 'yasnippet
  ;; themes
  'color-theme-sanityinc-tomorrow
  'tango-plus-theme
@@ -213,6 +214,19 @@
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
 
+;;; yasnippet
+
+(require 'yasnippet)
+(yas-reload-all)
+
+;; keep the following in case I turn on yas-global-mode
+(add-hook 'term-mode-hook (lambda()     ; disable in term mode, yas
+                (yas-minor-mode -1)))   ; interacts poorly with it for
+                                        ; some reason
+
+(add-hook 'php-mode-hook
+          '(lambda ()
+             (yas-minor-mode)))
 ;;; flycheck
 
 (add-hook 'scss-mode-hook #'flycheck-mode)
