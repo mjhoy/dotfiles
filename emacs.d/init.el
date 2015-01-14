@@ -227,6 +227,20 @@
 (add-hook 'php-mode-hook
           '(lambda ()
              (yas-minor-mode)))
+
+;;; sql
+
+(defun mjhoy/mysql-scratch ()
+  "Create a new scratch buffer set up for mysql"
+  (interactive)
+  (let ((mysql-buffer (get-buffer-create "*mysql-scratch*")))
+    (with-current-buffer mysql-buffer
+      (sql-mode)
+      (sql-highlight-mysql-keywords)
+      (sql-set-sqli-buffer))
+    (split-window-sensibly)
+    (switch-to-buffer mysql-buffer)))
+
 ;;; flycheck
 
 (add-hook 'scss-mode-hook #'flycheck-mode)
