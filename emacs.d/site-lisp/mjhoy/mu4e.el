@@ -32,3 +32,9 @@
 (add-to-list 'mu4e-bookmarks '("size:5M..500M"                       "Big messages"   ?b))
 
 (setq mu4e-attachment-dir  "~/Downloads")
+
+;; confirm sending messages
+(add-hook 'message-send-hook
+  (lambda ()
+    (unless (yes-or-no-p "Sure you want to send this? ")
+      (signal 'quit nil))))
