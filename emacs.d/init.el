@@ -359,8 +359,12 @@
 (require 'helm)
 
 (global-set-key (kbd "C-c h k") 'helm-show-kill-ring)
-(global-set-key (kbd "C-c h b") 'helm-buffers-list)
 (global-set-key (kbd "C-c h i") 'helm-imenu)
+(global-set-key (kbd "C-c h f") 'helm-find-files)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+
+;; old buffer switching
+(global-set-key (kbd "C-c h b") 'switch-to-buffer)
 
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
