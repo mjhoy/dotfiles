@@ -68,6 +68,7 @@
  'flycheck
  'flycheck-haskell
  'yasnippet
+ 'rainbow-mode
  ;; themes
  'color-theme-sanityinc-tomorrow
  'tango-plus-theme
