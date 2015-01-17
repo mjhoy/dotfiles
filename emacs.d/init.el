@@ -237,13 +237,6 @@
       (add-to-list 'load-path mu4e-path)
       (load "mjhoy/mu4e"))))
 
-(add-hook 'mu4e-compose-mode-hook
-          (lambda ()
-            (mjhoy/proportional)
-            (set-fill-column 72)
-            (flyspell-mode)))
-(add-hook 'mu4e-view-mode-hook 'mjhoy/proportional)
-
 ;;; yasnippet
 
 (require 'yasnippet)

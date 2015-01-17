@@ -38,3 +38,11 @@
   (lambda ()
     (unless (yes-or-no-p "Sure you want to send this? ")
       (signal 'quit nil))))
+
+;; Compose/view setup
+(add-hook 'mu4e-compose-mode-hook
+          (lambda ()
+            (mjhoy/proportional)        ; proportional font,
+            (set-fill-column 72)        ; 72 chars wide,
+            (flyspell-mode)))           ; correctly spelled
+(add-hook 'mu4e-view-mode-hook 'mjhoy/proportional)
