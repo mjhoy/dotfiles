@@ -128,6 +128,9 @@
 (show-paren-mode t)
 (setq ring-bell-function 'ignore)
 
+; find-file-at-point (replaces 'set-fill-column)
+(global-set-key (kbd "C-x f") 'find-file-at-point)
+
 ;;; narrowing
 
 (put 'narrow-to-region 'disabled nil)
@@ -222,6 +225,8 @@
 
 (require 'smex)
 (smex-initialize)
+
+(global-set-key (kbd "C-c s") 'idomenu)
 
 ;;; mu4e
 
@@ -349,6 +354,10 @@
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 (add-hook 'org-checkbox-statistics-hook 'org-summary-checkboxes)
 
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c l") 'org-store-link)
+
 ;;; helm
 
 (require 'helm)
@@ -375,6 +384,7 @@
 ;;; magit
 
 (global-set-key (kbd "C-c g") 'magit-status)
+(global-set-key (kbd "C-x g b") 'magit-blame-mode)
 
 ;;; scheme
 
@@ -446,12 +456,19 @@
          (myUrl (concat "dict://" myWord)))
     (browse-url myUrl)))
 
+;; (replaces 'describe-no-warranty)
+(global-set-key (kbd "C-h C-w") 'mjhoy/lookup-apple-dictionary)
+
 (defun mjhoy/lookup-dash ()
   "Query Dash.app for the current word."
   (interactive)
   (let* ((myWord (thing-at-point 'symbol))
          (myUrl (concat "dash://" myWord)))
     (browse-url myUrl)))
+
+;; replaces 'view-emacs-debugging
+(global-set-key (kbd "C-h C-d") 'mjhoy/lookup-dash)
+
 
 (defun mjhoy/ansi-term (&optional name)
   "Start a new bash ansi-term and ask for a name"
@@ -460,12 +477,14 @@
       (ansi-term "/bin/bash" (concat name " ansi-term"))
     (ansi-term "/bin/bash")))
 
+(global-set-key (kbd "C-c t") 'mjhoy/ansi-term)
+
 ;;; misc
 
 (setq-default indent-tabs-mode nil)
 (setq require-final-newline t)
 (setq tags-case-fold-search nil)
 
-;;; bindings
-
-(load "bindings")
+;; begone, crazy command
+(global-unset-key (kbd "C-x C-u"))
+(put 'upcase-region 'disabled nil)
