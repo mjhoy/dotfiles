@@ -355,6 +355,12 @@
 
 (require 'helm)
 
+;; note: requires gnu-sed on osx
+;; $ brew install gnu-sed --with-default-names
+;; more at https://github.com/emacs-helm/helm-mu
+(add-to-list 'load-path "~/.emacs.d/site-lisp/helm-mu")
+(require 'helm-mu)
+
 (global-set-key (kbd "C-c h k") 'helm-show-kill-ring)
 (global-set-key (kbd "C-c h i") 'helm-imenu)
 (global-set-key (kbd "C-c h f") 'helm-find-files)
