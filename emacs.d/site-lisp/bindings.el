@@ -23,9 +23,6 @@
 ;; (we can safely enable it)
 (put 'upcase-region 'disabled nil)
 
-;; hippy expand
-(global-set-key "\M- " 'hippie-expand)
-
 ;; org mode keys
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)

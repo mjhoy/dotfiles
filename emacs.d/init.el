@@ -52,6 +52,7 @@
  'idomenu
  'ido-vertical-mode
  'smex
+ 'company
  'magit
  'scss-mode
  'org
@@ -204,6 +205,11 @@
   (set-buffer (find-file (concat "/sudo::" file)))
   (sensitive-mode))
 
+;;; company
+
+(add-hook 'after-init-hook 'global-company-mode)
+(global-set-key (kbd "M-SPC") 'company-complete)
+
 ;;; ido
 
 (setq ido-enable-flex-matching t)
@@ -231,18 +237,6 @@
             (set-fill-column 72)
             (flyspell-mode)))
 (add-hook 'mu4e-view-mode-hook 'mjhoy/proportional)
-
-;;; hippy expand
-
-(setq hippie-expand-try-functions-list
-      '(try-expand-all-abbrevs
-        try-expand-dabbrev
-        try-expand-dabbrev-all-buffers
-        try-expand-dabbrev-from-kill
-        try-complete-file-name-partially
-        try-complete-file-name
-        try-complete-lisp-symbol-partially
-        try-complete-lisp-symbol))
 
 ;;; yasnippet
 
@@ -362,6 +356,7 @@
 (global-set-key (kbd "C-c h i") 'helm-imenu)
 (global-set-key (kbd "C-c h f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-c h o") 'helm-org-in-buffer-headings)
 
 ;; old buffer switching
 (global-set-key (kbd "C-c h b") 'switch-to-buffer)
