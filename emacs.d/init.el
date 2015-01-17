@@ -230,12 +230,19 @@
 
 ;;; mu4e
 
+(defvar mjhoy/mu4e-load-path
+  "/usr/local/share/emacs/site-lisp/mu4e"
+  "Load path for my mu4e install")
+
+(defvar mjhoy/mu4e-exists-p
+  (file-exists-p mjhoy/mu4e-load-path)
+  "Whether mu4e exists on this system")
+
 ;; load config only if mu4e exists (my main laptop)
-(let ((mu4e-path "/usr/local/share/emacs/site-lisp/mu4e"))
-  (if (file-exists-p mu4e-path)
+(if mjhoy/mu4e-exists-p
     (progn
-      (add-to-list 'load-path mu4e-path)
-      (load "mjhoy/mu4e"))))
+      (add-to-list 'load-path mjhoy/mu4e-load-path)
+      (load "mjhoy/mu4e")))
 
 ;;; yasnippet
 
@@ -355,17 +362,21 @@
 
 (require 'helm)
 
-;; note: requires gnu-sed on osx
-;; $ brew install gnu-sed --with-default-names
-;; more at https://github.com/emacs-helm/helm-mu
-(add-to-list 'load-path "~/.emacs.d/site-lisp/helm-mu")
-(require 'helm-mu)
+(if mjhoy/mu4e-exists-p
+    (progn
+      ;; note: requires gnu-sed on osx
+      ;; $ brew install gnu-sed --with-default-names
+      ;; more at https://github.com/emacs-helm/helm-mu
+      (add-to-list 'load-path "~/.emacs.d/site-lisp/helm-mu")
+      (autoload 'helm-mu "helm-mu" "" t)
+      (autoload 'helm-mu-contacts "helm-mu" "" t)))
 
 (global-set-key (kbd "C-c h k") 'helm-show-kill-ring)
 (global-set-key (kbd "C-c h i") 'helm-imenu)
 (global-set-key (kbd "C-c h f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-c h o") 'helm-org-in-buffer-headings)
+(global-set-key (kbd "C-c h e") 'helm-mu)
 
 ;; old buffer switching
 (global-set-key (kbd "C-c h b") 'switch-to-buffer)
