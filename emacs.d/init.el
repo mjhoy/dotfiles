@@ -72,7 +72,6 @@
  ;; themes
  'color-theme-sanityinc-tomorrow
  'tango-plus-theme
- 'boron-theme
  )
 
 (defun mjhoy/install-optional-packages ()
@@ -100,6 +99,7 @@
 (setq-default line-spacing 0.2)         ; input is a little tight,
                                         ; increase the line-spacing
 
+(load "emacs-boron-theme-mjhoy/boron-theme")
 (load-theme 'boron t)
 (defun mjhoy/light ()
   "switch to my light theme"
