@@ -311,6 +311,8 @@
          "* %?\n%U\n%a")
         ("c" "Clock" item (clock)
          "%?\n%U\n%a")
+        ("q" "Clock (quick)" plain (clock)
+         "%a%?")
         ("s" "Emacs tool sharpening"
          entry (file+olp (concat org-directory "programming_notes.org")
                          "Emacs"
