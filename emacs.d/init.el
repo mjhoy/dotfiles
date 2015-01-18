@@ -379,6 +379,7 @@
 
 (global-set-key (kbd "C-c h k") 'helm-show-kill-ring)
 (global-set-key (kbd "C-c h i") 'helm-imenu)
+(global-set-key (kbd "C-c h j") 'helm-etags-select)
 (global-set-key (kbd "C-c h f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-c h o") 'helm-org-in-buffer-headings)
