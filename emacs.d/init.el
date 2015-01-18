@@ -356,6 +356,21 @@
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 (add-hook 'org-checkbox-statistics-hook 'org-summary-checkboxes)
 
+(add-hook 'org-store-link-functions 'org-eww-store-link)
+(defun org-eww-store-link ()
+  "Store a link to the url of a eww buffer."
+  (when (eq major-mode 'eww-mode)
+    (org-store-link-props
+     :type "eww"
+     :link (if (< emacs-major-version 25)
+               eww-current-url
+             (eww-current-url))
+     :url (url-view-url t)
+     :description (if (< emacs-major-version 25)
+                      (or eww-current-title eww-current-url)
+                    (or (plist-get eww-data :title)
+                        (eww-current-url))))))
+
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c l") 'org-store-link)
