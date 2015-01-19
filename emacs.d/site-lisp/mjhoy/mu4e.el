@@ -4,6 +4,7 @@
   "Switch to my fastmail config."
   (interactive)
   (setq mu4e-sent-messages-behavior 'sent)
+  (setq mu4e-refile-folder "/mjh-mjhoy.com/INBOX.Archive")
   (setq smtpmail-starttls-credentials
         '(("mail.messagingengine.com" 587 nil nil))
         smtpmail-default-smtp-server "mail.messagingengine.com"
@@ -16,6 +17,7 @@
   "Switch to my gmail config."
   (interactive)
   (setq mu4e-sent-messages-behavior 'delete)
+  (setq mu4e-refile-folder nil)
   (setq smtpmail-starttls-credentials
         '(("smtp.gmail.com" 587 nil nil))
         smtpmail-default-smtp-server "smtp.gmail.com"
