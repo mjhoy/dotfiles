@@ -65,8 +65,8 @@
 ;; org-mode: this allows me to capture links to email messages
 (require 'org-mu4e)
 ;; bookmarks
-(add-to-list 'mu4e-bookmarks '("date:14d..now AND maildir:/archive"  "Latest archive" ?a))
-(add-to-list 'mu4e-bookmarks '("date:14d..now AND maildir:/sent"     "Latest sent"    ?s))
+(add-to-list 'mu4e-bookmarks '("date:14d..now AND maildir:/michael.john.hoy-gmail.com/archive"  "Latest archive" ?a))
+(add-to-list 'mu4e-bookmarks '("date:14d..now AND maildir:/michael.john.hoy-gmail.com/sent"     "Latest sent"    ?s))
 (add-to-list 'mu4e-bookmarks '("size:5M..500M"                       "Big messages"   ?b))
 
 (setq mu4e-attachment-dir  "~/Downloads")
