@@ -1,7 +1,7 @@
 ;;;; init.el / @mjhoy
 
 (setq user-full-name "Michael Hoy"
-      user-mail-address "michael.john.hoy@gmail.com")
+      user-mail-address "mjh@mjhoy.com")
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
 

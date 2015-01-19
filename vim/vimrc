@@ -1,6 +1,6 @@
 " vimrc
 " -----
-" Michael Hoy | michael.john.hoy@gmail.com | 2012
+" Michael Hoy | mjh@mjhoy.com | 2012
 
 " This option goes first because it may have side-effects.
 set nocompatible

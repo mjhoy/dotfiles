@@ -2,7 +2,7 @@
 
   __file-name__.js
 
-  (c) 2014 Michael Hoy <michael.john.hoy@gmail.com>
+  (c) 2014 Michael Hoy <mjh@mjhoy.com>
 
   __file-name__ may be freely distributed under the MIT license.
 

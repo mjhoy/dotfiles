@@ -2,7 +2,7 @@
   "name": "__project-name__",
   "version": "0.0.1",
   "description": "__description__",
-  "author": "Michael Hoy <michael.john.hoy@gmail.com>",
+  "author": "Michael Hoy <mjh@mjhoy.com>",
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-contrib-qunit": "~0.4.0",
