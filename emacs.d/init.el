@@ -61,6 +61,8 @@
  'haskell-mode
  'web-mode
  'php-mode
+ 'rust-mode
+ 'flycheck-rust
  'yaml-mode
  'projectile
  'helm-projectile
@@ -278,6 +280,8 @@
 (add-hook 'c-mode-hook    #'flycheck-mode)
 (add-hook 'haskell-mode-hook #'flycheck-mode)
 (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup)
+(add-hook 'rust-mode-hook #'flycheck-mode)
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 
 ;;; org
 
