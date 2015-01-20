@@ -59,6 +59,8 @@
 (setq message-kill-buffer-on-exit t)
 (setq mu4e-compose-signature-auto-include nil)
 
+(mjhoy/switch-to-fastmail)
+
 ;; rich text messages: use eww
 ;; (setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
 (require 'mu4e-contrib)
