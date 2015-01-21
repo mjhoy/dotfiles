@@ -273,6 +273,17 @@
     (split-window-sensibly)
     (switch-to-buffer mysql-buffer)))
 
+(defun mjhoy/postgres-scratch ()
+  "Create a new scratch buffer set up for postgres"
+  (interactive)
+  (let ((postgres-buffer (get-buffer-create "*postgres-scratch*")))
+    (with-current-buffer postgres-buffer
+      (sql-mode)
+      (sql-highlight-postgres-keywords)
+      (sql-set-sqli-buffer))
+    (split-window-sensibly)
+    (switch-to-buffer postgres-buffer)))
+
 ;;; flycheck
 
 (add-hook 'scss-mode-hook #'flycheck-mode)
