@@ -46,7 +46,6 @@
 
 (mjhoy/install-packages
  'inf-ruby
- 'ruby-test-mode
  'helm
  'ibuffer-vc
  'idomenu
@@ -444,6 +443,8 @@
 (add-to-list 'auto-mode-alist '("Rakefile\\'"   . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile\\'"    . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec\\'" . ruby-mode))
+
+(load "ruby-test-mode/ruby-test-mode")
 
 (eval-after-load 'ruby-test-mode
   '(progn

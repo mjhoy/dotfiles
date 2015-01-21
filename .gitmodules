@@ -4,3 +4,6 @@
 [submodule "emacs.d/site-lisp/helm-mu"]
 	path = emacs.d/site-lisp/helm-mu
 	url = git@github.com:emacs-helm/helm-mu.git
+[submodule "emacs.d/site-lisp/ruby-test-mode"]
+	path = emacs.d/site-lisp/ruby-test-mode
+	url = git@github.com:mjhoy/ruby-test-mode.git
