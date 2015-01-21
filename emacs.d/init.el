@@ -445,6 +445,11 @@
 (add-to-list 'auto-mode-alist '("Gemfile\\'"    . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec\\'" . ruby-mode))
 
+(eval-after-load 'ruby-test-mode
+  '(progn
+     (define-key ruby-test-mode-map (kbd "C-c C-t") 'ruby-test-run)
+     (define-key ruby-test-mode-map (kbd "C-c M-t") 'ruby-test-run-at-point)))
+
 ;;; javascript
 
 (setq js-indent-level 2)
