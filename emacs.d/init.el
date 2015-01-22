@@ -70,6 +70,7 @@
  'flycheck-haskell
  'yasnippet
  'rainbow-mode
+ 'diminish
  ;; themes
  'color-theme-sanityinc-tomorrow
  'tango-plus-theme
@@ -530,6 +531,18 @@ checkout the old branch.
 ;;; project archetypes
 
 (require 'project-archetypes)
+
+;;; diminish
+
+(require 'diminish)
+
+(eval-after-load "projectile"
+  '(diminish 'projectile-mode " §"))
+(eval-after-load "company"
+  '(diminish 'company-mode))
+(eval-after-load "yasnippet"
+  '(diminish 'yas-minor-mode " ✂"))
+(diminish 'abbrev-mode)
 
 ;;; helpful commands
 
