@@ -11,6 +11,8 @@
 
 (require 'helm)
 
+(require 'init-mu4e)
+
 (if mjhoy/mu4e-exists-p
     (progn
       ;; note: requires gnu-sed on osx
