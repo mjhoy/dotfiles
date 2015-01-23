@@ -73,9 +73,6 @@ set nobackup
 " Again?
 set nowritebackup
 
-" Use the Mac OS X clipboard.
-" set clipboard=unnamed
-
 " Use <F2> to turn off indenting for pasting.
 set pastetoggle=<F2>
 
@@ -112,37 +109,11 @@ match ExtraWhitespace /\s\+\%#\@<!$/
 " Use comma for leader.
 let mapleader=","
 
-" Double leader switches to last buffer.
-nnoremap <leader><leader> <c-^>
-
-" Gundo plugin for easy undo/redo tree browsing
-" Requires Vim 7.3
-map <leader>gu :GundoToggle<cr>
-
 " Map ,e and ,v to open files in the same directory as the current file
 " From Gary Bernhardt's vimrc
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
-
-" CtrlP (https://github.com/kien/ctrlp.vim)
-map <leader>f :CtrlP<cr>
-
-map <leader>z :sp ~/bin/dotfiles/vim/vimrc<cr>
-imap <C-S> <ESC> :w<cr>
-map <C-E> $
-map <C-A> ^
-map <leader>x :only<cr>
-map <leader>s :setlocal spell spelllang=en_us<cr>
-map <leader>x :only<cr>
-
-
-" ignores
-set wildignore+=*/tmp/*
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|cabal-sandbox)$',
-  \ 'file': '\v\.(exe|so|dll|o|hi)$',
-  \ }
 
 " <C-L> to clear search
 if exists(":nohls")
@@ -154,73 +125,13 @@ augroup vimrcEx
   " Remove ALL autocommands for the current group
   autocmd!
 
-  " Fold on syntax for ruby.
-  autocmd FileType ruby set foldmethod=syntax
-
   " Jump to the last known position in a file just after opening it.
   " See :help last-position-jump
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-  " Don't fold at the start.
-  autocmd FileType ruby set nofoldenable
-
   " Gemfiles are ruby files
   autocmd BufRead,BufNewFile Gemfile set filetype=ruby
-
-  " *.md -> markdown files
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
-  autocmd FileType markdown set textwidth=80
-
-  " .puppet -> puppet files
-  autocmd BufRead,BufNewFile *.pp set filetype=puppet
-
-  " .module -> php files (for Drupal)
-  autocmd BufRead,BufNewFile *.module set filetype=php
-
-  " Vagrantfile -> ruby
-  autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 augroup END
-
-" Tab status line
-" see :help setting-tabline
-set tabline=%!MyTabLine()
-
-function! MyTabLine()
-
-  let s = ''
-  for i in range(tabpagenr('$'))
-
-    " Select highlighting
-    if i + 1 == tabpagenr()
-      let s .= '%#TabLineSel#'
-    else
-      let s .= '%#TabLine#'
-    endif
-
-    " set the tab page number (for mouse clicks)
-    let s .= '%' . (i + 1) . 'T'
-
-    " the label is made by MyTabLabel()
-    let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
-  endfor
-
-  " after the last tab fill with TabLineFill and reset tab page nr
-  let s .= '%#TabLineFill#%T'
-
-  " put git status in the upper right.
-  if tabpagenr('$') > 1
-    let s .= '%=%#Keyword#%999X%{fugitive#statusline()}'
-  endif
-
-  return s
-endfunction
-
-function! MyTabLabel(n)
-  let buflist = tabpagebuflist(a:n)
-  let winnr = tabpagewinnr(a:n)
-  return bufname(buflist[winnr - 1])
-endfunction
-
 
 function! RenameFile()
     let old_name = expand('%')
@@ -232,32 +143,3 @@ function! RenameFile()
     endif
 endfunction
 map <leader>n :call RenameFile()<cr>
-
-" HTML entities
-" from http://vim.wikia.com/wiki/HTML_entities
-function! HtmlEntities(line1, line2, action)
-  let search = @/
-  let range = 'silent ' . a:line1 . ',' . a:line2
-  if a:action == 0  " must convert &amp; last
-    execute range . 'sno/&lt;/</eg'
-    execute range . 'sno/&gt;/>/eg'
-    execute range . 'sno/&amp;/&/eg'
-  else              " must convert & first
-    execute range . 'sno/&/&amp;/eg'
-    execute range . 'sno/</&lt;/eg'
-    execute range . 'sno/>/&gt;/eg'
-  endif
-  nohl
-  let @/ = search
-endfunction
-command! -range -nargs=1 Entities call HtmlEntities(<line1>, <line2>, <args>)
-noremap <silent> <leader>h :Entities 0<CR>
-noremap <silent> <leader>H :Entities 1<CR>
-
-" DiffOrig -- diff original file w/ buffer in new vert
-" from help :DiffOrig
-" (http://vimdoc.sourceforge.net/htmldoc/diff.html#:DiffOrig)
-command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
-
-" No thanks for flying
-let &titleold=''

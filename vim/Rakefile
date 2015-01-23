@@ -13,20 +13,9 @@ namespace :update do
 
   BUNDLES = {
     # plugins
-    :git          => "git://github.com/tpope/vim-git.git",
-    :fugitive     => "git://github.com/tpope/vim-fugitive.git",
-    :ragtag       => "git://github.com/tpope/vim-ragtag.git",
-    :rails        => "git://github.com/tpope/vim-rails.git",
-    :coffeescript => "git://github.com/kchmck/vim-coffee-script.git",
-    :gundo        => "git://github.com/sjl/gundo.vim.git",
-    :jade         => "git://github.com/vim-scripts/jade.vim.git",
-    :scss         => "git://github.com/cakebaker/scss-syntax.vim.git",
-    :vimroom      => "git://github.com/mikewest/vimroom.git",
-    :racket       => "git://github.com/wlangstroth/vim-racket.git",
-    :solarized    => "git://github.com/altercation/vim-colors-solarized.git",
-    :ctrl_p       => "git://github.com/kien/ctrlp.vim.git",
-    :go           => "git://github.com/jnwhiteh/vim-golang.git",
-    :haskell_html => "git://github.com/pbrisbin/html-template-syntax.git"
+    # :haskell_html => "git://github.com/pbrisbin/html-template-syntax.git"
+    :vim_haml => "git://github.com/tpope/vim-haml",
+    :vim_ruby => "git://github.com/vim-ruby/vim-ruby"
     # syntax definitions
     # ...
   }
