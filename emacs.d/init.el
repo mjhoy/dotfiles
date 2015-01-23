@@ -39,5 +39,4 @@
 (require 'init-css)
 (require 'init-project-archetypes)
 (require 'init-term)
-(require 'init-mac)
 (require 'init-misc)

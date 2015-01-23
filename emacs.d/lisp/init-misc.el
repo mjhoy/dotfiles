@@ -1,11 +1,10 @@
-;;; sensitive mode
 (require 'sensitive-mode)
+(require 'mjhoy-misc)
 
-;;; opening files with sudo automatically
-(defun sudo-find-file (file)
-  "Opens FILE with root privileges."
-  (interactive "F")
-  (set-buffer (find-file (concat "/sudo::" file)))
-  (sensitive-mode))
+;; (replaces 'describe-no-warranty)
+(global-set-key (kbd "C-h C-w") 'mjhoy/lookup-apple-dictionary)
+
+;; replaces 'view-emacs-debugging
+(global-set-key (kbd "C-h C-d") 'mjhoy/lookup-dash)
 
 (provide 'init-misc)
