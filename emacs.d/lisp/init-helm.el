@@ -43,6 +43,6 @@
 (require 'helm-projectile)
 (global-set-key (kbd "C-c h p") 'helm-projectile)
 
-;(helm-projectile-on)
+(helm-projectile-on)
 
 (provide 'init-helm)
