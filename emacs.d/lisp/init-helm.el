@@ -35,6 +35,7 @@
 (global-set-key (kbd "C-c h b") 'switch-to-buffer)
 
 (global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "M-X") 'execute-extended-command)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;;; helm projectile integration
