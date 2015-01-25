@@ -5,7 +5,7 @@
 
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
-(ido-mode 1)
+(ido-mode 'files)
 
 (require 'ido-vertical-mode)
 (ido-vertical-mode 1)
