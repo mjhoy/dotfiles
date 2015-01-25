@@ -2,6 +2,7 @@
 
 (require 'init-projectile)
 (mjhoy/require-package 'helm-projectile)
+(mjhoy/require-package 'helm-ag)
 
 ;; I want to use helm for as much as possible, but one issue is that
 ;; it crashes on OSX for large matching lists, see:
