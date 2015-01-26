@@ -45,25 +45,4 @@
 
 (helm-projectile-on)
 
-(defun mjhoy/helm-projectile-ag ()
-  "Helm version of projectile-ag that uses helm-ag instead of helm-do-ag"
-  (interactive)
-  (unless (executable-find "ag")
-    (error "ag not available"))
-  (if (require 'helm-ag nil  'noerror)
-      (if (projectile-project-p)
-          (let* ((helm-ag-insert-at-point 'symbol)
-                 (grep-find-ignored-files (-union projectile-globally-ignored-files grep-find-ignored-files))
-                 (grep-find-ignored-directories (-union projectile-globally-ignored-directories grep-find-ignored-directories))
-                 (ignored (mapconcat (lambda (i)
-                                       (concat "--ignore " i))
-                                     (append grep-find-ignored-files grep-find-ignored-directories)
-                                     " "))
-                 (helm-ag-base-command (concat helm-ag-base-command " " ignored)))
-            (helm-ag (projectile-project-root)))
-        (error "You're not in a project"))
-    (error "helm-ag not available")))
-
-(define-key projectile-command-map (kbd "s s") 'mjhoy/helm-projectile-ag)
-
 (provide 'init-helm)
