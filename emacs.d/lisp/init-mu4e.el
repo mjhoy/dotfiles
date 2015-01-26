@@ -75,6 +75,9 @@
 
       (mjhoy/switch-to-fastmail)
 
+      (setq mu4e-user-mail-address-list '("mjh@mjhoy.com"
+                                          "michael.john.hoy@gmail.com"))
+
       ;; rich text messages: use eww
       ;; (setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
       (require 'mu4e-contrib)
