@@ -19,6 +19,8 @@
         (interactive)
         (setq mu4e-sent-messages-behavior 'sent)
         (setq mu4e-refile-folder "/mjh-mjhoy.com/INBOX.Archive")
+        (setq mu4e-drafts-folder "/mjh-mjhoy.com/INBOX.Drafts")
+        (setq mu4e-sent-folder "/mjh-mjhoy.com/INBOX.Sent Items")
         (setq smtpmail-starttls-credentials
               '(("mail.messagingengine.com" 587 nil nil))
               smtpmail-default-smtp-server "mail.messagingengine.com"
@@ -32,6 +34,7 @@
         (interactive)
         (setq mu4e-sent-messages-behavior 'delete)
         (setq mu4e-refile-folder nil)
+        (setq mu4e-drafts-folder "/drafts")
         (setq smtpmail-starttls-credentials
               '(("smtp.gmail.com" 587 nil nil))
               smtpmail-default-smtp-server "smtp.gmail.com"
@@ -44,6 +47,7 @@
               ("/mjh-mjhoy.com/INBOX" . ?i)
               ("/michael.john.hoy-gmail.com/INBOX" . ?g)
               ("/mjh-mjhoy.com/INBOX.Archive" . ?a)
+              ("/mjh-mjhoy.com/INBOX.Drafts" . ?d)
               ("/mjh-mjhoy.com/INBOX.Sent Items" . ?s)
               ("/mjh-mjhoy.com/INBOX.Trash" . ?t)
               ))
@@ -51,7 +55,9 @@
       (setq mu4e-mu-binary "/usr/local/bin/mu")
       (setq mail-user-agent 'mu4e-user-agent)
       (setq mu4e-maildir "~/.mail/")
-      (setq mu4e-drafts-folder "/drafts")
+
+      (setq mu4e-user-mail-address-list '("mjh@mjhoy.com"
+                                          "michael.john.hoy@gmail.com"))
 
       ;; we don't save sent mail with gmail, so just use fastmail as default
       (setq mu4e-sent-folder "/mjh-mjhoy.com/INBOX.Sent Items")
@@ -74,9 +80,6 @@
       (setq mu4e-compose-signature-auto-include nil)
 
       (mjhoy/switch-to-fastmail)
-
-      (setq mu4e-user-mail-address-list '("mjh@mjhoy.com"
-                                          "michael.john.hoy@gmail.com"))
 
       ;; rich text messages: use eww
       ;; (setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
