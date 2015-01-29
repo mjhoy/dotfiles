@@ -46,7 +46,7 @@
 
 (setq org-enforce-todo-dependencies t)
 (setq org-log-done 'time)
-(setq org-log-note-clock-out t)
+(setq org-log-note-clock-out nil)
 
 (defun org-summary-todo (n-done n-not-done)
   "Switch entry to DONE when all subentries are done, to TODO otherwise."
