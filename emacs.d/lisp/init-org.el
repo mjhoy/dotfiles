@@ -37,6 +37,10 @@
                          "Emacs"
                          "Sharpening list")
          "* %?\nsee %a\nentered on %U")
+        ("S" "General tool sharpening"
+         entry (file+olp (concat org-directory "programming_notes.org")
+                         "General sharpening")
+         "* %?\nsee %a\nentered on %U")
         ("d" "Date"
          entry (file+datetree+prompt (concat org-directory "dates.org"))
          "* %?\n%t\n\nsee %a")
