@@ -14,6 +14,7 @@
 (require 'init-ui)
 (require 'init-theme)
 (require 'init-org)
+(require 'init-erc)
 (require 'init-windmove)
 (require 'init-projectile)
 (require 'init-ibuffer)
