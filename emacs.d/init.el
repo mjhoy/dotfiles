@@ -8,6 +8,9 @@
 (add-to-list 'load-path
              (expand-file-name "site-lisp" user-emacs-directory))
 
+(if (locate-file "init-aquamacs.el" load-path)
+    (require 'init-aquamacs))
+
 (require 'init-standard)
 (require 'init-packages)
 (require 'init-diminish)
