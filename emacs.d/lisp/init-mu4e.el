@@ -6,7 +6,7 @@
   "Load path for my mu4e install")
 
 (defvar mjhoy/mu4e-exists-p
-  (file-exists-p mjhoy/mu4e-load-path)
+  (locate-file "mu4e.el" load-path)
   "Whether mu4e exists on this system")
 
 (if mjhoy/mu4e-exists-p
