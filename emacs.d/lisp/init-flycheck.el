@@ -18,4 +18,6 @@
      (add-hook 'rust-mode-hook #'flycheck-mode)
      (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
 
+(global-set-key (kbd "C-c 1") 'flycheck-mode)
+
 (provide 'init-flycheck)
