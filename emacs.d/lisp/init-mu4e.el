@@ -16,7 +16,7 @@
 
       (defun mjhoy/remind-no-d-key ()
         (interactive)
-        (message "No deleting [d] while in fastmail setup; use [t d]"))
+        (message "No deleting [d] while in fastmail setup; use [m d]"))
 
       (defun mjhoy/switch-to-fastmail ()
         "Switch to my fastmail config."
