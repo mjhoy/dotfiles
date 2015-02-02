@@ -25,6 +25,9 @@
       '(("t" "Todo"
          entry (file+headline (concat org-directory "organizer.org") "General")
          "* TODO %?\n  %i\n  %a")
+        ("T" "Todo (today)"
+         entry (file+headline (concat org-directory "organizer.org") "Today")
+         "* TODO %?\n  %i\n  %a")
         ("n" "Note"
          entry (file (concat org-directory "belch.org"))
          "* %?\n%U\n%a")
