@@ -1,7 +1,13 @@
+(defconst autosaves-directory
+  (expand-file-name "autosaves/"
+                    user-emacs-directory))
+
 (setq backup-directory-alist
       (list (cons "."
                   (expand-file-name "backups"
                                     user-emacs-directory))))
+
+(setq backup-by-copying t)
 
 (setq inhibit-splash-screen t)
 
