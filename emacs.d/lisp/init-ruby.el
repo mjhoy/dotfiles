@@ -39,6 +39,7 @@ checkout the old branch.
           (magit-run-git "add" "--all" "public/")
           (magit-run-git "commit" "-m" "precompile assets for deploy")))
     (magit-push)
-    (magit-checkout current-branch)))
+    (magit-checkout current-branch)
+    (message "Compile assets finished")))
 
 (provide 'init-ruby)
