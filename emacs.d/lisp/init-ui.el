@@ -21,6 +21,9 @@
   (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
   (when (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
 
+;; right option key use as mac normal option (so i can type é easily)
+(setq ns-right-alternate-modifier 'none)
+
 (setq scroll-conservatively 10000)
 (show-paren-mode t)
 (setq ring-bell-function 'ignore)
