@@ -5,12 +5,14 @@
   "Use a proportional font"
   (interactive)
   (setq buffer-face-mode-face '(:family "Input Sans" :height 130))
+  (setq line-spacing 0.3)
   (buffer-face-mode))
 
 (defun mjhoy/mono ()
   "Use a monospace font"
   (interactive)
   (setq buffer-face-mode-face '(:family "Input Mono" :height 130))
+  (setq line-spacing 0.2)
   (buffer-face-mode))
 
 ;; input is a little tight; increase the line-spacing
