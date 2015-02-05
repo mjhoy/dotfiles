@@ -15,8 +15,8 @@ There are some other configuration files as well:
 - Git ([[./gitconfig][gitconfig]], [[./gitignore][gitignore]])
 - Bash ([[./bash/aliases][aliases]], [[./bash/env][environment config]])
 
-The bash setup assumes [[https://github.com/sstephenson/rbenv][rbenv]] and [[https://bitbucket.org/gward/vcprompt][vcprompt]]. I mostly run this on my
-Mac OS X machine, though I should test it against Linux as well...
+The bash setup assumes [[https://github.com/sstephenson/rbenv][rbenv]]. I mostly run this on my Mac OS X
+machine, though I should test it against Linux as well...
 
 Running the [[./install][install]] script creates the actual dotfiles in $HOME as
 symbolic links.
