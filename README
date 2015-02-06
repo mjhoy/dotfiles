@@ -23,8 +23,10 @@ DEVELOPMENT
 
 INSTALL
 
-  Running the install script creates the actual dotfiles in $HOME as
-  symbolic links.
+  Running the install ruby script creates the actual dotfiles in $HOME
+  as symbolic links.
+
+    $ ruby ./install
 
 
 REFERENCES
