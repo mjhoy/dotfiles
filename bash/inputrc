@@ -1,3 +1,0 @@
-# ^l clear screen
-# from http://www.jukie.net/bart/blog/20040326082602
-bind -m vi-insert "\C-l":clear-screen
