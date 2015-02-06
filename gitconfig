@@ -22,4 +22,4 @@
   branch = auto
 
 [core]
-  excludesfile = "~/bin/dotfiles/gitignore"
+  excludesfile = "~/.dotfiles/gitignore"

@@ -22,3 +22,7 @@
   # to find the last time logged in.
   system "touch ~/.hushlogin"
 end
+
+unless File.exists?(File.expand_path("~/.dotfiles"))
+  system "ln -s #{File.expand_path('.')} ~/.dotfiles"
+end

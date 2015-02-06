@@ -1,6 +1,6 @@
-. ~/bin/dotfiles/bash/env
-. ~/bin/dotfiles/bash/config
-. ~/bin/dotfiles/bash/aliases
+. ~/.dotfiles/bash/env
+. ~/.dotfiles/bash/config
+. ~/.dotfiles/bash/aliases
 
 # rbenv, if present
 if hash rbenv 2>/dev/null; then
