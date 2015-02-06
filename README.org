@@ -20,3 +20,7 @@ linux system (arch).
 
 Running the [[./install][install]] script creates the actual dotfiles in $HOME as
 symbolic links.
+
+Make sure to clone with `--recursive` to check out the submodules.
+
+  $  git clone --recursive https://github.com/mjhoy/dotfiles.git
