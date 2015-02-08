@@ -11,6 +11,9 @@
 
 (setq inhibit-splash-screen t)
 
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+
 (set-language-environment 'utf-8)
 (setq locale-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
