@@ -108,12 +108,19 @@
                   (unless (yes-or-no-p "Sure you want to send this? ")
                     (signal 'quit nil))))
 
+      (defun mjhoy/compose-mode-setup ()
+        "Run when composing a message."
+        (mjhoy/proportional)        ; proportional font,
+        (set-fill-column 72)        ; 72 chars wide,
+        (flyspell-mode))            ; correctly spelled
+
+      (defun mjhoy/view-mode-setup ()
+        "Run when viewing a message."
+        (mjhoy/proportional))
+
       ;; Compose/view setup
-      (add-hook 'mu4e-compose-mode-hook
-                (lambda ()
-                  (mjhoy/proportional)        ; proportional font,
-                  (set-fill-column 72)        ; 72 chars wide,
-                  (flyspell-mode)))           ; correctly spelled
-      (add-hook 'mu4e-view-mode-hook 'mjhoy/proportional)))
+      (add-hook 'mu4e-compose-mode-hook 'mjhoy/compose-mode-setup)
+      (add-hook 'mu4e-view-mode-hook 'mjhoy/view-mode-setup))
+  )
 
 (provide 'init-mu4e)
