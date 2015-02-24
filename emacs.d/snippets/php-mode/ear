@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: equals array
+# key: ear
+# --
+= array(
+  $0
+);
