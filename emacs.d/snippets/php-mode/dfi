@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: drupal form item
+# key: dfi
+# --
+$form['$0'] = array(
+  '#type' => 'textfield',
+  '#title' => t('Title'),
+  '#description' => t('Description'),
+  '#size' => 40,
+  '#maxlength' => 120,
+  '#required' => TRUE,
+);
