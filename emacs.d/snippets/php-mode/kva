@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: key array value
+# key: kva
+# --
+'$1' => array(
+  $0
+),
