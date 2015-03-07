@@ -14,7 +14,6 @@ alias tu='top -o cpu' # top sorted by cpu
 alias tm='top -o vsize' # top sorted by memory
 alias m="mate" # textmate
 alias ifc='ifconfig -L en1' # help me find my ip address
-alias stat="stat -x"
 alias ec="emacsclient -c"
 
 # see: http://alpmestan.com/2013/06/27/ghc-core-by-example-episode-1/
