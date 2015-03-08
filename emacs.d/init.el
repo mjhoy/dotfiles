@@ -35,6 +35,7 @@
 (require 'init-javascript)
 (require 'init-haskell)
 (require 'init-c)
+(require 'init-nasm)
 (require 'init-php)
 (require 'init-web-mode)
 (require 'init-css)
