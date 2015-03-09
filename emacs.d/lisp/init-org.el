@@ -46,7 +46,11 @@
          "* %?\n%t\n\nsee %a")
         ("j" "Journal"
          plain (file+datetree (concat org-directory "journal.org"))
-         "%?\nEntered on %U")))
+         "%?\nEntered on %U")
+        ("e" "Engineering journal"
+         plain (file+datetree (concat org-directory "eng_journal.org"))
+         "%?\nEntered on %U")
+        ))
 
 (setq org-enforce-todo-dependencies t)
 (setq org-log-done 'time)
