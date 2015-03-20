@@ -3,3 +3,4 @@ let ghciEscapeChar arg = "'" ++ concatMap (\c -> if c == '\'' then "'\"'\"'" els
 :set -Wall -fno-warn-type-defaults
 :def hoogle return . (\input -> (":!hoogle --color " ++ input ++ " | head -15")) . ghciEscapeChar
 :def doc return . (":!hoogle --info " ++) . ghciEscapeChar
+:set -XOverloadedStrings
