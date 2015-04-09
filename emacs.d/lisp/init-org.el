@@ -47,6 +47,9 @@
         ("j" "Journal"
          plain (file+datetree (concat org-directory "journal.org"))
          "%?\nEntered on %U")
+        ("r" "Dream"
+         plain (file+datetree (concat org-directory "dream.org"))
+         "%?\n")
         ("e" "Engineering journal"
          plain (file+datetree (concat org-directory "eng_journal.org"))
          "%?\nEntered on %U")
