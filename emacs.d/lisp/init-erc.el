@@ -20,6 +20,6 @@ machine irc.freenode.net login LOGIN password PASSWORD
 
 (global-set-key (kbd "C-c e f") 'mjhoy/freenode-erc)
 
-(setq erc-autojoin-channels-alist '(("freenode.net" "#emacs" "#drupal")))
+(setq erc-autojoin-channels-alist '(("freenode.net" "#emacs" "#drupal" "#haskell")))
 
 (provide 'init-erc)
