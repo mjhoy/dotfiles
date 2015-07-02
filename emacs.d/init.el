@@ -18,7 +18,6 @@
 (require 'init-windmove)
 (require 'init-projectile)
 (require 'init-ibuffer)
-(require 'init-ido)
 (require 'init-dired)
 (require 'init-uniquify)
 (require 'init-company)
