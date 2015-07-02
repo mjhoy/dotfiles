@@ -30,6 +30,7 @@
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-c h o") 'helm-org-in-buffer-headings)
 (global-set-key (kbd "C-c h e") 'helm-mu)
+(global-set-key (kbd "M-s s") 'helm-projectile-ack)
 
 ;; old buffer switching
 (global-set-key (kbd "C-c h b") 'switch-to-buffer)
