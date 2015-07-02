@@ -4,12 +4,6 @@
 (mjhoy/require-package 'helm-projectile)
 (mjhoy/require-package 'helm-ag)
 
-;; I want to use helm for as much as possible, but one issue is that
-;; it crashes on OSX for large matching lists, see:
-;; https://github.com/bbatsov/projectile/issues/600
-;;
-;; Until then I'll keep ido around as well.
-
 (require 'helm)
 
 (require 'init-mu4e)
