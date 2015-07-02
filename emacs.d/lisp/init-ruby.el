@@ -28,7 +28,7 @@ checkout the old branch.
 "
   (interactive)
   (let ((current-branch (magit-get-current-branch))
-        (default-directory (magit-get-top-dir)))
+        (default-directory (magit-toplevel)))
     (magit-checkout "deploy")
     (magit-run-git "merge" current-branch "--no-edit")
     (message "Running assets:precompile")
@@ -38,7 +38,7 @@ checkout the old branch.
         (progn
           (magit-run-git "add" "--all" "public/")
           (magit-run-git "commit" "-m" "precompile assets for deploy")))
-    (magit-push)
+    (magit-push "deploy" "origin")
     (magit-checkout current-branch)
     (message "Compile assets finished")))
 
