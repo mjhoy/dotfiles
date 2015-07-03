@@ -8,7 +8,7 @@
 (add-to-list 'load-path
              (expand-file-name "site-lisp" user-emacs-directory))
 
-(require 'init-standard)
+(require 'init-basic)
 (require 'init-packages)
 (require 'init-diminish)
 (require 'init-ui)
