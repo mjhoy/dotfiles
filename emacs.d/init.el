@@ -12,6 +12,7 @@
 (require 'init-packages)
 (require 'init-diminish)
 (require 'init-ui)
+(require 'init-golden-ratio)
 (require 'init-theme)
 (require 'init-org)
 (require 'init-erc)
