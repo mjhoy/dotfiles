@@ -101,6 +101,8 @@
                     (or (plist-get eww-data :title)
                         (eww-current-url))))))
 
+(setq org-imenu-depth 5)
+
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c l") 'org-store-link)
