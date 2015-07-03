@@ -8,6 +8,8 @@
   '(diminish 'company-mode))
 (eval-after-load "yasnippet"
   '(diminish 'yas-minor-mode " ✂"))
+(eval-after-load "golden-ratio"
+  '(diminish 'golden-ratio-mode " φ"))
 (diminish 'abbrev-mode)
 
 (provide 'init-diminish)
