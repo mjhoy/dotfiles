@@ -50,6 +50,22 @@
         (setq user-mail-address "michael.john.hoy@gmail.com")
         )
 
+      (defvar mjhoy/switch-mail-auto t
+        "Switch gmail/fastmail automatically in mu4e.")
+
+      (defun mjhoy/switch-mail-auto-fn ()
+        (let ((msg mu4e-compose-parent-message))
+          (when msg
+            (cond
+             ((not mjhoy/switch-mail-auto)
+              '())
+             ((mu4e-message-contact-field-matches msg :to "michael.john.hoy@gmail.com")
+              (mjhoy/switch-to-gmail))
+             ((mu4e-message-contact-field-matches msg :to "mjh@mjhoy.com")
+              (mjhoy/switch-to-fastmail))))))
+
+      (add-hook 'mu4e-compose-pre-hook 'mjhoy/switch-mail-auto-fn)
+
       (setq mu4e-maildir-shortcuts
             '(
               ("/mjh-mjhoy.com/INBOX" . ?i)
