@@ -105,6 +105,8 @@
 
       (mjhoy/switch-to-fastmail)
 
+      (setq mu4e-compose-complete-ignore-address-regexp "\\(no-?reply\\|reply.github.com\\|basecamphq.com\\)")
+
       ;; rich text messages: use eww
       ;; (setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
       (require 'mu4e-contrib)
