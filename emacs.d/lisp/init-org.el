@@ -59,6 +59,10 @@
 (setq org-log-done 'time)
 (setq org-log-note-clock-out nil)
 
+(setq org-todo-keywords
+      '((sequence "TODO(t!)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@!)")))
+(setq org-log-into-drawer "LOGBOOK")
+
 (defun org-summary-todo (n-done n-not-done)
   "Switch entry to DONE when all subentries are done, to TODO otherwise."
   (let (org-log-done org-log-states)   ; turn off logging
