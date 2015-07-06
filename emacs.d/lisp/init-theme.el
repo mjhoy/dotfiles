@@ -1,5 +1,6 @@
 (mjhoy/require-package 'rainbow-mode)
 (mjhoy/require-package 'tango-plus-theme)
+(mjhoy/require-package 'auto-dim-other-buffers)
 
 (defvar mjhoy/current-theme nil)
 
@@ -32,6 +33,10 @@
   "switch to my dark theme"
   (interactive)
   (mjhoy/switch-theme 'boron))
+
+(add-hook 'after-init-hook (lambda ()
+  (when (fboundp 'auto-dim-other-buffers-mode)
+    (auto-dim-other-buffers-mode t))))
 
 (mjhoy/dark)
 
