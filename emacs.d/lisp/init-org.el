@@ -90,6 +90,15 @@
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 (add-hook 'org-checkbox-statistics-hook 'org-summary-checkboxes)
 
+(defun mjhoy/org-sort-todos ()
+  (interactive)
+  (org-sort-entries nil ?o)
+  (org-cycle)                           ; fold children?
+  (org-cycle))
+(add-hook 'org-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c 6") 'mjhoy/org-sort-todos)))
+
 (add-hook 'org-store-link-functions 'org-eww-store-link)
 (defun org-eww-store-link ()
   "Store a link to the url of a eww buffer."
