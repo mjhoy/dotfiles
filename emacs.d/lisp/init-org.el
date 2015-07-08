@@ -93,8 +93,7 @@
 (defun mjhoy/org-sort-todos ()
   (interactive)
   (org-sort-entries nil ?o)
-  (org-cycle)                           ; fold children?
-  (org-cycle))
+  (outline-hide-leaves))
 (add-hook 'org-mode-hook
           (lambda ()
             (local-set-key (kbd "C-c 6") 'mjhoy/org-sort-todos)))
