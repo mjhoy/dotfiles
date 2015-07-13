@@ -11,6 +11,8 @@
   (interactive)
   (diff-buffer-with-file (current-buffer)))
 
+;; buffer bindings
 (global-set-key (kbd "C-c b d") 'mjhoy/diff-current-buffer-with-file)
+(global-set-key (kbd "C-c b r") 'revert-buffer)
 
 (provide 'init-misc)
