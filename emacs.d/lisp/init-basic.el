@@ -25,12 +25,6 @@
 (setq require-final-newline t)
 (setq tags-case-fold-search nil)
 
-(defun mjhoy/open-pass ()
-  (interactive)
-  (find-file "~/Dropbox/p.gpg"))
-
-(global-set-key (kbd "C-c M-p") 'mjhoy/open-pass)
-
 ;; begone, crazy command
 (global-unset-key (kbd "C-x C-u"))
 (put 'upcase-region 'disabled nil)
