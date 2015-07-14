@@ -36,4 +36,9 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
 
+;; interactive lambda macro
+(defmacro fni (&rest forms)
+  "Create an anonymous interactive function"
+  `(lambda () (interactive) ,@forms))
+
 (provide 'init-basic)
