@@ -1,5 +1,6 @@
 (require 'sensitive-mode)
 (require 'mjhoy-misc)
+(require 'init-basic)
 
 ;; (replaces 'describe-no-warranty)
 (global-set-key (kbd "C-h C-w") 'mjhoy/lookup-apple-dictionary)
@@ -14,5 +15,8 @@
 ;; buffer bindings
 (global-set-key (kbd "C-c b d") 'mjhoy/diff-current-buffer-with-file)
 (global-set-key (kbd "C-c b r") 'revert-buffer)
+
+;; quick find files
+(global-set-key (kbd "C-c f p") (fni (find-file "~/Dropbox/p.gpg")))
 
 (provide 'init-misc)
