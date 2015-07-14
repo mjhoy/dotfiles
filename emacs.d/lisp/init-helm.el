@@ -18,6 +18,7 @@
       (autoload 'helm-mu-contacts "helm-mu" "" t)))
 
 (global-set-key (kbd "C-c h k") 'helm-show-kill-ring)
+(global-set-key (kbd "C-c h r") 'helm-register)
 (global-set-key (kbd "C-c h i") 'helm-imenu)
 (global-set-key (kbd "C-c h j") 'helm-etags-select)
 (global-set-key (kbd "C-c h f") 'helm-find-files)
