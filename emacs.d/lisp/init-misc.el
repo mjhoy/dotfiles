@@ -18,5 +18,6 @@
 
 ;; quick find files
 (global-set-key (kbd "C-c f p") (fni (find-file "~/Dropbox/p.gpg")))
+(global-set-key (kbd "C-c f s") (fni (find-file "~/.ssh/config")))
 
 (provide 'init-misc)
