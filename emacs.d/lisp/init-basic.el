@@ -32,9 +32,6 @@
 (global-unset-key (kbd "C-x C-u"))
 (put 'upcase-region 'disabled nil)
 
-;; find-file-at-point (replaces 'set-fill-column)
-(global-set-key (kbd "C-x f") 'find-file-at-point)
-
 ;; enable narrowing
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)

@@ -24,6 +24,7 @@
 (global-set-key (kbd "C-c h f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x f") 'helm-find-files)
 (global-set-key (kbd "C-c h o") 'helm-org-in-buffer-headings)
 (global-set-key (kbd "C-c h e") 'helm-mu)
 (global-set-key (kbd "M-s s") 'helm-projectile-ag)
