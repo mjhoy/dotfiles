@@ -54,6 +54,7 @@
         "Switch gmail/fastmail automatically in mu4e.")
 
       (defun mjhoy/switch-mail-auto-fn ()
+        "Automatically switch mailboxes based on parent message"
         (let ((msg mu4e-compose-parent-message))
           (when msg
             (cond

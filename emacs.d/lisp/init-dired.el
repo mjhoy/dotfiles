@@ -3,6 +3,7 @@
 (setq dired-listing-switches "-laGh")
 
 (defun dired-get-size ()
+  "Get (recursive) size total of all marked entries"
   (interactive)
   (let ((files (dired-get-marked-files)))
     (with-temp-buffer

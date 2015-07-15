@@ -14,6 +14,7 @@
              )))
 
 (defun mjhoy/open-organizer ()
+  "Open my org organizer file"
   (interactive)
   (find-file (concat org-directory "organizer.org")))
 
@@ -91,6 +92,7 @@
 (add-hook 'org-checkbox-statistics-hook 'org-summary-checkboxes)
 
 (defun mjhoy/org-sort-todos ()
+  "Sort entries by TODO status"
   (interactive)
   (org-sort-entries nil ?o)
   (outline-hide-leaves))
