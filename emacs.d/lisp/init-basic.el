@@ -9,6 +9,9 @@
 
 (setq backup-by-copying t)
 
+;; save bookmarks immediately
+(setq bookmark-save-flag 1)
+
 (setq inhibit-splash-screen t)
 
 (tool-bar-mode 0)
