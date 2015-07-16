@@ -34,6 +34,7 @@
 (require 'init-rust)
 (require 'init-javascript)
 (require 'init-haskell)
+(require 'init-nix)
 (require 'init-c)
 (require 'init-nasm)
 (require 'init-php)
