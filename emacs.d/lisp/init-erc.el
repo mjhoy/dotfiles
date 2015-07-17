@@ -1,4 +1,5 @@
 (require 'erc)
+(require 'init-basic)
 
 (defun mjhoy/freenode-erc ()
   "Connect to freenode with my account
@@ -19,6 +20,12 @@ machine irc.freenode.net login LOGIN password PASSWORD
          :password password)))
 
 (global-set-key (kbd "C-c e f") 'mjhoy/freenode-erc)
+
+;; channel shortcuts
+(global-set-key (kbd "C-c e j h") (fni (erc-join-channel "#haskell")))
+(global-set-key (kbd "C-c e j e") (fni (erc-join-channel "#emacs")))
+(global-set-key (kbd "C-c e j d") (fni (erc-join-channel "#drupal")))
+(global-set-key (kbd "C-c e j n") (fni (erc-join-channel "#nixos")))
 
 (setq erc-autojoin-channels-alist '(("freenode.net" "#emacs" "#drupal" "#haskell")))
 
