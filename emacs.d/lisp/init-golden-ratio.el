@@ -4,4 +4,6 @@
 (golden-ratio-mode 1)
 (setq golden-ratio-auto-scale t)
 
+(add-to-list 'golden-ratio-extra-commands 'ace-window)
+
 (provide 'init-golden-ratio)

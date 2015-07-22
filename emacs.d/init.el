@@ -42,4 +42,5 @@
 (require 'init-css)
 (require 'init-project-archetypes)
 (require 'init-term)
+(require 'init-ace)
 (require 'init-misc)
