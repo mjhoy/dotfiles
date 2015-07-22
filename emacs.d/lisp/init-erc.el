@@ -27,6 +27,4 @@ machine irc.freenode.net login LOGIN password PASSWORD
 (global-set-key (kbd "C-c e j d") (fni (erc-join-channel "#drupal")))
 (global-set-key (kbd "C-c e j n") (fni (erc-join-channel "#nixos")))
 
-(setq erc-autojoin-channels-alist '(("freenode.net" "#emacs" "#drupal" "#haskell")))
-
 (provide 'init-erc)
