@@ -19,7 +19,7 @@ machine irc.freenode.net login LOGIN password PASSWORD
          :nick "mjhoy"
          :password password)))
 
-(global-set-key (kbd "C-c e f") 'mjhoy/freenode-erc)
+(global-set-key (kbd "C-c e c") 'mjhoy/freenode-erc)
 
 ;; channel shortcuts
 (global-set-key (kbd "C-c e j h") (fni (erc-join-channel "#haskell")))
