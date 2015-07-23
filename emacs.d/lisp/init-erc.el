@@ -21,6 +21,8 @@ machine irc.freenode.net login LOGIN password PASSWORD
 
 (global-set-key (kbd "C-c e c") 'mjhoy/freenode-erc)
 
+(setq erc-hide-list '("JOIN" "PART" "QUIT"))
+
 ;; channel shortcuts
 (global-set-key (kbd "C-c e j h") (fni (erc-join-channel "#haskell")))
 (global-set-key (kbd "C-c e j e") (fni (erc-join-channel "#emacs")))
