@@ -14,10 +14,10 @@ machine irc.freenode.net login LOGIN password PASSWORD
          (credentials (auth-source-search :machine server
                                           :max-tokens 1))
          (password (funcall (plist-get (car credentials) :secret))))
-    (erc :server "irc.freenode.net"
-         :port "6667"
-         :nick "mjhoy"
-         :password password)))
+    (erc-tls :server "irc.freenode.net"
+             :port "6697"
+             :nick "mjhoy"
+             :password password)))
 
 (global-set-key (kbd "C-c e c") 'mjhoy/freenode-erc)
 
