@@ -10,12 +10,12 @@ machine irc.freenode.net login LOGIN password PASSWORD
 "
   (interactive)
   (let* ((server      "irc.freenode.net")
-         (port        "6667")
+         (port        "6697")
          (credentials (auth-source-search :machine server
                                           :max-tokens 1))
          (password (funcall (plist-get (car credentials) :secret))))
-    (erc-tls :server "irc.freenode.net"
-             :port "6697"
+    (erc-tls :server server
+             :port port
              :nick "mjhoy"
              :password password)))
 
