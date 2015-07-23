@@ -13,6 +13,11 @@
              "projects.org"             ; personal project notes
              )))
 
+(require 'org-contacts)
+
+(setq org-contacts-files
+      (list (concat org-directory "contacts.org")))
+
 (defun mjhoy/open-organizer ()
   "Open my org organizer file"
   (interactive)
@@ -31,6 +36,11 @@
          "* %?\n%U\n%a")
         ("c" "Clock" item (clock)
          "%?\n%U\n%a")
+        ("C" "Contact" entry (file (concat org-directory "contacts.org"))
+         "* %(org-contacts-template-name)
+:PROPERTIES:
+:EMAIL: %(org-contacts-template-email)
+:END:")
         ("q" "Clock (quick)" plain (clock)
          "%a%?")
         ("s" "Emacs tool sharpening"
