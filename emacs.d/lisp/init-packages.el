@@ -3,7 +3,8 @@
 
 (dolist (repo '(("elpa"      . "http://tromey.com/elpa/")
                 ("marmalade" . "http://marmalade-repo.org/packages/")
-                ("melpa"     . "http://melpa.org/packages/")))
+                ("melpa"     . "http://melpa.org/packages/")
+                ("org"       . "http://orgmode.org/elpa/")))
   (add-to-list 'package-archives repo))
 
 (defun mjhoy/require-package (package)

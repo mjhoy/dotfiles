@@ -1,4 +1,4 @@
-(mjhoy/require-package 'org)
+(mjhoy/require-package 'org-plus-contrib)
 
 (require 'org)
 
