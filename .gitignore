@@ -5,3 +5,4 @@ vim/bundle
 vim/.netrwhist
 /emacs.d/geben/
 /emacs.d/recentf
+/emacs.d/projectile.cache
