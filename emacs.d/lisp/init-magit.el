@@ -3,6 +3,8 @@
 (mjhoy/require-package 'magit)
 (require 'org-magit)
 
+(setq magit-push-always-verify nil)
+
 (global-set-key (kbd "C-c g") 'magit-status)
 
 (provide 'init-magit)
