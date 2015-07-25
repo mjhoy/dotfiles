@@ -5,6 +5,10 @@
   "/usr/local/share/emacs/site-lisp/mu4e"
   "Load path for my mu4e install")
 
+;; nix bug?
+(if nixos
+    (add-to-list 'load-path "/run/current-system/sw/share/emacs/site-lisp/mu4e"))
+
 (defvar mjhoy/mu4e-exists-p
   (locate-file "mu4e.el" load-path)
   "Whether mu4e exists on this system")
@@ -77,7 +81,10 @@
               ("/mjh-mjhoy.com/INBOX.Trash" . ?t)
               ))
 
-      (setq mu4e-mu-binary "/usr/local/bin/mu")
+      (if nixos
+          (setq mu4e-mu-binary "/run/current-system/sw/bin/mu")
+        (setq mu4e-mu-binary "/usr/local/bin/mu"))
+
       (setq mail-user-agent 'mu4e-user-agent)
       (setq mu4e-maildir "~/.mail/")
 

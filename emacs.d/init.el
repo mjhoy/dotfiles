@@ -3,6 +3,9 @@
 (setq user-full-name "Michael Hoy"
       user-mail-address "mjh@mjhoy.com")
 
+;; are we running on nix?
+(if (equal (system-name) "nixos") (setq nixos t) (setq nixos nil))
+
 (add-to-list 'load-path
              (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path
