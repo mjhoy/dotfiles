@@ -1,27 +1,26 @@
 mjhoy/dotfiles
 ==============
 
-
-DESCRIPTION
-
   My configuration.
 
   I'm currently working primarily on my emacs config [1].
 
-  There's also some  Haskell, Ruby, git, and bash configuration.
+  There's also some Haskell, Ruby, git, and bash configuration.
 
   I mostly run this on my Mac OS X machine, and have begun to test on
   a linux system (arch).
 
 
-DEVELOPMENT
+Development
+-----------
 
   Make sure to clone with `--recursive` to check out the submodules.
 
     $ git clone --recursive https://github.com/mjhoy/dotfiles.git
 
 
-INSTALL
+Install
+-------
 
   Running the install ruby script creates the actual dotfiles in $HOME
   as symbolic links.
@@ -29,6 +28,7 @@ INSTALL
     $ ruby ./install
 
 
-REFERENCES
+References
+----------
 
   [1]: See the emacs.d/init.el file and emacs.d/lisp directory.
