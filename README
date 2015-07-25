@@ -8,7 +8,7 @@ mjhoy/dotfiles
   There's also some Haskell, Ruby, git, and bash configuration.
 
   I mostly run this on my Mac OS X machine, and have begun to test on
-  a linux system (arch).
+  both Arch and NixOS.
 
 
 Development
