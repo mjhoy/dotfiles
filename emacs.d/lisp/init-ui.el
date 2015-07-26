@@ -1,5 +1,6 @@
 (set-face-attribute 'default nil :family "Input Mono")
-(set-face-attribute 'default nil :height 130)
+(set-face-attribute 'default nil :height 110)
+(set-face-attribute 'default nil :weight 'normal)
 
 (defun mjhoy/proportional ()
   "Use a proportional font"
