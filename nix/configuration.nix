@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  fb-input = pkgs.callPackage "/home/mjhoy/dotfiles/nix/pkgs/fb-input/default.nix" {};
+  fb-input = pkgs.callPackage ./pkgs/fb-input {};
 in {
 
   networking.hostName = "nixos"; # Define your hostname.
