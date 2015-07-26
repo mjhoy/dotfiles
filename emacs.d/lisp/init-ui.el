@@ -1,9 +1,5 @@
-(if nixos
-    (progn
-      (set-face-attribute 'default nil :family "Inconsolata")
-      (set-face-attribute 'default nil :height 130))
-  (set-face-attribute 'default nil :family "Input Mono")
-  (set-face-attribute 'default nil :height 130))
+(set-face-attribute 'default nil :family "Input Mono")
+(set-face-attribute 'default nil :height 130)
 
 (defun mjhoy/proportional ()
   "Use a proportional font"
