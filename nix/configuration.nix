@@ -27,7 +27,6 @@ in {
     mu
     nix-repl
     unzip
-    fb-input
   ];
 
   # Fonts
@@ -39,6 +38,7 @@ in {
       inconsolata
       source-code-pro
       ubuntu_font_family
+      fb-input
     ];
   };
 

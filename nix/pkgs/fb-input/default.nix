@@ -16,7 +16,7 @@ stdenv.mkDerivation {
   phases = "unpackPhase installPhase";
 
   installPhase = let
-    fonts_dir = "$out/share/fonts";
+    fonts_dir = "$out/share/fonts/truetype";
   in ''
     mkdir -pv ${fonts_dir}
     find . -name "*.ttf" -exec cp {} ${fonts_dir} \;
