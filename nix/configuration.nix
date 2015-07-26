@@ -1,9 +1,8 @@
 { config, pkgs, ... }:
 
-{
-  imports =
-    [
-    ];
+let
+  fb-input = pkgs.callPackage "/home/mjhoy/dotfiles/nix/pkgs/fb-input/default.nix" {};
+in {
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless.
@@ -27,6 +26,8 @@
     offlineimap
     mu
     nix-repl
+    unzip
+    fb-input
   ];
 
   # Fonts
