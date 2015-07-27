@@ -30,7 +30,12 @@
 (setq org-capture-templates
       '(("t" "Todo"
          entry (file+headline (concat org-directory "organizer.org") "General")
-         "* TODO %?\n  %i\n  %a")
+         "* TODO %?
+  :LOGBOOK:
+  - State \"TODO\"       from \"\"           %U
+  :END:
+
+  %a")
         ("n" "Note"
          entry (file (concat org-directory "belch.org"))
          "* %?\n%U\n%a")
