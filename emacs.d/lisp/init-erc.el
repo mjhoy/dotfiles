@@ -23,6 +23,8 @@ machine irc.freenode.net login LOGIN password PASSWORD
 
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
 
+(setq erc-server-reconnect-timeout 4)
+
 ;; channel shortcuts
 (global-set-key (kbd "C-c e j h") (fni (erc-join-channel "#haskell")))
 (global-set-key (kbd "C-c e j e") (fni (erc-join-channel "#emacs")))
