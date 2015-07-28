@@ -135,6 +135,10 @@
 ;; fontify our code blocks
 (setq org-src-fontify-natively t)
 
+;; add a "digression" template
+(add-to-list 'org-structure-template-alist
+             '("d" "#+BEGIN_DIGRESSION\n?\n#+END_DIGRESSION" ""))
+
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c l") 'org-store-link)
