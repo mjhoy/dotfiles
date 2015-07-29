@@ -138,6 +138,8 @@
 ;; add a "digression" template
 (add-to-list 'org-structure-template-alist
              '("d" "#+BEGIN_DIGRESSION\n?\n#+END_DIGRESSION" ""))
+(add-to-list 'org-structure-template-alist
+             '("sh" "#+BEGIN_SRC haskell\n?\n#+END_SRC" "<src lang=\"haskell\">\n?\n</src>"))
 
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
