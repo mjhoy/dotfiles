@@ -27,6 +27,7 @@ in {
     mu
     nix-repl
     unzip
+    silver-searcher
   ];
 
   # Fonts
