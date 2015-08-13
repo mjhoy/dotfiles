@@ -38,7 +38,9 @@
   %a")
         ("n" "Note"
          entry (file (concat org-directory "belch.org"))
-         "* %?\n%U\n%a")
+         "* %?
+  %U
+  %a")
         ("c" "Clock" item (clock)
          "%?\n%U\n%a")
         ("C" "Contact" entry (file (concat org-directory "contacts.org"))
@@ -52,14 +54,21 @@
          entry (file+olp (concat org-directory "programming_notes.org")
                          "Emacs"
                          "Sharpening list")
-         "* %?\nsee %a\nentered on %U")
+         "* %?
+  see %a
+  entered on %U")
         ("S" "General tool sharpening"
          entry (file+olp (concat org-directory "programming_notes.org")
                          "General sharpening")
-         "* %?\nsee %a\nentered on %U")
+         "* %?
+  see %a
+  entered on %U")
         ("d" "Date"
          entry (file+datetree+prompt (concat org-directory "dates.org"))
-         "* %?\n%t\n\nsee %a")
+         "* %?
+  %t
+
+  see %a")
         ("j" "Journal"
          plain (file+datetree (concat org-directory "journal.org"))
          "%?\nEntered on %U")
