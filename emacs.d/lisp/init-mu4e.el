@@ -146,6 +146,7 @@
 
       ;; Compose/view setup
       (add-hook 'mu4e-compose-mode-hook 'mjhoy/compose-mode-setup)
+      (add-hook 'mu4e-compose-mode-hook 'turn-on-orgstruct)
       (add-hook 'mu4e-view-mode-hook 'mjhoy/view-mode-setup))
   )
 
