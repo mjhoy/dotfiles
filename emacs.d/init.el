@@ -17,6 +17,7 @@
 (require 'init-ui)
 (require 'init-golden-ratio)
 (require 'init-theme)
+(require 'init-tramp)
 (require 'init-org)
 (require 'init-erc)
 (require 'init-windmove)
