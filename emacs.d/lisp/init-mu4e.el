@@ -148,7 +148,15 @@
       ;; Compose/view setup
       (add-hook 'mu4e-compose-mode-hook 'mjhoy/compose-mode-setup)
       (add-hook 'mu4e-compose-mode-hook 'turn-on-orgstruct)
-      (add-hook 'mu4e-view-mode-hook 'mjhoy/view-mode-setup))
+      (add-hook 'mu4e-view-mode-hook 'mjhoy/view-mode-setup)
+
+      (defun mjhoy/mu4e-quick-check (run-in-background)
+        "Check email inboxes and update mu4e index"
+        (interactive "P")
+        (let ((mu4e-get-mail-command "~/bin/check-inbox-quick"))
+          (mu4e-update-mail-and-index run-in-background)))
+      (define-key mu4e-main-mode-map "u" 'mjhoy/mu4e-quick-check)
+      )
   )
 
 (provide 'init-mu4e)
