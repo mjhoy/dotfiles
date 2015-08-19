@@ -36,6 +36,9 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
 
+;; line truncation
+(setq-default truncate-lines t)
+
 ;; interactive lambda macro
 (defmacro fni (&rest forms)
   "Create an anonymous interactive function"
