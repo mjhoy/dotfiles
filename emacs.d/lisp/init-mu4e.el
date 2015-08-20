@@ -137,12 +137,16 @@
 
       (defun mjhoy/compose-mode-setup ()
         "Run when composing a message."
+        (setq truncate-lines nil)
+        (visual-line-mode)
         (mjhoy/proportional)        ; proportional font,
         (set-fill-column 72)        ; 72 chars wide,
         (flyspell-mode))            ; correctly spelled
 
       (defun mjhoy/view-mode-setup ()
         "Run when viewing a message."
+        (setq truncate-lines nil)
+        (visual-line-mode)
         (mjhoy/proportional))
 
       ;; Compose/view setup
