@@ -23,7 +23,8 @@
   (interactive)
   (find-file (concat org-directory "organizer.org")))
 
-(global-set-key (kbd "C-c o") 'mjhoy/open-organizer)
+(global-set-key (kbd "C-c o o") 'mjhoy/open-organizer)
+(global-set-key (kbd "C-c o c") 'org-clock-jump-to-current-clock)
 
 (setq org-default-notes-file (concat org-directory "belch.org"))
 
