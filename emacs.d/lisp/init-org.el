@@ -23,7 +23,13 @@
   (interactive)
   (find-file (concat org-directory "organizer.org")))
 
+(defun mjhoy/open-programming-notebook ()
+  "Open my org programming notebook"
+  (interactive)
+  (find-file (concat org-directory "programming_notes.org")))
+
 (global-set-key (kbd "C-c o o") 'mjhoy/open-organizer)
+(global-set-key (kbd "C-c o p") 'mjhoy/open-programming-notebook)
 (global-set-key (kbd "C-c o c") 'org-clock-jump-to-current-clock)
 
 (setq org-default-notes-file (concat org-directory "belch.org"))
