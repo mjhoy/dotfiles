@@ -1,3 +1,5 @@
+(require 'init-basic)
+
 (mjhoy/require-package 'org-plus-contrib)
 
 (require 'org)
@@ -23,13 +25,18 @@
   (interactive)
   (find-file (concat org-directory "organizer.org")))
 
-(defun mjhoy/open-programming-notebook ()
-  "Open my org programming notebook"
-  (interactive)
-  (find-file (concat org-directory "programming_notes.org")))
+(defun mjhoy/open-org-notebook (filename)
+  (find-file (concat org-directory filename)))
 
 (global-set-key (kbd "C-c o o") 'mjhoy/open-organizer)
-(global-set-key (kbd "C-c o p") 'mjhoy/open-programming-notebook)
+(global-set-key (kbd "C-c o p") (fni (mjhoy/open-org-notebook
+                                      "programming_notes.org")))
+(global-set-key (kbd "C-c o b") (fni (mjhoy/open-org-notebook
+                                      "belch.org")))
+(global-set-key (kbd "C-c o d") (fni (mjhoy/open-org-notebook
+                                      "dates.org")))
+(global-set-key (kbd "C-c o j") (fni (mjhoy/open-org-notebook
+                                      "projects.org")))
 (global-set-key (kbd "C-c o c") 'org-clock-jump-to-current-clock)
 
 (setq org-default-notes-file (concat org-directory "belch.org"))
