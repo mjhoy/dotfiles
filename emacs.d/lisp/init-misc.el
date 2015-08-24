@@ -2,6 +2,9 @@
 (require 'mjhoy-misc)
 (require 'init-basic)
 
+;; misc useful modes here
+(mjhoy/require-package 'apache-mode)
+
 ;; (replaces 'describe-no-warranty)
 (global-set-key (kbd "C-h C-w") 'mjhoy/lookup-apple-dictionary)
 
