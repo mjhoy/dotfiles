@@ -31,6 +31,10 @@
 (global-set-key (kbd "C-c o b") (openo "belch.org"))
 (global-set-key (kbd "C-c o d") (openo "dates.org"))
 (global-set-key (kbd "C-c o j") (openo "projects.org"))
+
+(global-set-key (kbd "C-c o ?") (fni (let ((default-directory org-directory))
+                                       (helm-find-files nil))))
+
 (global-set-key (kbd "C-c o c") 'org-clock-jump-to-current-clock)
 
 (setq org-default-notes-file (concat org-directory "belch.org"))
