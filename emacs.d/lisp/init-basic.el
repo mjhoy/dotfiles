@@ -32,6 +32,8 @@
 (global-unset-key (kbd "C-x C-u"))
 (put 'upcase-region 'disabled nil)
 
+(global-set-key (kbd "C-x f") 'find-file)
+
 ;; enable narrowing
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
