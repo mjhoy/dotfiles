@@ -1,4 +1,3 @@
-(require 'init-basic)
 (require 'init-helm)
 
 ;; should maybe put in init-helm?
