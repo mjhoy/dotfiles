@@ -56,6 +56,11 @@
 :PROPERTIES:
 :EMAIL: %(org-contacts-template-email)
 :END:")
+        ("b" "Book" entry (file (concat org-directory "lists/books.org"))
+         "* %?
+  (C-c C-w to refile to fiction/non-fiction)
+  see %a
+  entered on %U")
         ("q" "Clock (quick)" plain (clock)
          "%a%?")
         ("s" "Emacs tool sharpening"
