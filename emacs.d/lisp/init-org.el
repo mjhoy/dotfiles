@@ -20,23 +20,17 @@
 (setq org-contacts-files
       (list (concat org-directory "contacts.org")))
 
-(defun mjhoy/open-organizer ()
-  "Open my org organizer file"
-  (interactive)
-  (find-file (concat org-directory "organizer.org")))
-
 (defun mjhoy/open-org-notebook (filename)
   (find-file (concat org-directory filename)))
 
-(global-set-key (kbd "C-c o o") 'mjhoy/open-organizer)
-(global-set-key (kbd "C-c o p") (fni (mjhoy/open-org-notebook
-                                      "programming_notes.org")))
-(global-set-key (kbd "C-c o b") (fni (mjhoy/open-org-notebook
-                                      "belch.org")))
-(global-set-key (kbd "C-c o d") (fni (mjhoy/open-org-notebook
-                                      "dates.org")))
-(global-set-key (kbd "C-c o j") (fni (mjhoy/open-org-notebook
-                                      "projects.org")))
+(defmacro openo (&rest forms)
+  `(fni (mjhoy/open-org-notebook ,@forms)))
+
+(global-set-key (kbd "C-c o o") (openo "organizer.org"))
+(global-set-key (kbd "C-c o p") (openo "programming_notes.org"))
+(global-set-key (kbd "C-c o b") (openo "belch.org"))
+(global-set-key (kbd "C-c o d") (openo "dates.org"))
+(global-set-key (kbd "C-c o j") (openo "projects.org"))
 (global-set-key (kbd "C-c o c") 'org-clock-jump-to-current-clock)
 
 (setq org-default-notes-file (concat org-directory "belch.org"))
