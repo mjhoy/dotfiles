@@ -16,7 +16,11 @@
 (let ((cmd (expand-file-name "~/src/racer/target/release/racer")))
   (setq racer-cmd cmd)
   (setq company-racer-executable cmd))
-(setq racer-rust-src-path (expand-file-name "~/src/rust/src/"))
+(let ((src (expand-file-name "~/src/rust/src/")))
+  ;; in some instance the env variable must be set too?
+  (unless (getenv "RUST_SRC_PATH")
+    (setenv "RUST_SRC_PATH" src))
+  (setq racer-rust-src-path src))
 
 (defun mjhoy/init-rust-mode ()
   "Set up rust mode"
