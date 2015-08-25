@@ -1,5 +1,7 @@
 ;;;; init.el / @mjhoy
 
+(package-initialize)
+
 (setq user-full-name "Michael Hoy"
       user-mail-address "mjh@mjhoy.com")
 

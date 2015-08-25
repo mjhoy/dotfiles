@@ -1,5 +1,4 @@
 (require 'package)
-(package-initialize)
 
 (dolist (repo '(("elpa"      . "http://tromey.com/elpa/")
                 ("marmalade" . "http://marmalade-repo.org/packages/")
