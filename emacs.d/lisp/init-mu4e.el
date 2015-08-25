@@ -160,6 +160,14 @@
         (let ((mu4e-get-mail-command "~/bin/check-inbox-quick"))
           (mu4e-update-mail-and-index run-in-background)))
       (define-key mu4e-main-mode-map "u" 'mjhoy/mu4e-quick-check)
+
+      (if (boundp 'org-directory)
+          (progn
+            (setq mu4e-org-contacts-file (concat org-directory "contacts.org"))
+            (add-to-list 'mu4e-headers-actions
+                         '("org-contact-add" . mu4e-action-add-org-contact) t)
+            (add-to-list 'mu4e-view-actions
+                         '("org-contact-add" . mu4e-action-add-org-contact) t)))
       )
   )
 
