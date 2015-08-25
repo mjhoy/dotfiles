@@ -11,6 +11,11 @@
 (add-to-list 'load-path
              (expand-file-name "site-lisp" user-emacs-directory))
 
+;; this directory isn't added in osx gui emacs for some reason.
+(if (not (member "/usr/local/share/emacs/site-lisp" load-path))
+    (let ((default-directory "/usr/local/share/emacs/site-lisp"))
+      (normal-top-level-add-subdirs-to-load-path)))
+
 (require 'init-basic)
 (require 'init-packages)
 (require 'init-diminish)
