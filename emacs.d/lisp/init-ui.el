@@ -1,5 +1,5 @@
 (set-face-attribute 'default nil :family "Input Mono")
-(set-face-attribute 'default nil :height 110)
+(set-face-attribute 'default nil :height 140)
 (set-face-attribute 'default nil :weight 'normal)
 
 (defun mjhoy/proportional ()
