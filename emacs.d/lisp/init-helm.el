@@ -35,6 +35,9 @@
 (global-set-key (kbd "M-X") 'execute-extended-command)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+;; make helm usable with tramp
+(setq helm-buffer-skip-remote-checking t)
+
 ;;; helm projectile integration
 
 (require 'helm-projectile)
