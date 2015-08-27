@@ -3,7 +3,8 @@
 
 (projectile-global-mode)
 
-(setq projectile-enable-caching t)
+; Disable for the time being as it creates problems with TRAMP
+;(setq projectile-enable-caching t)
 
 (setq projectile-completion-system 'helm)
 

@@ -18,6 +18,12 @@
     (let ((default-directory "/usr/local/share/emacs/site-lisp"))
       (normal-top-level-add-subdirs-to-load-path)))
 
+;; Prevent an odd TRAMP bug. Hangs at "Sending password" otherwise.
+(add-hook 'after-init-hook
+	  '(lambda ()
+	     (if (member "." load-path)
+		 (delete "." load-path))))
+
 (require 'init-basic)
 (require 'init-packages)
 (require 'init-diminish)
