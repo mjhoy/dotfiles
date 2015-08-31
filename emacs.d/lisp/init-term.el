@@ -15,20 +15,22 @@ in the current directory.
                      "/bin/bash"))
         (dirname (file-name-nondirectory
                   (directory-file-name default-directory))))
-    ;; compass term
-    (cond ((and (not (null buffer-file-name))
-                (string= "sass" dirname)
-                (string= "scss" (file-name-extension buffer-file-name)))
-           (let ((default-directory
-                  (expand-file-name "../" default-directory)))
-             (ansi-term bash-exec "compass ansi-term")))
-          ;; otherwise: general term
-          (t
-           (let ((name (or name
-                          (read-from-minibuffer "Buffer name: "))))
-             (if (and name (not (string= "" name)))
-                 (ansi-term bash-exec (concat name " ansi-term"))
-               (ansi-term bash-exec)))))))
+
+    (cond
+     ;; compass term
+     ((and (not (null buffer-file-name))
+           (string= "sass" dirname)
+           (string= "scss" (file-name-extension buffer-file-name)))
+      (let ((default-directory
+              (expand-file-name "../" default-directory)))
+        (ansi-term bash-exec "compass ansi-term")))
+     ;; otherwise: general term
+     (t
+      (let ((name (or name
+                      (read-from-minibuffer "Buffer name: "))))
+        (if (and name (not (string= "" name)))
+            (ansi-term bash-exec (concat name " ansi-term"))
+          (ansi-term bash-exec)))))))
 
 (global-set-key (kbd "C-c t") 'mjhoy/ansi-term-dwim)
 
