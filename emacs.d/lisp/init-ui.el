@@ -1,4 +1,6 @@
-(set-face-attribute 'default nil :family "Input Mono")
+;; hack: http://sourcefoundry.org/hack/
+;; (basically dejavu sans mono)
+(set-face-attribute 'default nil :family "Hack")
 (set-face-attribute 'default nil :height 140)
 (set-face-attribute 'default nil :weight 'normal)
 
@@ -12,12 +14,12 @@
 (defun mjhoy/mono ()
   "Use a monospace font"
   (interactive)
-  (setq buffer-face-mode-face '(:family "Input Mono" :height 130))
-  (setq line-spacing 0.2)
+  (setq buffer-face-mode-face '(:family "Hack" :height 140))
+  (setq line-spacing 0)
   (buffer-face-mode))
 
 ;; input is a little tight; increase the line-spacing
-(setq-default line-spacing 0.2)
+;; (setq-default line-spacing 0.2)
 (menu-bar-mode 0)
 (when (string-equal system-type "darwin")
   (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
