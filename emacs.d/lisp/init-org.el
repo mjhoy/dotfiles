@@ -47,7 +47,7 @@
   - State \"TODO\"       from \"\"           %U
   :END:
 
-  %a")
+  see: %a")
         ("n" "Note"
          entry (file (concat org-directory "belch.org"))
          "* %?
