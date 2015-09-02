@@ -6,6 +6,9 @@ directory, start up a term in the parent directory named
 \"compass ansi-term\". This assumes a standard compass layout and
 that the term is started to run the command `compass watch`.
 
+If in a \"mu4e\" buffer, start up a new term named
+\"offlineimap\".
+
 Otherwise, ask for a name for the new term buffer and start one
 in the current directory.
 "
