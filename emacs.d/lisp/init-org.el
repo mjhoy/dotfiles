@@ -37,6 +37,7 @@
                                        (helm-find-files nil))))
 
 (global-set-key (kbd "C-c o c") 'org-clock-jump-to-current-clock)
+(global-set-key (kbd "C-c o C") 'org-contacts)
 
 (setq org-default-notes-file (concat org-directory "belch.org"))
 
