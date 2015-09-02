@@ -43,6 +43,7 @@
 (require 'init-yas)
 (require 'init-sql)
 (require 'init-flycheck)
+(require 'init-flyspell)
 (require 'init-helm)
 (require 'init-magit)
 (require 'init-restclient)
