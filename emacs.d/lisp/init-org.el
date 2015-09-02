@@ -19,6 +19,7 @@
 
 (setq org-contacts-files
       (list (concat org-directory "contacts.org")))
+(setq org-contacts-icon-use-gravatar nil)
 
 (defun mjhoy/open-org-notebook (filename)
   (find-file (concat org-directory filename)))
