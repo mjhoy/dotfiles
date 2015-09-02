@@ -11,7 +11,7 @@
 (eval-after-load "golden-ratio"
   '(diminish 'golden-ratio-mode " φ"))
 (eval-after-load "init-helm"
-  '(diminish 'helm-mode " ┏┛"))
+  '(diminish 'helm-mode))
 (eval-after-load "auto-dim-other-buffers"
   '(diminish 'auto-dim-other-buffers-mode))
 (diminish 'abbrev-mode)
