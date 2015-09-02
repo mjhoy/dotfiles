@@ -24,6 +24,9 @@ in the current directory.
       (let ((default-directory
               (expand-file-name "../" default-directory)))
         (ansi-term bash-exec "compass ansi-term")))
+     ;; mu4e: assume offlineimap
+     ((string-match "^\*mu4e" (buffer-name))
+      (ansi-term bash-exec "offlineimap ansi-term"))
      ;; otherwise: general term
      (t
       (let ((name (or name
