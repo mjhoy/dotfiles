@@ -129,6 +129,9 @@
 
       (setq mu4e-attachment-dir  "~/Downloads")
 
+      ;; use built-in emacs completing read function
+      (setq mu4e-completing-read-function 'completing-read)
+
       ;; confirm sending messages
       (add-hook 'message-send-hook
                 (lambda ()

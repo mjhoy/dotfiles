@@ -6,6 +6,8 @@
 
 (require 'helm)
 
+(helm-mode 1)
+
 (require 'init-mu4e)
 
 (if mjhoy/mu4e-exists-p
@@ -27,6 +29,11 @@
 (global-set-key (kbd "C-c h o") 'helm-org-in-buffer-headings)
 (global-set-key (kbd "C-c h e") 'helm-mu)
 (global-set-key (kbd "M-s s") 'helm-projectile-ag)
+
+;; Don't use helm for standard find-file. It's annoying when using
+;; TRAMP mode so I keep `C-x f` available as find-file with standard
+;; completion.
+(add-to-list 'helm-completing-read-handlers-alist '(find-file))
 
 ;; old buffer switching
 (global-set-key (kbd "C-c h b") 'switch-to-buffer)
