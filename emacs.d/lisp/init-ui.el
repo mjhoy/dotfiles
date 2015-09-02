@@ -1,6 +1,6 @@
 ;; hack: http://sourcefoundry.org/hack/
 ;; (basically dejavu sans mono)
-(set-face-attribute 'default nil :family "Hack")
+(set-face-attribute 'default nil :family "Input Mono")
 (set-face-attribute 'default nil :height 140)
 (set-face-attribute 'default nil :weight 'normal)
 
@@ -8,13 +8,13 @@
   "Use a proportional font"
   (interactive)
   (setq buffer-face-mode-face '(:family "Input Sans" :height 130))
-  (setq line-spacing 0.3)
+  (setq line-spacing 0)
   (buffer-face-mode))
 
 (defun mjhoy/mono ()
   "Use a monospace font"
   (interactive)
-  (setq buffer-face-mode-face '(:family "Hack" :height 140))
+  (setq buffer-face-mode-face '(:family "Input Mono" :height 140))
   (setq line-spacing 0)
   (buffer-face-mode))
 
