@@ -10,6 +10,8 @@
   '(diminish 'yas-minor-mode " ✂"))
 (eval-after-load "golden-ratio"
   '(diminish 'golden-ratio-mode " φ"))
+(eval-after-load "init-helm"
+  '(diminish 'helm-mode " ┏┛"))
 (diminish 'abbrev-mode)
 
 (provide 'init-diminish)
