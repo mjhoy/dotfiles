@@ -11,6 +11,26 @@
               (projectile-file-exists-p (concat rt "sites/all"))
               (projectile-file-exists-p (concat rt "modules"))))))
 
+(defun mjhoy/projectile-regenerate-tags (orig-fun &rest args)
+  "Advice for `projectile-regenerate-tags', tweaks for project types.
+
+If the current projectile project is a Drupal repository, adjust
+`projectile-tags-command' to examine only php files, and tell
+it about Drupal filename conventions (e.g., .inc, .module, etc)."
+  (cond ((mjhoy/projectile-is-drupal)
+         (let ((projectile-tags-command (concat
+                                         "ctags -Re "
+                                         "--langmap=php:.engine.inc.module.theme.install.php "
+                                         "--php-kinds=cdfi "
+                                         "--languages=php "
+                                         "-f \"%s\" %s")))
+           (message "Generating TAGS for Drupal, may take a sec...")
+           (apply orig-fun '())
+           (message "Done.")))
+        (t (apply orig-fun '()))))
+
+(advice-add 'projectile-regenerate-tags :around #'mjhoy/projectile-regenerate-tags)
+
 ; Disable for the time being as it creates problems with TRAMP
 ;(setq projectile-enable-caching t)
 
