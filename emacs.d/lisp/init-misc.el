@@ -23,4 +23,7 @@
 (global-set-key (kbd "C-c f p") (fni (find-file "~/Dropbox/p.gpg")))
 (global-set-key (kbd "C-c f s") (fni (find-file "~/.ssh/config")))
 
+;; ask before quitting
+(setq confirm-kill-emacs #'yes-or-no-p)
+
 (provide 'init-misc)
