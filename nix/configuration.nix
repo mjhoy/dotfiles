@@ -28,6 +28,9 @@ in {
     nix-repl
     unzip
     silver-searcher
+    mailutils
+    binutils
+    gcc
   ];
 
   # Fonts
