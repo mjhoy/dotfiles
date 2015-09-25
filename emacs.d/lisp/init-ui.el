@@ -1,7 +1,9 @@
-;; hack: http://sourcefoundry.org/hack/
-;; (basically dejavu sans mono)
 (set-face-attribute 'default nil :family "Input Mono")
-(set-face-attribute 'default nil :height 140)
+
+;; nix (/linux) seems to load in fonts much larger
+(if nixos
+    (set-face-attribute 'default nil :height 115)
+  (set-face-attribute 'default nil :height 140))
 (set-face-attribute 'default nil :weight 'normal)
 
 (defun mjhoy/proportional ()
