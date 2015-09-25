@@ -5,6 +5,7 @@
 
 (setq magit-push-always-verify nil)
 (setq magit-revert-buffers 'silent)
+(setq magit-revision-show-gravatars nil)
 
 (global-set-key (kbd "C-c g") 'magit-status)
 
