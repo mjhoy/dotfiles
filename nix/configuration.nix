@@ -16,6 +16,8 @@ in {
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
+  # or (see bash aliases file)
+  # $ nix? wget
   environment.systemPackages = with pkgs; [
     wget
     git
