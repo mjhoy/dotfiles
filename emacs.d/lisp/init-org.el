@@ -28,6 +28,7 @@
   `(fni (mjhoy/open-org-notebook ,@forms)))
 
 (global-set-key (kbd "C-c o o") (openo "organizer.org"))
+(global-set-key (kbd "C-c o a") (openo "organizer_archive.org"))
 (global-set-key (kbd "C-c o p") (openo "programming_notes.org"))
 (global-set-key (kbd "C-c o b") (openo "belch.org"))
 (global-set-key (kbd "C-c o d") (openo "dates.org"))
