@@ -21,6 +21,9 @@
       (list (concat org-directory "contacts.org")))
 (setq org-contacts-icon-use-gravatar nil)
 
+(require 'ob-sh)
+(org-babel-do-load-languages 'org-babel-load-languages '((sh . t)))
+
 (defun mjhoy/open-org-notebook (filename)
   (find-file (concat org-directory filename)))
 
