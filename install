@@ -26,3 +26,8 @@ end
 unless File.exists?(File.expand_path("~/.dotfiles"))
   system "ln -s #{File.expand_path('.')} ~/.dotfiles"
 end
+
+unless File.exists?(File.expand_path("~/.nixpkgs/config.nix"))
+  system "mkdir -p ~/.nixpkgs"
+  system "ln -s #{File.expand_path("nix/mjhoy/config.nix")} ~/.nixpkgs/config.nix"
+end
