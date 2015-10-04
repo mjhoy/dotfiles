@@ -3,7 +3,7 @@
 ;; nix (/linux) seems to load in fonts much larger
 (if nixos
     (set-face-attribute 'default nil :height 115)
-  (set-face-attribute 'default nil :height 140))
+  (set-face-attribute 'default nil :height 160))
 (set-face-attribute 'default nil :weight 'normal)
 
 (defun mjhoy/proportional ()
