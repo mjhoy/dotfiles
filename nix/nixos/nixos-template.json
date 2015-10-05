@@ -57,6 +57,14 @@
     },
     {
       "type": "shell",
+      "inline": [
+        "chmod 600 /home/mjhoy/.ssh/id_rsa_mjhoy_4096",
+        "chown mjhoy:user /home/mjhoy/.ssh/id_rsa_mjhoy_4096",
+        "chown mjhoy:user /home/mjhoy/.ssh/id_rsa_mjhoy_4096.pub"
+      ]
+    },
+    {
+      "type": "shell",
       "script": "postinstall.sh"
     }
   ]
