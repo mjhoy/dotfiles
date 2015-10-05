@@ -24,6 +24,9 @@
 
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
+  # To change after provisioning with packer:
+  # services.openssh.permitRootLogin = "no";
+  # services.openssh.passwordAuthentication = false;
 
   users.extraUsers.mjhoy = {
     isNormalUser = true;
