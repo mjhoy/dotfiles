@@ -13,6 +13,7 @@ in {
       source-code-pro
       ubuntu_font_family
       fb-input
+      terminus_font
     ];
   };
 
@@ -36,6 +37,4 @@ in {
     # windowManager.xmonad.enable = true;
     # windowManager.default = "xmonad";
   };
-
-
 }
