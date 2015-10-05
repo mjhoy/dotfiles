@@ -17,3 +17,5 @@ ln -s /home/mjhoy/dotfiles/nix/nixos/common/ /etc/nixos/
 
 cd /home/mjhoy
 su - mjhoy -c /home/mjhoy/dotfiles/install
+su - mjhoy "git config --global user.name 'Michael Hoy'"
+su - mjhoy "git config --global user.email 'mjh@mjhoy.com'"
