@@ -24,10 +24,18 @@ in {
   # services.printing.enable = true;
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
+  services.xserver = {
+    enable = true;
+    layout = "us";
 
-  # Enable xfce/xmonad
-  services.xserver.desktopManager.xfce.enable = true;
-  services.xserver.windowManager.xmonad.enable = true;
+    # Enable kde
+    desktopManager.kde4.enable = true;
+    displayManager.kdm.enable = true;
+
+    # xmonad... maybe later!
+    # windowManager.xmonad.enable = true;
+    # windowManager.default = "xmonad";
+  };
+
+
 }
