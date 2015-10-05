@@ -2,6 +2,8 @@
   "builders": [
     {
       "type": "virtualbox-iso",
+      "output_directory": "output",
+      "vm_name": "nixos_mjhoy",
       "disk_size": 20000,
       "boot_wait": "1m",
       "boot_command": [
@@ -27,6 +29,7 @@
       "iso_url": "http://nixos.org/releases/nixos/15.09/nixos-15.09.547.cad293f/nixos-minimal-15.09.547.cad293f-x86_64-linux.iso",
       "shutdown_command": "sudo shutdown -h now",
       "ssh_username": "root",
+      "ssh_password": "rootpw",
       "ssh_wait_timeout": "40m",
       "vboxmanage": [
         ["modifyvm", "{{.Name}}", "--memory", "4096"],
@@ -34,10 +37,27 @@
       ]
     }
   ],
-  "post-processors": [
+  "provisioners": [
     {
-      "type": "vagrant",
-      "output": "nixos-14.12-x86_64-{{.Provider}}.box"
+      "type": "shell",
+      "inline": [
+        "mkdir -p /home/mjhoy/.ssh",
+        "chown -R mjhoy:users /home/mjhoy/.ssh"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "/Users/mjhoy/.ssh/id_rsa_mjhoy_4096",
+      "destination": "/home/mjhoy/.ssh/id_rsa_mjhoy_4096"
+    },
+    {
+      "type": "file",
+      "source": "/Users/mjhoy/.ssh/id_rsa_mjhoy_4096.pub",
+      "destination": "/home/mjhoy/.ssh/id_rsa_mjhoy_4096.pub"
+    },
+    {
+      "type": "shell",
+      "script": "postinstall.sh"
     }
   ]
 }
