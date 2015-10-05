@@ -13,6 +13,7 @@
     vim
     emacs
     htop
+    ruby
   ];
 
   # hello from MN
