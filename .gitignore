@@ -6,3 +6,5 @@ vim/.netrwhist
 /emacs.d/geben/
 /emacs.d/recentf
 /emacs.d/projectile.cache
+/nix/nixos/output
+/nix/nixos/packer_cache
