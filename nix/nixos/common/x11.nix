@@ -19,6 +19,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     firefox
+    dmenu
   ];
 
   # Enable CUPS to print documents.
@@ -29,12 +30,16 @@ in {
     enable = true;
     layout = "us";
 
-    # Enable kde
-    desktopManager.kde4.enable = true;
-    displayManager.kdm.enable = true;
+    displayManager.auto.enable = true;
+    displayManager.auto.user = "mjhoy";
 
-    # xmonad... maybe later!
-    # windowManager.xmonad.enable = true;
-    # windowManager.default = "xmonad";
+    desktopManager.default = "none";
+    # desktopManager.xfce.enable = true;
+
+    windowManager.default = "xmonad";
+    windowManager.xmonad.enable = true;
+    windowManager.xmonad.extraPackages = haskellPackages: [
+      haskellPackages.xmonad-contrib
+    ];
   };
 }

@@ -8,3 +8,9 @@ vim/.netrwhist
 /emacs.d/projectile.cache
 /nix/nixos/output
 /nix/nixos/packer_cache
+
+# xmonad
+/xmonad/*.hi
+/xmonad/*.o
+/xmonad/xmonad.errors
+/xmonad/xmonad-x86_64-linux
