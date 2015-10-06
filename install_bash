@@ -2,12 +2,12 @@
 
 set -e
 
-function run {
-    echo $1
-    $($1)
+function run() {
+    echo "$@"
+    $($@)
 }
 
-function setup_link {
+function lns() {
     run "ln -s $1 $2"
 }
 
@@ -23,8 +23,9 @@ dotfiles=( gemrc
            emacs.d
            xmonad
          )
+regex="/?([^/]+)$"
 for i in "${dotfiles[@]}" ; do
-    [[ $i =~ /?([^/]+)$ ]]
+    [[ $i =~ $regex ]]
     filename=${BASH_REMATCH[1]}
     dotfilename="$HOME/.$filename"
     if [[ ! -e $dotfilename ]]; then
@@ -35,9 +36,9 @@ done
 
 if [[ ! -e $HOME/.nixpkgs/config.nix ]]; then
     run "mkdir -p $HOME/.nixpkgs"
-    setup_link $(pwd)/nix/mjhoy/config.nix $HOME/.nixpkgs/config.nix
+    lns $(pwd)/nix/mjhoy/config.nix $HOME/.nixpkgs/config.nix
 fi
 
 if [[ ! -e $HOME/.dotfiles ]]; then
-    setup_link $(pwd) $HOME/.dotfiles
+    lns $(pwd) $HOME/.dotfiles
 fi
