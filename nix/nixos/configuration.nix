@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./guest.nix
     # ./common/x11.nix
+    # ./common/dev.nix
   ];
 
   # essential packages
