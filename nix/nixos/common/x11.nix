@@ -20,6 +20,7 @@ in {
   environment.systemPackages = with pkgs; [
     firefox
     dmenu
+    dzen2 # notifications?
   ];
 
   # Enable CUPS to print documents.
