@@ -21,10 +21,10 @@ Development
 Install
 -------
 
-  Running the install ruby script creates the actual dotfiles in $HOME
-  as symbolic links.
+  Running the install script generates symbolic links under $HOME
+  (e.g., ~/.xmonad -> dotfiles/xmonad, etc):
 
-    $ ruby ./install
+    $ ./install
 
 
 NixOS
