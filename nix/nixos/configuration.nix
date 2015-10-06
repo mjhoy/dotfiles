@@ -21,7 +21,6 @@
   time.timeZone = "America/Chicago";
 
   networking.hostName = "nixos";
-  networking.hostId = "adbb8c40";
 
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
