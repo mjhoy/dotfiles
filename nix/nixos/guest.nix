@@ -14,4 +14,15 @@
   boot.initrd.checkJournalingFS = false;
 
   virtualisation.virtualbox.guest.enable = true;
+
+  # example: mount a VirtualBox shared folder
+  # in VirtualBox, this folder would be called "mail"
+  # the options set up the fs as readonly (ro) and as
+  # owned by my user account.
+  #
+  # fileSystems."/home/mjhoy/.mail" = {
+  #   fsType = "vboxsf";
+  #   device = "mail";
+  #   options = "ro,uid=1000,gid=100";
+  # };
 }
