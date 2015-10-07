@@ -16,5 +16,6 @@
     (ispell-change-dictionary lang)))
 
 (global-set-key (kbd "<f6>") 'mjhoy/cycle-ispell-languages)
+(global-set-key (kbd "<f5>") 'flyspell-mode)
 
 (provide 'init-flyspell)
