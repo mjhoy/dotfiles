@@ -81,8 +81,7 @@
               ("/mjh-mjhoy.com/INBOX.Trash" . ?t)
               ))
 
-      (if nixos
-          (setq mu4e-mu-binary "/run/current-system/sw/bin/mu")
+      (if (not nixos)
         (setq mu4e-mu-binary "/usr/local/bin/mu"))
 
       (setq mail-user-agent 'mu4e-user-agent)
