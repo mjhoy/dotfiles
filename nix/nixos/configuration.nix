@@ -6,6 +6,7 @@
     ./guest.nix
     # ./common/x11.nix
     # ./common/dev.nix
+    # ./common/email.nix
   ];
 
   # essential packages
