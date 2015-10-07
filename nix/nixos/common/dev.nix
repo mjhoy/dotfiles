@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     file
     unzip
+    gnupg1
 
     # haskell
     ghc
