@@ -49,6 +49,7 @@
       '(("t" "Todo"
          entry (file+headline (concat org-directory "organizer.org") "General")
          "* TODO %?
+  SCHEDULED: %t
   :LOGBOOK:
   - State \"TODO\"       from \"\"           %U
   :END:
