@@ -12,6 +12,10 @@
              (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path
              (expand-file-name "site-lisp" user-emacs-directory))
+(if nixos
+    (let ((default-directory
+            (expand-file-name "~/.nix-profile/share/emacs/site-lisp")))
+      (normal-top-level-add-subdirs-to-load-path)))
 
 ;; this directory isn't added in osx gui emacs for some reason.
 (if (and (not (member "/usr/local/share/emacs/site-lisp" load-path))
