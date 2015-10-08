@@ -5,6 +5,10 @@
     file
     unzip
     gnupg1
+    gnumake
+
+    # nix
+    nix-repl
 
     # haskell
     ghc
