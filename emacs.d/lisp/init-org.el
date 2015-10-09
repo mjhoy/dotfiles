@@ -24,6 +24,9 @@
 (require 'ob-sh)
 (org-babel-do-load-languages 'org-babel-load-languages '((sh . t)))
 
+(require 'ob-sql)
+(org-babel-do-load-languages 'org-babel-load-languages '((sql . t)))
+
 (defun mjhoy/open-org-notebook (filename)
   (find-file (concat org-directory filename)))
 
