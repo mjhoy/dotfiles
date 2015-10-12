@@ -21,6 +21,8 @@
       (list (concat org-directory "contacts.org")))
 (setq org-contacts-icon-use-gravatar nil)
 
+(setq org-confirm-babel-evaluate nil)
+
 (require 'ob-sh)
 ; do I want 'ob-shell ?
 
