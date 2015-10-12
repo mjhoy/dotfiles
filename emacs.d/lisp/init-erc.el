@@ -19,16 +19,16 @@ machine irc.freenode.net login LOGIN password PASSWORD
              :nick "mjhoy"
              :password password)))
 
-(global-set-key (kbd "C-c e c") 'mjhoy/freenode-erc)
+(global-set-key (kbd "C-c i c") 'mjhoy/freenode-erc)
 
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
 
 (setq erc-server-reconnect-timeout 4)
 
 ;; channel shortcuts
-(global-set-key (kbd "C-c e j h") (fni (erc-join-channel "#haskell")))
-(global-set-key (kbd "C-c e j e") (fni (erc-join-channel "#emacs")))
-(global-set-key (kbd "C-c e j d") (fni (erc-join-channel "#drupal")))
-(global-set-key (kbd "C-c e j n") (fni (erc-join-channel "#nixos")))
+(global-set-key (kbd "C-c i j h") (fni (erc-join-channel "#haskell")))
+(global-set-key (kbd "C-c i j e") (fni (erc-join-channel "#emacs")))
+(global-set-key (kbd "C-c i j d") (fni (erc-join-channel "#drupal")))
+(global-set-key (kbd "C-c i j n") (fni (erc-join-channel "#nixos")))
 
 (provide 'init-erc)
