@@ -22,10 +22,9 @@
 (setq org-contacts-icon-use-gravatar nil)
 
 (require 'ob-sh)
-(org-babel-do-load-languages 'org-babel-load-languages '((sh . t)))
+; do I want 'ob-shell ?
 
 (require 'ob-sql)
-(org-babel-do-load-languages 'org-babel-load-languages '((sql . t)))
 
 (defun mjhoy/open-org-notebook (filename)
   (find-file (concat org-directory filename)))
