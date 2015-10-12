@@ -28,6 +28,7 @@ machine irc.freenode.net login LOGIN password PASSWORD
 ;; channel shortcuts
 (global-set-key (kbd "C-c i j h") (fni (erc-join-channel "#haskell")))
 (global-set-key (kbd "C-c i j e") (fni (erc-join-channel "#emacs")))
+(global-set-key (kbd "C-c i j o") (fni (erc-join-channel "#org-mode")))
 (global-set-key (kbd "C-c i j d") (fni (erc-join-channel "#drupal")))
 (global-set-key (kbd "C-c i j n") (fni (erc-join-channel "#nixos")))
 
