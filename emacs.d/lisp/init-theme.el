@@ -34,9 +34,10 @@
   (interactive)
   (mjhoy/switch-theme 'boron))
 
-(add-hook 'after-init-hook (lambda ()
-  (when (fboundp 'auto-dim-other-buffers-mode)
-    (auto-dim-other-buffers-mode t))))
+;; TODO: remove?
+;; (add-hook 'after-init-hook (lambda ()
+;;   (when (fboundp 'auto-dim-other-buffers-mode)
+;;     (auto-dim-other-buffers-mode t))))
 
 (mjhoy/dark)
 
