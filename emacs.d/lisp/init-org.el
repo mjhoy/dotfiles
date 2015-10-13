@@ -3,6 +3,7 @@
 (mjhoy/require-package 'org-plus-contrib)
 
 (require 'org)
+(require 'org-mime)
 
 (setq org-directory "~/Dropbox/org/")
 
