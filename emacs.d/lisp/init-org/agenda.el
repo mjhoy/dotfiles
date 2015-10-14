@@ -7,4 +7,6 @@
              "projects.org"             ; personal project notes
              )))
 
+(setq org-agenda-dim-blocked-tasks nil)
+
 (provide 'init-org/agenda)
