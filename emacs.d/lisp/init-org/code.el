@@ -17,6 +17,6 @@
 (add-to-list 'org-structure-template-alist
              '("rs" "#+BEGIN_SRC rust\n?\n#+END_SRC" "<src lang=\"rust\">\n?\n</src>"))
 (add-to-list 'org-structure-template-alist
-             '("sh" "#+BEGIN_SRC shell\n?\n#+END_SRC" "<src lang=\"shell\">\n?\n</src>"))
+             '("sh" "#+BEGIN_SRC sh\n?\n#+END_SRC" "<src lang=\"sh\">\n?\n</src>"))
 
 (provide 'init-org/code)
