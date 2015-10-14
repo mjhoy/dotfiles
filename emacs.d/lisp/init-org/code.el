@@ -8,6 +8,9 @@
 ;; fontify our code blocks
 (setq org-src-fontify-natively t)
 
+;; edit src in the current window
+(setq org-src-window-setup 'current-window)
+
 ;; structure shortcuts
 (add-to-list 'org-structure-template-alist
              '("hs" "#+BEGIN_SRC haskell\n?\n#+END_SRC" "<src lang=\"haskell\">\n?\n</src>"))
