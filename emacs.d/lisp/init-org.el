@@ -5,6 +5,8 @@
 (require 'org)
 (require 'org-mime)
 
+(setq org-startup-indented t)
+
 (setq org-directory "~/Dropbox/org/")
 
 (setq org-default-notes-file (concat org-directory "belch.org"))

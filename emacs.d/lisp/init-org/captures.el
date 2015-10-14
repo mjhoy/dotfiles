@@ -2,17 +2,16 @@
       '(("t" "Todo"
          entry (file+headline (concat org-directory "organizer.org") "General")
          "* TODO %?
-  SCHEDULED: %t
-  :LOGBOOK:
-  - State \"TODO\"       from \"\"           %U
-  :END:
+SCHEDULED: %t
+:LOGBOOK:
+- State \"TODO\"       from \"\"           %U
+:END:
 
-  see: %a\n")
+see: %a\n")
         ("n" "Note"
          entry (file (concat org-directory "belch.org"))
          "* %?
-  %U
-  %a\n")
+%U\n%a\n")
         ("c" "Clock" item (clock)
          "%?\n%U\n%a")
         ("C" "Contact" entry (file (concat org-directory "contacts.org"))
@@ -22,9 +21,9 @@
 :END:\n")
         ("b" "Book" entry (file (concat org-directory "lists/books.org"))
          "* %?
-  (C-c C-w to refile to fiction/non-fiction)
-  see %a
-  entered on %U\n")
+(C-c C-w to refile to fiction/non-fiction)
+see %a
+entered on %U\n")
         ("q" "Clock (quick)" plain (clock)
          "%a%?\n")
         ("s" "Emacs tool sharpening"
@@ -32,20 +31,20 @@
                          "Emacs"
                          "Sharpening list")
          "* %?
-  see %a
-  entered on %U\n")
+see %a
+entered on %U\n")
         ("S" "General tool sharpening"
          entry (file+olp (concat org-directory "programming_notes.org")
                          "General sharpening")
          "* %?
-  see %a
-  entered on %U\n")
+see %a
+entered on %U\n")
         ("d" "Date"
          entry (file+datetree+prompt (concat org-directory "dates.org"))
          "* %?
-  %t
+%t
 
-  see %a\n")
+see %a\n")
         ("j" "Journal"
          plain (file+datetree (concat org-directory "journal.org"))
          "%?\nEntered on %U\n")
