@@ -9,7 +9,10 @@
 (add-hook 'haskell-cabal-hook 'mjhoy/define-haskell-cabal-keys)
 
 ;; use ghci through nix
-(setq haskell-program-name "nix-shell -p haskellPackages.ghc --command 'ghci'")
+(setq haskell-program-name
+      "nix-shell \
+          -p \"haskellPackages.ghcWithPackages (pkgs: [pkgs.QuickCheck])\" \
+          --command 'ghci'")
 
 ;; the following setting will set up haskell-mode to compile with nix-shell:
 ;; (setq haskell-compile-cabal-build-command
