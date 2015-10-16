@@ -7,6 +7,8 @@
 
 (require 'ob-haskell)
 
+(require 'ob-scheme)
+
 ;; fontify our code blocks
 (setq org-src-fontify-natively t)
 
