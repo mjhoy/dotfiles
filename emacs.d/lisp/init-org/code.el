@@ -5,6 +5,8 @@
 
 (require 'ob-sql)
 
+(require 'ob-haskell)
+
 ;; fontify our code blocks
 (setq org-src-fontify-natively t)
 
