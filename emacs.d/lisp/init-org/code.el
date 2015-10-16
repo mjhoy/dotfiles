@@ -20,5 +20,7 @@
              '("rs" "#+begin_src rust\n?\n#+end_src" "<src lang=\"rust\">\n?\n</src>"))
 (add-to-list 'org-structure-template-alist
              '("sh" "#+begin_src sh\n?\n#+end_src" "<src lang=\"sh\">\n?\n</src>"))
+(add-to-list 'org-structure-template-alist
+             '("theorem" "#+begin_theorem\n?\n#+end_theorem" "<theorem>\n?\n</theorem>"))
 
 (provide 'init-org/code)
