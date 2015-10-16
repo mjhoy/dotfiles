@@ -1,3 +1,9 @@
+;; installing racket on osx:
+;;   brew install plt-racket
+;;   raco pkg install compatibility-lib
+;;    ^ seems to be required by geiser
 
 ;; load readline support (added by `install-readline!')
-(require readline/rep)
+;; (require readline/rep)
+
+(require "euler.rkt")
