@@ -15,10 +15,10 @@
 
 ;; structure shortcuts
 (add-to-list 'org-structure-template-alist
-             '("hs" "#+BEGIN_SRC haskell\n?\n#+END_SRC" "<src lang=\"haskell\">\n?\n</src>"))
+             '("hs" "#+begin_src haskell\n?\n#+end_src" "<src lang=\"haskell\">\n?\n</src>"))
 (add-to-list 'org-structure-template-alist
-             '("rs" "#+BEGIN_SRC rust\n?\n#+END_SRC" "<src lang=\"rust\">\n?\n</src>"))
+             '("rs" "#+begin_src rust\n?\n#+end_src" "<src lang=\"rust\">\n?\n</src>"))
 (add-to-list 'org-structure-template-alist
-             '("sh" "#+BEGIN_SRC sh\n?\n#+END_SRC" "<src lang=\"sh\">\n?\n</src>"))
+             '("sh" "#+begin_src sh\n?\n#+end_src" "<src lang=\"sh\">\n?\n</src>"))
 
 (provide 'init-org/code)
