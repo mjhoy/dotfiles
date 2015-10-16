@@ -24,5 +24,7 @@
              '("sh" "#+begin_src sh\n?\n#+end_src" "<src lang=\"sh\">\n?\n</src>"))
 (add-to-list 'org-structure-template-alist
              '("theorem" "#+begin_theorem\n?\n#+end_theorem" "<theorem>\n?\n</theorem>"))
+(add-to-list 'org-structure-template-alist
+             '("def" "#+begin_definition\n?\n#+end_definition" "<definition>\n?\n</definition>"))
 
 (provide 'init-org/code)
