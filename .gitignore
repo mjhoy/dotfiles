@@ -14,3 +14,4 @@ vim/.netrwhist
 /xmonad/*.o
 /xmonad/xmonad.errors
 /xmonad/xmonad-x86_64-linux
+/emacs.d/abbrev_defs
