@@ -35,4 +35,7 @@
 (show-paren-mode t)
 (setq ring-bell-function 'ignore)
 
+;; use <f13> as a fullscreen key; OS X captures F11
+(global-set-key (kbd "<f13>") 'toggle-frame-fullscreen)
+
 (provide 'init-ui)
