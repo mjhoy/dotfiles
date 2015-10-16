@@ -32,6 +32,10 @@
 (add-to-list 'org-structure-template-alist
              '("d" "#+BEGIN_DIGRESSION\n?\n#+END_DIGRESSION" ""))
 
+;; abbrevs
+(define-abbrev org-mode-abbrev-table "\l" "\lambda")
+(define-abbrev org-mode-abbrev-table "\lra" "\leftrightarrow")
+
 (require 'init-org/contacts)
 (require 'init-org/agenda)
 (require 'init-org/shortcuts)
