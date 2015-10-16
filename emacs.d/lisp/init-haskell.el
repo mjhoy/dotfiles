@@ -8,6 +8,9 @@
 (add-hook 'haskell-mode-hook 'mjhoy/define-haskell-keys)
 (add-hook 'haskell-cabal-hook 'mjhoy/define-haskell-cabal-keys)
 
+;; use ghci through nix
+(setq haskell-program-name "nix-shell -p haskellPackages.ghc --command 'ghci'")
+
 ;; the following setting will set up haskell-mode to compile with nix-shell:
 ;; (setq haskell-compile-cabal-build-command
 ;;       "cd %s && nix-shell --command 'cabal build --ghc-option=-ferror-spans' shell.nix")
