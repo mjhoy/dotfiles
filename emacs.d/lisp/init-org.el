@@ -13,6 +13,8 @@
 
 (setq org-imenu-depth 5)
 
+(setq org-list-allow-alphabetical t)
+
 (add-hook 'org-store-link-functions 'org-eww-store-link)
 (defun org-eww-store-link ()
   "Store a link to the url of a eww buffer."
