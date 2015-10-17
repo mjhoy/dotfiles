@@ -1,6 +1,3 @@
-[submodule "emacs.d/site-lisp/emacs-boron-theme-mjhoy"]
-	path = emacs.d/site-lisp/emacs-boron-theme-mjhoy
-	url = https://github.com/mjhoy/emacs-boron-theme.git
 [submodule "emacs.d/site-lisp/helm-mu"]
 	path = emacs.d/site-lisp/helm-mu
 	url = https://github.com/emacs-helm/helm-mu.git
@@ -10,3 +7,6 @@
 [submodule "emacs.d/site-lisp/matsys-theme"]
 	path = emacs.d/site-lisp/matsys-theme
 	url = git@github.com:mjhoy/matsys.git
+[submodule "emacs.d/site-lisp/davy-theme"]
+	path = emacs.d/site-lisp/davy-theme
+	url = git@github.com:mjhoy/davy.git
