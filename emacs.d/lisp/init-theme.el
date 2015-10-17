@@ -29,7 +29,7 @@
 (defun mjhoy/light ()
   "switch to my light theme"
   (interactive)
-  (mjhoy/switch-theme 'tango-plus))
+  (mjhoy/switch-theme 'matsys))
 
 (defun mjhoy/dark ()
   "switch to my dark theme"
