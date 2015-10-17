@@ -7,6 +7,6 @@
 [submodule "emacs.d/site-lisp/ruby-test-mode"]
 	path = emacs.d/site-lisp/ruby-test-mode
 	url = https://github.com/mjhoy/ruby-test-mode.git
-[submodule "emacs.d/site-lisp/emacs-leuven-theme"]
-	path = emacs.d/site-lisp/emacs-leuven-theme
-	url = git@github.com:mjhoy/emacs-leuven-theme.git
+[submodule "emacs.d/site-lisp/matsys-theme"]
+	path = emacs.d/site-lisp/matsys-theme
+	url = git@github.com:mjhoy/matsys.git
