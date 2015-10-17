@@ -4,6 +4,9 @@
 
 (defvar mjhoy/current-theme nil)
 
+(add-to-list 'custom-theme-load-path
+             (expand-file-name "site-lisp/matsys-theme" user-emacs-directory))
+
 ;; custom theme
 (load "emacs-boron-theme-mjhoy/boron-theme")
 
