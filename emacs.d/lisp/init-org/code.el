@@ -19,6 +19,8 @@
 (add-to-list 'org-structure-template-alist
              '("hs" "#+begin_src haskell\n?\n#+end_src" "<src lang=\"haskell\">\n?\n</src>"))
 (add-to-list 'org-structure-template-alist
+             '("hsnt" "#+begin_src haskell :tangle no\n?\n#+end_src" "<src lang=\"haskell\">\n?\n</src>"))
+(add-to-list 'org-structure-template-alist
              '("rs" "#+begin_src rust\n?\n#+end_src" "<src lang=\"rust\">\n?\n</src>"))
 (add-to-list 'org-structure-template-alist
              '("sh" "#+begin_src sh\n?\n#+end_src" "<src lang=\"sh\">\n?\n</src>"))
