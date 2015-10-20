@@ -147,18 +147,12 @@
       (defun mjhoy/view-mode-setup ()
         "Run when viewing a message."
         (setq truncate-lines nil)
-        (setq show-trailing-whitespace nil)
         (visual-line-mode))
-
-      (defun mjhoy/headers-mode-setup ()
-        "Run when mu4e headers are set up."
-        (setq show-trailing-whitespace nil))
 
       ;; Compose/view setup
       (add-hook 'mu4e-compose-mode-hook 'mjhoy/compose-mode-setup)
       (add-hook 'mu4e-compose-mode-hook 'turn-on-orgstruct)
       (add-hook 'mu4e-view-mode-hook 'mjhoy/view-mode-setup)
-      (add-hook 'mu4e-headers-mode-hook 'mjhoy/headers-mode-setup)
 
       (defun mjhoy/mu4e-quick-check (run-in-background)
         "Check email inboxes and update mu4e index"

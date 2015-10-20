@@ -28,8 +28,6 @@
   (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
   (when (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
 
-(setq-default show-trailing-whitespace t)
-
 ;; right option key use as mac normal option (so i can type é easily)
 (setq ns-right-alternate-modifier 'none)
 

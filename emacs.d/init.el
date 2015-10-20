@@ -35,6 +35,7 @@
 (require 'init-ui)
 (require 'init-golden-ratio)
 (require 'init-theme)
+(require 'init-prog)
 (require 'init-tramp)
 (require 'init-org)
 (require 'init-erc)

@@ -42,16 +42,11 @@ in the current directory.
 
 (defun mjhoy/term-hooks ()
   ;; yank in ansi term, C-c C-y
-  (setq show-trailing-whitespace nil)
   (define-key term-raw-escape-map "\C-y"
     (lambda ()
       (interactive)
       (term-send-raw-string (current-kill 0)))))
 
-(defun mjhoy/shell-hooks ()
-  (setq show-trailing-whitespace nil))
-
 (add-hook 'term-mode-hook 'mjhoy/term-hooks)
-(add-hook 'shell-mode-hook 'mjhoy/shell-hooks)
 
 (provide 'init-term)
