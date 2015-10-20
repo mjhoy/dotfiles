@@ -147,6 +147,7 @@
       (defun mjhoy/view-mode-setup ()
         "Run when viewing a message."
         (setq truncate-lines nil)
+        (setq show-trailing-whitespace nil)
         (visual-line-mode))
 
       (defun mjhoy/headers-mode-setup ()
