@@ -34,6 +34,12 @@ NixOS
   development in the future). See ./nix/nixos/README.org for details.
 
 
+License
+-------
+
+  MIT. See the LICENSE file.
+
+
 References
 ----------
 
