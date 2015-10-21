@@ -38,6 +38,13 @@
 (define-abbrev org-mode-abbrev-table "\l" "\lambda")
 (define-abbrev org-mode-abbrev-table "\lra" "\leftrightarrow")
 
+;; org-mode hook
+(defun mjhoy/org-mode-hook ()
+  "My org-mode-hook function."
+  (auto-fill-mode 1))
+
+(add-hook 'org-mode-hook 'mjhoy/org-mode-hook)
+
 (require 'init-org/contacts)
 (require 'init-org/agenda)
 (require 'init-org/shortcuts)
