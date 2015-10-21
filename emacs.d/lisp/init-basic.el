@@ -31,6 +31,7 @@
 ;; begone, crazy command
 (global-unset-key (kbd "C-x C-u"))
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
 
 (global-set-key (kbd "C-x f") 'find-file)
 
