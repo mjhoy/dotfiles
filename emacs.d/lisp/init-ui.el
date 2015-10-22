@@ -28,6 +28,9 @@
   (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
   (when (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
 
+;; solves an issue i have with ace-window
+(setq-default cursor-in-non-selected-windows 'bar)
+
 ;; right option key use as mac normal option (so i can type é easily)
 (setq ns-right-alternate-modifier 'none)
 
