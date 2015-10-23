@@ -66,6 +66,7 @@
 (require 'init-css)
 (require 'init-project-archetypes)
 (require 'init-term)
+(require 'init-folding)
 (require 'init-ace)
 (require 'init-dotfile-shortcuts)
 (require 'init-misc)
