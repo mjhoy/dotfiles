@@ -7,6 +7,9 @@
   #
   # $ nix-env -f '<nixpkgs>' -iA myHaskellEnv
   packageOverrides = super: let self = super.pkgs; in with self; rec {
+
+    phocid = haskellPackages.callPackage ~/proj/phocid {};
+
     haskellEnv = haskellPackages.ghcWithPackages (p: with p; [
       cabal-install
     ]);
