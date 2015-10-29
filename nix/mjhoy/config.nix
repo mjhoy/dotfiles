@@ -10,6 +10,8 @@
 
     phocid = haskellPackages.callPackage ~/proj/phocid {};
 
+    pinfold = haskellPackages.callPackage ~/work/pinfold {};
+
     haskellEnv = haskellPackages.ghcWithPackages (p: with p; [
       cabal-install
     ]);
