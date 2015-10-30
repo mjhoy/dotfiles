@@ -8,6 +8,9 @@
 (add-hook 'haskell-mode-hook 'mjhoy/define-haskell-keys)
 (add-hook 'haskell-cabal-hook 'mjhoy/define-haskell-cabal-keys)
 
+;; use web-mode for snap heist templates
+(add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
+
 ;; TODO: Figure out a better way of starting up a haskell process with
 ;; a custom (helpful default) environment when there is no `shell.nix'
 ;; present.
