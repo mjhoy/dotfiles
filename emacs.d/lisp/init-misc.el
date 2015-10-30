@@ -5,6 +5,14 @@
 ;; misc useful modes here
 (mjhoy/require-package 'apache-mode)
 
+;; bm: visual bookmarks
+(mjhoy/require-package 'bm)
+
+(require 'bm)
+(global-set-key (kbd "C-c m m") 'bm-toggle)
+(global-set-key (kbd "C-c m n") 'bm-next)
+(global-set-key (kbd "C-c m p") 'bm-previous)
+
 ;; (replaces 'describe-no-warranty)
 (global-set-key (kbd "C-h C-w") 'mjhoy/lookup-apple-dictionary)
 
