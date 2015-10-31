@@ -6,6 +6,8 @@
   (set-face-attribute 'default nil :height 160))
 (set-face-attribute 'default nil :weight 'normal)
 
+(setq text-scale-mode-step 1.14)
+
 (defun mjhoy/proportional ()
   "Use a proportional font"
   (interactive)
