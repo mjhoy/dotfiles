@@ -11,10 +11,6 @@
   '(progn
      (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup)))
 
-(eval-after-load 'rust-mode
-  '(progn
-     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
-
 (global-set-key (kbd "C-c 1") 'flycheck-mode)
 
 (provide 'init-flycheck)
