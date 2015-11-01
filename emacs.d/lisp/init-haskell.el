@@ -16,10 +16,9 @@
 ;; present.
 
 ;; To use when there is a `shell.nix' in the current directory
-(defun mjhoy/set-haskell-program-clean-nix-shell ()
+(defun mjhoy/set-haskell-program-clean-shell ()
   (interactive)
-  (setq haskell-program-name
-        "nix-shell --command 'ghci'")
+  (setq haskell-program-name "ghci")
   (message haskell-program-name))
 
 ;; To use without a `shell.nix' in the current directory
