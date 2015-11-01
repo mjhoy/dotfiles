@@ -15,19 +15,18 @@
 ;; a custom (helpful default) environment when there is no `shell.nix'
 ;; present.
 
-;; To use when there is a `shell.nix' in the current directory
+;; run with my default haskell environment
+;; (see: myHaskellEnv in nix/mjhoy/config.nix)
 (defun mjhoy/set-haskell-program-clean-shell ()
   (interactive)
   (setq haskell-program-name "ghci")
   (message haskell-program-name))
 
-;; To use without a `shell.nix' in the current directory
-(defun mjhoy/set-haskell-program-custom-nix-shell ()
+;; To use when there is a `shell.nix' in the current directory
+(defun mjhoy/set-haskell-program-nix-shell ()
   (interactive)
   (setq haskell-program-name
-        "nix-shell \
-          -p \"haskellPackages.ghcWithPackages (pkgs: with pkgs; [QuickCheck])\" \
-          --command 'ghci'")
+        "nix-shell --command 'ghci'")
   (message haskell-program-name))
 
 (mjhoy/set-haskell-program-clean-nix-shell)
