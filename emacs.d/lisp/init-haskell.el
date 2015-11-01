@@ -17,7 +17,7 @@
 
 ;; run with my default haskell environment
 ;; (see: myHaskellEnv in nix/mjhoy/config.nix)
-(defun mjhoy/set-haskell-program-clean-shell ()
+(defun mjhoy/set-haskell-program-default-shell ()
   (interactive)
   (setq haskell-program-name "ghci")
   (message haskell-program-name))
@@ -29,7 +29,7 @@
         "nix-shell --command 'ghci'")
   (message haskell-program-name))
 
-(mjhoy/set-haskell-program-clean-nix-shell)
+(mjhoy/set-haskell-program-default-shell)
 
 ;; the following setting will set up haskell-mode to compile with nix-shell:
 ;; (setq haskell-compile-cabal-build-command
