@@ -12,12 +12,21 @@
 
     pinfold = haskellPackages.callPackage ~/work/pinfold {};
 
-    myHaskellEnv = haskellPackages.ghcWithHoogle (p: with p; [
+    myHaskellEnv = haskellPackages.ghcWithPackages (p: with p; [
       cabal-install
       lens
       QuickCheck
       hspec
+
+      shakespeare
+      optparse-applicative
+      hsexif
+
+      blaze-html
+      cabal-helper
+
       snap
+      ghc-mod
     ]);
 
     # Almost sorta works.
