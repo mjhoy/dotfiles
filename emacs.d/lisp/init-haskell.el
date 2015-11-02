@@ -2,6 +2,9 @@
 (mjhoy/require-package 'ghc)
 (mjhoy/require-package 'company-ghc)
 
+(require 'init-company)
+(require 'company) ; to reference 'company-backends below
+
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (defun mjhoy/define-haskell-keys ()
   (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-compile))
