@@ -1,4 +1,6 @@
 (mjhoy/require-package 'haskell-mode)
+(mjhoy/require-package 'ghc)
+(mjhoy/require-package 'company-ghc)
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (defun mjhoy/define-haskell-keys ()
@@ -7,6 +9,14 @@
   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile))
 (add-hook 'haskell-mode-hook 'mjhoy/define-haskell-keys)
 (add-hook 'haskell-cabal-hook 'mjhoy/define-haskell-cabal-keys)
+
+;; ghc-mod setup
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+
+;; ghc-mod company
+(add-to-list 'company-backends 'company-ghc)
 
 ;; use web-mode for snap heist templates
 (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
