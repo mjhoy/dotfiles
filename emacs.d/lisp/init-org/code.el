@@ -20,6 +20,10 @@
 ;; don't indent src block code
 (setq org-edit-src-content-indentation 0)
 
+;; preserve indentation of source blocks
+;; this makes it possible to generate valid Makefiles
+(setq org-src-preserve-indentation t)
+
 ;; structure shortcuts
 (add-to-list 'org-structure-template-alist
              '("hs" "#+begin_src haskell\n?\n#+end_src" "<src lang=\"haskell\">\n?\n</src>"))
