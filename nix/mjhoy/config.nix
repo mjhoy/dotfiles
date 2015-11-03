@@ -8,25 +8,39 @@
   # $ nix-env -f '<nixpkgs>' -iA myHaskellEnv
   packageOverrides = super: let self = super.pkgs; in with self; rec {
 
-    phocid = haskellPackages.callPackage ~/proj/phocid {};
-
+    phocid  = haskellPackages.callPackage ~/proj/phocid {};
     pinfold = haskellPackages.callPackage ~/work/pinfold {};
+    ybapp   = haskellPackages.callPackage ~/work/ybapp {};
 
     myHaskellEnv = haskellPackages.ghcWithHoogle (p: with p; [
       cabal-install
-      lens
+      ghc-mod
+      hlint
       QuickCheck
       hspec
 
-      shakespeare
-      optparse-applicative
-      hsexif
-
+      # useful libraries...
+      Unixutils
+      array
       blaze-html
-      cabal-helper
-
+      bytestring
+      containers
+      extra
+      hsexif
+      lens
+      mtl
+      optparse-applicative
+      process
+      regex-applicative
+      regex-base
+      regex-compat
+      regex-posix
+      regex-tdfa
+      shakespeare
       snap
-      ghc-mod
+      vector
+      xlsx
+
     ]);
 
     # Almost sorta works.
