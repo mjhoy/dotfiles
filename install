@@ -22,6 +22,7 @@ dotfiles=( gemrc
            mutt_color
            emacs.d
            xmonad
+           nix/nixpkgs
          )
 regex="/?([^/]+)$"
 for i in "${dotfiles[@]}" ; do
@@ -33,11 +34,6 @@ for i in "${dotfiles[@]}" ; do
         run $cmd
     fi
 done
-
-if [[ ! -e $HOME/.nixpkgs/config.nix ]]; then
-    run "mkdir -p $HOME/.nixpkgs"
-    lns $(pwd)/nix/mjhoy/config.nix $HOME/.nixpkgs/config.nix
-fi
 
 if [[ ! -e $HOME/.dotfiles ]]; then
     lns $(pwd) $HOME/.dotfiles

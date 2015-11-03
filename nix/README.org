@@ -3,10 +3,10 @@
 I use [[http://nixos.org/nix/][nix]] in two places: running a NixOS VM, and the nix package
 manager on my mac.
 
-The NixOS setup lives in [[./nixos]]. Common configuration is in [[./mjhoy]]
-in =config.nix=. (This file gets symlinked to ~/.nixpkgs/config.nix in
-the install script.) This defines a set of packages I want to be in my
-environment called =all=. For instance, on my Mac, I can run
+The NixOS setup lives in [[./nixos]]. Common configuration is in [[./nixpkgs]]
+in =config.nix=. (nixpkgs is symlinked to ~/.nixpkgs in the install
+script of this repository.) This defines a set of packages I want to
+be in my environment called =all=. For instance, on my Mac, I can run
 
 #+begin_src sh
 nix-env -iA nixpkgs.all
