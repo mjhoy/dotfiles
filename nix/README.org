@@ -54,7 +54,7 @@ nix-env -iA nixpkgs.python
 
 *** seeing what's installed
 
-#+begin_src sh
+#+begin_src sh :export both
 nix-env -q
 #+end_src
 
@@ -68,7 +68,7 @@ nix-env -q
 
 I've defined a function in [[../bash/aliases]] =nix?=:
 
-#+begin_src bash
+#+begin_src bash :export both
 nix? postgresql
 #+end_src
 
