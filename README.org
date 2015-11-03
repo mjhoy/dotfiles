@@ -1,0 +1,35 @@
+* mjhoy/dotfiles
+
+My configuration. I'm currently working primarily on my [[./emacs.d][emacs config]]
+and, more recently, my [[./nix][nix]] setup.
+
+There's also some Haskell, Ruby, git, and bash configuration.
+
+I mostly run this on my Mac OS X machine and in a NixOS VM.
+
+** getting the source
+
+If you really want it, make sure to clone with `--recursive` to check
+out submodules.
+
+#+begin_src sh
+git clone --recursive https://github.com/mjhoy/dotfiles.git
+#+end_src
+
+** installing symlinks to $HOME
+
+Running the install script generates the appropriate symbolic links
+(e.g., ~/.xmonad -> dotfiles/xmonad, etc):
+
+#+begin_src sh
+./install.sh
+#+end_src
+
+** nix/NixOS
+
+I am detailing my setup of a NixOS VM (where I hope to do most of my
+development in the future). See [[./nix/nixos/README.org][nix/nixos/README.org]] for details.
+
+** license
+
+MIT. See the [[./LICENSE][LICENSE]] file.
