@@ -1,12 +1,25 @@
-# symlink to ~/.nixpkgs/config.nix
-
+# symlink this file to ~/.nixpkgs/config.nix
 {
   allowUnfree = true;
 
-  # define a derivation i can install/update with
+  # define a environment i can install/update with
   #
-  # $ nix-env -f '<nixpkgs>' -iA myHaskellEnv
+  # $ nix-env -iA nixpkgs.all
   packageOverrides = super: let self = super.pkgs; in with self; rec {
+
+    all = buildEnv {
+      name = "all";
+      paths = [
+        phocid
+        pinfold
+        ybapp
+
+        myHaskellEnv
+        cabal2nix
+
+        diagrams-builder
+      ];
+    };
 
     phocid  = haskellPackages.callPackage ~/proj/phocid {};
     pinfold = haskellPackages.callPackage ~/work/pinfold {};
@@ -40,7 +53,6 @@
       snap
       vector
       xlsx
-
     ]);
 
     # Almost sorta works.
