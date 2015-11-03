@@ -9,6 +9,8 @@
 
 (require 'ob-scheme)
 
+(require 'ob-diagrams)
+
 ;; fontify our code blocks
 (setq org-src-fontify-natively t)
 
