@@ -41,6 +41,9 @@ in the current directory.
 (global-set-key (kbd "C-c t") 'mjhoy/ansi-term-dwim)
 
 (defun mjhoy/term-hooks ()
+  ;; make page-up and page-down work properly in ansi-term
+  (define-key term-raw-map (kbd "<prior>") 'scroll-down)
+  (define-key term-raw-map (kbd "<next>") 'scroll-up)
   ;; yank in ansi term, C-c C-y
   (define-key term-raw-escape-map "\C-y"
     (lambda ()
