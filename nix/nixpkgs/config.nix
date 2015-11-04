@@ -2,17 +2,30 @@
 {
   allowUnfree = true;
 
-  # define a environment i can install/update with
-  #
-  # $ nix-env -iA nixpkgs.all
   packageOverrides = super: let self = super.pkgs; in with self; rec {
 
-    all = buildEnv {
-      name = "all";
+
+    # ----------
+    # Work stuff
+    # ----------
+    #
+    # The following are packages I'd like to install with `nix' but
+    # that are not necessary for my development environment. Basically
+    # work projects.
+    pinfold = haskellPackages.callPackage ~/work/pinfold {};
+    ybapp   = haskellPackages.callPackage ~/work/ybapp {};
+
+
+    # ---------------------
+    # Developer environment
+    # ---------------------
+    #
+    # To install all at once:
+    # $ nix-env -iA nixpkgs.devEnv
+    devEnv = buildEnv {
+      name = "devEnv";
       paths = [
         phocid
-        pinfold
-        ybapp
 
         myHaskellEnv
         cabal2nix
@@ -21,10 +34,10 @@
       ];
     };
 
+    # personal utilities
     phocid  = haskellPackages.callPackage ~/proj/phocid {};
-    pinfold = haskellPackages.callPackage ~/work/pinfold {};
-    ybapp   = haskellPackages.callPackage ~/work/ybapp {};
 
+    # haskell environment
     myHaskellEnv = haskellPackages.ghcWithHoogle (p: with p; [
       cabal-install
       ghc-mod
@@ -33,16 +46,23 @@
       hspec
 
       # useful libraries...
+      MonadCatchIO-transformers
       Unixutils
       array
       blaze-html
       bytestring
       containers
       extra
+      heist
       hsexif
+      hspec
+      hspec-core
+      hspec-snap
       lens
       mtl
+      mtl
       optparse-applicative
+      postgresql-simple
       process
       regex-applicative
       regex-base
@@ -51,6 +71,15 @@
       regex-tdfa
       shakespeare
       snap
+      snap-core
+      snap-loader-dynamic
+      snap-loader-static
+      snap-server
+      snaplet-postgresql-simple
+      snaplet-sass
+      text
+      time
+      transformers
       vector
       xlsx
     ]);
