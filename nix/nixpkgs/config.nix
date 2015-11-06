@@ -84,6 +84,14 @@
       xlsx
     ]);
 
+    myPythonEnv = self.myEnvFun {
+      name = "mypython3";
+      buildInputs = [
+        python34
+        python34Packages.matplotlib
+      ];
+    };
+
     # Almost sorta works.
     # Idea: get emacs master (git) building at a repo checkout of ~/src/emacs
     # Todo: figure out how to do the sha bizness w/r/t git.
