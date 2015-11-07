@@ -163,6 +163,8 @@
         (let ((mu4e-get-mail-command "~/bin/check-inbox-quick"))
           (mu4e-update-mail-and-index run-in-background)))
       (define-key mu4e-main-mode-map "u" 'mjhoy/mu4e-quick-check)
+      (define-key mu4e-main-mode-map "n" 'next-line)
+      (define-key mu4e-main-mode-map "p" 'previous-line)
 
       (if (boundp 'org-directory)
           (progn
