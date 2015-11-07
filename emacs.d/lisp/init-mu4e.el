@@ -22,6 +22,7 @@
 
       (mu4e-maildirs-extension)
       (setq mu4e-maildirs-extension-action-key "i")
+      (setq mu4e-maildirs-extension-action-text "\t* update [i]ndex & cache\n")
 
       (defun mjhoy/remind-no-d-key ()
         (interactive)
