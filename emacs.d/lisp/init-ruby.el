@@ -1,5 +1,6 @@
 (mjhoy/require-package 'inf-ruby)
 (mjhoy/require-package 'yaml-mode)
+(mjhoy/require-package 'robe)
 
 (add-to-list 'auto-mode-alist '("Rakefile\\'"   . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile\\'"    . ruby-mode))
@@ -11,6 +12,15 @@
   '(progn
      (define-key ruby-test-mode-map (kbd "C-c C-t") 'ruby-test-run)
      (define-key ruby-test-mode-map (kbd "C-c M-t") 'ruby-test-run-at-point)))
+
+;; robe: to use, make sure that
+;;   gem 'pry', group: :development
+;;   gem 'pry-doc', group: :development
+;; are in the current Gemfile.
+(eval-after-load 'company
+  '(push 'company-robe company-backends))
+
+(add-hook 'ruby-mode-hook 'robe-mode)
 
 (defun mjhoy/rails-compile-assets ()
   "Compile rails assets for the root magit directory.
