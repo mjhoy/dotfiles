@@ -18,6 +18,11 @@
       ;; mu4e exists on this system
       (require 'mu4e)
 
+      (mjhoy/require-package 'mu4e-maildirs-extension)
+
+      (mu4e-maildirs-extension)
+      (setq mu4e-maildirs-extension-action-key "i")
+
       (defun mjhoy/remind-no-d-key ()
         (interactive)
         (message "No deleting [d] while in fastmail setup; use [m t]"))
