@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# Clean up my mail directory. Removes old mail files in the trash
+# maildirs.
+
+set -e
+
+MAILDIR=~/.mail
+
+function clean() {
+    dir=$MAILDIR/$1
+
+    # Delete anything older than 30 days.
+    find $dir -type f -mtime +30 -delete
+}
+
+clean "trash"

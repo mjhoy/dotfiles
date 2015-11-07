@@ -12,14 +12,12 @@ function lns() {
 }
 
 dotfiles=( gemrc
-           screenrc
            gitconfig
            vim/vimrc
            vim
            bashrc
            ghci
            tmux.conf
-           mutt_color
            emacs.d
            xmonad
            nix/nixpkgs
@@ -31,6 +29,14 @@ for i in "${dotfiles[@]}" ; do
     dotfilename="$HOME/.$filename"
     if [[ ! -e $dotfilename ]]; then
         cmd="ln -s $(pwd)/$i $dotfilename"
+        run $cmd
+    fi
+done
+
+mkdir -p $HOME/bin
+for i in bin/* ; do
+    if [[ ! -e $HOME/$i ]]; then
+        cmd="ln -s $(pwd)/$i $HOME/$i"
         run $cmd
     fi
 done
