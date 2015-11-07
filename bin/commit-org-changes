@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# Commit any changes to ~/org
+
+set -e
+
+cd /Users/mjhoy/org
+
+# Check whether the git repo is clean; if so, exit
+if [ -z "$(git status --porcelain)" ]; then
+    exit
+fi
+
+git add --all .
+git commit -m 'latest (autocommit)'
