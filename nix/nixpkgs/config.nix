@@ -80,6 +80,7 @@
       text
       time
       transformers
+      turtle
       vector
       xlsx
     ]);
