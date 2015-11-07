@@ -64,6 +64,7 @@
       optparse-applicative
       postgresql-simple
       process
+      readable
       regex-applicative
       regex-base
       regex-compat
