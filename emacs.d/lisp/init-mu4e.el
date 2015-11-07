@@ -34,8 +34,7 @@
         (setq mu4e-refile-folder "/mjh-mjhoy.com/INBOX.Archive")
         (setq mu4e-drafts-folder "/mjh-mjhoy.com/INBOX.Drafts")
         (setq mu4e-sent-folder "/mjh-mjhoy.com/INBOX.Sent Items")
-        (define-key mu4e-headers-mode-map
-          (kbd "d") 'mjhoy/remind-no-d-key)
+        (setq mu4e-trash-folder "/trash")
         (setq smtpmail-starttls-credentials
               '(("mail.messagingengine.com" 587 nil nil))
               smtpmail-default-smtp-server "mail.messagingengine.com"
@@ -49,9 +48,8 @@
         (interactive)
         (setq mu4e-sent-messages-behavior 'delete)
         (setq mu4e-refile-folder nil)
-        (setq mu4e-drafts-folder "/drafts")
-        (define-key mu4e-headers-mode-map
-          (kbd "d") 'mu4e-headers-mark-for-trash)
+        (setq mu4e-drafts-folder "/michael.john.hoy-gmail.com/drafts")
+        (setq mu4e-trash-folder "/trash")
         (setq smtpmail-starttls-credentials
               '(("smtp.gmail.com" 587 nil nil))
               smtpmail-default-smtp-server "smtp.gmail.com"
