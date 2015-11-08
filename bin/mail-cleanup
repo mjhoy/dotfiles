@@ -17,3 +17,5 @@ function clean() {
 clean "trash"
 clean "mjh-mjhoy.com/INBOX.emacs-devel"
 clean "mjh-mjhoy.com/INBOX.haskell-cafe"
+clean "mjh-mjhoy.com/INBOX.haskell-community"
+clean "mjh-mjhoy.com/INBOX.org-mode"
