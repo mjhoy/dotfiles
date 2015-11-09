@@ -7,6 +7,10 @@
 
 (require 'ob-haskell)
 
+(require 'ob-python)
+
+(setq org-babel-python-command "load-env-mypython3 python")
+
 (require 'ob-scheme)
 
 (require 'ob-diagrams)
