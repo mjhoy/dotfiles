@@ -89,8 +89,8 @@
     myPythonEnv = self.myEnvFun {
       name = "mypython3";
       buildInputs = [
-        python34
-        python34Packages.matplotlib
+        python3
+        python3Packages.matplotlib
       ];
     };
 
