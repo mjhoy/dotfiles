@@ -68,6 +68,9 @@ if [[ `uname` == "Darwin" ]]; then
     export NIX_CFLAGS_LINK="-L/usr/lib"
 fi
 
+if [[ -e $HOME/src/nixpkgs ]]; then
+   export NIX_PKGS="$HOME/src/nixpkgs"
+fi
 # ghc nix setup
 export NIX_GHC="$HOME/.nix-profile/bin/ghc"
 export NIX_GHCPKG="$HOME/.nix-profile/bin/ghc-pkg"
