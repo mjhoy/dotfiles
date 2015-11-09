@@ -55,6 +55,7 @@
 (require 'init-restclient)
 (require 'init-scheme)
 (require 'init-ruby)
+(require 'init-python)
 (require 'init-rust)
 (require 'init-javascript)
 (require 'init-haskell)
