@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Run python in my nix environment.
+
+exec $HOME/.nix-profile/bin/load-env-mypython3 "python3.4"
