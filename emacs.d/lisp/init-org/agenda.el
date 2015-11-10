@@ -5,6 +5,7 @@
              "belch.org"                ; all notes go here
              "dates.org"                ; upcoming dates
              "projects.org"             ; personal project notes
+             "finance.org"              ; personal finances
              )))
 
 (setq org-agenda-dim-blocked-tasks nil)
