@@ -10,6 +10,7 @@
 (global-set-key (kbd "C-c o b") (openo "belch.org"))
 (global-set-key (kbd "C-c o d") (openo "dates.org"))
 (global-set-key (kbd "C-c o j") (openo "projects.org"))
+(global-set-key (kbd "C-c o f") (openo "finance.org"))
 
 (global-set-key (kbd "C-c o ?") (fni (let ((default-directory org-directory))
                                        (helm-find-files nil))))
