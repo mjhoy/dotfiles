@@ -31,6 +31,7 @@ machine irc.freenode.net login LOGIN password PASSWORD
 (global-set-key (kbd "C-c i j o") (fni (erc-join-channel "#org-mode")))
 (global-set-key (kbd "C-c i j d") (fni (erc-join-channel "#drupal")))
 (global-set-key (kbd "C-c i j n") (fni (erc-join-channel "#nixos")))
+(global-set-key (kbd "C-c i j N") (fni (erc-join-channel "##nix-darwin")))
 (global-set-key (kbd "C-c i j s") (fni (erc-join-channel "#snapframework")))
 
 (provide 'init-erc)
