@@ -53,6 +53,7 @@
       bytestring
       containers
       extra
+      filepath
       heist
       hsexif
       hspec
@@ -82,6 +83,7 @@
       time
       transformers
       turtle
+      unordered-containers
       vector
       xlsx
     ]);
