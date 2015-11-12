@@ -25,6 +25,8 @@
     devEnv = buildEnv {
       name = "devEnv";
       paths = [
+        emacs-master
+
         phocid
 
         myHaskellEnv
@@ -96,9 +98,7 @@
       ];
     };
 
-    # Almost sorta works.
-    # Idea: get emacs master (git) building at a repo checkout of ~/src/emacs
-    # Todo: figure out how to do the sha bizness w/r/t git.
+    # build emacs from source
     emacs-master = pkgs.stdenv.lib.overrideDerivation pkgs.emacs (oldAttrs: {
       name = "emacs-master";
       src = ~/src/emacs;
