@@ -25,8 +25,6 @@
     devEnv = buildEnv {
       name = "devEnv";
       paths = [
-        emacs-master
-
         phocid
 
         myHaskellEnv
