@@ -101,13 +101,11 @@
     # Todo: figure out how to do the sha bizness w/r/t git.
     emacs-master = pkgs.stdenv.lib.overrideDerivation pkgs.emacs (oldAttrs: {
       name = "emacs-master";
-      src = pkgs.fetchgit {
-        url = "~/src/emacs";
-        rev = "master";
-        sha256 = "a00634c20988215a47ec6c00cea85a2eac162597";
-      };
+      src = ~/src/emacs;
       buildInputs = oldAttrs.buildInputs ++ [
-        pkgs.autoconf pkgs.automake ];
+        pkgs.autoconf pkgs.automake
+      ];
+      doCheck = false;
     });
   };
 }
