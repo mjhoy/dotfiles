@@ -22,7 +22,7 @@
 
 (add-hook 'ruby-mode-hook 'robe-mode)
 
-(defun mjhoy/rails-compile-assets ()
+(defun mjhoy/rails-compile-assets (branch)
   "Compile rails assets for the root magit directory.
 
 Uses magit for all git commands. The nice thing about this is
@@ -36,10 +36,10 @@ This will merge `deploy` with the current branch, precompile the
 assets, commit the changes (if any), push `deploy` to origin, and
 checkout the old branch.
 "
-  (interactive)
+  (interactive "sBranch to compile assets for: ")
   (let ((current-branch (magit-get-current-branch))
         (default-directory (magit-toplevel)))
-    (magit-checkout "deploy")
+    (magit-checkout branch)
     (magit-run-git "merge" current-branch "--no-edit")
     (message "Running assets:precompile")
     (shell-command "RAILS_ENV=production bundle exec rake assets:precompile")
@@ -48,7 +48,7 @@ checkout the old branch.
         (progn
           (magit-run-git "add" "--all" "public/")
           (magit-run-git "commit" "-m" "precompile assets for deploy")))
-    (magit-push "deploy" "origin")
+    (magit-push branch "origin")
     (magit-checkout current-branch)
     (message "Compile assets finished")))
 
