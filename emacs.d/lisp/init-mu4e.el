@@ -125,6 +125,9 @@
       (setq mu4e-html2text-command 'mu4e-shr2text)
       ;; org-mode: this allows me to capture links to email messages
       (require 'org-mu4e)
+
+      (setq org-mu4e-link-query-in-headers-mode nil)
+
       ;; bookmarks
       (add-to-list 'mu4e-bookmarks '("date:14d..now AND maildir:/michael.john.hoy-gmail.com/archive"  "Latest archive" ?a))
       (add-to-list 'mu4e-bookmarks '("date:14d..now AND maildir:/michael.john.hoy-gmail.com/sent"     "Latest sent"    ?s))
