@@ -70,7 +70,7 @@
               '())
              ((mu4e-message-contact-field-matches msg :to "michael.john.hoy@gmail.com")
               (mjhoy/switch-to-gmail))
-             ((mu4e-message-contact-field-matches msg :to "mjh@mjhoy.com")
+             (t
               (mjhoy/switch-to-fastmail))))))
 
       (add-hook 'mu4e-compose-pre-hook 'mjhoy/switch-mail-auto-fn)
