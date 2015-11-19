@@ -34,4 +34,16 @@ machine irc.freenode.net login LOGIN password PASSWORD
 (global-set-key (kbd "C-c i j N") (fni (erc-join-channel "##nix-darwin")))
 (global-set-key (kbd "C-c i j s") (fni (erc-join-channel "#snapframework")))
 
+;; minimal distraction: only track when i am mentioned
+(setq erc-format-query-as-channel-p t
+      erc-track-priority-faces-only 'all
+      erc-track-faces-priority-list '(erc-error-face
+                                      erc-current-nick-face
+                                      erc-keyword-face
+                                      erc-nick-msg-face
+                                      erc-direct-msg-face
+                                      erc-dangerous-host-face
+                                      erc-notice-face
+                                      erc-prompt-face))
+
 (provide 'init-erc)
