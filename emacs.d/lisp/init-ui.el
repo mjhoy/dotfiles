@@ -26,7 +26,6 @@
 
 ;; input is a little tight; increase the line-spacing
 (setq-default line-spacing 0.1)
-(menu-bar-mode 0)
 (when (string-equal system-type "darwin")
   (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
   (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
