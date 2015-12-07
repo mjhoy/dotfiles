@@ -69,5 +69,6 @@
 (require 'init-term)
 (require 'init-folding)
 (require 'init-ace)
+(require 'init-ledger)
 (require 'init-dotfile-shortcuts)
 (require 'init-misc)
