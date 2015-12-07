@@ -7,9 +7,6 @@ if hash rbenv 2>/dev/null; then
     eval "$(rbenv init -)"
 fi
 
-# nix
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
-
 # gpg
 GPG_AGENT=$(which gpg-agent)
 GPG_TTY=`tty`

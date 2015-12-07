@@ -58,24 +58,7 @@ pman () {
   man -t "${1}" | open -f -a /Applications/Preview.app
 }
 
-# nix: problem with compiling with ghc if not in a nix-shell
-# this is a fix for that, see
-# http://hydra.nixos.org/build/27061654/download/1/nixpkgs/manual.html#builds-on-darwin-fail-with-math.h-not-found
-# and
-# https://github.com/NixOS/nixpkgs/issues/6390
-if [[ `uname` == "Darwin" ]]; then
-    export NIX_CFLAGS_COMPILE="-idirafter /usr/include"
-    export NIX_CFLAGS_LINK="-L/usr/lib"
-fi
+# nix
+. ~/.dotfiles/bash/nix
 
-if [[ -e $HOME/src/nixpkgs ]]; then
-   export NIX_PKGS="$HOME/src/nixpkgs"
-fi
-# ghc nix setup
-export NIX_GHC="$HOME/.nix-profile/bin/ghc"
-export NIX_GHCPKG="$HOME/.nix-profile/bin/ghc-pkg"
-export NIX_GHC_DOCDIR="$HOME/.nix-profile/share/doc/ghc/html"
-if [[ -e $HOME/.nix-profile/bin/ghc ]]; then
-    NIX_GHC_VERSION=$($HOME/.nix-profile/bin/ghc --numeric-version)
-    export NIX_GHC_LIBDIR="$HOME/.nix-profile/lib/ghc-${NIX_GHC_VERSION}"
 fi
