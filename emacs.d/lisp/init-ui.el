@@ -5,24 +5,10 @@
 ;; nix (/linux) seems to load in fonts much larger
 (if nixos
     (set-face-attribute 'default nil :height 115)
-  (set-face-attribute 'default nil :height 160))
+  (set-face-attribute 'default nil :height 140))
 (set-face-attribute 'default nil :weight 'normal)
 
 (setq text-scale-mode-step 1.14)
-
-(defun mjhoy/proportional ()
-  "Use a proportional font"
-  (interactive)
-  (setq buffer-face-mode-face '(:family "Input Sans" :height 130))
-  (setq line-spacing 0)
-  (buffer-face-mode))
-
-(defun mjhoy/mono ()
-  "Use a monospace font"
-  (interactive)
-  (setq buffer-face-mode-face '(:family "Input Mono" :height 140))
-  (setq line-spacing 0)
-  (buffer-face-mode))
 
 ;; input is a little tight; increase the line-spacing
 (setq-default line-spacing 0.1)

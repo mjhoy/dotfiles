@@ -26,21 +26,4 @@
   (setq mjhoy/current-theme theme)
   (load-theme theme t))
 
-(defun mjhoy/light ()
-  "switch to my light theme"
-  (interactive)
-  (mjhoy/switch-theme 'matsys))
-
-(defun mjhoy/dark ()
-  "switch to my dark theme"
-  (interactive)
-  (mjhoy/switch-theme 'davy))
-
-;; TODO: remove?
-;; (add-hook 'after-init-hook (lambda ()
-;;   (when (fboundp 'auto-dim-other-buffers-mode)
-;;     (auto-dim-other-buffers-mode t))))
-
-(mjhoy/dark)
-
 (provide 'init-theme)
