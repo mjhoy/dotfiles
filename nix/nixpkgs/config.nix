@@ -12,7 +12,8 @@
     # The following are packages I'd like to install with `nix' but
     # that are not necessary for my development environment. Basically
     # work projects.
-    pinfold = haskellPackages.callPackage ~/work/pinfold {};
+
+    pinfold = haskellPackages.callPackage ~/work/snap_pinfold {};
     ybapp   = haskellPackages.callPackage ~/work/ybapp {};
 
 
