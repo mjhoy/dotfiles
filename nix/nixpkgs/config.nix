@@ -31,6 +31,9 @@
         cabal2nix
 
         diagrams-builder
+
+        coq
+        emacs24Packages.proofgeneral
       ];
     };
 

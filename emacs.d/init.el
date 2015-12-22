@@ -12,10 +12,13 @@
              (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path
              (expand-file-name "site-lisp" user-emacs-directory))
-(if nixos
-    (let ((default-directory
-            (expand-file-name "~/.nix-profile/share/emacs/site-lisp")))
-      (normal-top-level-add-subdirs-to-load-path)))
+
+;; if emacs lisp code exists in a nix-profile, add to load path. this
+;; allows e.g., nix-env -iA nixpkgs.emacs24Packages.proofgeneral
+(let ((nix-emacs-lisp-dir
+       (expand-file-name "~/.nix-profile/share/emacs/site-lisp")))
+  (if (file-exists-p nix-emacs-lisp-dir)
+      (setq load-path (append (list nix-emacs-lisp-dir) load-path))))
 
 ;; this directory isn't added in osx gui emacs for some reason.
 (if (and (not (member "/usr/local/share/emacs/site-lisp" load-path))
@@ -65,6 +68,7 @@
 (require 'init-php)
 (require 'init-web-mode)
 (require 'init-css)
+(require 'init-coq)
 (require 'init-project-archetypes)
 (require 'init-term)
 (require 'init-folding)
