@@ -12,10 +12,11 @@
 
 ;; input is a little tight; increase the line-spacing
 (setq-default line-spacing 0.1)
-(when (string-equal system-type "darwin")
-  (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-  (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-  (when (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
+
+(if (string-equal system-type "darwin")
+    (progn
+      (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+      (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))))
 
 ;; solves an issue i have with ace-window
 (setq-default cursor-in-non-selected-windows 'bar)
