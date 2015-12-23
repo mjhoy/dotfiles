@@ -10,6 +10,8 @@
 
 (setq text-scale-mode-step 1.14)
 
+(setq-default cursor-type 'bar)
+
 ;; inhibit tool bar
 (tool-bar-mode 0)
 
