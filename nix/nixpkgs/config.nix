@@ -38,6 +38,19 @@
       ];
     };
 
+    # ---------------------
+    # Linux dev environment
+    # ---------------------
+    #
+    # To install all at once:
+    # $ nix-env -iA nixpkgs.linuxDevEnv
+    linuxDevEnv = buildEnv {
+      name = "linuxDevEnv";
+      paths = [
+        gcc
+      ];
+    };
+
     # personal utilities
     phocid  = haskellPackages.callPackage ~/proj/phocid {};
 
