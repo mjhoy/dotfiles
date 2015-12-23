@@ -13,6 +13,10 @@
 ;; inhibit tool bar
 (tool-bar-mode 0)
 
+;; show 24h clock in the mode line
+(setq display-time-24hr-format t)
+(display-time-mode 1)
+
 ;; input is a little tight; increase the line-spacing
 (setq-default line-spacing 0.1)
 
