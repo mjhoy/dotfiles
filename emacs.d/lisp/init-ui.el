@@ -10,6 +10,9 @@
 
 (setq text-scale-mode-step 1.14)
 
+;; inhibit tool bar
+(tool-bar-mode 0)
+
 ;; input is a little tight; increase the line-spacing
 (setq-default line-spacing 0.1)
 
