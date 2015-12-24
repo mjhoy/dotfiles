@@ -34,6 +34,7 @@
 
 (require 'init-basic)
 (require 'init-packages)
+(require 'init-env)
 (require 'init-diminish)
 (require 'init-ui)
 (require 'init-golden-ratio)
