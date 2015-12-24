@@ -96,6 +96,7 @@
       snap-server
       snaplet-postgresql-simple
       snaplet-sass
+      split
       text
       time
       transformers
