@@ -21,6 +21,7 @@ dotfiles=( gemrc
            emacs.d
            xmonad
            nix/nixpkgs
+           gtkrc-2.0
          )
 regex="/?([^/]+)$"
 for i in "${dotfiles[@]}" ; do
