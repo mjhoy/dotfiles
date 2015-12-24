@@ -4,6 +4,12 @@
 
   packageOverrides = super: let self = super.pkgs; in with self; rec {
 
+    # An example nix package that builds GNU's `hello'. See the
+    # `example-pkg-hello' directory for how this is set up. Taken from
+    # the Nix manual:
+    # http://nixos.org/nix/manual/#chap-writing-nix-expressions
+    example-pkg-hello = callPackage ~/.dotfiles/nix/pkgs/example-pkg-hello {};
+
 
     # ----------
     # Work stuff
