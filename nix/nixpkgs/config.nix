@@ -8,6 +8,9 @@
     # `example-pkg-hello' directory for how this is set up. Taken from
     # the Nix manual:
     # http://nixos.org/nix/manual/#chap-writing-nix-expressions
+    #
+    # to build, for instance:
+    # $ nix-build "<nixpkgs>" -A example-pkg-hello
     example-pkg-hello = callPackage ~/.dotfiles/nix/pkgs/example-pkg-hello {};
 
 
