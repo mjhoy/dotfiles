@@ -7,6 +7,7 @@
     gnupg1
     gnumake
     silver-searcher
+    tree
 
     # nix
     nix-repl
