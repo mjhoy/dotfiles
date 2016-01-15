@@ -57,6 +57,8 @@
 
         coq
         emacs24Packages.proofgeneral
+
+        nasm
       ];
     };
 
