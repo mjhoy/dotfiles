@@ -1,5 +1,5 @@
 (if nixos
-    (set-face-attribute 'default nil :family "Hack")
+    (set-face-attribute 'default nil :family "Ubuntu Mono")
   (set-face-attribute 'default nil :family "Menlo"))
 
 ;; nix (/linux) seems to load in fonts much larger
