@@ -66,6 +66,7 @@
 (require 'init-nix)
 (require 'init-c)
 (require 'init-nasm)
+(require 'init-gdk)
 (require 'init-php)
 (require 'init-web-mode)
 (require 'init-css)
