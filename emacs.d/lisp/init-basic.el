@@ -12,8 +12,6 @@
 ;; save bookmarks immediately
 (setq bookmark-save-flag 1)
 
-(setq inhibit-splash-screen t)
-
 (set-language-environment 'utf-8)
 (setq locale-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
