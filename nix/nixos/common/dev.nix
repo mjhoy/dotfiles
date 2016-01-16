@@ -2,6 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
+    man-pages
+
     file
     unzip
     gnupg1
