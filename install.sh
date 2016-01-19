@@ -22,6 +22,7 @@ dotfiles=( gemrc
            xmonad
            nix/nixpkgs
            gtkrc-2.0
+           Xresources
          )
 regex="/?([^/]+)$"
 for i in "${dotfiles[@]}" ; do
