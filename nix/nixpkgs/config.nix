@@ -102,8 +102,8 @@
       hspec-snap
       lens
       mtl
-      mtl
       optparse-applicative
+      parsec
       postgresql-simple
       process
       readable
