@@ -2,10 +2,7 @@
     (set-face-attribute 'default nil :family "Ubuntu Mono")
   (set-face-attribute 'default nil :family "Menlo"))
 
-;; nix (/linux) seems to load in fonts much larger
-(if nixos
-    (set-face-attribute 'default nil :height 115)
-  (set-face-attribute 'default nil :height 140))
+(set-face-attribute 'default nil :height 140)
 (set-face-attribute 'default nil :weight 'normal)
 
 (setq text-scale-mode-step 1.14)
@@ -18,9 +15,6 @@
 ;; show 24h clock in the mode line
 (setq display-time-24hr-format t)
 (display-time-mode 1)
-
-;; input is a little tight; increase the line-spacing
-(setq-default line-spacing 0.1)
 
 (if (string-equal system-type "darwin")
     (progn
