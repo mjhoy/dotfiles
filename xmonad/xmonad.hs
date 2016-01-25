@@ -1,6 +1,12 @@
 import XMonad
 import XMonad.Util.EZConfig
 
+-- xmonad config!
+--
+-- things to remember:
+-- mod-q => reload xmonad
+-- cheatsheet => https://wiki.haskell.org/wikiupload/b/b8/Xmbindings.png
+
 xF86AudioRaiseVolume,xF86AudioLowerVolume, xF86AudioMute :: KeySym
 xF86AudioRaiseVolume = 0x1008ff13
 xF86AudioLowerVolume = 0x1008ff11
