@@ -1,28 +1,22 @@
 # Acer C720-specific configuration.
 #
-# Unfortunately things are not working quite yet. Suspend/resume
-# causes some sort of weird USB error to fill up the system logs, and
-# I have to force shut the computer down. I am hopefull I'll get it
-# working eventually, apparently it has been done.
+# Current issues:
 #
-# The trackpad works, but is -- touchy. If I brush it at all, it
-# clicks or does something silly. I have to build the kernel with a
-# custom flag set for it to work at all.
+#   - Suspend now does not cause a crazy amount of error messages to
+#     go to the log; the problem now is that it immediately wakes up
+#     after sleeping when I shut the lid.
 #
-# I would like the power button not to immediately shut the computer
-# down without any warning when I am, say, working in emacs and trying
-# to hit the backspace key. (Perhaps this is an xmonad config thing.)
-
+#   - Trackpad not working; I need to uncomment the linux config
+#     below, I'm holding off on that because it means recompiling the
+#     kernel.
+#
+# some config taken from
+# https://github.com/henrytill/etc-nixos/blob/master/machines/thaumas.nix
 { config, pkgs, ...}:
 
 {
-
-  # Asus C720 suspend compat -- doesn't seem to work.
-  boot.blacklistedKernelModules = [ "ehci_pci" ];
-  boot.kernelParams = [
-    "tpm_tis.interrupts=0"
-    "i915.enable_ips=0"
-  ];
+  # Asus C720 suspend compat -- in progress!
+  boot.kernelParams = [ "modprobe.blacklist=ehci_pci" ];
 
   # Get sound working.
   # (disable the first intel sound card, enable the second.)
@@ -30,8 +24,18 @@
     options snd_hda_intel enable=0,1
   '';
 
+  boot.cleanTmpDir = true;
   powerManagement.enable = true;
   powerManagement.cpuFreqGovernor = "conservative";
+
+  hardware.cpu.intel.updateMicrocode = true;
+
+  # Use power key as a suspend key. More useful (and safe) than power
+  # off, b/c I hit it by accident a lot.
+  services.logind.extraConfig = ''
+    HandlePowerKey=suspend
+    HandleLidSwitch=suspend
+  '';
 
   # Touchpad configuration.
   services.xserver.synaptics = {
@@ -50,17 +54,17 @@
 
   # set CHROME_PLATFORMS flag; needed for touchpad.
   # note: this means nix will need to build linux. fun!
-  nixpkgs.config = {
-    packageOverrides = super: let self = super.pkgs; in rec {
-      stdenv = super.stdenv // {
-        platform = super.stdenv.platform // {
-          kernelExtraConfig = ''
-            CHROME_PLATFORMS y
-          '';
-        };
-      };
-    };
-  };
+  # nixpkgs.config = {
+  #   packageOverrides = super: let self = super.pkgs; in rec {
+  #     stdenv = super.stdenv // {
+  #       platform = super.stdenv.platform // {
+  #         kernelExtraConfig = ''
+  #           CHROME_PLATFORMS y
+  #         '';
+  #       };
+  #     };
+  #   };
+  # };
 
   # maybe this is needed?
   services.xserver.vaapiDrivers = [ pkgs.vaapiIntel ];
