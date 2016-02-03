@@ -3,7 +3,9 @@
 (require 'diminish)
 
 (eval-after-load "projectile"
-  '(diminish 'projectile-mode " §"))
+  '(diminish 'projectile-mode))
+(eval-after-load "autorevert"
+  '(diminish 'auto-revert-mode))
 (eval-after-load "company"
   '(diminish 'company-mode))
 (eval-after-load "yasnippet"
