@@ -38,7 +38,6 @@
 (require 'init-env)
 (require 'init-diminish)
 (require 'init-ui)
-(require 'init-golden-ratio)
 (require 'init-theme)
 (require 'init-prog)
 (require 'init-tramp)
