@@ -6,6 +6,8 @@
 #     go to the log; the problem now is that it immediately wakes up
 #     after sleeping when I shut the lid.
 #
+#   - Therefore I'm using hibernate instead of suspend right now.
+#
 #   - Trackpad not working; I need to uncomment the linux config
 #     below, I'm holding off on that because it means recompiling the
 #     kernel.
@@ -30,11 +32,12 @@
 
   hardware.cpu.intel.updateMicrocode = true;
 
-  # Use power key as a suspend key. More useful (and safe) than power
-  # off, b/c I hit it by accident a lot.
+  # Use power key as a hibernate key. (Suspend is not working.) And
+  # it's more useful (and safe) than power off, as I hit it by
+  # accident a lot.
   services.logind.extraConfig = ''
-    HandlePowerKey=suspend
-    HandleLidSwitch=suspend
+    HandlePowerKey=hibernate
+    HandleLidSwitch=hibernate
   '';
 
   # Touchpad configuration.
