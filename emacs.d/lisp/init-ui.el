@@ -9,8 +9,13 @@
 
 (setq-default cursor-type 'bar)
 
-;; inhibit tool bar
 (tool-bar-mode 0)
+
+(if nixos
+    (progn
+      (menu-bar-mode 0)
+      (scroll-bar-mode 0)
+      (display-battery-mode)))
 
 ;; show 24h clock in the mode line
 (setq display-time-24hr-format t)
