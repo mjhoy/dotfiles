@@ -23,4 +23,10 @@
     # rails
     ruby_2_1_1
   ];
+
+  environment.shellInit = ''
+    if [[ $TERM == dumb ]]; then
+      PAGER=cat;
+    fi
+  '';
 }
