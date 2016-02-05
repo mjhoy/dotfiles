@@ -4,9 +4,8 @@
 #
 #   - Suspend now does not cause a crazy amount of error messages to
 #     go to the log; the problem now is that it immediately wakes up
-#     after sleeping when I shut the lid.
-#
-#   - Therefore I'm using hibernate instead of suspend right now.
+#     after sleeping when I shut the lid. (Note: this is fixed if I
+#     disable wakeup via trackpad. See below.)
 #
 #   - Trackpad not working; I need to uncomment the linux config
 #     below, I'm holding off on that because it means recompiling the
@@ -32,12 +31,18 @@
 
   hardware.cpu.intel.updateMicrocode = true;
 
-  # Use power key as a hibernate key. (Suspend is not working.) And
-  # it's more useful (and safe) than power off, as I hit it by
-  # accident a lot.
+  # Ignore the power key for now.
+  #
+  # To suspend, instead run: systemctl suspend, or systemctl
+  # hibernate, etc.
+  #
+  # Suspend does not seem to work if the trackpad can resume the
+  # system. To fix this, run `cat TPAD > /proc/acpi/wakeup`.
+  #
+  # See more at logind.conf(5)
   services.logind.extraConfig = ''
-    HandlePowerKey=hibernate
-    HandleLidSwitch=hibernate
+    HandlePowerKey=ignore
+    HandleLidSwitch=ignore
   '';
 
   # Touchpad configuration.
