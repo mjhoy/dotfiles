@@ -58,6 +58,9 @@
     #
     # To install all at once:
     # $ nix-env -iA nixpkgs.devEnv
+
+    lslink = haskellPackages.callPackage ~/proj/util/lslink {};
+
     devEnv = buildEnv {
       name = "devEnv";
       paths = [
