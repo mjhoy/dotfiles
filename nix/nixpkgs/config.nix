@@ -42,6 +42,8 @@
     pinfold = haskellPackages.callPackage ~/work/snap_pinfold {};
     ybapp   = haskellPackages.callPackage ~/work/ybapp {};
 
+    chorebot = haskellPackages.callPackage ~/proj/chorebot_hs {};
+
     nodejsEnv = with pkgs; buildEnv {
       name = "nodeEnv";
       paths = [
