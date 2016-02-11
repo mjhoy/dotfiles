@@ -1,5 +1,6 @@
 (require 'erc)
 (require 'init-basic)
+(require 'erc-truncate)
 
 (defun mjhoy/freenode-erc ()
   "Connect to freenode with my account
