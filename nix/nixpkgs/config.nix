@@ -69,10 +69,10 @@
         myHaskellEnv
         cabal2nix
 
-        diagrams-builder
+        # diagrams-builder
 
-        coq
-        emacs24Packages.proofgeneral
+        # coq
+        # emacs24Packages.proofgeneral
 
         nasm
       ];
