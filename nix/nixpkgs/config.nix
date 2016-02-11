@@ -42,6 +42,13 @@
     pinfold = haskellPackages.callPackage ~/work/snap_pinfold {};
     ybapp   = haskellPackages.callPackage ~/work/ybapp {};
 
+    nodejsEnv = with pkgs; buildEnv {
+      name = "nodeEnv";
+      paths = [
+        nodejs-0_10
+      ];
+    };
+
 
     # ---------------------
     # Developer environment
