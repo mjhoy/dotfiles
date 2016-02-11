@@ -4,6 +4,10 @@
 
   packageOverrides = super: let self = super.pkgs; in with self; rec {
 
+    libmjh = import ~/proj/util/libmjh {
+      inherit stdenv;
+    };
+
     mdk = stdenv.mkDerivation {
       name = "gnu-mdk-1.2.9";
       src = fetchurl {
