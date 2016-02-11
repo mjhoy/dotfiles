@@ -49,3 +49,7 @@
 ! Light Grey (Selection) + White (Current Line)
 *.color7:       t_selection
 *.color15:      t_current_line
+
+! working on ...
+! see https://wiki.archlinux.org/index.php/X_resources
+! xterm*faceSize: 16
