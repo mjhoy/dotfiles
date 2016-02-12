@@ -8,6 +8,11 @@
 ;; are we running on nix?
 (if (string-match "^nixos" (system-name)) (setq nixos t) (setq nixos nil))
 
+;; we want to use a newer version of tramp to fix this bug:
+;; https://lists.gnu.org/archive/html/bug-gnu-emacs/2015-01/msg00985.html
+(add-to-list 'load-path
+             (expand-file-name "tramp-git/lisp" user-emacs-directory))
+
 (add-to-list 'load-path
              (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path
