@@ -30,9 +30,11 @@
                     (or (plist-get eww-data :title)
                         (eww-current-url))))))
 
-;; add a "digression" template
+;; add a "digression" and "aside" template for writing
 (add-to-list 'org-structure-template-alist
              '("d" "#+BEGIN_DIGRESSION\n?\n#+END_DIGRESSION" ""))
+(add-to-list 'org-structure-template-alist
+             '("as" "#+BEGIN_ASIDE\n?\n#+END_ASIDE" ""))
 
 ;; abbrevs
 (define-abbrev org-mode-abbrev-table "\l" "\lambda")
