@@ -85,6 +85,9 @@
     # personal utilities
     phocid  = haskellPackages.callPackage ~/proj/phocid {};
 
+    # my website
+    mjhoy_com = haskellPackages.callPackage ~/proj/mjhoy.com {};
+
     # haskell environment
     myHaskellEnv = haskellPackages.ghcWithHoogle (p: with p; [
       cabal-install
@@ -102,6 +105,7 @@
       containers
       extra
       filepath
+      hakyll
       heist
       hsexif
       hspec
@@ -110,6 +114,7 @@
       lens
       mtl
       optparse-applicative
+      pandoc
       parsec
       postgresql-simple
       process
