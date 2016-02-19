@@ -30,6 +30,9 @@
 (global-set-key (kbd "C-c h e") 'helm-mu)
 (global-set-key (kbd "M-s s") 'helm-projectile-ag)
 
+;; apropos override
+(global-set-key (kbd "C-h a") 'helm-apropos)
+
 ;; Don't use helm for standard find-file. It's annoying when using
 ;; TRAMP mode so I keep `C-x f` available as find-file with standard
 ;; completion.
