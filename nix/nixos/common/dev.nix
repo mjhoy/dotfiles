@@ -2,6 +2,9 @@
 
 {
   environment.systemPackages = with pkgs; [
+
+    htop
+
     man-pages
 
     file
