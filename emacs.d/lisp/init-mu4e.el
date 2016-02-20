@@ -149,7 +149,7 @@
                                   (:mailing-list . 6)
                                   (:from . 22)
                                   (:thread-subject)))
-      (setq mu4e-use-fancy-chars 'threads)
+      (setq mu4e-use-fancy-chars t)
 
       (defun mjhoy/compose-mode-setup ()
         "Run when composing a message."
