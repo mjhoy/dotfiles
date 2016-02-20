@@ -1,5 +1,6 @@
 (require 'init-basic)
 (mjhoy/require-package 'company)
+(require 'company)
 
 (add-hook 'after-init-hook 'global-company-mode)
 (global-set-key (kbd "M-SPC") 'company-complete)
