@@ -8,10 +8,6 @@
       inherit stdenv;
     };
 
-    mdk = import ./mdk.nix {
-      inherit stdenv intltool pkgconfig glib fetchurl;
-    };
-
     # An example nix package that builds GNU's `hello'. See the
     # `example-pkg-hello' directory for how this is set up. Taken from
     # the Nix manual:
