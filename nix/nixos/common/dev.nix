@@ -14,6 +14,9 @@
     silver-searcher
     tree
 
+    # postgres
+    postgresql93
+
     # nix
     nix-repl
     strategoPackages.strategoxt # pp-aterm
