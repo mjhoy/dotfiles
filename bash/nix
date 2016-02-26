@@ -1,5 +1,9 @@
+# -*- mode: sh -*-
+
 # nix
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
+
+if [ -e $HOME/.nix-defexpr/nixpkgs ]; then NIX_PATH=nixpkgs=$HOME/.nix-defexpr/nixpkgs:$NIX_PATH; fi
 
 # nix: problem with compiling with ghc if not in a nix-shell
 # this is a fix for that, see
