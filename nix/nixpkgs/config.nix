@@ -135,7 +135,6 @@
       turtle
       unordered-containers
       vector
-      xlsx
     ]);
 
     myPythonEnv = self.myEnvFun {
