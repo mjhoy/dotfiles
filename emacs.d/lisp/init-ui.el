@@ -1,8 +1,8 @@
 (if nixos
     (set-face-attribute 'default nil :family "Ubuntu Mono")
-  (set-face-attribute 'default nil :family "Menlo"))
+  (set-face-attribute 'default nil :family "Input Mono"))
 
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 190)
 (set-face-attribute 'default nil :weight 'normal)
 
 (setq text-scale-mode-step 1.14)
