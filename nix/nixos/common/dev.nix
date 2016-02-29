@@ -25,9 +25,6 @@
     ghc
     cabal-install
     cabal2nix
-
-    # rails
-    ruby_2_1_1
   ];
 
   environment.shellInit = ''

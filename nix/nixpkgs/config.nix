@@ -7,7 +7,10 @@
     linuxOnly = buildEnv {
       name = "linuxOnly";
       paths = [
+        # php development
         drush
+        php
+
         gcc
         libmjh
       ];
