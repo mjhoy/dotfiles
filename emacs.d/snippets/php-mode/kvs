@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: key value string
+# key: kvs
+# --
+'$1' => '$2',$0
