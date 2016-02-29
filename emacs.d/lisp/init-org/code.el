@@ -21,9 +21,6 @@
 ;; edit src in the current window
 (setq org-src-window-setup 'current-window)
 
-;; don't indent src block code
-(setq org-edit-src-content-indentation 0)
-
 ;; preserve indentation of source blocks
 ;; this makes it possible to generate valid Makefiles
 (setq org-src-preserve-indentation t)

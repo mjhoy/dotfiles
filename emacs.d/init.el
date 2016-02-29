@@ -82,4 +82,5 @@
 (require 'init-ace)
 (require 'init-ledger)
 (require 'init-dotfile-shortcuts)
+(require 'init-presentation)
 (require 'init-misc)
