@@ -50,6 +50,8 @@
     enable = true;
     maxSpeed = "4.0";
     twoFingerScroll = true;
+    tapButtons = false;
+    palmDetect = true;
     additionalOptions = ''
       Option "FingerLow" "10"
       Option "FingerHigh" "10"
