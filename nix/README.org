@@ -1,33 +1,53 @@
 * nix stuff
 
-I use [[http://nixos.org/nix/][nix]] in two places: running a NixOS VM, and the nix package
-manager on my mac.
+I use [[http://nixos.org/nix/][nix]] in two places: running NixOS on a little acer chromebook,
+and the nix package manager on my mac.
 
-The NixOS setup lives in [[./nixos][nixos]]. Common configuration is in [[./nixpkgs][nixpkgs]]
-in =config.nix=. (nixpkgs is symlinked to ~/.nixpkgs in the install
+The NixOS setup lives in [[./nixos][nixos]]. Common configuration is in [[./nixpkgs][nixpkgs]] in
+=config.nix=. (nixpkgs is symlinked to ~/.nixpkgs in the install
 script of this repository.) This defines a set of packages I want to
-be in my environment called =all=. For instance, on my Mac, I can run
+be in my environment called =devEnv=. For instance, on my Mac, I can
+run
 
 #+begin_src sh
-nix-env -iA nixpkgs.all
+nix-env -iA nixpkgs.devEnv
 #+end_src
 
 to have a haskell environment set up, plus a few other things
 installed.
+
+(TODO: convert this to a =linuxEnv= and a =macEnv= which are composed
+of os-specific packages, plus a common set.)
 
 ** os x workflow
 
 *** (re)installing the environment defined in =config.nix=:
 
 #+begin_src sh
-nix-env -iA nixpkgs.all
+nix-env -iA nixpkgs.devEnv
 #+end_src
 
 *** upgrading
 
+I have a cloned repository of nixpkgs in =~src/nixpkgs= and I work on
+the =nixpkgs-unstable= branch:
+
 #+begin_src sh
-nix-channel --update nixpkgs
-nix-env -iA nixpkgs.all
+git clone git@github.com:NixOS/nixpkgs.git ~/src/nixpkgs
+cd ~/src/nixpkgs
+git remote add channels git@github.com:NixOS/nixpkgs-channels.git
+git remote add mjhoy    git@github.com:mjhoy/nixpkgs.git
+git checkout -b nixpkgs-unstable channels/nixpkgs-unstable
+
+ln -s ~/src/nixpkgs ~/.nix-defexpr/nixpkgs
+#+end_src
+
+Now to update I pull from remote,
+
+#+begin_src sh
+cd ~/src/nixpkgs
+git pull channels nixpkgs-unstable
+nix-env -iA nixpkgs.devEnv
 #+end_src
 
 *** collecting garbage
@@ -64,12 +84,12 @@ nix-env -q
 | nix-1.10        |
 | python-2.7.10   |
 
+(By the way, don't delete the =cacert= package.)
+
 *** querying packages
 
-I've defined a function in [[../bash/aliases]] =nix?=:
-
 #+begin_src bash :export both
-nix? postgresql
+nix-env -qa '*' | grep postgresql
 #+end_src
 
 #+RESULTS:
