@@ -4,6 +4,23 @@
 
   packageOverrides = super: let self = super.pkgs; in with self; rec {
 
+    linuxOnly = buildEnv {
+      name = "linuxOnly";
+      paths = [
+        drush
+        gcc
+        libmjh
+      ];
+    };
+
+    linuxEnv = buildEnv {
+      name = "linuxEnv";
+      paths = [
+        devEnv
+        linuxOnly
+      ];
+    };
+
     libmjh = import ~/proj/util/libmjh {
       inherit stdenv;
     };
@@ -62,19 +79,6 @@
         # emacs24Packages.proofgeneral
 
         nasm
-      ];
-    };
-
-    # ---------------------
-    # Linux dev environment
-    # ---------------------
-    #
-    # To install all at once:
-    # $ nix-env -iA nixpkgs.linuxDevEnv
-    linuxDevEnv = buildEnv {
-      name = "linuxDevEnv";
-      paths = [
-        gcc
       ];
     };
 
