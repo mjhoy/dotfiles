@@ -94,6 +94,7 @@
 
       # useful libraries...
       MonadCatchIO-transformers
+      MonadRandom
       Unixutils
       array
       blaze-html
