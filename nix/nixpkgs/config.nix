@@ -116,6 +116,7 @@
       hspec
       hspec-core
       hspec-snap
+      io-streams
       lens
       mtl
       optparse-applicative
