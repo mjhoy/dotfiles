@@ -15,10 +15,19 @@ xF86AudioMute = 0x1008ff12
 myModMask = mod4Mask
 
 addl = [ ((myModMask, xK_m), spawn "echo 'Hi, mom!' | dzen2 -p 4")
-       , ((0, xF86AudioLowerVolume), spawn "amixer set Master playback 2.5dB- -q")
-       , ((0, xF86AudioRaiseVolume), spawn "amixer set Master playback 2.5dB+ -q")
+
+         -- standard audio keys
+       , ((0, xF86AudioRaiseVolume), volUp)
+       , ((0, xF86AudioLowerVolume), volDn)
        , ((0, xF86AudioMute), spawn "amixer set Master playback 0% -q")
+
+         -- acer laptop: F10/F9 are audio keys
+       , ((myModMask, xK_F10), volUp)
+       , ((myModMask, xK_F9), volDn)
        ]
+
+volUp = spawn "amixer set Master playback 2.5dB+ -q"
+volDn = spawn "amixer set Master playback 2.5dB- -q"
 
 main = xmonad $ defaultConfig { modMask = myModMask
                               , focusedBorderColor = "#000000"
