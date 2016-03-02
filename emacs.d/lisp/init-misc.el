@@ -13,11 +13,15 @@
 (global-set-key (kbd "C-c m n") 'bm-next)
 (global-set-key (kbd "C-c m p") 'bm-previous)
 
-;; (replaces 'describe-no-warranty)
-(global-set-key (kbd "C-h C-w") 'mjhoy/lookup-apple-dictionary)
 
-;; replaces 'view-emacs-debugging
-(global-set-key (kbd "C-h C-d") 'mjhoy/lookup-dash)
+;; Apple specific functions
+(if (eq system-type 'darwin)
+    (progn
+      ;; (replaces 'describe-no-warranty)
+      (global-set-key (kbd "C-h C-w") 'mjhoy/lookup-apple-dictionary)
+
+      ;; replaces 'view-emacs-debugging
+      (global-set-key (kbd "C-h C-d") 'mjhoy/lookup-dash)))
 
 (defun mjhoy/diff-current-buffer-with-file ()
   (interactive)

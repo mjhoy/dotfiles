@@ -3,6 +3,7 @@
 (require 'init-projectile)
 (mjhoy/require-package 'helm-projectile)
 (mjhoy/require-package 'helm-ag)
+(mjhoy/require-package 'helm-dash)
 
 (require 'helm)
 
@@ -28,6 +29,7 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-c h o") 'helm-org-in-buffer-headings)
 (global-set-key (kbd "C-c h e") 'helm-mu)
+(global-set-key (kbd "C-c h d") 'helm-dash-at-point)
 (global-set-key (kbd "M-s s") 'helm-projectile-ag)
 
 ;; apropos override
