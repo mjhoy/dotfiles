@@ -115,6 +115,7 @@
       filepath
       hakyll
       heist
+      hscurses
       hsexif
       hspec
       hspec-core
