@@ -50,6 +50,7 @@
 *.color7:       t_selection
 *.color15:      t_current_line
 
-! working on ...
-! see https://wiki.archlinux.org/index.php/X_resources
-! xterm*faceSize: 16
+! Font: ubuntu mono
+! I have no idea what the second line does...
+xterm*faceName: Ubuntu Mono:size=15:antialias=true
+xterm*font: 7x13
