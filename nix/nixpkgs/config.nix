@@ -11,9 +11,12 @@
         drush
         php
 
-        mdk
+        # c
         gcc
         libmjh
+
+        # other
+        mdk
       ];
     };
 
