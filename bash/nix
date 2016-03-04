@@ -1,9 +1,22 @@
 # -*- mode: sh -*-
 
 # nix
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
+    . $HOME/.nix-profile/etc/profile.d/nix.sh;
+fi
 
-if [ -e $HOME/.nix-defexpr/nixpkgs ]; then NIX_PATH=nixpkgs=$HOME/.nix-defexpr/nixpkgs:$NIX_PATH; fi
+if [ -e $HOME/.nix-defexpr/nixpkgs ]; then
+    export NIX_PATH=nixpkgs=$HOME/.nix-defexpr/nixpkgs:$NIX_PATH;
+fi
+
+if [ -e $HOME/.nix-profile/include ]; then
+    export C_INCLUDE_PATH=$HOME/.nix-profile/include:$C_INCLUDE_PATH;
+fi
+
+# i'm not sure but i dont think i should do this:
+# if [ -e $HOME/.nix-profile/lib ]; then
+#     export LD_LIBRARY_PATH=$HOME/.nix-profile/lib:$LD_LIBRARY_PATH;
+# fi
 
 # nix: problem with compiling with ghc if not in a nix-shell
 # this is a fix for that, see
@@ -23,6 +36,6 @@ export NIX_GHC="$HOME/.nix-profile/bin/ghc"
 export NIX_GHCPKG="$HOME/.nix-profile/bin/ghc-pkg"
 export NIX_GHC_DOCDIR="$HOME/.nix-profile/share/doc/ghc/html"
 if [[ -e $HOME/.nix-profile/bin/ghc ]]; then
-    NIX_GHC_VERSION=$($HOME/.nix-profile/bin/ghc --numeric-version)
+    export NIX_GHC_VERSION=$($HOME/.nix-profile/bin/ghc --numeric-version)
     export NIX_GHC_LIBDIR="$HOME/.nix-profile/lib/ghc-${NIX_GHC_VERSION}"
 fi
