@@ -16,7 +16,7 @@
         rustPlatform.cargo
 
         # c
-        gcc
+        clang
         libmjh
 
         # other
