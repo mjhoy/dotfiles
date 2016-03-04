@@ -44,15 +44,19 @@ volMt = spawn "amixer set Master playback 0% -q"
 brightUp = spawn "light -A 5"
 brightDn = spawn "light -U 5"
 
+xmobarLogHook xmproc =
+  dynamicLogWithPP xmobarPP { ppOutput = hPutStrLn xmproc
+                            , ppTitle  = xmobarColor "green" "" . shorten 50
+                            }
+
 main = do
   xmproc <- spawnPipe "xmobar"
   xmonad $ defaultConfig { modMask = myModMask
-                         , focusedBorderColor = "#000000"
+                         , normalBorderColor = "black"
+                         , focusedBorderColor = "gray"
                          , layoutHook = avoidStruts $ layoutHook defaultConfig
                          , manageHook = manageDocks <+> manageHook defaultConfig
-                         , logHook = dynamicLogWithPP xmobarPP { ppOutput = hPutStrLn xmproc
-                                                               , ppTitle  = xmobarColor "green" "" . shorten 50
-                                                               }
+                         , logHook = xmobarLogHook xmproc
                          , startupHook = startup
                          } `additionalKeys` addl
 
