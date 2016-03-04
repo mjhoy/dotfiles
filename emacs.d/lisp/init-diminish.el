@@ -17,5 +17,6 @@
 (eval-after-load "auto-dim-other-buffers"
   '(diminish 'auto-dim-other-buffers-mode))
 (diminish 'abbrev-mode)
+(diminish 'text-scale-mode)
 
 (provide 'init-diminish)
