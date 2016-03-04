@@ -15,7 +15,7 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-14-*-*-*-*-*-*-*"
        , iconRoot = "."
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ Run Weather "KMSP" ["-t","<station>: <tempC>C",
+       , commands = [ Run Weather "KMSP" ["-t","<stationState>: <tempC>C rh <rh>% d <dewPointC>C w <windMph>mph",
                                           "-L","18","-H","25",
                                           "--normal","green",
                                           "--high","red",
@@ -31,7 +31,7 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-14-*-*-*-*-*-*-*"
                                 "--normal", "green", "--high", "red" ] 10
                     , Run StdinReader
                     , Run Com "uname" ["-s","-r"] "" 36000
-                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    , Run Date "%b %_d %H:%M" "date" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
