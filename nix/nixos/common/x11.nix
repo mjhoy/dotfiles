@@ -22,6 +22,7 @@ in {
     dmenu
     dzen2 # notifications?
     haskellPackages.xmobar
+    scrot
   ];
 
   # Enable CUPS to print documents.
