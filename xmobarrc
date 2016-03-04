@@ -22,19 +22,22 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-14-*-*-*-*-*-*-*"
                                           "--low","lightblue"] 36000
                     , Run Network "wlp1s0" ["-L","10240","-H","102400",
                                             "--normal","green","--high","red"] 10
-                    , Run Cpu ["-L","3","-H","50",
-                               "--normal","green","--high","red"] 10
-                    , Run Memory ["-L", "0", "-H", "75",
-                                  "--normal", "green", "--high", "red",
+                    , Run Cpu ["-H","50",
+                               "--high","red"] 10
+                    , Run Memory ["-H", "75",
+                                  "--high", "red",
                                   "-t","Mem: <usedratio>%"] 10
-                    , Run Swap ["-L", "0", "-H", "75",
-                                "--normal", "green", "--high", "red" ] 10
+                    , Run Swap ["-H", "75",
+                                "--high", "red" ] 10
+                    , Run DiskU [("/", "<usedbar><free>")] ["-H", "60",
+                                                            "--high", "red"] 20
+                    , Run DiskIO [("/", "<read> <write>")] [] 10
                     , Run StdinReader
                     , Run Com "uname" ["-s","-r"] "" 36000
                     , Run Date "%b %_d %H:%M" "date" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %memory% * %swap% | %wlp1s0% \
+       , template = "%StdinReader% }{ %cpu% | %memory% * %swap% | %disku% %diskio% | %wlp1s0% \
                     \ <fc=#ee9a00>%date%</fc> | %KMSP% | %uname%"
        }
