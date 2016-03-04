@@ -20,6 +20,7 @@ dotfiles=( gemrc
            tmux.conf
            emacs.d
            xmonad
+           xmobarrc
            nix/nixpkgs
            gtkrc-2.0
            Xresources

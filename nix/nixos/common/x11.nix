@@ -21,6 +21,7 @@ in {
     firefox
     dmenu
     dzen2 # notifications?
+    haskellPackages.xmobar
   ];
 
   # Enable CUPS to print documents.
