@@ -13,6 +13,7 @@
     gnumake
     silver-searcher
     tree
+    nethogs
 
     # postgres
     postgresql93
