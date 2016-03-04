@@ -11,6 +11,10 @@
         drush
         php
 
+        # rust (not available on nix/darwin)
+        rustPlatform.rustc
+        rustPlatform.cargo
+
         # c
         gcc
         libmjh
