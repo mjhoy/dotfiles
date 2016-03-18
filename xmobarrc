@@ -32,6 +32,11 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-14-*-*-*-*-*-*-*"
                     , Run DiskU [("/", "<usedbar><free>")] ["-H", "60",
                                                             "--high", "red"] 20
                     , Run DiskIO [("/", "<read> <write>")] [] 10
+                    -- , Run BatteryP ["BAT0"] ["-t", "<acstatus><watts> (<left>%)",
+                    --                          "-L", "10", "-H", "80", "-p", "3",
+                    --                          "--", "-O", "<fc=green>On</fc> - ", "-i", "",
+                    --                          "-L", "-15", "-H", "-5",
+                    --                          "-l", "red", "-m", "blue", "-h", "green"] 600
                     , Run StdinReader
                     , Run Com "uname" ["-s","-r"] "" 36000
                     , Run Date "%b %_d %H:%M" "date" 10
