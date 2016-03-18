@@ -5,7 +5,7 @@
 
 (defun mjhoy/pres ()
   (interactive)
-  (mjhoy/switch-theme 'tango-plus)
+  (mjhoy/switch-theme 'dichromacy)
 
   ;; theme overrides
   (set-face-attribute 'default nil :height 240)
@@ -25,6 +25,20 @@
   (line-number-mode 0)
   (eval-after-load "org"
     '(diminish 'org-indent-mode))
+
+  (global-set-key (kbd "C-c v") 'mjhoy/presentation-babel)
   )
+
+;; silly hack-y thing: if i'm in org-tree-slide-mode, running
+;; org-babel-tangle will tangle only what's in scope and thus not
+;; really work, so assuming the current file is called
+;; "presentation.org", make an indirect buffer (C-x 4 c) named
+;; "presentation.org<2>", turn off org-slide-mode and use this to do
+;; the code tangling.
+(defun mjhoy/presentation-babel ()
+  (interactive)
+  (switch-to-buffer "presentation.org<2>")
+  (org-babel-tangle)
+  (switch-to-buffer "presentation.org"))
 
 (provide 'init-presentation)
