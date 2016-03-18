@@ -15,6 +15,8 @@
     tree
     nethogs
 
+    python
+
     # postgres
     postgresql93
 
