@@ -18,7 +18,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    firefox
+    chromium
     dmenu
     dzen2 # notifications?
     haskellPackages.xmobar
