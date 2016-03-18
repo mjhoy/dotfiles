@@ -1,10 +1,11 @@
 (require 'package)
 
-(dolist (repo '(("elpa"      . "http://tromey.com/elpa/")
-                ("marmalade" . "http://marmalade-repo.org/packages/")
-                ("melpa"     . "http://melpa.org/packages/")
-                ("org"       . "http://orgmode.org/elpa/")))
-  (add-to-list 'package-archives repo))
+(setq package-archives '(("elpa"      . "https://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa"     . "https://melpa.org/packages/")
+                         ("org"       . "http://orgmode.org/elpa/")))
+
+(setq package-menu-async nil)
 
 (defun mjhoy/require-package (package)
   "Ensure PACKAGE is installed"
