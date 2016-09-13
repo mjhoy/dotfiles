@@ -25,9 +25,9 @@
   (if (file-exists-p nix-emacs-lisp-dir)
       (setq load-path (append (list nix-emacs-lisp-dir) load-path))))
 
-;; this directory isn't added in osx gui emacs for some reason.
-(if (and (not (member "/usr/local/share/emacs/site-lisp" load-path))
-	 (file-exists-p "/usr/local/share/emacs/site-lisp"))
+;; this directory's subdirectories aren't added in osx gui emacs for
+;; some reason.
+(if (file-exists-p "/usr/local/share/emacs/site-lisp")
     (let ((default-directory "/usr/local/share/emacs/site-lisp"))
       (normal-top-level-add-subdirs-to-load-path)))
 
