@@ -1,3 +1,8 @@
+(require 'org-id)
+
+;; Create a unique id for all captures.
+(add-hook 'org-capture-prepare-finalize-hook 'org-id-get-create)
+
 (setq org-capture-templates
       '(("t" "Todo"
          entry (file+headline (concat org-directory "organizer.org") "General")

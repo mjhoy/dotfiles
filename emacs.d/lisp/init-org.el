@@ -4,6 +4,9 @@
 
 (require 'org)
 (require 'org-mime)
+(require 'org-id)
+
+(setq org-id-link-to-org-use-id 'use-existing)
 
 (setq org-startup-indented t)
 
