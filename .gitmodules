@@ -13,3 +13,6 @@
 [submodule "emacs.d/tramp-git"]
 	path = emacs.d/tramp-git
 	url = git://git.savannah.gnu.org/tramp.git
+[submodule "org-magit"]
+	path = emacs.d/site-lisp/org-magit
+	url = git@github.com:mjhoy/org-magit

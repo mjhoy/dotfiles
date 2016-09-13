@@ -18,6 +18,9 @@
 (add-to-list 'load-path
              (expand-file-name "site-lisp" user-emacs-directory))
 
+(let ((default-directory (expand-file-name "site-lisp" user-emacs-directory)))
+  (normal-top-level-add-subdirs-to-load-path))
+
 ;; if emacs lisp code exists in a nix-profile, add to load path. this
 ;; allows e.g., nix-env -iA nixpkgs.emacs24Packages.proofgeneral
 (let ((nix-emacs-lisp-dir
