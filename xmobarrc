@@ -1,3 +1,5 @@
+-- -*- mode: haskell; -*-
+
 Config { font = "-*-Fixed-Bold-R-Normal-*-14-*-*-*-*-*-*-*"
        , additionalFonts = []
        , borderColor = "black"
