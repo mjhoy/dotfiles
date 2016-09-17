@@ -33,11 +33,11 @@ I am still on OSX 10.9, which is no longer supported on nixpkgs
 (master). I am subscribed now to a particular commit of nixpkgs before
 10.9 support was removed:
 
-#+BEGIN_QUOTE sh
+#+BEGIN_SRC sh
 nix-channel --remove nixpkgs
 nix-channel --add https://github.com/LnL7/nixpkgs/archive/darwin-10.9.tar.gz nixpkgs
 nix-channel --update nixpkgs
-#+END_QUOTE
+#+END_SRC
 
 *** upgrading (old workflow!)
 
