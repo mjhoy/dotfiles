@@ -29,6 +29,18 @@ nix-env -iA nixpkgs.devEnv
 
 *** upgrading
 
+I am still on OSX 10.9, which is no longer supported on nixpkgs
+(master). I am subscribed now to a particular commit of nixpkgs before
+10.9 support was removed:
+
+#+BEGIN_QUOTE sh
+nix-channel --remove nixpkgs
+nix-channel --add https://github.com/LnL7/nixpkgs/archive/darwin-10.9.tar.gz nixpkgs
+nix-channel --update nixpkgs
+#+END_QUOTE
+
+*** upgrading (old workflow!)
+
 I have a cloned repository of nixpkgs in =~src/nixpkgs= and I work on
 the =nixpkgs-unstable= branch:
 
