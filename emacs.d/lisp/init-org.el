@@ -5,6 +5,7 @@
 (require 'org)
 (require 'org-mime)
 (require 'org-id)
+(require 'org-clock)
 
 (setq org-id-link-to-org-use-id 'use-existing)
 
