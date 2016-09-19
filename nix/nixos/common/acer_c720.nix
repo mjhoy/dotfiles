@@ -1,15 +1,14 @@
 # Acer C720-specific configuration.
 #
-# Current issues:
+# Current issues: none! Running on a recent linux kernel (>= 4.4)
+# seems to have solved a lot.
 #
-#   - Suspend now does not cause a crazy amount of error messages to
-#     go to the log; the problem now is that it immediately wakes up
-#     after sleeping when I shut the lid. (Note: this is fixed if I
-#     disable wakeup via trackpad. See below.)
+# To do:
 #
-#   - Trackpad not working; I need to uncomment the linux config
-#     below, I'm holding off on that because it means recompiling the
-#     kernel.
+#   - udev rule to automatically set up external monitor when HDMI is
+#     plugged in
+#
+#   - LUKS filesystem
 #
 # some config taken from
 # https://github.com/henrytill/etc-nixos/blob/master/machines/thaumas.nix
@@ -36,9 +35,6 @@
   # To suspend, instead run: systemctl suspend, or systemctl
   # hibernate, etc.
   #
-  # Suspend does not seem to work if the trackpad can resume the
-  # system. To fix this, run `cat TPAD > /proc/acpi/wakeup`.
-  #
   # See more at logind.conf(5)
   services.logind.extraConfig = ''
     HandlePowerKey=ignore
@@ -61,20 +57,6 @@
       Option "HorizScrollDelta" "-31"
     '';
   };
-
-  # set CHROME_PLATFORMS flag; needed for touchpad.
-  # note: this means nix will need to build linux. fun!
-  # nixpkgs.config = {
-  #   packageOverrides = super: let self = super.pkgs; in rec {
-  #     stdenv = super.stdenv // {
-  #       platform = super.stdenv.platform // {
-  #         kernelExtraConfig = ''
-  #           CHROME_PLATFORMS y
-  #         '';
-  #       };
-  #     };
-  #   };
-  # };
 
   # maybe this is needed?
   services.xserver.vaapiDrivers = [ pkgs.vaapiIntel ];
