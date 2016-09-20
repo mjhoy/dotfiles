@@ -24,7 +24,7 @@ to the current org clock, if one exists."
           (goto-char org-clock-marker)
           (end-of-line)
           (newline)
-          (insert "-- ")
+          (insert "- ")
           (insert (format "[[%s][%s.git commit %s]] %s" link dir rev summary))))))
 
 (defun mjhoy/git-commit-hook ()
