@@ -2,7 +2,7 @@
 
 export EDITOR="vim"
 
-export PATH="./bin:~/bin:~/.cabal/bin:~/.rbenv/bin:~/.gem/ruby/1.8/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
+export PATH="~/bin:~/.cabal/bin:~/.rbenv/bin:~/.gem/ruby/1.8/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
 export NODE_PATH="/usr/local/lib/node"
 export PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
 
