@@ -14,6 +14,19 @@
          (re-search-backward "^\s?\\([0-9.,]+[A-Za-z]+\\).*total$")
          (match-string 1))))))
 
+(defun mjhoy/dired-create-file (file)
+  "Create a file called FILE.
+If FILE already exists, signal an error."
+  (interactive
+   (list (read-file-name "Create file: " (dired-current-directory))))
+  (let* ((expanded (expand-file-name file))
+         (command (format "%s \"%s\"" "touch" expanded)))
+    (if (file-exists-p expanded)
+        (error "Cannot create file %s: file exists" expanded)
+      (call-process-shell-command command)
+      (dired-add-file expanded))))
+
 (define-key dired-mode-map (kbd "z") 'dired-get-size)
+(define-key dired-mode-map (kbd "C-+") 'mjhoy/dired-create-file)
 
 (provide 'init-dired)
