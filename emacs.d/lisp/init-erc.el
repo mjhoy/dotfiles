@@ -20,6 +20,15 @@ machine irc.freenode.net login LOGIN password PASSWORD
              :nick "mjhoy"
              :password password)))
 
+(defun mjhoy/mozilla-erc ()
+  "Connect to mozilla irc with my account"
+  (interactive)
+  (let* ((server      "irc.mozilla.org")
+         (port        "6697"))
+    (erc-tls :server server
+             :port port
+             :nick "mjhoy")))
+
 (global-set-key (kbd "C-c i c") 'mjhoy/freenode-erc)
 
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
