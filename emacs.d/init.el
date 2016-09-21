@@ -86,4 +86,5 @@
 (require 'init-ledger)
 (require 'init-dotfile-shortcuts)
 (require 'init-presentation)
+(require 'init-pass)
 (require 'init-misc)
