@@ -10,6 +10,9 @@
 
 (global-set-key (kbd "C-c g") 'magit-status)
 
+(magit-define-popup-switch 'magit-log-popup
+  ?m "Omit merge commits" "--no-merges")
+
 (defun mjhoy/log-current-commit-to-org-clock ()
   "Get the current repository's HEAD commit, and add it as a link
 to the current org clock, if one exists."
