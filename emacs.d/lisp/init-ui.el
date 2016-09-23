@@ -9,6 +9,9 @@
 
 (setq-default cursor-type 'bar)
 
+;; emoji todo. this doesn't work...
+;; (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend)
+
 (tool-bar-mode 0)
 
 (setq display-time-24hr-format t)
