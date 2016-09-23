@@ -35,4 +35,13 @@ to the current org clock, if one exists."
 
 (add-hook 'git-commit-mode-hook #'mjhoy/git-commit-hook)
 
+(defun mjhoy/git-commit-ci-skip ()
+  "If all staged files are markdown, insert [ci skip] into the
+commit message."
+  (when (--all? (string-match-p "\\.md$" it) (magit-staged-files))
+    (insert " [ci skip]")
+    (beginning-of-line)))
+
+(add-hook 'git-commit-setup-hook 'mjhoy/git-commit-ci-skip)
+
 (provide 'init-magit)
