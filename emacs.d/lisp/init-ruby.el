@@ -1,6 +1,7 @@
 (mjhoy/require-package 'inf-ruby)
 (mjhoy/require-package 'yaml-mode)
 (mjhoy/require-package 'robe)
+(mjhoy/require-package 'yard-mode)
 
 (add-to-list 'auto-mode-alist '("Rakefile\\'"   . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile\\'"    . ruby-mode))
@@ -20,7 +21,12 @@
 (eval-after-load 'company
   '(push 'company-robe company-backends))
 
-(add-hook 'ruby-mode-hook 'robe-mode)
+(defun mjhoy/setup-ruby-mode ()
+  "My setup for ruby-mode."
+  (robe-mode)
+  (yard-mode))
+
+(add-hook 'ruby-mode-hook 'mjhoy/setup-ruby-mode)
 
 (defun mjhoy/rails-compile-assets (branch)
   "Compile rails assets for the root magit directory.
