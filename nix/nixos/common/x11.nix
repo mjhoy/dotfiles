@@ -8,7 +8,6 @@ in {
     enableFontDir = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
-      corefonts # Microsoft free fonts
       inconsolata
       source-code-pro
       ubuntu_font_family
