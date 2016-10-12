@@ -6,7 +6,7 @@
       user-mail-address "mjh@mjhoy.com")
 
 ;; are we running on nix?
-(if (string-match "^nixos" (system-name)) (setq nixos t) (setq nixos nil))
+(if (string-match "^mjh-nix" (system-name)) (setq nixos t) (setq nixos nil))
 
 ;; we want to use a newer version of tramp to fix this bug:
 ;; https://lists.gnu.org/archive/html/bug-gnu-emacs/2015-01/msg00985.html
