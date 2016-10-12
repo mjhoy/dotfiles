@@ -22,7 +22,6 @@
 
     # nix
     nix-repl
-    strategoPackages.strategoxt # pp-aterm
 
     # haskell
     ghc
