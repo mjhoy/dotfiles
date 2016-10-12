@@ -27,6 +27,9 @@
     ghc
     cabal-install
     cabal2nix
+
+    # standard tools
+    clang
   ];
 
   environment.shellInit = ''
