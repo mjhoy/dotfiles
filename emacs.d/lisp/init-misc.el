@@ -27,6 +27,14 @@
   (interactive)
   (diff-buffer-with-file (current-buffer)))
 
+;; expand line
+(defun mjhoy/expand-line ()
+  (interactive)
+  (let ((hippie-expand-try-functions-list '(try-expand-line)))
+    (call-interactively 'hippie-expand)))
+
+(global-set-key (kbd "C-x C-l") 'mjhoy/expand-line)
+
 ;; buffer bindings
 (global-set-key (kbd "C-c b =") 'mjhoy/diff-current-buffer-with-file)
 (global-set-key (kbd "C-c b r") 'revert-buffer)
