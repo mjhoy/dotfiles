@@ -15,7 +15,7 @@
 { config, pkgs, ...}:
 
 {
-  # Asus C720 suspend compat -- in progress!
+  # Asus C720 suspend compat
   boot.kernelParams = [ "modprobe.blacklist=ehci_pci" ];
 
   # Get sound working.
