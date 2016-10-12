@@ -16,6 +16,8 @@
     nethogs
 
     python
+    ruby
+    bundix
 
     # postgres
     postgresql93
