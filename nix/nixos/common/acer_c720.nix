@@ -8,8 +8,6 @@
 #   - udev rule to automatically set up external monitor when HDMI is
 #     plugged in
 #
-#   - LUKS filesystem
-#
 # some config taken from
 # https://github.com/henrytill/etc-nixos/blob/master/machines/thaumas.nix
 { config, pkgs, ...}:
