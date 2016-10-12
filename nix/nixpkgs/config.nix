@@ -79,8 +79,6 @@
     devEnv = buildEnv {
       name = "devEnv";
       paths = [
-        phocid
-
         myHaskellEnv
         cabal2nix
 
@@ -118,12 +116,10 @@
       extra
       filepath
       hakyll
-      heist
       hscurses
       hsexif
       hspec
       hspec-core
-      hspec-snap
       io-streams
       lens
       mtl
@@ -139,13 +135,6 @@
       regex-posix
       regex-tdfa
       shakespeare
-      snap
-      snap-core
-      snap-loader-dynamic
-      snap-loader-static
-      snap-server
-      snaplet-postgresql-simple
-      snaplet-sass
       split
       text
       time
