@@ -59,5 +59,5 @@
   };
 
   # maybe this is needed?
-  services.xserver.vaapiDrivers = [ pkgs.vaapiIntel ];
+  hardware.opengl.extraPackages = with pkgs; [ vaapiIntel ];
 }
