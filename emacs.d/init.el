@@ -70,6 +70,7 @@
 (require 'init-python)
 (require 'init-rust)
 (require 'init-javascript)
+(require 'init-purescript)
 (require 'init-haskell)
 (require 'init-nix)
 (require 'init-c)
