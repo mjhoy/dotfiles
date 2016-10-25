@@ -119,7 +119,7 @@
       hspec
 
       # useful libraries...
-      MonadCatchIO-transformers
+      # MonadCatchIO-transformers # Dependency problem
       MonadRandom
       Unixutils
       array
@@ -128,7 +128,7 @@
       containers
       extra
       filepath
-      hakyll
+      # hakyll # requires `util-linux`, won't work on darwin
       hscurses
       hsexif
       hspec
