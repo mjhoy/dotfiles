@@ -46,6 +46,19 @@
     example-pkg-hello = callPackage ~/.dotfiles/nix/pkgs/example-pkg-hello {};
 
 
+    # ----------------
+    # Haskell packages
+    # ----------------
+    #
+    # Overrides to the nix Haskell package set.
+    haskellPackages = super.haskellPackages.override {
+      overrides = self: super: with haskell.lib; {
+        # Heist's test suite is failing in OSX.
+        heist = dontCheck super.heist;
+      };
+    };
+
+
     # ----------
     # Work stuff
     # ----------
@@ -136,6 +149,8 @@
       regex-tdfa
       shakespeare
       split
+      snap
+      snap-templates
       text
       time
       transformers
