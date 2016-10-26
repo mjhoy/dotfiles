@@ -55,6 +55,10 @@
       overrides = self: super: with haskell.lib; {
         # Heist's test suite is failing in OSX.
         heist = dontCheck super.heist;
+
+        # Hakyll's test suite requires `util-linux` for some silly
+        # reason.
+        hakyll = dontCheck super.hakyll;
       };
     };
 
@@ -128,7 +132,7 @@
       containers
       extra
       filepath
-      # hakyll # requires `util-linux`, won't work on darwin
+      hakyll
       hscurses
       hsexif
       hspec
