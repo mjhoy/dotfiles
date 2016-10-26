@@ -124,9 +124,12 @@
 
       # useful libraries...
       # MonadCatchIO-transformers # Dependency problem
+      Crypto
       MonadRandom
       Unixutils
       array
+      aws
+      base64-bytestring
       blaze-html
       bytestring
       containers
@@ -154,6 +157,8 @@
       shakespeare
       split
       snap
+      snap-loader-static
+      snap-loader-dynamic
       snap-templates
       text
       time
