@@ -125,6 +125,7 @@
       # useful libraries...
       # MonadCatchIO-transformers # Dependency problem
       Crypto
+      HaXml
       MonadRandom
       Unixutils
       array
@@ -140,6 +141,7 @@
       hsexif
       hspec
       hspec-core
+      hxt
       io-streams
       lens
       mtl
@@ -155,17 +157,18 @@
       regex-posix
       regex-tdfa
       shakespeare
-      split
       snap
-      snap-loader-static
       snap-loader-dynamic
+      snap-loader-static
       snap-templates
+      split
       text
       time
       transformers
       turtle
       unordered-containers
       vector
+      wreq
     ]);
 
     myPythonEnv = self.myEnvFun {
