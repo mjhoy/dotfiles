@@ -1,6 +1,6 @@
 let ghciEscapeChar arg = "'" ++ concatMap (\c -> if c == '\'' then "'\"'\"'" else [c]) arg ++ "'"
 :set prompt "ghci> "
-:set -Wall -fno-warn-type-defaults -fwarn-incomplete-uni-patterns
+:set -Wall -fno-warn-type-defaults -fwarn-incomplete-uni-patterns -fno-warn-unused-matches
 :def hoogle return . (\input -> (":!hoogle --color " ++ input ++ " | head -15")) . ghciEscapeChar
 :def doc return . (":!hoogle --info " ++) . ghciEscapeChar
 :def rr (\_ -> return ":r\n:main")
