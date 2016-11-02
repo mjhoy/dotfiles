@@ -161,6 +161,7 @@
       snap-loader-dynamic
       snap-loader-static
       snap-templates
+      snaplet-postgresql-simple
       split
       text
       time
