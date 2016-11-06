@@ -52,7 +52,7 @@ entered on %U\n")
 see %a\n")
         ("j" "Journal"
          plain (file+datetree (concat org-directory "journal.org"))
-         "**** Entry %U:\n\n%?\n")
+         "**** <title>\n%U\n\n%?\n")
         ("r" "Dream"
          plain (file+datetree (concat org-directory "dream.org"))
          "%?\n")
