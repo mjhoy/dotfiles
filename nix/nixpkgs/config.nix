@@ -32,6 +32,14 @@
       ];
     };
 
+    rEnv = super.rWrapper.override {
+      packages = with self.rPackages; [
+        ggplot2
+        data_table
+        plyr
+      ];
+    };
+
     libmjh = import ~/proj/util/libmjh {
       inherit stdenv;
     };
