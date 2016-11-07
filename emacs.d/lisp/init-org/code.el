@@ -9,6 +9,8 @@
 
 (require 'ob-python)
 
+(require 'ob-R)
+
 (setq org-babel-python-command "load-env-mypython3 python")
 
 (require 'ob-scheme)

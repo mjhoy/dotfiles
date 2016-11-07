@@ -80,6 +80,7 @@
 (require 'init-web-mode)
 (require 'init-css)
 (require 'init-coq)
+(require 'init-ess)
 (require 'init-project-archetypes)
 (require 'init-term)
 (require 'init-folding)
