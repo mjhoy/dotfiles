@@ -37,6 +37,9 @@
         ggplot2
         data_table
         plyr
+        lubridate
+        ascii
+        plotly
       ];
     };
 
