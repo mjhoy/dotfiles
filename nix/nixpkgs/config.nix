@@ -32,6 +32,14 @@
       ];
     };
 
+    phpEnv = buildEnv {
+      name = "phpEnv";
+      paths = [
+        drush
+        php
+      ];
+    };
+
     rEnv = super.rWrapper.override {
       packages = with self.rPackages; [
         ggplot2
