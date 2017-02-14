@@ -51,10 +51,6 @@
       ];
     };
 
-    libmjh = import ~/proj/util/libmjh {
-      inherit stdenv;
-    };
-
     # An example nix package that builds GNU's `hello'. See the
     # `example-pkg-hello' directory for how this is set up. Taken from
     # the Nix manual:
@@ -81,20 +77,6 @@
       };
     };
 
-
-    # ----------
-    # Work stuff
-    # ----------
-    #
-    # The following are packages I'd like to install with `nix' but
-    # that are not necessary for my development environment. Basically
-    # work projects.
-
-    pinfold = haskellPackages.callPackage ~/work/snap_pinfold {};
-    ybapp   = haskellPackages.callPackage ~/work/ybapp {};
-
-    chorebot = haskellPackages.callPackage ~/proj/chorebot_hs {};
-
     nodejsEnv = with pkgs; buildEnv {
       name = "nodeEnv";
       paths = [
@@ -110,8 +92,6 @@
     # To install all at once:
     # $ nix-env -iA nixpkgs.devEnv
 
-    lslink = haskellPackages.callPackage ~/proj/util/lslink {};
-
     devEnv = buildEnv {
       name = "devEnv";
       paths = [
@@ -126,12 +106,6 @@
         nasm
       ];
     };
-
-    # personal utilities
-    phocid  = haskellPackages.callPackage ~/proj/phocid {};
-
-    # my website
-    mjhoy_com = haskellPackages.callPackage ~/proj/mjhoy.com {};
 
     # haskell environment
     myHaskellEnv = haskellPackages.ghcWithHoogle (p: with p; [
