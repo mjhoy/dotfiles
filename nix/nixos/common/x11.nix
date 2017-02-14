@@ -32,6 +32,8 @@ in {
     enable = true;
     layout = "us";
 
+    xkbOptions = "compose:ralt";
+
     displayManager.auto.enable = true;
     displayManager.auto.user = "mjhoy";
 
