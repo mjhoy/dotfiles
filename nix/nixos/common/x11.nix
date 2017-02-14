@@ -38,10 +38,12 @@ in {
     desktopManager.default = "none";
     # desktopManager.xfce.enable = true;
 
-    windowManager.default = "xmonad";
-    windowManager.xmonad.enable = true;
-    windowManager.xmonad.extraPackages = haskellPackages: [
-      haskellPackages.xmonad-contrib
-    ];
+    windowManager.i3.enable = true;
+    windowManager.default = "i3";
+    # windowManager.default = "xmonad";
+    # windowManager.xmonad.enable = true;
+    # windowManager.xmonad.extraPackages = haskellPackages: [
+    #   haskellPackages.xmonad-contrib
+    # ];
   };
 }
