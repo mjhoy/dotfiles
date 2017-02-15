@@ -32,7 +32,7 @@ in {
     enable = true;
     layout = "us";
 
-    xkbOptions = "compose:ralt";
+    xkbOptions = "compose:ralt,caps:super";
 
     displayManager.auto.enable = true;
     displayManager.auto.user = "mjhoy";
