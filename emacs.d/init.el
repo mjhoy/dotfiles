@@ -8,6 +8,10 @@
 ;; are we running on nix?
 (if (string-match "nixos" (system-name)) (setq nixos t) (setq nixos nil))
 
+;; see: https://debbugs.gnu.org/cgi/bugreport.cgi?bug=25778
+(if (and (getenv "DISPLAY") (executable-find "xdg-open"))
+    (setq browse-url-browser-function 'browse-url-xdg-open))
+
 ;; we want to use a newer version of tramp to fix this bug:
 ;; https://lists.gnu.org/archive/html/bug-gnu-emacs/2015-01/msg00985.html
 (add-to-list 'load-path
