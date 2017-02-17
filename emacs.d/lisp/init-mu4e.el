@@ -184,6 +184,9 @@
                          '("org-contact-add" . mu4e-action-add-org-contact) t)
             (add-to-list 'mu4e-view-actions
                          '("org-contact-add" . mu4e-action-add-org-contact) t)))
+
+      (add-to-list 'mu4e-view-actions
+                   '("ViewInBrowser" . mu4e-action-view-in-browser) t)
       )
   )
 
