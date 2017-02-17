@@ -32,6 +32,9 @@
 
     # standard tools
     clang
+
+    # imagemagick, often used in web dev
+    imagemagick
   ];
 
   environment.shellInit = ''
