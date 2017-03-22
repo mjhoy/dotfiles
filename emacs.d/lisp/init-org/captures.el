@@ -7,7 +7,7 @@
       '(("t" "Todo"
          entry (file+headline (lambda () (concat org-directory "organizer.org")) "General")
          "* TODO %?
-SCHEDULED: %t
+DEADLINE: %t
 :LOGBOOK:
 - State \"TODO\"       from \"\"           %U
 :END:
