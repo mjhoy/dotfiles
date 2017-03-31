@@ -8,6 +8,9 @@
 ;; are we running on nix?
 (if (string-match "nixos" (system-name)) (setq nixos t) (setq nixos nil))
 
+;; are we running on macos?
+(if (string-equal system-type "darwin") (setq macos t) (setq macos nil))
+
 ;; see: https://debbugs.gnu.org/cgi/bugreport.cgi?bug=25778
 (if (and (getenv "DISPLAY") (executable-find "xdg-open"))
     (setq browse-url-browser-function 'browse-url-xdg-open))

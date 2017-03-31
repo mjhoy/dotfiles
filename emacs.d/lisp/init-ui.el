@@ -1,4 +1,6 @@
-(set-face-attribute 'default nil :family "Ubuntu Mono")
+(if macos
+    (set-face-attribute 'default nil :font "SF Mono")
+  (set-face-attribute 'default nil :family "Ubuntu Mono"))
 (set-face-attribute 'default nil :height 150)
 (set-face-attribute 'default nil :weight 'normal)
 
