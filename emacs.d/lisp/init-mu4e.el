@@ -136,7 +136,7 @@
       (add-to-list 'mu4e-bookmarks '("date:14d..now AND maildir:/michael.john.hoy-gmail.com/sent"     "Latest sent"    ?s))
       (add-to-list 'mu4e-bookmarks '("size:5M..500M"                       "Big messages"   ?b))
 
-      (setq mu4e-attachment-dir  "~/Downloads")
+      (setq mu4e-attachment-dir  "~/Downloads/email")
 
       ;; use built-in emacs completing read function
       (setq mu4e-completing-read-function 'completing-read)
