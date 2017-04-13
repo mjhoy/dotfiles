@@ -71,9 +71,19 @@
         # Heist's test suite is failing in OSX.
         heist = dontCheck super.heist;
 
+        # process-extras test suit fails on darwin. See:
+        # https://github.com/seereason/process-extras/issues/10
+        process-extras = dontCheck super.process-extras;
+
         # Hakyll's test suite requires `util-linux` for some silly
         # reason.
         hakyll = dontCheck super.hakyll;
+
+        # Need a version bump on HUnit.
+        snap = self.callPackage ~/src/snap {};
+
+        # Need a version bump on directory.
+        snap-loader-dynamic = self.callPackage ~/src/snap-loader-dynamic {};
       };
     };
 
