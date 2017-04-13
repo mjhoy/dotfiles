@@ -140,6 +140,7 @@
       extra
       filepath
       hakyll
+      HandsomeSoup
       hscurses
       hsexif
       hspec
