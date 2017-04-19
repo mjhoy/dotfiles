@@ -137,6 +137,9 @@
       blaze-html
       bytestring
       containers
+      digestive-functors
+      digestive-functors-snap
+      digestive-functors-heist
       extra
       filepath
       hakyll
