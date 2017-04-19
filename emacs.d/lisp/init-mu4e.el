@@ -71,7 +71,8 @@
              ((mu4e-message-contact-field-matches msg :to "michael.john.hoy@gmail.com")
               (mjhoy/switch-to-gmail))
              ;; if it's a google groups email, I probably need my gmail account.
-             ((mu4e-message-contact-field-matches msg :to "googlegroups.com")
+             ((or (mu4e-message-contact-field-matches msg :to "googlegroups.com")
+                  (mu4e-message-contact-field-matches msg :cc "googlegroups.com"))
               (mjhoy/switch-to-gmail))
              (t
               (mjhoy/switch-to-fastmail))))))
