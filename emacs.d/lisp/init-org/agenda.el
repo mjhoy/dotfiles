@@ -12,4 +12,6 @@
 
 (setq org-agenda-dim-blocked-tasks nil)
 
+(setq org-agenda-sticky t)
+
 (provide 'init-org/agenda)
