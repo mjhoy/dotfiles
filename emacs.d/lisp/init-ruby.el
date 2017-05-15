@@ -51,11 +51,12 @@ checkout the old branch.
     (message "Running assets:precompile")
     (shell-command "RAILS_ENV=production bundle exec rake assets:precompile")
     (if (or (magit-anything-modified-p)
-            (magit-anything-unstaged-p))
+            (magit-anything-unstaged-p)
+            (magit-git-string "ls-files" "--other" "--directory" "--no-empty-directory" "--exclude-standard"))
         (progn
           (magit-run-git "add" "--all" "public/")
           (magit-run-git "commit" "-m" "precompile assets for deploy")))
-    (magit-push branch "origin")
+    (magit-run-git "push" "origin" branch)
     (magit-checkout current-branch)
     (message "Compile assets finished")))
 
