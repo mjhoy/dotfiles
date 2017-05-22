@@ -43,7 +43,9 @@ This will merge `deploy` with the current branch, precompile the
 assets, commit the changes (if any), push `deploy` to origin, and
 checkout the old branch.
 "
-  (interactive "sBranch to compile assets for: ")
+  (interactive (list
+                (read-string "Branch to compile assets for (deploy): "
+                             nil nil "deploy")))
   (let ((current-branch (magit-get-current-branch))
         (default-directory (magit-toplevel)))
     (magit-checkout branch)
