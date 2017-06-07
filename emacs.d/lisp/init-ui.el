@@ -6,7 +6,7 @@
 
 (setq text-scale-mode-step 1.14)
 
-(setq-default cursor-type 'bar)
+(setq-default cursor-type 'box)
 
 ;; emoji todo. this doesn't work...
 ;; (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend)
