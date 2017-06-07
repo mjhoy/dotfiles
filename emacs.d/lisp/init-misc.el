@@ -46,4 +46,7 @@
 ;; ask before quitting
 (setq confirm-kill-emacs #'yes-or-no-p)
 
+;; don't be annoying
+(setq tags-add-tables nil)
+
 (provide 'init-misc)
