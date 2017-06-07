@@ -54,6 +54,7 @@
 (require 'init-diminish)
 (require 'init-ui)
 (require 'init-theme)
+(require 'init-hl-line)
 (require 'init-prog)
 (require 'init-tramp)
 (require 'init-org)
