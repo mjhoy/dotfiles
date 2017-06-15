@@ -1,4 +1,5 @@
 (mjhoy/require-package 'psc-ide)
+(mjhoy/require-package 'purescript-mode)
 
 (defun mjhoy/purescript-mode-setup ()
   "Run to set up purescript mode."
