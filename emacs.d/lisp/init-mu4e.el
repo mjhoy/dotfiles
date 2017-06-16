@@ -9,6 +9,8 @@
 (if nixos
     (add-to-list 'load-path "/run/current-system/sw/share/emacs/site-lisp/mu4e"))
 
+(add-to-list 'load-path (expand-file-name "~/.nix-profile/share/emacs/site-lisp/mu4e"))
+
 (defvar mjhoy/mu4e-exists-p
   (locate-file "mu4e.el" load-path)
   "Whether mu4e exists on this system")
