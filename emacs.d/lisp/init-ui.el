@@ -1,7 +1,7 @@
 (if macos
     (set-face-attribute 'default nil :font "SF Mono")
   (set-face-attribute 'default nil :family "Ubuntu Mono"))
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 130)
 (set-face-attribute 'default nil :weight 'normal)
 
 (setq text-scale-mode-step 1.14)
