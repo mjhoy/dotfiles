@@ -89,9 +89,6 @@
               ("/mjh-mjhoy.com/INBOX.Trash" . ?t)
               ))
 
-      (if (not nixos)
-        (setq mu4e-mu-binary "/usr/local/bin/mu"))
-
       (setq mail-user-agent 'mu4e-user-agent)
       (setq mu4e-maildir "~/.mail/")
       (setq mu4e-view-show-addresses t)
