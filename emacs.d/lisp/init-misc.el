@@ -30,7 +30,7 @@
 ;; expand line
 (defun mjhoy/expand-line ()
   (interactive)
-  (let ((hippie-expand-try-functions-list '(try-expand-line)))
+  (let ((hippie-expand-try-functions-list '(try-expand-line-all-buffers)))
     (call-interactively 'hippie-expand)))
 
 (global-set-key (kbd "C-x C-l") 'mjhoy/expand-line)
