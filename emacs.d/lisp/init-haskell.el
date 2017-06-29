@@ -5,22 +5,57 @@
 (require 'init-company)
 (require 'company) ; to reference 'company-backends below
 
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-(defun mjhoy/define-haskell-keys ()
+(defun mjhoy/haskell-cabal-setup ()
+  (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile))
+(add-hook 'haskell-cabal-hook 'mjhoy/haskell-cabal-setup)
+
+(defun mjhoy/ghc-type-info-as-comment ()
+  "Using ghc-mod, get the type info at point and insert it as a comment.
+
+See also `ghc-show-type'.
+"
+  (interactive)
+
+  ;; taken from the `ghc-show-type' source.
+  (let ((tinfos (ghc-type-get-tinfos)))
+    (if (null tinfos)
+        (progn
+          (ghc-type-clear-overlay)
+          (message "Cannot determine type"))
+      (let* ((tinfos (ghc-type-get-tinfos))
+             (tinfo (nth (ghc-type-get-ix) tinfos))
+             (type (ghc-tinfo-get-info tinfo)))
+        (previous-line)
+        (move-end-of-line nil)
+        (newline)
+        (comment-indent)
+        (insert type)
+        (ghc-type-clear-overlay)
+        ))))
+
+(defun mjhoy/haskell-mode-setup ()
+  "My custom setup for Haskell mode."
+
+  ;; define haskell mode keys
   (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-compile)
   (define-key haskell-mode-map (kbd "C-c C-z") 'switch-to-haskell)
   (define-key haskell-mode-map (kbd "C-c C-l") 'inferior-haskell-load-file)
   (define-key haskell-mode-map (kbd "C-h C-d") 'inferior-haskell-find-haddock)
+  (define-key haskell-mode-map (kbd "C-c M-t") 'mjhoy/ghc-type-info-as-comment)
+
+  ;; indentation
+  (turn-on-haskell-indentation)
+
+  ;; Do we need this?
+  (ghc-type-init)
   )
-(defun mjhoy/define-haskell-cabal-keys ()
-  (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile))
-(add-hook 'haskell-mode-hook 'mjhoy/define-haskell-keys)
-(add-hook 'haskell-cabal-hook 'mjhoy/define-haskell-cabal-keys)
+
+(add-hook 'haskell-mode-hook 'mjhoy/haskell-mode-setup)
 
 ;; ghc-mod setup
 (autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-type-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
-;;(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
 ;; ghc-mod company
 (add-to-list 'company-backends 'company-ghc)
