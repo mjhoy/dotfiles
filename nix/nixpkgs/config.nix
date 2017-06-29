@@ -124,6 +124,7 @@
       hlint
       QuickCheck
       hspec
+      hasktags
 
       # useful libraries...
       # MonadCatchIO-transformers # Dependency problem
