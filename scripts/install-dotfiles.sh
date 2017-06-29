@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#
+# Install dotfiles to the user's HOME by symbolically linking them.
 
 set -e
 
@@ -19,11 +21,7 @@ dotfiles=( gemrc
            ghci
            tmux.conf
            emacs.d
-           xmonad
-           xmobarrc
            nix/nixpkgs
-           gtkrc-2.0
-           Xresources
          )
 regex="/?([^/]+)$"
 for i in "${dotfiles[@]}" ; do

@@ -16,14 +16,25 @@ out submodules.
 git clone --recursive https://github.com/mjhoy/dotfiles.git
 #+end_src
 
-** installing symlinks to $HOME
-
-Running the install script generates the appropriate symbolic links
-(e.g., ~/.xmonad -> dotfiles/xmonad, etc):
+Or, run =make= after doing a normal clone to init and update git
+submodules:
 
 #+begin_src sh
-./install.sh
+cd dotfiles
+make
 #+end_src
+
+** installing symlinks to $HOME
+
+Running =make install= will generate the appropriate symbolic links
+(e.g., ~/.vimrc -> dotfiles/vim/vimrc, etc):
+
+#+begin_src sh
+make install
+#+end_src
+
+Running =make install-linux= will do the same and include
+linux-specific configuration (such as .Xresources).
 
 ** nix/NixOS
 
