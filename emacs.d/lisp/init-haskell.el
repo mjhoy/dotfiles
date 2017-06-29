@@ -63,10 +63,6 @@ See also `ghc-show-type'.
 ;; use web-mode for snap heist templates
 (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
 
-;; TODO: Figure out a better way of starting up a haskell process with
-;; a custom (helpful default) environment when there is no `shell.nix'
-;; present.
-
 ;; run with my default haskell environment
 ;; (see: myHaskellEnv in nix/mjhoy/config.nix)
 (defun mjhoy/set-haskell-program-default-shell ()
