@@ -10,6 +10,7 @@
   (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-compile)
   (define-key haskell-mode-map (kbd "C-c C-z") 'switch-to-haskell)
   (define-key haskell-mode-map (kbd "C-c C-l") 'inferior-haskell-load-file)
+  (define-key haskell-mode-map (kbd "C-h C-d") 'inferior-haskell-find-haddock)
   )
 (defun mjhoy/define-haskell-cabal-keys ()
   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile))
