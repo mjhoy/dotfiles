@@ -38,8 +38,11 @@ linux-specific configuration (such as .Xresources).
 
 ** nix/NixOS
 
-I am detailing my setup of a NixOS VM (where I hope to do most of my
-development in the future). See [[./nix/nixos/README.org][nix/nixos/README.org]] for details.
+See [[./nix/nixos/README.org][nix/nixos/README.org]] for details on my attempt to set up a NixOS
+vm for all my development work.
+
+But these days I am just using macOS with nixpkgs. You can find my
+config for this in [[./nix/nixpkgs][nix/nixpkgs]].
 
 ** license
 
