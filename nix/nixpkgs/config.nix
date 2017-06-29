@@ -114,6 +114,8 @@
         # emacs24Packages.proofgeneral
 
         nasm
+
+        cmake
       ];
     };
 
