@@ -131,6 +131,7 @@
       HaXml
       MonadRandom
       Unixutils
+      aeson
       array
       aws
       base64-bytestring
@@ -175,6 +176,7 @@
       transformers
       turtle
       unordered-containers
+      uuid-aeson
       vector
       wreq
     ]);
