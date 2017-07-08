@@ -28,8 +28,8 @@ if [[ `uname` == "Darwin" ]]; then
     export NIX_CFLAGS_LINK="-L/usr/lib"
 fi
 
-if [[ -e $HOME/src/nixpkgs ]]; then
-   export NIX_PKGS="$HOME/src/nixpkgs"
+if [[ -e $HOME/.dotfiles/nixpkgs ]]; then
+   export NIX_PKGS="$HOME/.dotfiles/nixpkgs"
 fi
 # ghc nix setup
 export NIX_GHC="$HOME/.nix-profile/bin/ghc"
