@@ -4,6 +4,15 @@
 
   packageOverrides = super: let self = super.pkgs; in with self; rec {
 
+    hello_world = stdenv.mkDerivation {
+      name = "hello_world";
+      src = ~/.dotfiles/src/hello_world;
+      installPhase = ''
+      mkdir -p $out/bin
+      cp hello_world $out/bin/hello_world
+      '';
+    };
+
     linuxOnly = buildEnv {
       name = "linuxOnly";
       paths = [
