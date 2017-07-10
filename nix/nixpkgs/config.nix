@@ -122,9 +122,16 @@
         # coq
         # emacs24Packages.proofgeneral
 
-        nasm
-
+        # useful tools
+        ag
         cmake
+        git
+        htop
+        lynx
+        mu
+        nasm
+        pass
+        wget
       ];
     };
 
