@@ -132,6 +132,7 @@
         nasm
         pass
         wget
+        psc-package
       ];
     };
 
