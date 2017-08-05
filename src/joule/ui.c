@@ -6,20 +6,24 @@
 void clear_screen()
 {
     /* clear the screen */
-    write(STDOUT_FILENO, "\x1b[2J", 4);
+    if (write(STDOUT_FILENO, "\x1b[2J", 4) == -1)
+        die("write");
 
     /* reposition cursor to top left */
-    write(STDERR_FILENO, "\x1b[H", 3);
+    if (write(STDERR_FILENO, "\x1b[H", 3) == -1)
+        die("write");
 }
 
 void editor_draw_rows()
 {
     int y;
     for (y = 0; y < E.screenrows; y++) {
-        write(STDOUT_FILENO, "~", 1);
+        if (write(STDOUT_FILENO, "~", 1) == -1)
+            die("write");
 
         if (y < E.screenrows - 1) {
-            write(STDOUT_FILENO, "\r\n", 2);
+            if (write(STDOUT_FILENO, "\r\n", 2))
+                die("write");
         }
     }
 }
