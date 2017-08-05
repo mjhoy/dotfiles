@@ -1,4 +1,4 @@
-OBJECTS = raw.o err.o ui.o
+OBJECTS = raw.o err.o ui.o abuf.o
 
 .PHONY: clean
 
