@@ -13,7 +13,48 @@ char editor_read_key()
             errno != EAGAIN)
             die("read");
     }
+
+    /* escape sequences */
+    if (c == '\x1b') {
+        char seq[3];
+
+        if (read(STDIN_FILENO, &seq[0], 1) != 1) return '\x1b';
+        if (read(STDIN_FILENO, &seq[1], 1) != 1) return '\x1b';
+
+        if (seq[0] == '[') {
+            switch (seq[1]) {
+            case 'A': return CTRL_KEY('p');
+            case 'B': return CTRL_KEY('n');
+            case 'C': return CTRL_KEY('f');
+            case 'D': return CTRL_KEY('b');
+            }
+        }
+    }
     return c;
+}
+
+void editor_move_cursor(char key)
+{
+    switch (key) {
+    case CTRL_KEY('n'):
+        E.cy++;
+        break;
+    case CTRL_KEY('p'):
+        E.cy--;
+        break;
+    case CTRL_KEY('f'):
+        E.cx++;
+        break;
+    case CTRL_KEY('b'):
+        E.cx--;
+        break;
+    case CTRL_KEY('a'):
+        E.cx = 0;
+        break;
+    case CTRL_KEY('e'):
+        E.cx = E.screencols;
+        break;
+    }
 }
 
 void editor_process_keypress()
@@ -23,6 +64,14 @@ void editor_process_keypress()
     case CTRL_KEY('q'):
         clear_screen();
         exit(EXIT_SUCCESS);
+        break;
+    case CTRL_KEY('n'):
+    case CTRL_KEY('p'):
+    case CTRL_KEY('f'):
+    case CTRL_KEY('b'):
+    case CTRL_KEY('a'):
+    case CTRL_KEY('e'):
+        editor_move_cursor(c);
         break;
     }
 }
@@ -43,6 +92,8 @@ int get_window_size(int *rows, int *cols)
 
 void init_editor()
 {
+    E.cx = 0;
+    E.cy = 0;
     if (get_window_size(&E.screenrows,
                         &E.screencols) == -1)
         die("get_window_size");
@@ -52,6 +103,7 @@ void init_editor()
 int main()
 {
     enable_raw_mode();
+    init_editor();
 
     while (1) {
         editor_refresh_screen();

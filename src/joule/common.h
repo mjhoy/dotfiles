@@ -9,6 +9,7 @@
 #include <termios.h>
 
 #include "err.h"
+#include "version.h"
 
 #define CTRL_KEY(k) ((k) & 0x1f)
 
