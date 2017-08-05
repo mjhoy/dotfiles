@@ -13,7 +13,9 @@
 
 (defun mjhoy/my-c-initialization ()
   (define-key c-mode-base-map (kbd "C-m") 'c-context-line-break)
-  (define-key c-mode-base-map (kbd "C-c C-c") 'compile))
+  (define-key c-mode-base-map (kbd "C-c C-c") 'compile)
+  (define-key c-mode-base-map (kbd "C-h C-d") 'man)
+  )
 
 (add-hook 'c-initialization-hook 'mjhoy/my-c-initialization)
 (add-hook 'c-mode-hook 'mjhoy/c-init)
