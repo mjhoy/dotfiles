@@ -24,9 +24,9 @@
       "guest_additions_mode": "disable",
       "guest_os_type": "Linux_64",
       "http_directory": ".",
-      "iso_checksum": "79bbba5f0d9aa55deababe46862ebff67055399299ad0b5d76f79a9e9d2e8a25",
+      "iso_checksum": "eea544b9862d32caec747ad0b7010bc923e7754c2c6c7579dc77ec403242d9ce",
       "iso_checksum_type": "sha256",
-      "iso_url": "http://nixos.org/releases/nixos/15.09/nixos-15.09.547.cad293f/nixos-minimal-15.09.547.cad293f-x86_64-linux.iso",
+      "iso_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/17.03/nixos-17.03.1626.f39972bd14/nixos-minimal-17.03.1626.f39972bd14-x86_64-linux.iso",
       "shutdown_command": "sudo shutdown -h now",
       "ssh_username": "root",
       "ssh_password": "rootpw",
@@ -59,8 +59,8 @@
       "type": "shell",
       "inline": [
         "chmod 600 /home/mjhoy/.ssh/id_rsa_mjhoy_4096",
-        "chown mjhoy:user /home/mjhoy/.ssh/id_rsa_mjhoy_4096",
-        "chown mjhoy:user /home/mjhoy/.ssh/id_rsa_mjhoy_4096.pub"
+        "chown mjhoy:users /home/mjhoy/.ssh/id_rsa_mjhoy_4096",
+        "chown mjhoy:users /home/mjhoy/.ssh/id_rsa_mjhoy_4096.pub"
       ]
     },
     {

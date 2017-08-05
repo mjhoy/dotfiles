@@ -15,6 +15,7 @@
     vim
     emacs
     htop
+    gnumake
   ];
 
   # hello from MN

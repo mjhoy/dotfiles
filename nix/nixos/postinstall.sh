@@ -15,5 +15,5 @@ chown -R mjhoy:users /home/mjhoy/dotfiles
 
 ln -s /home/mjhoy/dotfiles/nix/nixos/common/ /etc/nixos/
 
-cd /home/mjhoy
-su - mjhoy -c /home/mjhoy/dotfiles/install
+# cd /home/mjhoy/dotfiles
+# make install
