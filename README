@@ -24,7 +24,7 @@ notes/
         random notes
 
 
-INSTALLING
+INSTALL
         Run a simple:
 
           $ git clone --recursive https://github.com/mjhoy/dotfiles.git
