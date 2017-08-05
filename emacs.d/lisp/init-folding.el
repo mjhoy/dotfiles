@@ -4,6 +4,6 @@
   "Initiaize folding"
   (yafolding-mode 1))
 
-(add-hook 'php-mode-hook 'mjhoy/init-folding)
+(add-hook 'prog-mode-hook 'mjhoy/init-folding)
 
 (provide 'init-folding)
