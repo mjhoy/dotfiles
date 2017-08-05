@@ -1,8 +1,12 @@
+(mjhoy/require-package 'flycheck)
+
 (setq c-default-style "linux")
 (setq c-basic-offset 4)
 
 (defun mjhoy/c-init ()
+  "My setup for c files."
   (setq c-basic-offset 4)
+  (flycheck-mode 1)
   (if (or (file-exists-p "makefile")
           (file-exists-p "Makefile"))
       (set (make-local-variable 'compilation-read-command) nil)))
