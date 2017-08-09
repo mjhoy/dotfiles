@@ -12,6 +12,6 @@
 (add-hook 'purescript-mode-hook 'mjhoy/purescript-mode-setup)
 
 (setq psc-ide-use-npm-bin t)
-(setq psc-ide-use-purs nil)
+(setq psc-ide-use-purs t)
 
 (provide 'init-purescript)
