@@ -133,6 +133,7 @@
         pass
         wget
         psc-package
+        tmux
       ];
     };
 
