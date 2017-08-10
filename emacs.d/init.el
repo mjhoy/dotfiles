@@ -53,6 +53,7 @@
 (require 'init-env)
 (require 'init-diminish)
 (require 'init-ui)
+(require 'init-pbcopy)
 (require 'init-theme)
 (require 'init-hl-line)
 (require 'init-prog)
