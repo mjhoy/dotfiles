@@ -27,6 +27,19 @@
       (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
       (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))))
 
+;; enable mouse support in a terminal
+(unless window-system
+  (require 'mouse)
+  (xterm-mouse-mode t)
+  (global-set-key [mouse-4] (lambda ()
+                              (interactive)
+                              (scroll-down 1)))
+  (global-set-key [mouse-5] (lambda ()
+                              (interactive)
+                              (scroll-up 1)))
+  (defun track-mouse (e))
+  (setq mouse-sel-mode t))
+
 ;; solves an issue i have with ace-window
 (setq-default cursor-in-non-selected-windows 'bar)
 
