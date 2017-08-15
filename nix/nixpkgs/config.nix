@@ -88,14 +88,12 @@
         # reason.
         # hakyll = dontCheck super.hakyll;
 
-        snap = self.callPackage ~/src/snap {};
-
-        # Need a version bump on directory.
-        snap-loader-dynamic = self.callPackage ~/src/snap-loader-dynamic {};
-
-        # Need a version bump.
-        xmlhtml = self.callPackage ~/src/xmlhtml {};
-        heist = self.callPackage ~/src/heist {};
+        # Point at current master, where dependency issues have been
+        # fixed.
+        snap-loader-dynamic = self.callPackage ~/.dotfiles/nix/pkgs/snap-loader-dynamic { };
+        snap = self.callPackage ~/.dotfiles/nix/pkgs/snap {};
+        xmlhtml = self.callPackage ~/.dotfiles/nix/pkgs/xmlhtml {};
+        heist = self.callPackage ~/.dotfiles/nix/pkgs/heist {};
       };
     };
 
