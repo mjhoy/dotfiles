@@ -88,11 +88,14 @@
         # reason.
         # hakyll = dontCheck super.hakyll;
 
-        # Need a version bump on HUnit.
-        # snap = self.callPackage ~/src/snap {};
+        snap = self.callPackage ~/src/snap {};
 
         # Need a version bump on directory.
         snap-loader-dynamic = self.callPackage ~/src/snap-loader-dynamic {};
+
+        # Need a version bump.
+        xmlhtml = self.callPackage ~/src/xmlhtml {};
+        heist = self.callPackage ~/src/heist {};
       };
     };
 
@@ -197,7 +200,7 @@
       transformers
       turtle
       unordered-containers
-      uuid-aeson
+      uuid
       vector
       wreq
     ]);
