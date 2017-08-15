@@ -7,9 +7,21 @@
     hello_world = stdenv.mkDerivation {
       name = "hello_world";
       src = ~/.dotfiles/src/hello_world;
+      libmikey = libmikey;
       installPhase = ''
       mkdir -p $out/bin
       cp hello_world $out/bin/hello_world
+      '';
+    };
+
+    libmikey = stdenv.mkDerivation {
+      name = "libmikey";
+      src = ~/.dotfiles/src/libmikey;
+      installPhase = ''
+        mkdir -p $out/lib
+        mkdir -p $out/include
+        cp build/include/* $out/include
+        cp build/lib/* $out/lib
       '';
     };
 

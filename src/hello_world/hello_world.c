@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include "common.h"
+#include "error_functions.h"
 
 /**
  * Example program.
@@ -8,6 +10,8 @@
 
 int main()
 {
-    printf("Hello, world!\n");
-    return 0;
+    if (write(STDOUT_FILENO, "Hello, world!\n", 14) < 0)
+        err_exit("write");
+
+    exit(EXIT_SUCCESS);
 }

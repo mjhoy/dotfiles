@@ -9,7 +9,15 @@
   (flycheck-mode 1)
   (if (or (file-exists-p "makefile")
           (file-exists-p "Makefile"))
-      (set (make-local-variable 'compilation-read-command) nil)))
+      (set (make-local-variable 'compilation-read-command) nil))
+  (if (file-exists-p "~/.nix-profile/include")
+      (let ((includes-path (expand-file-name "~/.nix-profile/include/")))
+        (setq flycheck-clang-include-path
+              (list includes-path))
+        (setq company-clang-arguments
+              (list (concat "-I" includes-path))))
+    )
+  )
 
 (defun mjhoy/my-c-initialization ()
   (define-key c-mode-base-map (kbd "C-m") 'c-context-line-break)
