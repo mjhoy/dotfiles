@@ -1,9 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  fb-input = pkgs.callPackage ./pkgs/fb-input {};
-in {
-
+{
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless.
 
@@ -44,7 +41,6 @@ in {
       inconsolata
       source-code-pro
       ubuntu_font_family
-      fb-input
     ];
   };
 

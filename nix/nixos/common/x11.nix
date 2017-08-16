@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  fb-input = pkgs.callPackage ./pkgs/fb-input {};
-in {
+{
   # Fonts
   fonts = {
     enableFontDir = true;
@@ -11,7 +9,6 @@ in {
       inconsolata
       source-code-pro
       ubuntu_font_family
-      fb-input
       terminus_font
     ];
   };
