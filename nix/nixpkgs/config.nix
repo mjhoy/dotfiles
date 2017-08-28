@@ -149,6 +149,11 @@
         wget
         psc-package
         tmux
+
+        # aspell dictionaries
+        aspell
+        aspellDicts.en
+        aspellDicts.es
       ];
     };
 
