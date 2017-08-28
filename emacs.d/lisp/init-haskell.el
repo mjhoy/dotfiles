@@ -1,6 +1,7 @@
 (mjhoy/require-package 'haskell-mode)
 (mjhoy/require-package 'ghc)
 (mjhoy/require-package 'company-ghc)
+(mjhoy/require-package 'company-ghci)
 
 (require 'init-company)
 (require 'company) ; to reference 'company-backends below
@@ -41,33 +42,40 @@ See also `ghc-show-type'.
   (define-key haskell-mode-map (kbd "C-c C-z") 'switch-to-haskell)
   (define-key haskell-mode-map (kbd "C-c C-l") 'inferior-haskell-load-file)
   (define-key haskell-mode-map (kbd "C-h C-d") 'inferior-haskell-find-haddock)
-  (define-key haskell-mode-map (kbd "C-c M-t") 'mjhoy/ghc-type-info-as-comment)
+  ;; (define-key haskell-mode-map (kbd "C-c M-t") 'mjhoy/ghc-type-info-as-comment)
 
   ;; indentation
   (turn-on-haskell-indentation)
 
   ;; Do we need this?
-  (ghc-type-init)
+  ;; (ghc-type-init)
   )
 
 (add-hook 'haskell-mode-hook 'mjhoy/haskell-mode-setup)
 
 ;; ghc-mod setup
-(autoload 'ghc-init "ghc" nil t)
-(autoload 'ghc-type-init "ghc" nil t)
-(autoload 'ghc-debug "ghc" nil t)
+;; (autoload 'ghc-init "ghc" nil t)
+;; (autoload 'ghc-type-init "ghc" nil t)
+;; (autoload 'ghc-debug "ghc" nil t)
 
 ;; ghc-mod company
-(add-to-list 'company-backends 'company-ghc)
+;; (add-to-list 'company-backends 'company-ghc)
+(add-to-list 'company-backends 'company-ghci)
 
 ;; use web-mode for snap heist templates
 (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
+
+(defun mjhoy/set-haskell-program-ghci ()
+  "Set my haskell program to just use plain ghci."
+  (interactive)
+  (setq haskell-program-name "ghci")
+  (message haskell-program-name))
 
 ;; run with my default haskell environment
 ;; (see: myHaskellEnv in nix/mjhoy/config.nix)
 (defun mjhoy/set-haskell-program-default-shell ()
   (interactive)
-  (setq haskell-program-name "ghci")
+  (setq haskell-program-name "cabal repl")
   (message haskell-program-name))
 
 ;; To use when there is a `shell.nix' in the current directory
