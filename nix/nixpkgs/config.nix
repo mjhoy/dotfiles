@@ -4,6 +4,8 @@
 
   packageOverrides = super: let self = super.pkgs; in with self; rec {
 
+    purescript = super.haskell.lib.doJailbreak super.purescript;
+
     hello_world = stdenv.mkDerivation {
       name = "hello_world";
       src = ~/.dotfiles/src/hello_world;
