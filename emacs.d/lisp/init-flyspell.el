@@ -3,9 +3,7 @@
 (setq flyspell-issue-message-flag nil)
 
 ;; assumes aspell and english+spanish+british are installed.
-;; on mac/homebrew:
-;; $ brew install aspell --with-lang-en --with-lang-es --with-lang-uk
-(let ((langs '("american" "espanol" "british")))
+(let ((langs '("american" "castellano" "british")))
   (setq my-lang-ring (make-ring (length langs)))
   (dolist (elem langs) (ring-insert my-lang-ring elem)))
 
