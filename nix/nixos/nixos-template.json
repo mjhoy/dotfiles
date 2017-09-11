@@ -3,11 +3,10 @@
     {
       "type": "virtualbox-iso",
       "output_directory": "output",
-      "vm_name": "nixos_mjhoy",
-      "disk_size": 20000,
+      "vm_name": "nixos_mjhoy_2",
+      "disk_size": 60000,
       "boot_wait": "1m",
       "boot_command": [
-        "stop sshd<enter>",
         "fdisk /dev/sda<enter>",
         "n<enter>",
         "p<enter>",
