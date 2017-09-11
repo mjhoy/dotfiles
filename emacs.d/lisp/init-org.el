@@ -1,6 +1,7 @@
 (require 'init-basic)
 
 (mjhoy/require-package 'org-plus-contrib)
+(mjhoy/require-package 'org-mime)
 
 (require 'org)
 (require 'org-mime)
