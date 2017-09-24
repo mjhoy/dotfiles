@@ -108,9 +108,6 @@
         # Point at current master, where dependency issues have been
         # fixed.
         snap-loader-dynamic = self.callPackage ~/.dotfiles/nix/pkgs/snap-loader-dynamic { };
-        snap = self.callPackage ~/.dotfiles/nix/pkgs/snap {};
-        xmlhtml = self.callPackage ~/.dotfiles/nix/pkgs/xmlhtml {};
-        heist = self.callPackage ~/.dotfiles/nix/pkgs/heist {};
       };
     };
 
