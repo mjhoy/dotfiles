@@ -208,6 +208,7 @@
       regex-compat
       regex-posix
       regex-tdfa
+      scotty
       shakespeare
       snap
       snap-loader-dynamic
