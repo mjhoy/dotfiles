@@ -152,6 +152,10 @@
         wget
         psc-package
         tmux
+        ripgrep
+        parallel
+        cloc
+        ctags
 
         # aspell dictionaries
         aspell
