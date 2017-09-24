@@ -102,6 +102,9 @@
         # reason.
         # hakyll = dontCheck super.hakyll;
 
+        # https://github.com/NixOS/nixpkgs/issues/29724
+        foundation = dontCheck super.foundation;
+
         # Point at current master, where dependency issues have been
         # fixed.
         snap-loader-dynamic = self.callPackage ~/.dotfiles/nix/pkgs/snap-loader-dynamic { };
