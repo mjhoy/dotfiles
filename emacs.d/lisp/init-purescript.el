@@ -15,15 +15,15 @@
 (defun mjhoy/set-psc-ide-sources-for-psc-package ()
   (interactive)
   (projectile-with-default-dir (projectile-project-root)
-    (setq psc-ide-source-globs
-          (append
-           '("src/**/*.purs")
-           (cl-remove-if (lambda (s) (equalp "" s))
-                         (split-string
-                          (shell-command-to-string "psc-package sources")
-                          "\n"))
-           )
-          )))
+    (let ((globs (append
+                  '("src/**/*.purs")
+                  (cl-remove-if (lambda (s) (equalp "" s))
+                                (split-string
+                                 (shell-command-to-string "psc-package sources")
+                                 "\n")))))
+
+      (setq psc-ide-source-globs globs)
+      )))
 
 (add-hook 'purescript-mode-hook 'mjhoy/purescript-mode-setup)
 
