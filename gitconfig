@@ -32,3 +32,5 @@
 	insteadOf = ssh://git@github.com/ghc/packages/
 [url "git@github.com:ghc/packages-"]
 	insteadOf = git@github.com:ghc/packages/
+[magit]
+	hideCampaign = true
