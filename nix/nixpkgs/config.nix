@@ -132,6 +132,7 @@
 
         # useful tools
         ag
+        cloc
         cmake
         emacs
         git
@@ -139,13 +140,12 @@
         lynx
         mu
         nasm
-        pass
-        wget
-        psc-package
-        tmux
-        ripgrep
         parallel
-        cloc
+        pass
+        psc-package
+        ripgrep
+        tmux
+        wget
 
         # aspell dictionaries
         aspell
