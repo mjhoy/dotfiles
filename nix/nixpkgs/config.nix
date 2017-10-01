@@ -133,6 +133,7 @@
         # useful tools
         ag
         cmake
+        emacs
         git
         htop
         lynx
@@ -145,7 +146,6 @@
         ripgrep
         parallel
         cloc
-        ctags
 
         # aspell dictionaries
         aspell
