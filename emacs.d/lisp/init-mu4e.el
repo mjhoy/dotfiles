@@ -94,6 +94,7 @@
       (setq mail-user-agent 'mu4e-user-agent)
       (setq mu4e-maildir "~/.mail/")
       (setq mu4e-view-show-addresses t)
+      (setq mu4e-headers-include-related t)
 
       (setq mu4e-user-mail-address-list '("mjh@mjhoy.com"
                                           "michael.john.hoy@gmail.com"))
