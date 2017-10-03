@@ -1,5 +1,10 @@
 (require 'dired)
 
+(mjhoy/require-package 'dired-details)
+(require 'dired-details)
+(setq-default dired-details-hidden-string "--- ")
+(dired-details-install)
+
 (setq dired-listing-switches "-laGh")
 
 (defun dired-get-size ()
