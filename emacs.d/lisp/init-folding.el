@@ -1,5 +1,9 @@
 (mjhoy/require-package 'yafolding)
 
+;; yafolding
+;;
+;; C-RET: toggle element
+;; C-M-RET: toggle all
 (defun mjhoy/init-folding ()
   "Initiaize folding"
   (yafolding-mode 1))
