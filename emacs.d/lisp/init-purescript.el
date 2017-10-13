@@ -17,6 +17,7 @@
   (projectile-with-default-dir (projectile-project-root)
     (let ((globs (append
                   '("src/**/*.purs")
+                  '("test/**/*.purs")
                   (cl-remove-if (lambda (s) (equalp "" s))
                                 (split-string
                                  (shell-command-to-string "psc-package sources")
@@ -26,6 +27,17 @@
       )))
 
 (add-hook 'purescript-mode-hook 'mjhoy/purescript-mode-setup)
+
+;; TODO
+;; Add a regex for compilation from psa
+;; (defvar purescript-mode-compilation-regex-alist-alist
+;;   `((psc ,(rx line-start
+;;               (* space) (32 "Error ") "at "
+;;               (group (minimal-match (one-or-more (not ":"))))
+;;               " line " (group (+ num)) ", column " (group (+ num))
+;;               " - line " (group (+ num)) ", column " (group (+ num))
+;;               (32 ":")) 1 (2 . 3) (4 . 5) (6))) "\
+;; Alist for PureScript errors.  See: `compilation-error-regexp-alist'.")
 
 (setq psc-ide-use-npm-bin t)
 (setq psc-ide-use-purs t)
