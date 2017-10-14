@@ -146,6 +146,7 @@
         ripgrep
         tmux
         wget
+        nix-prefetch-git
 
         # aspell dictionaries
         aspell
