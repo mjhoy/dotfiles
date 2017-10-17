@@ -75,6 +75,7 @@
 (require 'init-helm)
 (require 'init-magit)
 (require 'init-restclient)
+(require 'init-markdown)
 (require 'init-scheme)
 (require 'init-ruby)
 (require 'init-python)
@@ -100,3 +101,20 @@
 (require 'init-presentation)
 (require 'init-pass)
 (require 'init-misc)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(hl-paren-colors
+   (quote
+    ("#B9F" "#B8D" "#B7B" "#B69" "#B57" "#B45" "#B33" "#B11")))
+ '(package-selected-packages
+   (quote
+    (markdown-mode zenburn-theme yasnippet yard-mode yaml-mode yafolding winring web-mode tango-plus-theme robe restclient rainbow-mode racer psci psc-ide php-mode pbcopy org-tree-slide org-plus-contrib org-mime nix-mode mu4e-maildirs-extension molokai-theme moe-theme material-theme magit ibuffer-vc helm-projectile helm-pass helm-dash helm-ag geiser flycheck-rust flycheck-haskell ess dracula-theme dired-details diminish company-racer company-ghci company-ghc color-theme-sanityinc-tomorrow bm auto-dim-other-buffers arjen-grey-theme apache-mode ag ace-window))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
