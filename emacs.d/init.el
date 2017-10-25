@@ -62,6 +62,7 @@
 (require 'init-erc)
 (require 'init-windmove)
 (require 'init-winring)
+(require 'init-compilation)
 (require 'init-projectile)
 (require 'init-ibuffer)
 (require 'init-dired)
