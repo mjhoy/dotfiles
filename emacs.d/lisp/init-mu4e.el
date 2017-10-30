@@ -149,9 +149,10 @@
                     (signal 'quit nil))))
 
       (setq mu4e-headers-fields '((:human-date . 12)
+                                  ;; (:maildir . 16) ; TODO: possible to make look good?
                                   (:flags . 6)
                                   (:mailing-list . 6)
-                                  (:from . 22)
+                                  (:from . 18)
                                   (:thread-subject)))
       (setq mu4e-use-fancy-chars nil)
 
