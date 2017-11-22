@@ -28,6 +28,12 @@
 (let ((default-directory (expand-file-name "site-lisp" user-emacs-directory)))
   (normal-top-level-add-subdirs-to-load-path))
 
+;; save customizations in a different file (so they don't pollute
+;; init.el.)
+(setq custom-file
+      (concat (expand-file-name user-emacs-directory) "custom.el"))
+(load custom-file 'noerror)
+
 ;; if emacs lisp code exists in a nix-profile, add to load path. this
 ;; allows e.g., nix-env -iA nixpkgs.emacs24Packages.proofgeneral
 (let ((nix-emacs-lisp-dir
