@@ -62,6 +62,7 @@
 (require 'init-pbcopy)
 (require 'init-theme)
 (require 'init-hl-line)
+(require 'init-multiple-cursors)
 (require 'init-prog)
 (require 'init-tramp)
 (require 'init-org)
