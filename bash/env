@@ -6,6 +6,8 @@ export PATH="~/bin:~/.cabal/bin:~/.rbenv/bin:~/.gem/ruby/1.8/bin:/usr/local/bin:
 export NODE_PATH="/usr/local/lib/node"
 export PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
 export INFOPATH=~/.nix-profile/share/info:$INFOPATH
+# Nix seems to find my manuals, on OSX anyway. Not sure how.
+# export MANPATH=~/.nix-profile/share/man:$MANPATH
 
 SSH_ENV="$HOME/.ssh/environment"
 
