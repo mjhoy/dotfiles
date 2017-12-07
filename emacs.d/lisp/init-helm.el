@@ -57,4 +57,8 @@
 
 (helm-projectile-on)
 
+;; undo the projectile-ag remap
+(define-key projectile-mode-map [remap projectile-ag] nil)
+(define-key projectile-mode-map (kbd "C-c p s a") #'helm-projectile-ag)
+
 (provide 'init-helm)
