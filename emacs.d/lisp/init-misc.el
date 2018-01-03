@@ -33,6 +33,15 @@
   (let ((hippie-expand-try-functions-list '(try-expand-line-all-buffers)))
     (call-interactively 'hippie-expand)))
 
+(defun mjhoy/show-current-line-position ()
+  "Print out '</path/to/file>:<line-number>'"
+  (interactive)
+  (let ((path-with-line-number
+         (concat (buffer-file-name) ":" (number-to-string (line-number-at-pos)))))
+    (message path-with-line-number)))
+
+(define-key global-map (kbd "M-l") 'mjhoy/show-current-line-position)
+
 (global-set-key (kbd "C-x C-l") 'mjhoy/expand-line)
 
 ;; buffer bindings
