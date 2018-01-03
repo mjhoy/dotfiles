@@ -36,4 +36,14 @@ it about Drupal filename conventions (e.g., .inc, .module, etc)."
 
 (setq projectile-completion-system 'helm)
 
+(defun mjhoy/projectile-init ()
+  "My projectile initialization."
+
+  ;; I don't like that projectile-ag doesn't take a regexp. And even
+  ;; running it with C-u doesn't seem to work?
+  (define-key projectile-mode-map (kbd "C-c p s s") #'ag-project-regexp)
+  )
+
+(add-hook 'projectile-mode-hook #'mjhoy/projectile-init)
+
 (provide 'init-projectile)
