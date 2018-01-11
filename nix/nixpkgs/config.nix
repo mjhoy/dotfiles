@@ -139,6 +139,8 @@
         # Waiting on: https://github.com/mightybyte/snaplet-postgresql-simple/pull/46
         snaplet-postgresql-simple = doJailbreak super.snaplet-postgresql-simple;
 
+        # Missing glob (which appears to have been removed in https://github.com/snapframework/snap/pull/197)
+        snap = doJailbreak super.snap;
       } // (if stdenv.isDarwin then {
         # macOS-specific overrides
 
