@@ -4,6 +4,9 @@
 
   packageOverrides = super: let self = super.pkgs; in with self; rec {
 
+    # Purescript is a top-level Nix package (e.g., nix-env -iA
+    # nixpkgs.purescript), but it is also a Haskell library. We can
+    # plow ahead through dependency problems with `doJailbreak` here.
     purescript = super.haskell.lib.doJailbreak super.purescript;
 
     hello_world = stdenv.mkDerivation {
@@ -82,6 +85,14 @@
     # Overrides to the nix Haskell package set.
     haskellPackages = super.haskellPackages.override {
       overrides = self: super: with haskell.lib; {
+        # -- Note to future self --
+        # Haskell packages will commonly fail with dependency or test
+        # failures. Two functions help out here: `doJailbreak` and
+        # `dontCheck`. `doJailbreak` essentially says, ignore all
+        # dependency version constraints and try to compile
+        # anyway. `dontCheck` does not run tests (of course it still
+        # fails if compilation fails).
+
         # Heist's test suite is failing in OSX.
         # heist = dontCheck super.heist;
 
