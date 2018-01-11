@@ -9,6 +9,14 @@
     # plow ahead through dependency problems with `doJailbreak` here.
     purescript = super.haskell.lib.doJailbreak super.purescript;
 
+    psc-package = super.psc-package.overrideAttrs (oldAttrs: {
+      src = fetchgit {
+        url = "https://github.com/mjhoy/psc-package.git";
+        rev = "039a42ba780a4f8e342e578177f584d13a6288a7";
+        sha256 = "0kyxwzn33qdlj17dd87076bymvg0nzzi7ahnyxkfba1cgfdjxzpz";
+      };
+    });
+
     hello_world = stdenv.mkDerivation {
       name = "hello_world";
       src = ~/.dotfiles/src/hello_world;
