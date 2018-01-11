@@ -120,8 +120,9 @@
         #    Now use the output from this in an override:
         #    psc-package = super.psc-package.overrideAttrs (oldAttrs: { src = fetchgit { ... } })
 
-        # Heist's test suite is failing in OSX.
-        # heist = dontCheck super.heist;
+        # Heist's test suite is failing on pandoc2.
+        # See: https://github.com/snapframework/heist/pull/111
+        heist = dontCheck super.heist;
 
         # process-extras test suit fails on darwin. See:
         # https://github.com/seereason/process-extras/issues/10
