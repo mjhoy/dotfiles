@@ -85,13 +85,32 @@
     # Overrides to the nix Haskell package set.
     haskellPackages = super.haskellPackages.override {
       overrides = self: super: with haskell.lib; {
-        # -- Note to future self --
+        # ----------------------------------
+        # -- A little note to future self --
+        # ----------------------------------
+        #
         # Haskell packages will commonly fail with dependency or test
         # failures. Two functions help out here: `doJailbreak` and
         # `dontCheck`. `doJailbreak` essentially says, ignore all
         # dependency version constraints and try to compile
         # anyway. `dontCheck` does not run tests (of course it still
         # fails if compilation fails).
+        #
+        # If that doesn't work, and the package itself must be fixed,
+        # the steps are:
+        #
+        # 1. Fork the package, download locally.
+        # 2. Use cabal2nix --shell to generate a shell.nix file.
+        # 3. nix-shell shell.nix. Try to get compiling again using just
+        #    `cabal build`.
+        # 4. Push up PR with fix.
+        # 5. Meanwhile let's override the `src` in the original derivation.
+        #    Use `nix-prefetch-git` to get the necessary info, e.g.:
+        #
+        #    $ nix-prefetch-git https://github.com/mjhoy/psc-package.git 039a42ba780a4f8e342e578177f584d13a6288a7
+        #
+        #    Now use the output from this in an override:
+        #    psc-package = super.psc-package.overrideAttrs (oldAttrs: { src = fetchgit { ... } })
 
         # Heist's test suite is failing in OSX.
         # heist = dontCheck super.heist;
