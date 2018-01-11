@@ -124,17 +124,17 @@
         # See: https://github.com/snapframework/heist/pull/111
         heist = dontCheck super.heist;
 
-        # process-extras test suit fails on darwin. See:
-        # https://github.com/seereason/process-extras/issues/10
-        # process-extras = dontCheck super.process-extras;
+        # Not sure why this is failing. Keeps saying missing directory
+        # == 1.2.*, but I don't know where that comes from.
+        #
+        # snap-loader-dynamic = doJailbreak (super.snap-loader-dynamic.overrideAttrs (oldAttrs: {
+        #   src = fetchgit {
+        #     url = "https://github.com/snapframework/snap-loader-dynamic";
+        #     rev = "2bbf96c4cad2b0c4e60e999607f68c1f6ddfdd92";
+        #     sha256 = "0vp8b020wb2aj16nbbwnszxwfrhl1c1gz373gv4pbi5zx0m93fzf";
+        #   };
+        # }));
 
-        # hakyll's test suite requires `util-linux` for some silly
-        # reason.
-        # hakyll = dontCheck super.hakyll;
-
-        # Point at current master, where dependency issues have been
-        # fixed.
-        snap-loader-dynamic = self.callPackage ~/.dotfiles/nix/pkgs/snap-loader-dynamic { };
       } // (if stdenv.isDarwin then {
         # macOS-specific overrides
 
@@ -197,7 +197,6 @@
     # haskell environment
     myHaskellEnv = haskellPackages.ghcWithHoogle (p: with p; [
       cabal-install
-      ghc-mod
       hlint
       QuickCheck
       hspec
@@ -245,7 +244,8 @@
       scotty
       shakespeare
       snap
-      snap-loader-dynamic
+      # Not building, can't figure it out.
+      # snap-loader-dynamic
       snap-loader-static
       snap-templates
       snaplet-postgresql-simple
