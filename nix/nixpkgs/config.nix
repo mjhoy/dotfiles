@@ -135,6 +135,10 @@
         #   };
         # }));
 
+        # Missing deps: base >=4 && <4.10
+        # Waiting on: https://github.com/mightybyte/snaplet-postgresql-simple/pull/46
+        snaplet-postgresql-simple = doJailbreak super.snaplet-postgresql-simple;
+
       } // (if stdenv.isDarwin then {
         # macOS-specific overrides
 
