@@ -1,5 +1,6 @@
 (mjhoy/require-package 'rainbow-mode)   ; used for hacking on boron
 (mjhoy/require-package 'tango-plus-theme)
+(mjhoy/require-package 'material-theme) ; my main theme these days.
 (mjhoy/require-package 'auto-dim-other-buffers)
 
 (defvar mjhoy/current-theme nil
