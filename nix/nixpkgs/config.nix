@@ -36,13 +36,8 @@
         drush
         php
 
-        # rust (not available on nix/darwin)
-        rustPlatform.rustc
-        rustPlatform.cargo
-
         # c
         clang
-        libmjh
 
         # other
         mdk
