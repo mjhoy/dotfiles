@@ -34,11 +34,12 @@
     displayManager.auto.enable = true;
     displayManager.auto.user = "mjhoy";
 
-    desktopManager.default = "none";
+    desktopManager.plasma5.enable = true;
+
     # desktopManager.xfce.enable = true;
 
-    windowManager.i3.enable = true;
-    windowManager.default = "i3";
+    # windowManager.i3.enable = true;
+    # windowManager.default = "i3";
     # windowManager.default = "xmonad";
     # windowManager.xmonad.enable = true;
     # windowManager.xmonad.extraPackages = haskellPackages: [
