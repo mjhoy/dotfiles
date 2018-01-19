@@ -6,7 +6,7 @@
       user-mail-address "mjh@mjhoy.com")
 
 ;; are we running on nix?
-(if (string-match "nixos" (system-name)) (setq nixos t) (setq nixos nil))
+(setq nixos (file-directory-p "/etc/nixos"))
 
 ;; are we running on macos?
 (if (string-equal system-type "darwin") (setq macos t) (setq macos nil))

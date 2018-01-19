@@ -12,15 +12,14 @@
 ;; (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend)
 
 (tool-bar-mode 0)
+(menu-bar-mode 0)
 
 (setq display-time-24hr-format t)
 
 (if nixos
     (progn
-      (menu-bar-mode 0)
       (scroll-bar-mode 0)
-      (display-battery-mode)
-      (display-time-mode 1)))
+      (display-battery-mode)))
 
 (if (string-equal system-type "darwin")
     (progn
