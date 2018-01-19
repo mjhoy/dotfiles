@@ -39,8 +39,31 @@
         # c
         clang
 
+        # node
+        nodejs-8_x
+        yarn
+        purescript
+
         # other
         mdk
+        pinentry
+        vnstat
+        docker_compose
+        bmon
+      ];
+    };
+
+    # After installing an app, with KDE, need to run:
+    #
+    # $ kbuildsycoca5
+    #
+    # to reindex for the apps menu.
+    linuxApps = buildEnv {
+      name = "linuxApps";
+      paths = [
+        firefox
+        slack
+        gimp
       ];
     };
 
@@ -49,14 +72,6 @@
       paths = [
         devEnv
         linuxOnly
-      ];
-    };
-
-    phpEnv = buildEnv {
-      name = "phpEnv";
-      paths = [
-        drush
-        php
       ];
     };
 
