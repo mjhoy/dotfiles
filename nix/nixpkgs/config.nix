@@ -29,12 +29,17 @@
 
     libmikey = callPackage ~/.dotfiles/nix/pkgs/libmikey {};
 
+    phpEnv56 = buildEnv {
+      name = "phpEnv56";
+      paths = [
+        php56
+        (drush.override { php = php56; })
+      ];
+    };
+
     linuxOnly = buildEnv {
       name = "linuxOnly";
       paths = [
-        # php development
-        drush
-        php
 
         # c
         clang
