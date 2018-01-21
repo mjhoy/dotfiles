@@ -19,7 +19,9 @@
 (if nixos
     (progn
       (scroll-bar-mode 0)
-      (display-battery-mode)))
+      (display-battery-mode)
+      (set-face-attribute 'default nil :family "Noto Mono")
+      ))
 
 (if (string-equal system-type "darwin")
     (progn
