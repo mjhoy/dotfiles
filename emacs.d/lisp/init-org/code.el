@@ -1,7 +1,6 @@
 (setq org-confirm-babel-evaluate nil)
 
-(require 'ob-sh)
-; do I want 'ob-shell ?
+(require 'ob-shell)
 
 (require 'ob-sql)
 
