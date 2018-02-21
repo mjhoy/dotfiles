@@ -98,9 +98,6 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %=%-16(\ %l,%c-%v\ %)%P
 " Use 256 colors.
 set t_Co=256
 
-set background=dark
-colorscheme Tomorrow-Night-Bright
-
 " Highlight trailing whitespace
 " See: http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
