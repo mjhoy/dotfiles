@@ -202,6 +202,9 @@
         tmux
         wget
         nix-prefetch-git
+        watch
+        ledger
+        imagemagick
 
         # aspell dictionaries
         aspell
