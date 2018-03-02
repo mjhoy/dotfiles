@@ -225,35 +225,47 @@
       # MonadCatchIO-transformers # Dependency problem
       Crypto
       HaXml
+      HandsomeSoup
       MonadRandom
       Unixutils
       aeson
+      aeson-better-errors
       array
       aws
       base64-bytestring
       blaze-html
+      bower-json
+      boxes
       bytestring
+      cheapskate
       containers
+      data-ordlist
       digestive-functors
-      digestive-functors-snap
       digestive-functors-heist
+      digestive-functors-snap
+      edit-distance
       extra
       filepath
       hakyll
-      HandsomeSoup
       hscurses
       hsexif
       hspec
       hspec-core
       hxt
       io-streams
+      language-javascript
       lens
+      monad-logger
       mtl
       optparse-applicative
       pandoc
       parsec
+      pattern-arrows
+      pipes
+      pipes-http
       postgresql-simple
       process
+      protolude
       readable
       regex-applicative
       regex-base
@@ -263,11 +275,11 @@
       scotty
       shakespeare
       snap
-      # Not building, can't figure it out.
-      # snap-loader-dynamic
       snap-loader-static
       snap-templates
       snaplet-postgresql-simple
+      sourcemap
+      spdx
       split
       text
       time
@@ -276,6 +288,8 @@
       unordered-containers
       uuid
       vector
+      wai-websockets
+      websockets
       wreq
     ]);
 
