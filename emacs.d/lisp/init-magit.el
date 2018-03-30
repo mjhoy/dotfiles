@@ -20,6 +20,9 @@
 (magit-define-popup-switch 'magit-log-popup
   ?m "Omit merge commits" "--no-merges")
 
+(magit-define-popup-switch 'magit-fetch-popup
+  ?t "Fetch all tags" "--tags")
+
 (defun mjhoy/log-current-commit-to-org-clock ()
   "Get the current repository's HEAD commit, and add it as a link
 to the current org clock, if one exists."
