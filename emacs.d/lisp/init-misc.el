@@ -2,6 +2,9 @@
 (require 'mjhoy-misc)
 (require 'init-basic)
 
+(require 're-builder)
+(setq reb-re-syntax 'string)
+
 ;; misc useful modes here
 (mjhoy/require-package 'apache-mode)
 
