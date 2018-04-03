@@ -17,6 +17,23 @@
       };
     });
 
+    # mu version 1.0, PR here:
+    # https://github.com/NixOS/nixpkgs/pull/34633
+    mu = super.mu.overrideAttrs (oldAttrs: rec {
+      name = "mu-${version}";
+      version = "1.0";
+      src = fetchgit {
+        url    = "https://github.com/djcg/mu.git";
+        rev    = "v${version}";
+        sha256 = "0y6azhcmqdx46a9gi7mn8v8p0mhfx2anjm5rj7i69kbr6j8imlbc";
+      };
+      postPatch = ''
+        sed -i -e '/test-utils/d' lib/parser/Makefile.am
+      '';
+      nativeBuildInputs = [ pkgconfig autoreconfHook pmccabe ];
+      enableParallelBuilding = true;
+    });
+
     hello_world = stdenv.mkDerivation {
       name = "hello_world";
       src = ~/.dotfiles/src/hello_world;
