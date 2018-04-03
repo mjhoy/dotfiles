@@ -31,8 +31,7 @@ it about Drupal filename conventions (e.g., .inc, .module, etc)."
 
 (advice-add 'projectile-regenerate-tags :around #'mjhoy/projectile-regenerate-tags)
 
-; Disable for the time being as it creates problems with TRAMP
-;(setq projectile-enable-caching t)
+(setq projectile-enable-caching t)
 
 (setq projectile-completion-system 'helm)
 
