@@ -42,4 +42,7 @@
 (setq psc-ide-use-npm-bin t)
 (setq psc-ide-use-purs t)
 
+(setq psc-ide-flycheck-ignored-error-codes
+      '("UnusedImport" "UnusedExplicitImport" "UnusedDctorImport"))
+
 (provide 'init-purescript)
