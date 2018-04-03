@@ -9,13 +9,14 @@
     # plow ahead through dependency problems with `doJailbreak` here.
     purescript = super.haskell.lib.doJailbreak super.purescript;
 
-    psc-package = super.psc-package.overrideAttrs (oldAttrs: {
-      src = fetchgit {
-        url = "https://github.com/mjhoy/psc-package.git";
-        rev = "039a42ba780a4f8e342e578177f584d13a6288a7";
-        sha256 = "0kyxwzn33qdlj17dd87076bymvg0nzzi7ahnyxkfba1cgfdjxzpz";
-      };
-    });
+    psc-package =
+      super.haskell.lib.doJailbreak (super.psc-package.overrideAttrs (oldAttrs: {
+        src = fetchgit {
+          url = "https://github.com/mjhoy/psc-package.git";
+          rev = "039a42ba780a4f8e342e578177f584d13a6288a7";
+          sha256 = "0kyxwzn33qdlj17dd87076bymvg0nzzi7ahnyxkfba1cgfdjxzpz";
+        };
+      }));
 
     # mu version 1.0, PR here:
     # https://github.com/NixOS/nixpkgs/pull/34633
@@ -165,15 +166,7 @@
         # Missing deps: base >=4 && <4.10
         # Waiting on: https://github.com/mightybyte/snaplet-postgresql-simple/pull/46
         snaplet-postgresql-simple = doJailbreak super.snaplet-postgresql-simple;
-
-        # Missing glob (which appears to have been removed in https://github.com/snapframework/snap/pull/197)
-        snap = doJailbreak super.snap;
-      } // (if stdenv.isDarwin then {
-        # macOS-specific overrides
-
-        # https://github.com/NixOS/nixpkgs/issues/29724
-        foundation = dontCheck super.foundation;
-      } else {});
+      };
     };
 
     nodejsEnv = with pkgs; buildEnv {
@@ -248,7 +241,6 @@
       aeson
       aeson-better-errors
       array
-      aws
       base64-bytestring
       blaze-html
       bower-json
@@ -296,7 +288,6 @@
       snap-templates
       snaplet-postgresql-simple
       sourcemap
-      spdx
       split
       text
       time
