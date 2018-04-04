@@ -10,6 +10,8 @@
 ;; need this for `flycheck-define-checker'
 (require 'flycheck)
 
+(add-hook 'rust-mode-hook #'flycheck-rust-setup)
+
 ;; racer should be built in ~/src/racer:
 ;;
 ;; git clone https://github.com/phildawes/racer.git ~/src/racer
