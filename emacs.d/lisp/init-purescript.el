@@ -8,6 +8,7 @@
   (flycheck-mode)
   (turn-on-purescript-indentation)
   (turn-on-purescript-decl-scan)
+  (turn-on-purescript-unicode-input-method)
   )
 
 ;; This function uses the globs obtained from `psc-package sources` to
