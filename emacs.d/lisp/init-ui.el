@@ -4,6 +4,29 @@
 (set-face-attribute 'default nil :height 130)
 (set-face-attribute 'default nil :weight 'normal)
 
+(defun mjhoy/increase-face-height ()
+  "Increase the default face height (font size)
+
+Differs from text-scale-adjust by applying to all windows & frames.
+"
+  (interactive)
+  (let* ((current-height (face-attribute 'default :height))
+         (new-height (+ current-height 10)))
+    (set-face-attribute 'default nil :height new-height)))
+
+(defun mjhoy/decrease-face-height ()
+  "Decrease the default face height (font size)
+
+Differs from text-scale-adjust by applying to all windows & frames.
+"
+  (interactive)
+  (let* ((current-height (face-attribute 'default :height))
+         (new-height (- current-height 10)))
+    (set-face-attribute 'default nil :height new-height)))
+
+(global-set-key (kbd "C-c C-=") 'mjhoy/increase-face-height)
+(global-set-key (kbd "C-c C--") 'mjhoy/decrease-face-height)
+
 (setq text-scale-mode-step 1.14)
 
 (setq-default cursor-type 'box)
