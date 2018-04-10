@@ -1,11 +1,10 @@
 .PHONY: clean
 
-LIBS = -static -lmikey
-CFLAGS = ${include_dirs} -O
-include_dirs = -I${libmikey}/include
+LIBS = -lmikey
+CFLAGS = -O
 
 hello_world: hello_world.o
-	$(CC) -o $@ $^ $(CFLAGS) $(libmikey)/lib/libmikey.a
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 clean:
 	rm -f *.o

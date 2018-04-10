@@ -1,0 +1,4 @@
+build/
+ename.c.inc
+*.o
+*.a

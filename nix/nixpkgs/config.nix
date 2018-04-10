@@ -38,10 +38,10 @@
     hello_world = stdenv.mkDerivation {
       name = "hello_world";
       src = ~/.dotfiles/src/hello_world;
-      libmikey = libmikey;
+      buildInputs = [ libmikey ];
       installPhase = ''
-      mkdir -p $out/bin
-      cp hello_world $out/bin/hello_world
+        mkdir -p $out/bin
+        cp hello_world $out/bin/hello_world
       '';
     };
 
@@ -187,6 +187,7 @@
     devEnv = buildEnv {
       name = "devEnv";
       paths = [
+        libmikey
         myHaskellEnv
         cabal2nix
 

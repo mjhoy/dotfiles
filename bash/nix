@@ -13,6 +13,10 @@ if [ -e $HOME/.nix-profile/include ]; then
     export C_INCLUDE_PATH=$HOME/.nix-profile/include:$C_INCLUDE_PATH;
 fi
 
+if [ -e $HOME/.nix-profile/lib ]; then
+    export LIBRARY_PATH=$HOME/.nix-profile/lib:$LIBRARY_PATH;
+fi
+
 # i'm not sure but i dont think i should do this:
 # if [ -e $HOME/.nix-profile/lib ]; then
 #     export LD_LIBRARY_PATH=$HOME/.nix-profile/lib:$LD_LIBRARY_PATH;

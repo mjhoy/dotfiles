@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "common.h"
-#include "error_functions.h"
+#include <mikey/common.h>
+#include <mikey/error_functions.h>
 
 /**
  * Example program.
