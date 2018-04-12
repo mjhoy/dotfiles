@@ -37,9 +37,4 @@
     imagemagick
   ];
 
-  environment.shellInit = ''
-    if [[ $TERM == dumb ]]; then
-      PAGER=cat;
-    fi
-  '';
 }

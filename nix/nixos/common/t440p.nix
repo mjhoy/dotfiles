@@ -5,4 +5,8 @@
   # We have a trackpad.
   # Enable it.
   services.xserver.synaptics.enable = true;
+
+  hardware.pulseaudio = {
+    enable = true;
+  };
 }
