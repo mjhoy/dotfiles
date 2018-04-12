@@ -34,3 +34,5 @@
 	insteadOf = git@github.com:ghc/packages/
 [magit]
 	hideCampaign = true
+[github]
+	user = mjhoy
