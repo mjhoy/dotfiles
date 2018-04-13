@@ -1,0 +1,4 @@
+sub1/foo
+sub1/*.o
+sub2/bar
+sub2/*.o
