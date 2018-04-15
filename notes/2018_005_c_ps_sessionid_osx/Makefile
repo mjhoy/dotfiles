@@ -16,5 +16,5 @@ test: getsid
 	@echo "Test passed."
 
 clean:
-	rm -f vfork
+	rm -f getsid
 	rm -f *.o
