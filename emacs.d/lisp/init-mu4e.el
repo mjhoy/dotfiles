@@ -54,7 +54,7 @@
         (setq user-mail-address "michael.john.hoy@gmail.com")
         )
 
-      (defvar mjhoy/switch-mail-auto t
+      (defvar mjhoy/switch-mail-auto nil
         "Switch gmail/fastmail automatically in mu4e.")
 
       (defun mjhoy/switch-mail-auto-fn ()
