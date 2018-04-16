@@ -14,4 +14,6 @@
 
 (setq org-agenda-sticky t)
 
+(setq org-habit-show-all-today t)
+
 (provide 'init-org/agenda)
