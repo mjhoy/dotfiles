@@ -51,8 +51,6 @@
     (insert "Invoice #")
     (insert (format-time-string "%Y%m%d01"))
     (org-id-get-create)
-    (org-set-tags-to ":work:")
-    (org-set-tags t)
     (org-insert-heading-respect-content)
     (org-demote)
     (insert "Timesheet")
