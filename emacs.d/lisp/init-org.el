@@ -42,6 +42,22 @@
 (add-to-list 'org-structure-template-alist
              '("as" "#+BEGIN_ASIDE\n?\n#+END_ASIDE" ""))
 
+;; Makes an entry for an invoice with some basic info filled in.
+(defun mjhoy/org-generate-invoice-item ()
+  "Inserts an invoice headline."
+  (interactive)
+  (progn
+    (org-insert-heading)
+    (insert "Invoice #")
+    (insert (format-time-string "%Y%m%d01"))
+    (org-id-get-create)
+    (org-set-tags-to ":work:")
+    (org-set-tags t)
+    (org-insert-heading-respect-content)
+    (org-demote)
+    (insert "Timesheet")
+    ))
+
 ;; abbrevs
 (define-abbrev org-mode-abbrev-table "\l" "\lambda")
 (define-abbrev org-mode-abbrev-table "\lra" "\leftrightarrow")
