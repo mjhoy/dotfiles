@@ -1,0 +1,30 @@
+#+TITLE: Todo States
+#+startup: inlineimages
+
+Two things. 1: I'd like a directed graph describing my TODO states I
+use in [[../../emacs.d/lisp/init-org/todo.el][org mode]].
+
+B: I'd like to have org mode generate the file and show it inline in a
+pretty way.
+
+Solution. BEGIN_SRC block, use =dot= type, make sure you've required
+ob-dot, set an output file, you're good to go.
+
+Bonus, set =#+startup:inlineimages= at the top of your org file, and
+that image link that gets generated is rendered inline. However to
+keep it refreshed you need to [[https://github.com/mjhoy/dotfiles/commit/4a9766cd348e37da6606b7a0e74389c05521ca64][add a hook]] to redisplay them.
+
+#+BEGIN_SRC dot :file todo_states.png :cmdline -Tpng
+  digraph {
+    todo -> next -> done
+    todo -> wait
+    todo -> hold
+    wait -> cancelled
+    hold -> cancelled
+    wait -> todo
+    hold -> todo
+  }
+#+END_SRC
+
+#+RESULTS:
+[[file:todo_states.png]]
