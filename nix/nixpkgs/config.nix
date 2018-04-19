@@ -207,20 +207,21 @@
         cmake
         emacs
         git
+        graphviz
         htop
+        imagemagick
+        ledger
         lynx
         mu
         nasm
+        nix-prefetch-git
         parallel
         pass
         psc-package
         ripgrep
         tmux
-        wget
-        nix-prefetch-git
         watch
-        ledger
-        imagemagick
+        wget
 
         # aspell dictionaries
         aspell
