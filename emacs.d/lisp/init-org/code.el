@@ -28,6 +28,12 @@
 ;; this makes it possible to generate valid Makefiles
 (setq org-src-preserve-indentation t)
 
+(defun mjhoy/org-maybe-refresh-images ()
+  (when org-inline-image-overlays
+    (org-redisplay-inline-images)))
+
+(add-hook 'org-babel-after-execute-hook 'mjhoy/org-maybe-refresh-images)
+
 ;; structure shortcuts
 (add-to-list 'org-structure-template-alist
              '("hs" "#+begin_src haskell\n?\n#+end_src" "<src lang=\"haskell\">\n?\n</src>"))
