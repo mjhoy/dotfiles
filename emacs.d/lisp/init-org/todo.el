@@ -3,8 +3,20 @@
 (setq org-log-note-clock-out nil)
 
 (setq org-todo-keywords
-      '((sequence "TODO(t!)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@!)")))
+      '((sequence "TODO(t!)" "NEXT(n!)" "|" "DONE(d!)")
+        (sequence "WAIT(w@/!)" "HOLD(h@/!)" "|" "CANCELED(c@!)")))
+
+(setq org-todo-keyword-faces
+      (quote (("TODO" :foreground "red" :weight bold)
+              ("NEXT" :foreground "blue" :weight bold)
+              ("DONE" :foreground "forest green" :weight bold)
+              ("WAIT" :foreground "orange" :weight bold)
+              ("HOLD" :foreground "magenta" :weight bold)
+              ("CANCELLED" :foreground "forest green" :weight bold))))
+
 (setq org-log-into-drawer "LOGBOOK")
+
+(setq org-use-fast-todo-selection t)
 
 (defun org-summary-todo (n-done n-not-done)
   "Switch entry to DONE when all subentries are done, to TODO otherwise."
