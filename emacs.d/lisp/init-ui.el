@@ -4,6 +4,17 @@
 (set-face-attribute 'default nil :height 130)
 (set-face-attribute 'default nil :weight 'normal)
 
+(defun mjhoy/change-face (arg)
+  "Change the default face to ARG.
+
+When called interactively, presents a list of options to choose
+from."
+  (interactive
+   (list
+    (completing-read "Face: "
+                     '("Courier" "SF Mono" "Menlo"))))
+  (set-face-attribute 'default nil :font arg))
+
 (defun mjhoy/increase-face-height ()
   "Increase the default face height (font size)
 
