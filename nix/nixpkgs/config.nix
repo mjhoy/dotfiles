@@ -181,6 +181,7 @@
       ];
     };
 
+    aspellEnv = aspellWithDicts(ps: [ ps.en ps.es ]);
 
     # ---------------------
     # Developer environment
@@ -224,9 +225,7 @@
         wget
 
         # aspell dictionaries
-        aspell
-        aspellDicts.en
-        aspellDicts.es
+        aspellEnv
       ];
     };
 
