@@ -211,6 +211,7 @@
         graphviz
         htop
         imagemagick
+        jq
         ledger
         lynx
         mu
