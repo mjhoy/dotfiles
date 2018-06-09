@@ -191,6 +191,7 @@
         psc-package
         ripgrep
         tmux
+        tree
         watch
         wget
 
@@ -209,6 +210,10 @@
 
       # useful libraries...
       # MonadCatchIO-transformers # Dependency problem
+      composite-base
+      # composite-aeson
+      servant
+      servant-server
       Crypto
       HaXml
       HandsomeSoup
@@ -257,6 +262,7 @@
       regex-compat
       regex-posix
       regex-tdfa
+      safe
       scotty
       shakespeare
       snap
