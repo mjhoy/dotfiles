@@ -18,23 +18,6 @@
         };
       }));
 
-    # mu version 1.0, PR here:
-    # https://github.com/NixOS/nixpkgs/pull/34633
-    mu = super.mu.overrideAttrs (oldAttrs: rec {
-      name = "mu-${version}";
-      version = "1.0";
-      src = fetchgit {
-        url    = "https://github.com/djcg/mu.git";
-        rev    = "v${version}";
-        sha256 = "0y6azhcmqdx46a9gi7mn8v8p0mhfx2anjm5rj7i69kbr6j8imlbc";
-      };
-      postPatch = ''
-        sed -i -e '/test-utils/d' lib/parser/Makefile.am
-      '';
-      nativeBuildInputs = [ pkgconfig autoreconfHook pmccabe ];
-      enableParallelBuilding = true;
-    });
-
     hello_world = stdenv.mkDerivation {
       name = "hello_world";
       src = ~/.dotfiles/src/hello_world;
@@ -155,22 +138,8 @@
 
         # Heist's test suite is failing on pandoc2.
         # See: https://github.com/snapframework/heist/pull/111
-        heist = dontCheck super.heist;
-
-        # Not sure why this is failing. Keeps saying missing directory
-        # == 1.2.*, but I don't know where that comes from.
-        #
-        # snap-loader-dynamic = doJailbreak (super.snap-loader-dynamic.overrideAttrs (oldAttrs: {
-        #   src = fetchgit {
-        #     url = "https://github.com/snapframework/snap-loader-dynamic";
-        #     rev = "2bbf96c4cad2b0c4e60e999607f68c1f6ddfdd92";
-        #     sha256 = "0vp8b020wb2aj16nbbwnszxwfrhl1c1gz373gv4pbi5zx0m93fzf";
-        #   };
-        # }));
-
-        # Missing deps: base >=4 && <4.10
-        # Waiting on: https://github.com/mightybyte/snaplet-postgresql-simple/pull/46
-        snaplet-postgresql-simple = doJailbreak super.snaplet-postgresql-simple;
+        heist = dontCheck (doJailbreak super.heist);
+        hasktags = dontCheck super.hasktags;
       };
     };
 
