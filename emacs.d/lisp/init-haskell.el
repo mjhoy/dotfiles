@@ -6,6 +6,8 @@
 (require 'init-company)
 (require 'company) ; to reference 'company-backends below
 
+(require 'w3m-haddock)
+
 (defun mjhoy/haskell-cabal-setup ()
   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile))
 (add-hook 'haskell-cabal-hook 'mjhoy/haskell-cabal-setup)
