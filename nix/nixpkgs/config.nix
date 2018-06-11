@@ -140,6 +140,30 @@
         # See: https://github.com/snapframework/heist/pull/111
         heist = dontCheck (doJailbreak super.heist);
         hasktags = dontCheck super.hasktags;
+
+        # Allow newer vinyl package.
+        composite-base = doJailbreak super.composite-base;
+        composite-aeson = doJailbreak super.composite-aeson;
+
+        # Vinyl 0.8.x
+        vinyl = with self; haskellPackages.mkDerivation {
+          pname = "vinyl";
+          version = "0.8.1.1";
+          src = fetchgit {
+            url = "https://github.com/VinylRecords/Vinyl.git";
+            rev = "0917b5bed57428be6609ad030cbb3244b39b52ea";
+            sha256 = "0jrqa0dzhd3bxv3sp4n1xhs63wn4gd0izy679jasni1wwa7zrbmf";
+          };
+          libraryHaskellDepends = [ array base ghc-prim ];
+          testHaskellDepends = [
+            base doctest hspec lens microlens should-not-typecheck singletons
+          ];
+          benchmarkHaskellDepends = [
+            base criterion linear microlens mwc-random primitive tagged vector
+          ];
+          description = "Extensible Records";
+          license = stdenv.lib.licenses.mit;
+        };
       };
     };
 
@@ -211,7 +235,7 @@
       # useful libraries...
       # MonadCatchIO-transformers # Dependency problem
       composite-base
-      # composite-aeson
+      composite-aeson
       servant
       servant-server
       Crypto
@@ -265,6 +289,7 @@
       safe
       scotty
       shakespeare
+      singletons
       snap
       snap-loader-static
       snap-templates
@@ -278,6 +303,7 @@
       unordered-containers
       uuid
       vector
+      vinyl
       wai-websockets
       websockets
       wreq
