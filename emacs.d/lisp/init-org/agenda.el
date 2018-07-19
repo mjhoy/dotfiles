@@ -6,7 +6,6 @@
              "dates.org"                ; upcoming dates
              "projects.org"             ; personal project notes
              "finance.org"              ; personal finances
-             "habits.org"               ; org habits
              "programming_notes.org"    ; programming notebook
              )))
 
