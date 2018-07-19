@@ -11,15 +11,6 @@
 
 (require 'init-mu4e)
 
-(if mjhoy/mu4e-exists-p
-    (progn
-      ;; note: requires gnu-sed on osx
-      ;; $ brew install gnu-sed --with-default-names
-      ;; more at https://github.com/emacs-helm/helm-mu
-      (add-to-list 'load-path "~/.emacs.d/site-lisp/helm-mu")
-      (autoload 'helm-mu "helm-mu" "" t)
-      (autoload 'helm-mu-contacts "helm-mu" "" t)))
-
 (global-set-key (kbd "C-c h k") 'helm-show-kill-ring)
 (global-set-key (kbd "C-c h r") 'helm-register)
 (global-set-key (kbd "C-c h i") 'helm-imenu)
