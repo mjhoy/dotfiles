@@ -9,6 +9,8 @@ vim/.netrwhist
 /nix/nixos/output
 /nix/nixos/packer_cache
 
+*.pyc
+
 # xmonad
 /xmonad/*.hi
 /xmonad/*.o

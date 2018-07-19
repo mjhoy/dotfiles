@@ -22,6 +22,8 @@ dotfiles=( gemrc
            tmux.conf
            emacs.d
            nix/nixpkgs
+           offlineimaprc
+           offlineimap.py
          )
 regex="/?([^/]+)$"
 for i in "${dotfiles[@]}" ; do
