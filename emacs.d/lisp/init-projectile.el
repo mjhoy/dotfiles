@@ -1,3 +1,5 @@
+(setq projectile-keymap-prefix (kbd "C-c p"))
+
 (mjhoy/require-package 'projectile)
 (mjhoy/require-package 'ag)
 
