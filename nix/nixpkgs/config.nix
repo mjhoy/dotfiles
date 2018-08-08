@@ -199,6 +199,7 @@
         ag
         cloc
         cmake
+        ctags
         emacs
         git
         graphviz
