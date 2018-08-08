@@ -213,6 +213,7 @@
         nix-prefetch-git
         parallel
         pass
+        protobuf
         psc-package
         ripgrep
         tmux
