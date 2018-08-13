@@ -96,6 +96,7 @@
 (require 'init-gdk)
 (require 'init-php)
 (require 'init-web-mode)
+(require 'init-xml)
 (require 'init-css)
 (require 'init-coq)
 (require 'init-ess)
