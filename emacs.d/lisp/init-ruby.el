@@ -2,6 +2,7 @@
 (mjhoy/require-package 'yaml-mode)
 (mjhoy/require-package 'robe)
 (mjhoy/require-package 'yard-mode)
+(mjhoy/require-package 'haml-mode)
 
 (add-to-list 'auto-mode-alist '("Rakefile\\'"   . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile\\'"    . ruby-mode))
