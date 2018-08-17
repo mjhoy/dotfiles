@@ -10,6 +10,9 @@
 
 (load "ruby-test-mode/ruby-test-mode")
 
+;; disable -b
+(setq ruby-test-rspec-options '())
+
 (eval-after-load 'ruby-test-mode
   '(progn
      (define-key ruby-test-mode-map (kbd "C-c C-t") 'ruby-test-run)
