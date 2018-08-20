@@ -100,6 +100,7 @@
 (require 'init-css)
 (require 'init-coq)
 (require 'init-ess)
+(require 'init-protobuf)
 (require 'init-project-archetypes)
 (require 'init-term)
 (require 'init-folding)
