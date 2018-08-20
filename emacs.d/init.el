@@ -91,6 +91,7 @@
 (require 'init-javascript)
 (require 'init-purescript)
 (require 'init-haskell)
+(require 'init-scala)
 (require 'init-nix)
 (require 'init-c)
 (require 'init-gdk)
