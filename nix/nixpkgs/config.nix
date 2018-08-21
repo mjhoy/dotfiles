@@ -4,20 +4,6 @@
 
   packageOverrides = super: let self = super.pkgs; in with self; rec {
 
-    # Purescript is a top-level Nix package (e.g., nix-env -iA
-    # nixpkgs.purescript), but it is also a Haskell library. We can
-    # plow ahead through dependency problems with `doJailbreak` here.
-    purescript = super.haskell.lib.doJailbreak super.purescript;
-
-    psc-package =
-      super.haskell.lib.doJailbreak (super.psc-package.overrideAttrs (oldAttrs: {
-        src = fetchgit {
-          url = "https://github.com/mjhoy/psc-package.git";
-          rev = "039a42ba780a4f8e342e578177f584d13a6288a7";
-          sha256 = "0kyxwzn33qdlj17dd87076bymvg0nzzi7ahnyxkfba1cgfdjxzpz";
-        };
-      }));
-
     hello_world = stdenv.mkDerivation {
       name = "hello_world";
       src = ~/.dotfiles/src/hello_world;
@@ -88,7 +74,7 @@
         plyr
         lubridate
         ascii
-        plotly
+        # plotly
       ];
     };
 
@@ -136,41 +122,46 @@
         #    Now use the output from this in an override:
         #    psc-package = super.psc-package.overrideAttrs (oldAttrs: { src = fetchgit { ... } })
 
-        # Heist's test suite is failing on pandoc2.
-        # See: https://github.com/snapframework/heist/pull/111
-        heist = dontCheck (doJailbreak super.heist);
-        hasktags = dontCheck super.hasktags;
-
         # Allow newer vinyl package.
-        composite-base = doJailbreak super.composite-base;
-        composite-aeson = doJailbreak super.composite-aeson;
+        # composite-base = doJailbreak super.composite-base;
+        # composite-aeson = doJailbreak super.composite-aeson;
 
         # Vinyl 0.8.x
-        vinyl = with self; haskellPackages.mkDerivation {
-          pname = "vinyl";
-          version = "0.8.1.1";
-          src = fetchgit {
-            url = "https://github.com/VinylRecords/Vinyl.git";
-            rev = "0917b5bed57428be6609ad030cbb3244b39b52ea";
-            sha256 = "0jrqa0dzhd3bxv3sp4n1xhs63wn4gd0izy679jasni1wwa7zrbmf";
-          };
-          libraryHaskellDepends = [ array base ghc-prim ];
-          testHaskellDepends = [
-            base doctest hspec lens microlens should-not-typecheck singletons
-          ];
-          benchmarkHaskellDepends = [
-            base criterion linear microlens mwc-random primitive tagged vector
-          ];
-          description = "Extensible Records";
-          license = stdenv.lib.licenses.mit;
-        };
+        # vinyl = with self; haskellPackages.mkDerivation {
+        #   pname = "vinyl";
+        #   version = "0.8.1.1";
+        #   src = fetchgit {
+        #     url = "https://github.com/VinylRecords/Vinyl.git";
+        #     rev = "0917b5bed57428be6609ad030cbb3244b39b52ea";
+        #     sha256 = "0jrqa0dzhd3bxv3sp4n1xhs63wn4gd0izy679jasni1wwa7zrbmf";
+        #   };
+        #   libraryHaskellDepends = [ array base ghc-prim ];
+        #   testHaskellDepends = [
+        #     base doctest hspec lens microlens should-not-typecheck singletons
+        #   ];
+        #   benchmarkHaskellDepends = [
+        #     base criterion linear microlens mwc-random primitive tagged vector
+        #   ];
+        #   description = "Extensible Records";
+        #   license = stdenv.lib.licenses.mit;
+        # };
+
+        # https://github.com/jaspervdj/digestive-functors/issues/151
+        # digestive-functors = super.digestive-functors.overrideAttrs (oldAttrs: {
+        #   src = (fetchgit {
+        #     url = "https://github.com/jonpetterbergman/digestive-functors.git";
+        #     rev = "15b9fa07fcec535216522966233bbc8df025118a";
+        #     sha256 = "1k67bnniiadnyksgbffib8fx0aa1q7f7ndcwbzyk1jndcgi0bpiv";
+        #   }) + "/digestive-functors";
+        # });
+        # HaXml = doJailbreak super.HaXml;
       };
     };
 
     nodejsEnv = with pkgs; buildEnv {
       name = "nodeEnv";
       paths = [
-        nodejs-0_10
+        nodejs-8_x
       ];
     };
 
@@ -190,10 +181,10 @@
         myHaskellEnv
         cabal2nix
 
-        # diagrams-builder
+        diagrams-builder
 
         # coq
-        # emacs24Packages.proofgeneral
+        emacs26Packages.proofgeneral
 
         # useful tools
         ag
@@ -236,12 +227,12 @@
 
       # useful libraries...
       # MonadCatchIO-transformers # Dependency problem
-      composite-base
-      composite-aeson
+      # composite-base
+      # composite-aeson
       servant
       servant-server
       Crypto
-      HaXml
+      # HaXml
       HandsomeSoup
       MonadRandom
       Unixutils
@@ -289,7 +280,6 @@
       regex-posix
       regex-tdfa
       safe
-      scotty
       shakespeare
       singletons
       snap
