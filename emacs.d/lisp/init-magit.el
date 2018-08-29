@@ -48,7 +48,8 @@ to the current org clock, if one exists."
 (defun mjhoy/git-commit-ci-skip ()
   "If all staged files are markdown, insert [ci skip] into the
 commit message."
-  (when (--all? (string-match-p "\\.md$" it) (magit-staged-files))
+  (when (and (--all? (string-match-p "\\.md$" it) (magit-staged-files))
+             (--any? (string-match-p "\\.md$" it) (magit-staged-files)))
     (insert " [ci skip]")
     (beginning-of-line)))
 
