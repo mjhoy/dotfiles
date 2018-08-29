@@ -13,4 +13,6 @@
 
 (global-set-key (kbd "C-c 1") 'flycheck-mode)
 
+(setq flycheck-ruby-rubocop-executable "bin/rubocop")
+
 (provide 'init-flycheck)
