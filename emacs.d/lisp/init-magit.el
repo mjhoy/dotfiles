@@ -3,6 +3,7 @@
 (mjhoy/require-package 'magit)
 (require 'init-org)
 (require 'org-magit)
+(require 'init-projectile)
 
 (setq magit-push-always-verify nil)
 (setq magit-revert-buffers 'silent)
@@ -54,5 +55,13 @@ commit message."
     (beginning-of-line)))
 
 (add-hook 'git-commit-setup-hook 'mjhoy/git-commit-ci-skip)
+
+(defun mjhoy--run-projectile-invalidate-cache (&rest _args)
+  (projectile-invalidate-cache nil))
+
+(advice-add 'magit-checkout
+            :after #'mjhoy--run-projectile-invalidate-cache)
+(advice-add 'magit-branch-and-checkout
+            :after #'mjhoy--run-projectile-invalidate-cache)
 
 (provide 'init-magit)
