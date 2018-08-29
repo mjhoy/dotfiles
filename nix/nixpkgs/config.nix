@@ -272,6 +272,7 @@
       pipes-http
       postgresql-simple
       process
+      dhall
       protolude
       readable
       regex-applicative
