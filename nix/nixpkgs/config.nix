@@ -302,13 +302,47 @@
       wreq
     ]);
 
-    myPythonEnv = self.myEnvFun {
-      name = "mypython3";
-      buildInputs = [
-        python3
-        python3Packages.matplotlib
-      ];
+    # python2Packages = ps: with ps; [
+    #   scipy
+    #   numpy
+    #   scikit-learn
+    #   virtualenv
+    #   pip
+    # ];
+
+
+    python27Packages = super.python27Packages.override {
+      overrides = self: super: {
+        numpy = super.numpy.overrideAttrs (oldAttrs: {
+          version = "1.11.3";
+          src = python2.pkgs.fetchPypi {
+            pname = "numpy";
+            version = "1.11.3";
+            sha256 = "";
+          };
+        });
+        # use a specific (older) version of scipy.
+        scipy = super.scipy.overrideAttrs (oldAttrs: {
+          verson = "1.0.1";
+          src = python2.pkgs.fetchPypi {
+            pname = "scipy";
+            version = "1.0.1";
+            sha256 = "8739c67842ed9a1c34c62d6cca6301d0ade40d50ef14ba292bd331f0d6c940ba";
+          };
+        });
+      };
     };
+
+    myPython2Env = python27Packages.python.withPackages(ps: with ps; [
+      numpy
+      scipy
+      pip
+      virtualenv
+    ]);
+
+    myPython3Env = python3.withPackages(ps: with ps; [
+      matplotlib
+    ]);
 
     # build emacs from source
     emacs-master = pkgs.stdenv.lib.overrideDerivation pkgs.emacs (oldAttrs: {
