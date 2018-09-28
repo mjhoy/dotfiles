@@ -3,12 +3,13 @@
 (setq org-log-note-clock-out nil)
 
 (setq org-todo-keywords
-      '((sequence "TODO(t!)" "NEXT(n!)" "|" "DONE(d!)")
+      '((sequence "TODO(t!)" "NEXT(n!)" "DEPLOY(y!)" "|" "DONE(d!)")
         (sequence "WAIT(w@/!)" "HOLD(h@/!)" "|" "CANCELED(c@!)")))
 
 (setq org-todo-keyword-faces
       (quote (("TODO" :foreground "red" :weight bold)
               ("NEXT" :foreground "blue" :weight bold)
+              ("DEPLOY" :foreground "medium sea green" :weight bold)
               ("DONE" :foreground "forest green" :weight bold)
               ("WAIT" :foreground "orange" :weight bold)
               ("HOLD" :foreground "magenta" :weight bold)
