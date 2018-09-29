@@ -23,7 +23,7 @@ sslcacertfile = /usr/local/etc/openssl/cert.pem
 remotehost = mail.messagingengine.com
 remoteuser = mjh@fastmail.fm
 # remotepass = remote-pass-here
-remotepasseval = get_authinfo_password(machine="mail.messagingengine.com", login="mjh@fastmail.fm", port="587")
+remotepasseval = get_password(path="Email/mjh@fastmail.fm/mail.messagingengine.com")
 folderfilter = lambda folder: folder not in ['INBOX.Trash',
                                              'INBOX.Junk Mail',
                                              ]
