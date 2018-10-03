@@ -24,8 +24,8 @@
         (interactive)
         (message "No deleting [d] while in fastmail setup; use [m t]"))
 
-      (defun mjhoy/switch-to-fastmail ()
-        "Switch to my fastmail config."
+      (defun mjhoy/switch-to-personal-email ()
+        "Switch to my personal config."
         (interactive)
         (setq mu4e-sent-messages-behavior 'sent)
         (setq mu4e-refile-folder "/mjh-mjhoy.com/INBOX.Archive")
@@ -40,22 +40,22 @@
         (setq user-mail-address "mjh@mjhoy.com")
         )
 
-      (defun mjhoy/switch-to-gmail ()
-        "Switch to my gmail config."
+      (defun mjhoy/switch-to-work-email ()
+        "Switch to my work config."
         (interactive)
         (setq mu4e-sent-messages-behavior 'delete)
         (setq mu4e-refile-folder nil)
-        (setq mu4e-drafts-folder "/michael.john.hoy-gmail.com/drafts")
+        (setq mu4e-drafts-folder "/freebird/drafts")
         (setq mu4e-trash-folder "/trash")
         (setq smtpmail-starttls-credentials
               '(("smtp.gmail.com" 587 nil nil))
               smtpmail-default-smtp-server "smtp.gmail.com"
               smtpmail-smtp-server "smtp.gmail.com")
-        (setq user-mail-address "michael.john.hoy@gmail.com")
+        (setq user-mail-address "mikey@getfreebird.com")
         )
 
       (defvar mjhoy/switch-mail-auto nil
-        "Switch gmail/fastmail automatically in mu4e.")
+        "Switch work/personal automatically in mu4e.")
 
       (defun mjhoy/switch-mail-auto-fn ()
         "Automatically switch mailboxes based on parent message"
@@ -64,20 +64,30 @@
             (cond
              ((not mjhoy/switch-mail-auto)
               '())
-             ((mu4e-message-contact-field-matches msg :to "michael.john.hoy@gmail.com")
-              (mjhoy/switch-to-gmail))
-             ;; if it's a google groups email, I probably need my gmail account.
-             ((or (mu4e-message-contact-field-matches msg :to "googlegroups.com")
-                  (mu4e-message-contact-field-matches msg :cc "googlegroups.com"))
-              (mjhoy/switch-to-gmail))
+             ((or
+               (mu4e-message-contact-field-matches msg :to "getfreebird.com")
+               (mu4e-message-contact-field-matches msg :from "mikey@getfreebird.com")
+               (mu4e-message-contact-field-matches msg :cc "getfreebird.com")
+               (mu4e-message-contact-field-matches msg :bcc "getfreebird.com"))
+              (mjhoy/switch-to-work-email))
+             ((or
+               (mu4e-message-contact-field-matches msg :to "mjhoy.com")
+               (mu4e-message-contact-field-matches msg :from "mjh@mjhoy.com")
+               (mu4e-message-contact-field-matches msg :cc "mjhoy.com")
+               (mu4e-message-contact-field-matches msg :bcc "mjhoy.com")
+               (mu4e-message-contact-field-matches msg :to "michael.john.hoy@gmail.com")
+               (mu4e-message-contact-field-matches msg :cc "michael.john.hoy@gmail.com")
+               (mu4e-message-contact-field-matches msg :bcc "michael.john.hoy@gmail.com"))
+              (mjhoy/switch-to-personal-email))
              (t
-              (mjhoy/switch-to-fastmail))))))
+              '())))))
 
       (add-hook 'mu4e-compose-pre-hook 'mjhoy/switch-mail-auto-fn)
 
       (setq mu4e-maildir-shortcuts
             '(
               ("/mjh-mjhoy.com/INBOX" . ?i)
+              ("/freebird/INBOX" . ?w)
               ("/michael.john.hoy-gmail.com/INBOX" . ?g)
               ("/mjh-mjhoy.com/INBOX.Archive" . ?a)
               ("/mjh-mjhoy.com/INBOX.Drafts" . ?d)
@@ -91,7 +101,7 @@
       (setq mu4e-headers-include-related t)
 
       (setq mu4e-user-mail-address-list '("mjh@mjhoy.com"
-                                          "michael.john.hoy@gmail.com"))
+                                          "mikey@getfreebird.com"))
 
       ;; we don't save sent mail with gmail, so just use fastmail as default
       (setq mu4e-sent-folder "/mjh-mjhoy.com/INBOX.Sent Items")
@@ -113,7 +123,11 @@
       (setq message-kill-buffer-on-exit t)
       (setq mu4e-compose-signature-auto-include nil)
 
-      (mjhoy/switch-to-fastmail)
+      (mjhoy/switch-to-personal-email)
+
+      ;; work computer
+      (if (string-match "michaelymacbook" system-name)
+          (mjhoy/switch-to-work-email))
 
       (setq mu4e-compose-complete-ignore-address-regexp "\\(no-?reply\\|reply.github.com\\|basecamphq.com\\)")
 

@@ -1,7 +1,7 @@
 # -*- mode: conf -*-
 
 [general]
-accounts = mjh
+accounts = mjh, freebird
 ui = ttyui
 # pythonfile defines get_authinfo_password
 pythonfile = ~/.offlineimap.py
@@ -23,10 +23,46 @@ sslcacertfile = /usr/local/etc/openssl/cert.pem
 remotehost = mail.messagingengine.com
 remoteuser = mjh@fastmail.fm
 # remotepass = remote-pass-here
-remotepasseval = get_authinfo_password(machine="mail.messagingengine.com", login="mjh@fastmail.fm", port="587")
+remotepasseval = get_password(path="Email/mjh@fastmail.fm/mail.messagingengine.com")
 folderfilter = lambda folder: folder not in ['INBOX.Trash',
                                              'INBOX.Junk Mail',
                                              ]
+
+[Account freebird]
+localrepository = Freebird-Local
+remoterepository = Freebird-Remote
+
+[Repository Freebird-Local]
+type = Maildir
+localfolders = ~/.mail/freebird
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'flagged': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository Freebird-Remote]
+maxconnections = 1
+type = Gmail
+remoteuser = mikey@getfreebird.com
+# remotepass = remote-pass-here
+remotepasseval = get_password(path="Email/mikey@getfreebird.com/imap.gmail.com")
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'flagged',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             'Sent Messages',
+                                             '[Gmail]/Spam',
+                                             ]
+ssl = true
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+
 
 # old gmail account. Don't use anymore, not sure if this still works.
 

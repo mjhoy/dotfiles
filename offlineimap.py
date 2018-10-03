@@ -1,6 +1,9 @@
 #!/usr/bin/python
 import re, subprocess, os
 
+def get_password(path):
+    return os.popen("pass %s" %(path)).read()
+
 def get_authinfo_password(machine, login, port):
     s = "machine %s login %s port %s password ([^\s]*)" % (machine, login, port)
     p = re.compile(s)
