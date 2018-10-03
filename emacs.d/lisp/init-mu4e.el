@@ -125,6 +125,10 @@
 
       (mjhoy/switch-to-personal-email)
 
+      ;; work computer
+      (if (string-match "michaelymacbook" system-name)
+          (mjhoy/switch-to-work-email))
+
       (setq mu4e-compose-complete-ignore-address-regexp "\\(no-?reply\\|reply.github.com\\|basecamphq.com\\)")
 
       ;; rich text messages: use eww
