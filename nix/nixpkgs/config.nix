@@ -179,6 +179,7 @@
       paths = [
         libmikey
         myHaskellEnv
+        myPython3Env
         cabal2nix
 
         diagrams-builder
@@ -188,6 +189,7 @@
 
         # useful tools
         ag
+        awscli
         cloc
         cmake
         ctags
@@ -302,13 +304,11 @@
       wreq
     ]);
 
-    myPythonEnv = self.myEnvFun {
-      name = "mypython3";
-      buildInputs = [
-        python3
-        python3Packages.matplotlib
-      ];
-    };
+    myPython3Env = python3.withPackages (p: with p; [
+      numpy
+      boto3
+      matplotlib
+    ]);
 
     # build emacs from source
     emacs-master = pkgs.stdenv.lib.overrideDerivation pkgs.emacs (oldAttrs: {
