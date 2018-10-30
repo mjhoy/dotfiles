@@ -202,6 +202,7 @@
         mu
         nasm
         nix-prefetch-git
+        offlineimap
         parallel
         pass
         protobuf
