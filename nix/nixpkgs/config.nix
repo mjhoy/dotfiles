@@ -271,7 +271,8 @@
       pattern-arrows
       pipes
       pipes-http
-      postgresql-simple
+      # issue building postgres-libpq
+      # postgresql-simple
       process
       dhall
       protolude
@@ -287,7 +288,8 @@
       snap
       snap-loader-static
       snap-templates
-      snaplet-postgresql-simple
+      # issue building postgres-libpq
+      # snaplet-postgresql-simple
       sourcemap
       split
       text
