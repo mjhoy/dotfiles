@@ -35,6 +35,7 @@
   (racer-mode)
   (racer-turn-on-eldoc)
   (flycheck-mode 1)
+  (setq rust-format-on-save t)
   (set (make-local-variable 'company-backends) '(company-racer))
   (local-set-key (kbd "M-.") #'racer-find-definition))
 
