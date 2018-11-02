@@ -173,8 +173,8 @@
 
     phocid = with haskellPackages; callPackage (fetchgit {
       url = "https://github.com/mjhoy/phocid";
-      rev = "91c0cddd5ac4937747ffed739aabb1af644726a5";
-      sha256 = "0kv92c3ksfchnxfiw2w6927qg6dp6vj25w5rky0qfxsir5l9aqmp";
+      rev = "6276a3a2c3bc75ccf15c3e3fb21b9e0a3f01a972";
+      sha256 = "1ymw3791wbqg3vr4ph1ndrm51qh2d153zg5lsk3z09kc489c56r9";
     }) { };
 
     # ---------------------
