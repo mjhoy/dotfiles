@@ -167,6 +167,16 @@
 
     aspellEnv = aspellWithDicts(ps: [ ps.en ps.es ]);
 
+    # ----------------
+    # Haskell programs
+    # ----------------
+
+    phocid = with haskellPackages; callPackage (fetchgit {
+      url = "https://github.com/mjhoy/phocid";
+      rev = "91c0cddd5ac4937747ffed739aabb1af644726a5";
+      sha256 = "0kv92c3ksfchnxfiw2w6927qg6dp6vj25w5rky0qfxsir5l9aqmp";
+    }) { };
+
     # ---------------------
     # Developer environment
     # ---------------------
@@ -207,6 +217,7 @@
         offlineimap
         parallel
         pass
+        phocid
         protobuf
         psc-package
         ripgrep
