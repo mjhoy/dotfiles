@@ -66,6 +66,10 @@
 (define-abbrev org-mode-abbrev-table "\l" "\lambda")
 (define-abbrev org-mode-abbrev-table "\lra" "\leftrightarrow")
 
+;; e.g., archive/organizer.org_2018_archive
+(setq org-archive-location
+      (format "archive/%%s_%s_archive::" (format-time-string "%Y")))
+
 ;; org-mode hook
 (defun mjhoy/org-mode-hook ()
   "My org-mode-hook function."
