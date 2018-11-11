@@ -1,5 +1,9 @@
 (require 'org-id)
 
+(defun mjhoy/current-journal-file ()
+  "Absolute path to my current journal entry for today."
+  (format (expand-file-name "~/journal/%s.org") (format-time-string "%Y-%m-%d")))
+
 ;; Create a unique id for all captures.
 (add-hook 'org-capture-prepare-finalize-hook 'org-id-get-create)
 
@@ -51,8 +55,8 @@ entered on %U\n")
 
 see %a\n")
         ("j" "Journal"
-         plain (file+datetree (lambda () (concat org-directory "journal.org")))
-         "**** <title>\n%U\n\n%?\n")
+         plain (file mjhoy/current-journal-file)
+         "* <title>\n%U\n\n%?\n")
         ("r" "Dream"
          plain (file+datetree (lambda () (concat org-directory "dream.org")))
          "%?\n")
