@@ -61,7 +61,7 @@ see %a\n")
          plain (file+datetree (lambda () (concat org-directory "dream.org")))
          "%?\n")
         ("e" "Engineering journal"
-         plain (file+datetree (lambda () (concat org-directory "eng_journal.org")))
+         plain (file+datetree (lambda () (concat org-directory "engineering_journal.org")))
          "**** <title>\n%U\n\n%?\n")
         ))
 
