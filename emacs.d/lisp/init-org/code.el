@@ -42,6 +42,8 @@
 (add-to-list 'org-structure-template-alist
              '("rs" "#+begin_src rust\n?\n#+end_src" "<src lang=\"rust\">\n?\n</src>"))
 (add-to-list 'org-structure-template-alist
+             '("rb" "#+begin_src ruby\n?\n#+end_src" "<src lang=\"ruby\">\n?\n</src>"))
+(add-to-list 'org-structure-template-alist
              '("purs" "#+begin_src purescript\n?\n#+end_src" "<src lang=\"purescript\">\n?\n</src>"))
 (add-to-list 'org-structure-template-alist
              '("sh" "#+begin_src sh\n?\n#+end_src" "<src lang=\"sh\">\n?\n</src>"))
