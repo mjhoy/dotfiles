@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -eoux pipefail
+
+cleanup() {
+    cd $HOME/.dotfiles/nixpkgs
+    git checkout mjh-mbp
+    echo "nixpkgs set to mjh-mbp branch"
+}
+trap cleanup 0
+
+cd $HOME/.dotfiles/nixpkgs
+
+if ! git status | grep 'working tree clean'
+then echo 'Clean up working directory first.'; exit 1
+fi
+
+git checkout nixpkgs-unstable
+git pull origin
+
+echo "Building devEnv"
+nix build --no-link nixpkgs.devEnv

@@ -125,6 +125,8 @@
         # Allow newer vinyl package.
         # composite-base = doJailbreak super.composite-base;
         # composite-aeson = doJailbreak super.composite-aeson;
+        map-syntax = doJailbreak super.map-syntax;
+        snap-templates = doJailbreak super.snap-templates;
 
         # Vinyl 0.8.x
         # vinyl = with self; haskellPackages.mkDerivation {
@@ -171,11 +173,11 @@
     # Haskell programs
     # ----------------
 
-    phocid = with haskellPackages; callPackage (fetchgit {
+    phocid = with haskellPackages; haskell.lib.doJailbreak (callPackage (fetchgit {
       url = "https://github.com/mjhoy/phocid";
       rev = "b10747693c3d67115f0ca18cdaa5f048449ea15e";
       sha256 = "1yr0fhm85mbc6nvc6hqgz6s5ib29c7y45ksacami3b24zrq67709";
-    }) { };
+    }) { });
 
     # ---------------------
     # Developer environment
@@ -192,7 +194,7 @@
         myPython3Env
         cabal2nix
 
-        diagrams-builder
+        # diagrams-builder
 
         # coq
         emacs26Packages.proofgeneral
