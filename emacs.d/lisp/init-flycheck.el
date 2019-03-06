@@ -11,7 +11,12 @@
   '(progn
      (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup)))
 
+(eval-after-load 'ruby-mode
+  '(add-hook 'ruby-mode-hook #'flycheck-mode))
+
 (global-set-key (kbd "C-c 1") 'flycheck-mode)
+
+(setq-default flycheck-emacs-lisp-load-path 'inherit)
 
 (setq flycheck-ruby-rubocop-executable "bin/rubocop")
 
