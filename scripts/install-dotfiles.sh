@@ -24,6 +24,7 @@ dotfiles=( gemrc
            nix/nixpkgs
            offlineimaprc
            offlineimap.py
+           eslintrc
          )
 regex="/?([^/]+)$"
 for i in "${dotfiles[@]}" ; do
