@@ -1,5 +1,3 @@
-(mjhoy/require-package 'yafolding)
-
 ;; yafolding
 ;;
 ;; C-RET: toggle element

@@ -1,8 +1,5 @@
 (require 'init-basic)
 
-(mjhoy/require-package 'org-plus-contrib)
-(mjhoy/require-package 'org-mime)
-
 ;; needs to be set before org is loaded.
 (setq org-export-backends '(ascii html md latex odt))
 
@@ -11,9 +8,6 @@
 (require 'org-id)
 (require 'org-clock)
 (require 'org-habit)
-
-;; for HTML export
-(mjhoy/require-package 'htmlize)
 
 (setq org-id-link-to-org-use-id 'use-existing)
 

@@ -23,7 +23,7 @@
 ;;
 ;; attempt below, doesn't actually fix it.
 
-;; (mjhoy/require-package 'exec-path-from-shell)
+;; package: 'exec-path-from-shell
 ;; (exec-path-from-shell-initialize)
 ;; (exec-path-from-shell-copy-env "INFOPATH")
 ;; (exec-path-from-shell-copy-env "NIX_PATH")

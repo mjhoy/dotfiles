@@ -1,7 +1,5 @@
 (require 'init-basic)
 (require 'init-diminish)
-(mjhoy/require-package 'org-tree-slide)
-
 
 (defun mjhoy/pres ()
   (interactive)

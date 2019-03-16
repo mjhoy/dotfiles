@@ -5,12 +5,6 @@
 (require 're-builder)
 (setq reb-re-syntax 'string)
 
-;; misc useful modes here
-(mjhoy/require-package 'apache-mode)
-
-;; bm: visual bookmarks
-(mjhoy/require-package 'bm)
-
 (require 'bm)
 (global-set-key (kbd "C-c m m") 'bm-toggle)
 (global-set-key (kbd "C-c m n") 'bm-next)

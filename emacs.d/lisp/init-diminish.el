@@ -1,5 +1,3 @@
-(mjhoy/require-package 'diminish)
-
 (require 'diminish)
 
 (eval-after-load "projectile"

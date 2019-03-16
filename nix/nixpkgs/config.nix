@@ -179,6 +179,75 @@
       sha256 = "1yr0fhm85mbc6nvc6hqgz6s5ib29c7y45ksacami3b24zrq67709";
     }) { });
 
+    # ----------------------
+    # Emacs & emacs packages
+    # ----------------------
+
+    emacs =
+      let
+        myPackages = epkgs: (with epkgs.elpaPackages; [
+          ace-window
+          cl-lib
+          rainbow-mode
+        ]) ++ (with epkgs.melpaStablePackages; [
+          ag
+          apache-mode
+          avy
+          bm
+          company
+          company-ghc
+          diminish
+          dracula-theme
+          ensime
+          ess
+          flycheck
+          flycheck-haskell
+          geiser
+          ghc
+          haml-mode
+          haskell-mode
+          helm
+          helm-ag
+          helm-dash
+          helm-projectile
+          ibuffer-vc
+          inf-ruby
+          js2-mode
+          magit
+          markdown-mode
+          material-theme
+          multiple-cursors
+          nix-mode
+          org-mime
+          org-tree-slide
+          password-store
+          php-mode
+          projectile
+          proof-general
+          protobuf-mode
+          racer
+          rjsx-mode
+          robe
+          rust-mode
+          web-mode
+          winring
+          yafolding
+          yaml-mode
+          yard-mode
+          yasnippet
+        ]) ++ (with epkgs.orgPackages; [
+          org-plus-contrib
+        ]) ++ (with epkgs.melpaPackages; [
+          company-racer
+          flycheck-rust
+          helm-pass
+          psc-ide
+          purescript-mode
+          restclient
+        ]);
+      in (pkgs.emacsPackagesNgGen super.emacs).emacsWithPackages myPackages;
+
+
     # ---------------------
     # Developer environment
     # ---------------------
@@ -195,9 +264,6 @@
         cabal2nix
 
         # diagrams-builder
-
-        # coq
-        emacs26Packages.proofgeneral
 
         # useful tools
         ag
@@ -327,7 +393,7 @@
     ]);
 
     # build emacs from source
-    emacs-master = pkgs.stdenv.lib.overrideDerivation pkgs.emacs (oldAttrs: {
+    emacs-master = pkgs.stdenv.lib.overrideDerivation super.emacs (oldAttrs: {
       name = "emacs-master";
       src = ~/src/emacs;
       buildInputs = oldAttrs.buildInputs ++ [

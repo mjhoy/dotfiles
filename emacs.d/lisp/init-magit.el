@@ -1,6 +1,5 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-(mjhoy/require-package 'magit)
 (require 'init-org)
 (require 'org-magit)
 (require 'init-projectile)

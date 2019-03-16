@@ -1,5 +1,3 @@
-(mjhoy/require-package 'rainbow-mode)
-
 (setq scss-compile-at-save nil)
 (setq css-indent-offset 2)
 

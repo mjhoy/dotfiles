@@ -1,5 +1,3 @@
-(mjhoy/require-package 'yasnippet)
-
 (require 'yasnippet)
 (yas-reload-all)
 

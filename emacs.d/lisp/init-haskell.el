@@ -1,8 +1,3 @@
-(mjhoy/require-package 'haskell-mode)
-(mjhoy/require-package 'ghc)
-(mjhoy/require-package 'company-ghc)
-(mjhoy/require-package 'company-ghci)
-
 (require 'init-company)
 (require 'company) ; to reference 'company-backends below
 

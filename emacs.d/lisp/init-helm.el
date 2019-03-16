@@ -1,9 +1,4 @@
-(mjhoy/require-package 'helm)
-
 (require 'init-projectile)
-(mjhoy/require-package 'helm-projectile)
-(mjhoy/require-package 'helm-ag)
-(mjhoy/require-package 'helm-dash)
 
 (require 'helm)
 

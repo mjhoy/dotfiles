@@ -1,7 +1,3 @@
-(mjhoy/require-package 'rust-mode)
-(mjhoy/require-package 'racer)
-(mjhoy/require-package 'company-racer)
-
 (require 'racer)
 
 ;; ensure that flycheck is loaded

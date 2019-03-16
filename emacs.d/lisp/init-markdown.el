@@ -1,5 +1,3 @@
-(mjhoy/require-package 'markdown-mode)
-
 (setq-default markdown-asymmetric-header t)
 
 (defun mjhoy/markdown-mode-setup ()

@@ -1,7 +1,3 @@
-(mjhoy/require-package 'flycheck)
-(mjhoy/require-package 'flycheck-haskell)
-(mjhoy/require-package 'flycheck-rust)
-
 (add-hook 'js-mode-hook   #'flycheck-mode)
 
 (eval-after-load 'scss-mode

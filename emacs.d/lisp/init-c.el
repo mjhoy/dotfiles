@@ -1,5 +1,3 @@
-(mjhoy/require-package 'flycheck)
-
 (setq c-default-style "linux")
 (setq c-basic-offset 4)
 

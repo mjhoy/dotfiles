@@ -1,5 +1,3 @@
-(mjhoy/require-package 'ibuffer-vc)
-
 (require 'ibuffer-vc)
 (add-hook 'ibuffer-hook
           (lambda ()

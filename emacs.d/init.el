@@ -34,13 +34,6 @@
       (concat (expand-file-name user-emacs-directory) "custom.el"))
 (load custom-file 'noerror)
 
-;; if emacs lisp code exists in a nix-profile, add to load path. this
-;; allows e.g., nix-env -iA nixpkgs.emacs24Packages.proofgeneral
-(let ((nix-emacs-lisp-dir
-       (expand-file-name "~/.nix-profile/share/emacs/site-lisp")))
-  (if (file-exists-p nix-emacs-lisp-dir)
-      (setq load-path (append (list nix-emacs-lisp-dir) load-path))))
-
 ;; this directory's subdirectories aren't added in osx gui emacs for
 ;; some reason.
 (if (file-exists-p "/usr/local/share/emacs/site-lisp")
@@ -54,12 +47,10 @@
 		 (delete "." load-path))))
 
 (require 'init-basic)
-(require 'init-packages)
 (require 'init-local)
 (require 'init-env)
 (require 'init-diminish)
 (require 'init-ui)
-(require 'init-pbcopy)
 (require 'init-theme)
 (require 'init-hl-line)
 (require 'init-multiple-cursors)
@@ -82,7 +73,6 @@
 (require 'init-flyspell)
 (require 'init-helm)
 (require 'init-magit)
-(require 'init-restclient)
 (require 'init-markdown)
 (require 'init-scheme)
 (require 'init-ruby)
@@ -92,7 +82,6 @@
 (require 'init-purescript)
 (require 'init-haskell)
 (require 'init-scala)
-(require 'init-nix)
 (require 'init-c)
 (require 'init-gdk)
 (require 'init-php)
@@ -100,7 +89,6 @@
 (require 'init-xml)
 (require 'init-css)
 (require 'init-coq)
-;; (require 'init-ess)
 (require 'init-protobuf)
 (require 'init-project-archetypes)
 (require 'init-term)
