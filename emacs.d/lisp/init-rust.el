@@ -12,18 +12,16 @@
 
 (add-hook 'rust-mode-hook #'flycheck-rust-setup)
 
-;; racer should be built in ~/src/racer:
+;; to install racer:
 ;;
-;; git clone https://github.com/phildawes/racer.git ~/src/racer
-;; cd ~/src/racer
-;; cargo build --release
+;; cargo +nightly install racer
 ;;
 ;; rust should exist in ~/src/rust:
 ;;
 ;; git clone --depth=1 git@github.com:rust-lang/rust.git ~/src/rust
-(let ((cmd (expand-file-name "~/src/racer/target/release/racer")))
-  (setq racer-cmd cmd)
-  (setq company-racer-executable cmd))
+;; cd ~/src/rusr
+;; git checkout <tag (e.g. 1.33.0)>
+;; git submodule update --recursive
 (let ((src (expand-file-name "~/src/rust/src/")))
   ;; in some instance the env variable must be set too?
   (unless (getenv "RUST_SRC_PATH")
