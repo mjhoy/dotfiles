@@ -167,6 +167,14 @@
       ];
     };
 
+    scala = super.scala.override {
+      jre = jre8;
+    };
+
+    sbt = super.sbt.override {
+      jre = jre8;
+    };
+
     aspellEnv = aspellWithDicts(ps: [ ps.en ps.es ]);
 
     # ----------------
@@ -293,6 +301,10 @@
         tree
         watch
         wget
+
+        # scala
+        scala
+        sbt
 
         # aspell dictionaries
         aspellEnv
