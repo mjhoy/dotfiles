@@ -286,6 +286,7 @@
         imagemagick
         jq
         ledger
+        libxml2
         lynx
         mu
         nasm
