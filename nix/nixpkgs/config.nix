@@ -211,6 +211,7 @@
           ess
           flycheck
           flycheck-haskell
+          forge
           geiser
           ghc
           haml-mode
