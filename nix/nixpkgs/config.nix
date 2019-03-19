@@ -222,7 +222,6 @@
           ibuffer-vc
           inf-ruby
           js2-mode
-          magit
           markdown-mode
           material-theme
           multiple-cursors
@@ -249,7 +248,11 @@
         ]) ++ (with epkgs.melpaPackages; [
           company-racer
           flycheck-rust
+          (forge.overrideAttrs (oldAttrs: {
+            buildInputs = oldAttrs.buildInputs ++ [pkgs.git];
+          }))
           helm-pass
+          magit
           psc-ide
           purescript-mode
           restclient

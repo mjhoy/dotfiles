@@ -3,6 +3,7 @@ ssh/*
 *.sw?
 vim/bundle
 vim/.netrwhist
+/emacs.d/forge-database.sqlite
 /emacs.d/geben/
 /emacs.d/recentf
 /emacs.d/projectile.cache
