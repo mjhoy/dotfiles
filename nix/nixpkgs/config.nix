@@ -202,6 +202,7 @@
           apache-mode
           avy
           bm
+          cargo
           company
           company-ghc
           diminish

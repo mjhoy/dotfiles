@@ -8,6 +8,8 @@
 
 (add-hook 'rust-mode-hook #'flycheck-rust-setup)
 
+(add-hook 'rust-mode-hook 'cargo-minor-mode)
+
 ;; to install racer:
 ;;
 ;; cargo +nightly install racer
