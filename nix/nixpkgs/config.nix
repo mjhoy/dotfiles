@@ -211,7 +211,9 @@
           ess
           flycheck
           flycheck-haskell
-          forge
+          (forge.overrideAttrs (oldAttrs: {
+            buildInputs = oldAttrs.buildInputs ++ [pkgs.git];
+          }))
           geiser
           ghc
           haml-mode
