@@ -16,7 +16,7 @@
 (global-set-key (kbd "C-c o ?") (fni (let ((default-directory org-directory))
                                        (helm-find-files nil))))
 
-(global-set-key (kbd "C-c o c") 'org-clock-jump-to-current-clock)
+(global-set-key (kbd "C-c o c") (fni (org-clock-jump-to-current-clock)))
 (global-set-key (kbd "C-c o C") 'org-contacts)
 
 (provide 'init-org/shortcuts)
