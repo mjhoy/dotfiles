@@ -24,7 +24,12 @@
   (robe-mode)
   (yard-mode))
 
+(defun mjhoy/setup-inf-ruby-mode ()
+  "My setup for inf-ruby-mode."
+  (company-mode -1))
+
 (add-hook 'ruby-mode-hook 'mjhoy/setup-ruby-mode)
+(add-hook 'inf-ruby-mode-hook 'mjhoy/setup-inf-ruby-mode)
 (setq ruby-insert-encoding-magic-comment nil)
 
 (defun mjhoy/rails-compile-assets (branch)
