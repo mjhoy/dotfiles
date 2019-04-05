@@ -139,6 +139,11 @@
           sha256 = "13xpznm19rjp51ds165ll9ahyps1r4131c77b8r7gpjd6i505832";
         });
 
+        # https://github.com/NixOS/nixpkgs/pull/58216
+        hfsevents = super.hfsevents.overrideAttrs (oldAttrs: {
+          meta = oldAttrs.meta // { platforms = stdenv.lib.platforms.darwin; };
+        });
+
         # Vinyl 0.8.x
         # vinyl = with self; haskellPackages.mkDerivation {
         #   pname = "vinyl";
