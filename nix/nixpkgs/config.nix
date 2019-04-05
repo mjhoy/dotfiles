@@ -24,6 +24,11 @@
       ];
     };
 
+    # https://github.com/NixOS/nixpkgs/issues/58975
+    pass = super.pass.overrideAttrs (oldAttrs: {
+      doInstallCheck = false;
+    });
+
     linuxOnly = buildEnv {
       name = "linuxOnly";
       paths = [
