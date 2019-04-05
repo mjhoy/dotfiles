@@ -130,8 +130,8 @@
         # Allow newer vinyl package.
         # composite-base = doJailbreak super.composite-base;
         # composite-aeson = doJailbreak super.composite-aeson;
-        map-syntax = doJailbreak super.map-syntax;
-        snap-templates = doJailbreak super.snap-templates;
+        # map-syntax = doJailbreak super.map-syntax;
+        # snap-templates = doJailbreak super.snap-templates;
 
         # Vinyl 0.8.x
         # vinyl = with self; haskellPackages.mkDerivation {
