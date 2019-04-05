@@ -133,6 +133,12 @@
         # map-syntax = doJailbreak super.map-syntax;
         # snap-templates = doJailbreak super.snap-templates;
 
+        # https://github.com/NixOS/nixpkgs/pull/57587
+        hakyll = haskell.lib.appendPatch super.hakyll (pkgs.fetchpatch {
+          url = "https://github.com/jaspervdj/hakyll/pull/691/commits/a44ad37cd15310812e78f7dab58d6d460451f20c.patch";
+          sha256 = "13xpznm19rjp51ds165ll9ahyps1r4131c77b8r7gpjd6i505832";
+        });
+
         # Vinyl 0.8.x
         # vinyl = with self; haskellPackages.mkDerivation {
         #   pname = "vinyl";
