@@ -24,6 +24,11 @@
       ];
     };
 
+    # https://github.com/NixOS/nixpkgs/issues/58975
+    pass = super.pass.overrideAttrs (oldAttrs: {
+      doInstallCheck = false;
+    });
+
     linuxOnly = buildEnv {
       name = "linuxOnly";
       paths = [
@@ -125,8 +130,19 @@
         # Allow newer vinyl package.
         # composite-base = doJailbreak super.composite-base;
         # composite-aeson = doJailbreak super.composite-aeson;
-        map-syntax = doJailbreak super.map-syntax;
-        snap-templates = doJailbreak super.snap-templates;
+        # map-syntax = doJailbreak super.map-syntax;
+        # snap-templates = doJailbreak super.snap-templates;
+
+        # https://github.com/NixOS/nixpkgs/pull/57587
+        hakyll = haskell.lib.appendPatch super.hakyll (pkgs.fetchpatch {
+          url = "https://github.com/jaspervdj/hakyll/pull/691/commits/a44ad37cd15310812e78f7dab58d6d460451f20c.patch";
+          sha256 = "13xpznm19rjp51ds165ll9ahyps1r4131c77b8r7gpjd6i505832";
+        });
+
+        # https://github.com/NixOS/nixpkgs/pull/58216
+        hfsevents = super.hfsevents.overrideAttrs (oldAttrs: {
+          meta = oldAttrs.meta // { platforms = stdenv.lib.platforms.darwin; };
+        });
 
         # Vinyl 0.8.x
         # vinyl = with self; haskellPackages.mkDerivation {
@@ -346,9 +362,6 @@
       cheapskate
       containers
       data-ordlist
-      digestive-functors
-      digestive-functors-heist
-      digestive-functors-snap
       edit-distance
       extra
       filepath
@@ -383,9 +396,6 @@
       safe
       shakespeare
       singletons
-      snap
-      snap-loader-static
-      snap-templates
       # issue building postgres-libpq
       # snaplet-postgresql-simple
       sourcemap
