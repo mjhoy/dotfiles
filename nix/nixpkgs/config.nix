@@ -351,9 +351,6 @@
       cheapskate
       containers
       data-ordlist
-      digestive-functors
-      digestive-functors-heist
-      digestive-functors-snap
       edit-distance
       extra
       filepath
@@ -388,9 +385,6 @@
       safe
       shakespeare
       singletons
-      snap
-      snap-loader-static
-      snap-templates
       # issue building postgres-libpq
       # snaplet-postgresql-simple
       sourcemap
