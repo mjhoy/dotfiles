@@ -236,7 +236,6 @@
           helm-dash
           helm-projectile
           ibuffer-vc
-          inf-ruby
           js2-mode
           markdown-mode
           material-theme
@@ -268,6 +267,7 @@
             buildInputs = oldAttrs.buildInputs ++ [pkgs.git];
           }))
           helm-pass
+          inf-ruby
           magit
           psc-ide
           purescript-mode
