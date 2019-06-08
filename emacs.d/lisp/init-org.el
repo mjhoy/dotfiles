@@ -38,9 +38,9 @@
 
 ;; add a "digression" and "aside" template for writing
 (add-to-list 'org-structure-template-alist
-             '("d" "#+BEGIN_DIGRESSION\n?\n#+END_DIGRESSION" ""))
+             '("d" . "digression"))
 (add-to-list 'org-structure-template-alist
-             '("as" "#+BEGIN_ASIDE\n?\n#+END_ASIDE" ""))
+             '("as" . "aside"))
 
 ;; Makes an entry for an invoice with some basic info filled in.
 (defun mjhoy/org-generate-invoice-item ()

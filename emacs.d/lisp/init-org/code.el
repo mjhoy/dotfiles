@@ -1,5 +1,7 @@
 (setq org-confirm-babel-evaluate nil)
 
+(require 'org-tempo)
+
 (require 'ob-shell)
 
 (require 'ob-sql)
@@ -36,20 +38,20 @@
 
 ;; structure shortcuts
 (add-to-list 'org-structure-template-alist
-             '("hs" "#+begin_src haskell\n?\n#+end_src" "<src lang=\"haskell\">\n?\n</src>"))
+             '("hs" . "src haskell"))
 (add-to-list 'org-structure-template-alist
-             '("hsnt" "#+begin_src haskell :tangle no\n?\n#+end_src" "<src lang=\"haskell\">\n?\n</src>"))
+             '("hsnt" . "haskell :tangle no"))
 (add-to-list 'org-structure-template-alist
-             '("rs" "#+begin_src rust\n?\n#+end_src" "<src lang=\"rust\">\n?\n</src>"))
+             '("rs" . "rust"))
 (add-to-list 'org-structure-template-alist
-             '("rb" "#+begin_src ruby\n?\n#+end_src" "<src lang=\"ruby\">\n?\n</src>"))
+             '("rb" . "ruby"))
 (add-to-list 'org-structure-template-alist
-             '("purs" "#+begin_src purescript\n?\n#+end_src" "<src lang=\"purescript\">\n?\n</src>"))
+             '("purs" . "src purescript"))
 (add-to-list 'org-structure-template-alist
-             '("sh" "#+begin_src sh\n?\n#+end_src" "<src lang=\"sh\">\n?\n</src>"))
+             '("sh" . "sh"))
 (add-to-list 'org-structure-template-alist
-             '("theorem" "#+begin_theorem\n?\n#+end_theorem" "<theorem>\n?\n</theorem>"))
+             '("theorem" . "theorem"))
 (add-to-list 'org-structure-template-alist
-             '("def" "#+begin_definition\n?\n#+end_definition" "<definition>\n?\n</definition>"))
+             '("def" . "definition"))
 
 (provide 'init-org/code)
