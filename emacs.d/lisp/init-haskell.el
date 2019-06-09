@@ -72,7 +72,7 @@ See also `ghc-show-type'.
 ;; (see: myHaskellEnv in nix/mjhoy/config.nix)
 (defun mjhoy/set-haskell-program-default-shell ()
   (interactive)
-  (setq haskell-program-name "cabal repl")
+  (setq haskell-program-name "cabal new-repl")
   (message haskell-program-name))
 
 ;; To use when there is a `shell.nix' in the current directory
