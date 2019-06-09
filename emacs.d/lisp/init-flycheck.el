@@ -3,10 +3,6 @@
 (eval-after-load 'scss-mode
   '(add-hook 'scss-mode-hook #'flycheck-mode))
 
-(eval-after-load 'haskell-mode
-  '(progn
-     (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup)))
-
 (eval-after-load 'ruby-mode
   '(add-hook 'ruby-mode-hook #'flycheck-mode))
 
