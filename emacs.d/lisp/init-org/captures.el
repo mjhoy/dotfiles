@@ -64,7 +64,7 @@ see %a\n")
          "%?\n")
         ("e" "Engineering journal"
          plain (file+datetree (lambda () (concat org-directory "engineering_journal.org")))
-         "**** <title>\n%U\n\n%?\n")
+         "**** %<%H:%M>\n%U\n\n%?\n")
         ))
 
 (provide 'init-org/captures)
