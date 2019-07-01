@@ -414,6 +414,8 @@
     ]);
 
     myPython3Env = python3.withPackages (p: with p; [
+      virtualenv
+      pip
       numpy
       boto3
       matplotlib
