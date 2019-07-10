@@ -9,6 +9,10 @@
 (require 'org-clock)
 (require 'org-habit)
 
+;; org-reveal
+(setq org-reveal-note-key-char nil)
+(require 'ox-reveal)
+
 (setq org-id-link-to-org-use-id 'use-existing)
 
 (setq org-startup-indented t)
