@@ -269,6 +269,7 @@
           helm-pass
           inf-ruby
           magit
+          ox-reveal
           psc-ide
           purescript-mode
           restclient
