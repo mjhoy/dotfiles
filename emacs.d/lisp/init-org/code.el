@@ -40,11 +40,11 @@
 (add-to-list 'org-structure-template-alist
              '("hs" . "src haskell"))
 (add-to-list 'org-structure-template-alist
-             '("hsnt" . "haskell :tangle no"))
+             '("hsnt" . "src haskell :tangle no"))
 (add-to-list 'org-structure-template-alist
-             '("rs" . "rust"))
+             '("rs" . "src rust"))
 (add-to-list 'org-structure-template-alist
-             '("rb" . "ruby"))
+             '("rb" . "src ruby"))
 (add-to-list 'org-structure-template-alist
              '("purs" . "src purescript"))
 (add-to-list 'org-structure-template-alist
