@@ -383,8 +383,8 @@
       pattern-arrows
       pipes
       pipes-http
-      # issue building postgres-libpq
-      # postgresql-simple
+      postgresql-simple
+      postgresql-simple-migration
       process
       dhall
       protolude
@@ -394,7 +394,9 @@
       regex-compat
       regex-posix
       regex-tdfa
+      resource-pool
       safe
+      scotty
       shakespeare
       singletons
       # issue building postgres-libpq
