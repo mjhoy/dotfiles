@@ -25,6 +25,7 @@ dotfiles=( gemrc
            offlineimaprc
            offlineimap.py
            eslintrc
+           zshrc
          )
 regex="/?([^/]+)$"
 for i in "${dotfiles[@]}" ; do
