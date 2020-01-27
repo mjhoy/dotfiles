@@ -12,6 +12,7 @@ path=(
   "$HOME/.ghcup/bin"
   "$HOME/.rbenv/shims"
   "$HOME/.rbenv/bin"
+  "$HOME/.yarn/bin"
   "$HOME/bin"
   "/usr/local/bin"
   "/usr/local/sbin"
