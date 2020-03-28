@@ -179,7 +179,6 @@
           company-ghc
           diminish
           dracula-theme
-          ensime
           ess
           flycheck
           flycheck-haskell

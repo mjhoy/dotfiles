@@ -81,7 +81,6 @@
 (require 'init-javascript)
 (require 'init-purescript)
 (require 'init-haskell)
-(require 'init-scala)
 (require 'init-c)
 (require 'init-yaml)
 (require 'init-gdk)
