@@ -177,6 +177,8 @@
           cargo
           company
           company-ghc
+          company-lsp
+          dap-mode
           diminish
           dracula-theme
           ess
@@ -192,6 +194,8 @@
           helm-projectile
           ibuffer-vc
           js2-mode
+          lsp-mode
+          lsp-ui
           markdown-mode
           material-theme
           multiple-cursors
@@ -200,6 +204,7 @@
           org-tree-slide
           password-store
           php-mode
+          posframe
           projectile
           proof-general
           protobuf-mode
@@ -207,6 +212,8 @@
           rjsx-mode
           robe
           rust-mode
+          sbt-mode
+          scala-mode
           web-mode
           winring
           yafolding
