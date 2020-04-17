@@ -214,6 +214,7 @@
           rust-mode
           sbt-mode
           scala-mode
+          tide
           web-mode
           winring
           yafolding

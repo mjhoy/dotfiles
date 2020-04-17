@@ -82,6 +82,7 @@
 (require 'init-rust)
 (require 'init-javascript)
 (require 'init-purescript)
+(require 'init-typescript)
 (require 'init-haskell)
 (require 'init-scala)
 (require 'init-c)
