@@ -74,6 +74,7 @@
 (require 'init-lsp)
 (require 'init-helm)
 (require 'init-magit)
+(require 'init-treemacs)
 (require 'init-markdown)
 (require 'init-scheme)
 (require 'init-ruby)
