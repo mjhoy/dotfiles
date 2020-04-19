@@ -1,5 +1,6 @@
-(require 'init-company)
-(require 'company) ; to reference 'company-backends below
+(require 'init-lsp)
+(require 'lsp)
+(require 'lsp-haskell)
 
 (require 'w3m-haddock)
 
@@ -7,29 +8,6 @@
   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile))
 (add-hook 'haskell-cabal-hook 'mjhoy/haskell-cabal-setup)
 
-(defun mjhoy/ghc-type-info-as-comment ()
-  "Using ghc-mod, get the type info at point and insert it as a comment.
-
-See also `ghc-show-type'.
-"
-  (interactive)
-
-  ;; taken from the `ghc-show-type' source.
-  (let ((tinfos (ghc-type-get-tinfos)))
-    (if (null tinfos)
-        (progn
-          (ghc-type-clear-overlay)
-          (message "Cannot determine type"))
-      (let* ((tinfos (ghc-type-get-tinfos))
-             (tinfo (nth (ghc-type-get-ix) tinfos))
-             (type (ghc-tinfo-get-info tinfo)))
-        (previous-line)
-        (move-end-of-line nil)
-        (newline)
-        (comment-indent)
-        (insert type)
-        (ghc-type-clear-overlay)
-        ))))
 
 (defun mjhoy/haskell-mode-setup ()
   "My custom setup for Haskell mode."
@@ -44,20 +22,13 @@ See also `ghc-show-type'.
   ;; indentation
   (turn-on-haskell-indentation)
 
+  (lsp)
+
   ;; Do we need this?
   ;; (ghc-type-init)
   )
 
 (add-hook 'haskell-mode-hook 'mjhoy/haskell-mode-setup)
-
-;; ghc-mod setup
-;; (autoload 'ghc-init "ghc" nil t)
-;; (autoload 'ghc-type-init "ghc" nil t)
-;; (autoload 'ghc-debug "ghc" nil t)
-
-;; ghc-mod company
-;; (add-to-list 'company-backends 'company-ghc)
-(add-to-list 'company-backends 'company-ghci)
 
 ;; use web-mode for snap heist templates
 (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
