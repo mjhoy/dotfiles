@@ -181,6 +181,7 @@
           dap-mode
           diminish
           dracula-theme
+          elm-mode
           ess
           flycheck
           flycheck-haskell
