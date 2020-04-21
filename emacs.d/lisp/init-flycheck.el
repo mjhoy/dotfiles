@@ -1,3 +1,5 @@
+(require 'flycheck)
+
 (add-hook 'js-mode-hook   #'flycheck-mode)
 
 (eval-after-load 'scss-mode
