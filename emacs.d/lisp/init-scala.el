@@ -9,7 +9,9 @@
 
 (defun mjhoy/setup-scala-mode ()
   "My setup for scala-mode."
-  (lsp))
+  (lsp)
+  (add-hook 'before-save-hook 'lsp-format-buffer)
+  )
 
 (add-hook 'scala-mode-hook 'mjhoy/setup-scala-mode)
 
