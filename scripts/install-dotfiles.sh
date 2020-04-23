@@ -49,3 +49,7 @@ done
 if [[ ! -e $HOME/.dotfiles ]]; then
     lns $(pwd) $HOME/.dotfiles
 fi
+
+# ad-hoc installs
+mkdir -p ~/.config/nixpkgs
+lns $(pwd)/nix/nixpkgs/overlays.nix $HOME/.config/nixpkgs/overlays.nix
