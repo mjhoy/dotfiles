@@ -179,7 +179,7 @@
     # Emacs & emacs packages
     # ----------------------
 
-    emacs =
+    myEmacs =
       let
         myPackages = epkgs: (with epkgs.elpaPackages; [
           ace-window
@@ -280,7 +280,6 @@
         cloc
         cmake
         ctags
-        emacs
         git
         graphviz
         htop
@@ -290,6 +289,7 @@
         libxml2
         lynx
         mu
+        myEmacs
         nasm
         nix-prefetch-git
         offlineimap
