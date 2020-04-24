@@ -104,3 +104,4 @@
 (require 'init-presentation)
 (require 'init-pass)
 (require 'init-misc)
+(require 'init-private nil 'noerror)

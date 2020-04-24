@@ -15,3 +15,4 @@ custom.el
 transient
 .lsp-session*
 .cache
+lisp/init-private.el
