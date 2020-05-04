@@ -6,7 +6,6 @@
              "dates.org"                ; upcoming dates
              "projects.org"             ; personal project notes
              "finance.org"              ; personal finances
-             "programming_notes.org"    ; programming notebook
              )))
 
 (setq org-agenda-dim-blocked-tasks nil)
