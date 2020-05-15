@@ -1,19 +1,64 @@
 {
-    "ruby.format": "rubocop",
-    "ruby.useLanguageServer": true,
-    "ruby.useBundler": true,
-    "ruby.codeCompletion": "rcodetools",
-    "ruby.intellisense": "rubyLocate",
-    "editor.highlightActiveIndentGuide": false,
-    "editor.renderIndentGuides": false,
-    "rust.clippy_preference": "on",
-    "editor.minimap.enabled": false,
-    "zenMode.hideStatusBar": false,
-    "editor.tabSize": 2,
-    "[rust]": {},
-    "files.insertFinalNewline": true,
-    "files.trimTrailingWhitespace": true,
-    "window.zoomLevel": 0,
-    "rust-analyzer.debug.engine": "vadimcn.vscode-lldb",
-    "rust-analyzer.inlayHints.typeHints": false,
+  "ruby.codeCompletion": "rcodetools",
+  "ruby.format": "rubocop",
+  "ruby.intellisense": "rubyLocate",
+  "ruby.useBundler": true,
+  "editor.renderIndentGuides": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "ruby.useLanguageServer": true,
+  "editor.minimap.enabled": false,
+  "git.autofetch": true,
+  "workbench.statusBar.visible": true,
+  "workbench.activityBar.visible": false,
+  "window.zoomLevel": 0,
+  "editor.suggestSelection": "first",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "extensions.ignoreRecommendations": false,
+  "files.insertFinalNewline": true,
+  "[scala]": {
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  "editor.fontFamily": "SF Mono, Menlo, Monaco, 'Courier New', monospace",
+  "vim.highlightedyank.enable": true,
+
+  /* vim bindings */
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "…"
+      ],
+      "commands": [
+        "editor.action.blockComment"
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+        "before": [
+            ">"
+        ],
+        "commands": [
+            "editor.action.indentLines"
+        ]
+    },
+    {
+        "before": [
+            "<"
+        ],
+        "commands": [
+            "editor.action.outdentLines"
+        ]
+    }
+  ],
+  "files.trimTrailingWhitespace": true,
+  "workbench.colorTheme": "Default Light+"
 }
