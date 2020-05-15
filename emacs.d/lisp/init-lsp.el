@@ -1,3 +1,4 @@
+(require 'init-markdown)
 (require 'lsp-mode)
 (require 'lsp-ui)
 (require 'init-company)
