@@ -51,5 +51,19 @@ if [[ ! -e $HOME/.dotfiles ]]; then
 fi
 
 # ad-hoc installs
-mkdir -p ~/.config/nixpkgs
-lns $(pwd)/nix/nixpkgs/overlays.nix $HOME/.config/nixpkgs/overlays.nix
+if [[ ! -e $HOME/.config/nixpkgs/overlays.nix ]]; then
+    mkdir -p $HOME/.config/nixpkgs
+    lns $(pwd)/nix/nixpkgs/overlays.nix $HOME/.config/nixpkgs/overlays.nix
+fi
+
+OS=`uname`
+
+if [[ "${OS}" == "Darwin" ]]; then
+    if [[ -d "$HOME/Library/ApplicationSupport/Code/User" ]]; then
+        if [[ ! -e "$HOME/Library/ApplicationSupport/Code/User/settings.json" ]]; then
+            lns $(pwd)/vscode/settings.json $HOME/Library/ApplicationSupport/Code/User/settings.json
+        fi
+    else
+        echo "No VS Code application support folder; skipping settings.json."
+    fi
+fi
