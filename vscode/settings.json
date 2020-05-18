@@ -60,5 +60,6 @@
     }
   ],
   "files.trimTrailingWhitespace": true,
-  "workbench.colorTheme": "Default Light+"
+  "workbench.colorTheme": "Default Light+",
+  "editor.formatOnSave": true
 }
