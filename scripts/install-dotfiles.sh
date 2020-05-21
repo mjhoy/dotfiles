@@ -50,6 +50,11 @@ if [[ ! -e $HOME/.dotfiles ]]; then
     lns $(pwd) $HOME/.dotfiles
 fi
 
+# Add a ApplicationSupport directory without a space for mac os.
+if [[ -e $HOME/Library/Application\ Support && ! -e $HOME/Library/ApplicationSupport ]]; then
+    ln -s $HOME/Library/Application\ Support $HOME/Library/ApplicationSupport
+fi
+
 # ad-hoc installs
 if [[ ! -e $HOME/.config/nixpkgs/overlays.nix ]]; then
     mkdir -p $HOME/.config/nixpkgs
