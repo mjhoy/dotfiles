@@ -5,7 +5,7 @@ My configuration. Mostly used on OSX.
 ## Editor setup
 
 Most of my work happens in Emacs. Config for programming languages, and
-org-mode stuff lives in `emacs.d/`l. I don't use vim so much these days and
+org-mode stuff lives in `emacs.d/`. I don't use vim so much these days and
 have a minimal config, in `vim/`.
 
 I've started using vscode for scala, typescript, and rust code. My settings
@@ -42,7 +42,7 @@ make install
 
 sets up the symlinks.
 
-### Nix
+### Nix setup
 
 Follow the instructions here: https://nixos.org/download.html
 
