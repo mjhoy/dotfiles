@@ -61,5 +61,6 @@
   ],
   "files.trimTrailingWhitespace": true,
   "workbench.colorTheme": "Default Light+",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "git.confirmSync": false
 }
