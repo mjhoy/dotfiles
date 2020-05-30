@@ -56,3 +56,8 @@ fi
 if [ -f ~/.bash_local ]; then
    . ~/.bash_local
 fi
+
+function seecert () {
+  nslookup $1
+  (openssl s_client -showcerts -servername $1 -connect $1:443 <<< "Q" | openssl x509 -text)
+}
