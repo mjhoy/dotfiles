@@ -56,6 +56,14 @@ instructions here:
 
 https://app.cachix.org/cache/all-hies
 
+I'm now using the `haskell.nix` branch of all-hies --
+https://github.com/Infinisil/all-hies/issues/19 -- for which you can
+optionally add:
+
+```sh
+cachix use iohk
+```
+
 ## License
 
 MIT. See included LICENSE file.
