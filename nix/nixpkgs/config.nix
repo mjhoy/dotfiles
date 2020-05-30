@@ -170,7 +170,7 @@
     # Then, install with nix-env -iA nixpkgs.hie
     hie =
       let
-        all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+        all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/haskell.nix") {};
       in
         all-hies.selection { selector = p: { inherit (p) ghc865; }; };
 
