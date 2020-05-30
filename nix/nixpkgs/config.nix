@@ -365,7 +365,6 @@
       pipes
       pipes-http
       postgresql-simple
-      postgresql-simple-migration
       process
       dhall
       protolude
