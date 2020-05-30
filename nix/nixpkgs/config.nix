@@ -332,6 +332,7 @@
       HandsomeSoup
       MonadRandom
       Unixutils
+      Cabal_3_0_0_0
       aeson
       aeson-better-errors
       array
