@@ -47,6 +47,11 @@ if [ -d /Applications/Postgres.app/Contents/Versions/9.6/bin ]; then
   export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin
 fi
 
+# include VSCode binaries in path if it exists
+if [ -d /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin ]; then
+  export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+fi
+
 # nix
 . ~/.dotfiles/bash/nix
 
