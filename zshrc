@@ -1,3 +1,5 @@
+# -*- mode: sh -*-
+
 # path setup
 typeset -U PATH path # path entries are unique
 path=(
