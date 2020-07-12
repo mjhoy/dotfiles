@@ -43,8 +43,8 @@ else
 fi
 
 # include Postgres.app in path if it exists.
-if [ -f /Applications/Postgres.app/Contents/Versions/9.6/bin/psql ]; then
-    export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin
+if [ -d /Applications/Postgres.app/Contents/Versions/9.6/bin ]; then
+  export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin
 fi
 
 # nix
