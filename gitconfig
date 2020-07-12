@@ -23,7 +23,7 @@
 
 [core]
   excludesfile = "~/.dotfiles/gitignore"
-  editor = emacsclient
+  editor = vi
 [url "http://github.com/ghc/packages-"]
 	insteadOf = http://github.com/ghc/packages/
 [url "https://github.com/ghc/packages-"]
