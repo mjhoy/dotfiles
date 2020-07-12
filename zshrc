@@ -1,7 +1,3 @@
-# completion init
-autoload -Uz compinit
-compinit
-
 # path setup
 typeset -U PATH path # path entries are unique
 path=(
