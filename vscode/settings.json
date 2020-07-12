@@ -60,7 +60,9 @@
     }
   ],
   "files.trimTrailingWhitespace": true,
-  "workbench.colorTheme": "Default Light+",
   "editor.formatOnSave": true,
-  "git.confirmSync": false
+  "git.confirmSync": false,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.colorTheme": "Default Light+",
+  "rust-analyzer.inlayHints.typeHints": false
 }
