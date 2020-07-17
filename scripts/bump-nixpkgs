@@ -30,9 +30,6 @@ git pull $UPDATE_REMOTE
 echo "Building devEnv"
 nix build --no-link nixpkgs.devEnv
 
-echo "Building hie"
-nix build --no-link nixpkgs.hie
-
 echo "Building nix"
 nix build --no-link nixpkgs.nix
 
@@ -40,7 +37,6 @@ git checkout $LOCAL_BRANCH
 git merge $UPDATE_BRANCH
 
 nix-env -iA nixpkgs.devEnv
-nix-env -iA nixpkgs.hie
 nix-env -iA nixpkgs.nix
 
 TAG_NAME="mjh-v$(date +%F)"

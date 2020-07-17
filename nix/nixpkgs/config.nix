@@ -159,22 +159,6 @@
       sha256 = "1yr0fhm85mbc6nvc6hqgz6s5ib29c7y45ksacami3b24zrq67709";
     }) { });
 
-    # -------------------------------------
-    # HIE installation
-    # https://github.com/Infinisil/all-hies
-    # -------------------------------------
-
-    # I install cachix for this. Following the instructions here:
-    # https://app.cachix.org/cache/all-hies
-
-    # Then, install with nix-env -iA nixpkgs.hie
-    hie =
-      let
-        all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/haskell.nix") {};
-      in
-        all-hies.selection { selector = p: { inherit (p) ghc865; }; };
-
-
     # ----------------------
     # Emacs & emacs packages
     # ----------------------
@@ -223,7 +207,7 @@
           posframe
           projectile
           proof-general
-          protobuf-mode
+          # protobuf-mode # https://github.com/nix-community/emacs-overlay/issues/26
           racer
           rjsx-mode
           robe

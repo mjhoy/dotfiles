@@ -9,13 +9,9 @@ set -eoux pipefail
 echo "Building devEnv"
 nix build --no-link nixpkgs.devEnv
 
-echo "Building hie"
-nix build --no-link nixpkgs.hie
-
 echo "Building nix"
 nix build --no-link nixpkgs.nix
 
 echo "Installing"
 nix-env -iA nixpkgs.devEnv
-nix-env -iA nixpkgs.hie
 nix-env -iA nixpkgs.nix
