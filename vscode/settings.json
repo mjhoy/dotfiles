@@ -64,5 +64,6 @@
   "git.confirmSync": false,
   "explorer.confirmDragAndDrop": false,
   "workbench.colorTheme": "Default Light+",
-  "rust-analyzer.inlayHints.typeHints": false
+  "rust-analyzer.inlayHints.typeHints": false,
+  "sourcekit-lsp.serverPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp"
 }
