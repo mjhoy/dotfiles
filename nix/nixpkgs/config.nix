@@ -265,6 +265,7 @@
         cmake
         ctags
         git
+        ghcid
         graphviz
         htop
         imagemagick
@@ -324,6 +325,7 @@
       blaze-html
       bower-json
       boxes
+      brittany
       bytestring
       cheapskate
       containers
