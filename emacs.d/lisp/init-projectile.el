@@ -32,7 +32,7 @@ it about Drupal filename conventions (e.g., .inc, .module, etc)."
 
 (setq projectile-enable-caching t)
 
-(setq projectile-completion-system 'helm)
+(setq projectile-completion-system 'ivy)
 
 (defun mjhoy/projectile-init ()
   "My projectile initialization."

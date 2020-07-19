@@ -73,7 +73,7 @@
 (require 'init-flycheck)
 (require 'init-flyspell)
 (require 'init-lsp)
-(require 'init-helm)
+(require 'init-ivy)
 (require 'init-magit)
 (require 'init-treemacs)
 (require 'init-scheme)

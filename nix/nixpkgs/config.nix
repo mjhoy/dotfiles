@@ -175,6 +175,7 @@
           avy
           bm
           cargo
+          counsel
           company
           company-lsp
           dap-mode
@@ -188,10 +189,6 @@
           ghc
           haml-mode
           haskell-mode
-          helm
-          helm-ag
-          helm-dash
-          helm-projectile
           ibuffer-vc
           js2-mode
           lsp-mode
@@ -230,8 +227,8 @@
           (forge.overrideAttrs (oldAttrs: {
             buildInputs = oldAttrs.buildInputs ++ [pkgs.git];
           }))
-          helm-pass
           inf-ruby
+          ivy-pass
           magit
           ox-reveal
           psc-ide

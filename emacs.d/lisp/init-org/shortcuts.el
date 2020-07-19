@@ -1,5 +1,5 @@
 (defun mjhoy/open-org-notebook (filename &optional use-helm)
-  (let ((find-func (if use-helm #'helm-find-files-1 #'find-file)))
+  (let ((find-func #'counsel-find-file))
     (funcall find-func (concat org-directory filename))))
 
 (defmacro openo (&rest forms)
