@@ -1,6 +1,10 @@
+(require 'counsel-projectile)
+
 (setq projectile-keymap-prefix (kbd "C-c p"))
 
 (projectile-global-mode)
+
+(counsel-projectile-mode)
 
 (defun mjhoy/projectile-is-drupal ()
   "Returns t if the current project is a drupal project, nil otherwise."

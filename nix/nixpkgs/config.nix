@@ -176,6 +176,7 @@
           bm
           cargo
           counsel
+          counsel-projectile
           company
           company-lsp
           dap-mode
