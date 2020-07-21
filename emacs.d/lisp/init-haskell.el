@@ -1,7 +1,3 @@
-(require 'init-lsp)
-(require 'lsp)
-(require 'lsp-haskell)
-
 (require 'w3m-haddock)
 
 (defun mjhoy/haskell-cabal-setup ()
@@ -21,8 +17,6 @@
 
   ;; indentation
   (turn-on-haskell-indentation)
-
-  (lsp)
 
   ;; Do we need this?
   ;; (ghc-type-init)
