@@ -1,6 +1,6 @@
 (require 'counsel-projectile)
 
-(setq projectile-keymap-prefix (kbd "C-c p"))
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 (projectile-global-mode)
 
