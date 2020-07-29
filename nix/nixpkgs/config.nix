@@ -262,6 +262,7 @@
         cloc
         cmake
         ctags
+        gdb
         git
         ghcid
         graphviz
