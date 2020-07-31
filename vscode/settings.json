@@ -65,5 +65,6 @@
   "explorer.confirmDragAndDrop": false,
   "workbench.colorTheme": "Default Light+",
   "rust-analyzer.inlayHints.typeHints": false,
-  "sourcekit-lsp.serverPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp"
+  "sourcekit-lsp.serverPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+  "haskell.formattingProvider": "none"
 }
