@@ -225,9 +225,8 @@
           company-racer
           flycheck-rust
           lsp-haskell
-          (forge.overrideAttrs (oldAttrs: {
-            buildInputs = oldAttrs.buildInputs ++ [pkgs.git];
-          }))
+          # TODO: disabled because emacs-sqlite fails to build
+          # forge
           inf-ruby
           ivy-pass
           magit
@@ -250,7 +249,7 @@
       name = "devEnv";
       paths = [
         libmikey
-        myHaskellEnv
+        # myHaskellEnv
         myPython3Env
         cabal2nix
 
@@ -279,7 +278,7 @@
         offlineimap
         parallel
         pass
-        phocid
+        # phocid
         protobuf
         psc-package
         ripgrep
@@ -293,7 +292,7 @@
         sbt
 
         # aspell dictionaries
-        aspellEnv
+        # aspellEnv
       ];
     };
 

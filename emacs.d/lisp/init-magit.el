@@ -3,7 +3,7 @@
 (require 'init-org)
 (require 'org-magit)
 (require 'init-projectile)
-(require 'forge)
+;; (require 'forge)
 
 (setq magit-push-always-verify nil)
 (setq magit-revert-buffers 'silent)
