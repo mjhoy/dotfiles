@@ -31,7 +31,7 @@
         (setq mu4e-refile-folder "/mjh-mjhoy.com/INBOX.Archive")
         (setq mu4e-drafts-folder "/mjh-mjhoy.com/INBOX.Drafts")
         (setq mu4e-sent-folder "/mjh-mjhoy.com/INBOX.Sent Items")
-        (setq mu4e-trash-folder "/trash")
+        (setq mu4e-trash-folder "/mjh-mjhoy.com/INBOX.Trash")
         (setq smtpmail-starttls-credentials
               '(("mail.messagingengine.com" 587 nil nil))
               smtpmail-default-smtp-server "mail.messagingengine.com"
