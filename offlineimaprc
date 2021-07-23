@@ -24,8 +24,7 @@ remotehost = mail.messagingengine.com
 remoteuser = mjh@fastmail.fm
 # remotepass = remote-pass-here
 remotepasseval = get_password(path="Email/mjh@fastmail.fm/mail.messagingengine.com")
-folderfilter = lambda folder: folder not in ['INBOX.Trash',
-                                             'INBOX.Junk Mail',
+folderfilter = lambda folder: folder not in ['INBOX.Junk Mail',
                                              ]
 
 # old gmail account. Don't use anymore, not sure if this still works.
