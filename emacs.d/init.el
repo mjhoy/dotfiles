@@ -95,7 +95,6 @@
 (require 'init-css)
 (require 'init-coq)
 (require 'init-protobuf)
-(require 'init-project-archetypes)
 (require 'init-term)
 (require 'init-folding)
 (require 'init-ace)
