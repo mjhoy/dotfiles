@@ -1,0 +1,28 @@
+-- -*- mode: Haskell-Cabal;-*-
+--
+-- This file should be linked or copied to ~/.cabal/config
+
+repository hackage.haskell.org
+  url: http://hackage.haskell.org/
+
+-- Annoyingly, I seem to need to hard-code my user path here.
+remote-repo-cache: /Users/mjhoy/.cabal/packages
+world-file: /Users/mjhoy/.cabal/world
+extra-prog-path: /Users/mjhoy/.cabal/bin
+documentation: True
+build-summary: /Users/mjhoy/.cabal/logs/build.log
+remote-build-reporting: anonymous
+jobs: $ncpus
+installdir: /Users/mjhoy/.cabal/bin
+
+haddock
+
+init
+
+install-dirs user
+
+install-dirs global
+
+program-locations
+
+program-default-options
