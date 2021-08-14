@@ -16,6 +16,7 @@ jobs: $ncpus
 installdir: /Users/mjhoy/.cabal/bin
 
 haddock
+  hyperlink-source: True
 
 init
 
