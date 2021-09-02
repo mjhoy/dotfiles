@@ -1,5 +1,8 @@
 [
   (import (builtins.fetchTarball {
-    url = https://github.com/nix-community/emacs-overlay/archive/096983e7207c4d76f3d68cf62b1d85e47cbb3b8b.tar.gz;
+    # To update:
+    # Go to https://github.com/nix-community/emacs-overlay, and grab a commit hash.
+    # Swap it in below.
+    url = https://github.com/nix-community/emacs-overlay/archive/95fee6e5b164a4c0f1e33d9fe30bb717fc74a66c.tar.gz;
   }))
 ]

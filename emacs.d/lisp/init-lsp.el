@@ -2,7 +2,6 @@
 (require 'lsp-mode)
 (require 'lsp-ui)
 (require 'init-company)
-(require 'company-lsp)
 (require 'posframe)
 (require 'dap-mode)
 
