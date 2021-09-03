@@ -84,7 +84,6 @@
 (require 'init-purescript)
 (require 'init-typescript)
 (require 'init-elm)
-(require 'init-haskell)
 (require 'init-scala)
 (require 'init-c)
 (require 'init-yaml)

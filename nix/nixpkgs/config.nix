@@ -178,18 +178,14 @@
           counsel
           counsel-projectile
           company
-          company-lsp
           dap-mode
           diminish
           dracula-theme
           elm-mode
           ess
           flycheck
-          flycheck-haskell
           geiser
-          ghc
           haml-mode
-          haskell-mode
           ibuffer-vc
           js2-mode
           lsp-mode
@@ -224,7 +220,6 @@
         ]) ++ (with epkgs.melpaPackages; [
           company-racer
           flycheck-rust
-          lsp-haskell
           # TODO: disabled because emacs-sqlite fails to build
           # forge
           inf-ruby
