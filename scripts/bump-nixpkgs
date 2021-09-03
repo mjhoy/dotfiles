@@ -7,7 +7,7 @@
 LOCAL_REMOTE=mjhoy
 LOCAL_BRANCH=mjh-mbp
 UPDATE_REMOTE=origin
-UPDATE_BRANCH=nixpkgs-20.09-darwin
+UPDATE_BRANCH=nixpkgs-21.05-darwin
 
 set -eoux pipefail
 
