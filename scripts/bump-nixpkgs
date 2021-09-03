@@ -34,7 +34,7 @@ echo "Building nix"
 nix build --no-link nixpkgs.nix
 
 git checkout $LOCAL_BRANCH
-git merge $UPDATE_BRANCH
+git reset --hard $UPDATE_BRANCH
 
 nix-env -iA nixpkgs.devEnv
 nix-env -iA nixpkgs.nix
@@ -42,4 +42,4 @@ nix-env -iA nixpkgs.nix
 TAG_NAME="mjh-v$(date +%F)"
 TAG_MSG="$(date +%F): update with latest $UPDATE_BRANCH"
 git tag -m "$TAG_MSG" $TAG_NAME
-git push $LOCAL_REMOTE $LOCAL_BRANCH --tags
+git push $LOCAL_REMOTE $LOCAL_BRANCH --force --tags
