@@ -46,23 +46,27 @@ sets up the symlinks.
 
 Follow the instructions here: https://nixos.org/download.html
 
-On Mac OS Catalina, you can't make a `/nix` root-level directory. I followed
-the instructions here:
+On newer Mac OSes, you might need to tweak this to be able to get a
+`/nix` directory. Check installation instructions here:
 
-https://github.com/NixOS/nix/issues/2925#issuecomment-539570232
+https://nixos.org/manual/nix/stable/#sect-macos-installation
 
-I also use cachix for installing Haskell IDE packages. Installation
-instructions here:
-
-https://app.cachix.org/cache/all-hies
-
-I'm now using the `haskell.nix` branch of all-hies --
-https://github.com/Infinisil/all-hies/issues/19 -- for which you can
-optionally add:
+I used the recommended approach:
 
 ```sh
-cachix use iohk
+curl -L https://nixos.org/nix/install | sh -s -- --darwin-use-unencrypted-nix-store-volume
 ```
+
+One last step is to remove whatever channel was set up with in the
+installation. I run:
+
+```sh
+nix-channel --list # note the channels listed
+nix-channel --remove <channel> # whatever channels were listed
+```
+
+If everything is properly set up, nix should use the nixpkgs checked
+out under dotfiles/nixpkgs.
 
 ## License
 
