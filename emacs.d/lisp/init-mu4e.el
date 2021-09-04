@@ -20,74 +20,9 @@
       ;; mu4e exists on this system
       (require 'mu4e)
 
-      (defun mjhoy/remind-no-d-key ()
-        (interactive)
-        (message "No deleting [d] while in fastmail setup; use [m t]"))
-
-      (defun mjhoy/switch-to-personal-email ()
-        "Switch to my personal config."
-        (interactive)
-        (setq mu4e-sent-messages-behavior 'sent)
-        (setq mu4e-refile-folder "/mjh-mjhoy.com/INBOX.Archive")
-        (setq mu4e-drafts-folder "/mjh-mjhoy.com/INBOX.Drafts")
-        (setq mu4e-sent-folder "/mjh-mjhoy.com/INBOX.Sent Items")
-        (setq mu4e-trash-folder "/mjh-mjhoy.com/INBOX.Trash")
-        (setq smtpmail-starttls-credentials
-              '(("mail.messagingengine.com" 587 nil nil))
-              smtpmail-default-smtp-server "mail.messagingengine.com"
-              smtpmail-smtp-server "mail.messagingengine.com"
-              )
-        (setq user-mail-address "mjh@mjhoy.com")
-        )
-
-      (defun mjhoy/switch-to-work-email ()
-        "Switch to my work config."
-        (interactive)
-        (setq mu4e-sent-messages-behavior 'delete)
-        (setq mu4e-refile-folder nil)
-        (setq mu4e-drafts-folder "/freebird/drafts")
-        (setq mu4e-trash-folder "/trash")
-        (setq smtpmail-starttls-credentials
-              '(("smtp.gmail.com" 587 nil nil))
-              smtpmail-default-smtp-server "smtp.gmail.com"
-              smtpmail-smtp-server "smtp.gmail.com")
-        (setq user-mail-address "mikey@getfreebird.com")
-        )
-
-      (defvar mjhoy/switch-mail-auto nil
-        "Switch work/personal automatically in mu4e.")
-
-      (defun mjhoy/switch-mail-auto-fn ()
-        "Automatically switch mailboxes based on parent message"
-        (let ((msg mu4e-compose-parent-message))
-          (when msg
-            (cond
-             ((not mjhoy/switch-mail-auto)
-              '())
-             ((or
-               (mu4e-message-contact-field-matches msg :to "getfreebird.com")
-               (mu4e-message-contact-field-matches msg :from "mikey@getfreebird.com")
-               (mu4e-message-contact-field-matches msg :cc "getfreebird.com")
-               (mu4e-message-contact-field-matches msg :bcc "getfreebird.com"))
-              (mjhoy/switch-to-work-email))
-             ((or
-               (mu4e-message-contact-field-matches msg :to "mjhoy.com")
-               (mu4e-message-contact-field-matches msg :from "mjh@mjhoy.com")
-               (mu4e-message-contact-field-matches msg :cc "mjhoy.com")
-               (mu4e-message-contact-field-matches msg :bcc "mjhoy.com")
-               (mu4e-message-contact-field-matches msg :to "michael.john.hoy@gmail.com")
-               (mu4e-message-contact-field-matches msg :cc "michael.john.hoy@gmail.com")
-               (mu4e-message-contact-field-matches msg :bcc "michael.john.hoy@gmail.com"))
-              (mjhoy/switch-to-personal-email))
-             (t
-              '())))))
-
-      (add-hook 'mu4e-compose-pre-hook 'mjhoy/switch-mail-auto-fn)
-
       (setq mu4e-maildir-shortcuts
             '(
               ("/mjh-mjhoy.com/INBOX" . ?i)
-              ("/freebird/INBOX" . ?w)
               ("/michael.john.hoy-gmail.com/INBOX" . ?g)
               ("/mjh-mjhoy.com/INBOX.Archive" . ?a)
               ("/mjh-mjhoy.com/INBOX.massbird" . ?b)
@@ -106,7 +41,7 @@
       ;; `check-inbox` is a wrapper script for offlineimap
       (setq mu4e-get-mail-command "~/bin/check-inbox")
 
-      ;; Set up for my fastmail config initially
+      ;; Personal email setup
       (setq mu4e-sent-messages-behavior 'sent)
       (setq message-send-mail-function 'smtpmail-send-it
             starttls-use-gnutls t
@@ -119,12 +54,16 @@
             smtpmail-smtp-service 587)
       (setq message-kill-buffer-on-exit t)
       (setq mu4e-compose-signature-auto-include nil)
-
-      (mjhoy/switch-to-personal-email)
-
-      ;; work computer
-      (if (string-match "michaelymacbook" system-name)
-          (mjhoy/switch-to-work-email))
+      (setq mu4e-refile-folder "/mjh-mjhoy.com/INBOX.Archive")
+      (setq mu4e-drafts-folder "/mjh-mjhoy.com/INBOX.Drafts")
+      (setq mu4e-sent-folder "/mjh-mjhoy.com/INBOX.Sent Items")
+      (setq mu4e-trash-folder "/mjh-mjhoy.com/INBOX.Trash")
+      (setq smtpmail-starttls-credentials
+            '(("mail.messagingengine.com" 587 nil nil))
+            smtpmail-default-smtp-server "mail.messagingengine.com"
+            smtpmail-smtp-server "mail.messagingengine.com"
+            )
+      (setq user-mail-address "mjh@mjhoy.com")
 
       (setq mu4e-compose-complete-ignore-address-regexp "\\(no-?reply\\|reply.github.com\\|basecamphq.com\\)")
 
