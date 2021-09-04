@@ -97,12 +97,8 @@
               ))
 
       (setq mail-user-agent 'mu4e-user-agent)
-      (setq mu4e-maildir "~/.mail/")
       (setq mu4e-view-show-addresses t)
       (setq mu4e-headers-include-related t)
-
-      (setq mu4e-user-mail-address-list '("mjh@mjhoy.com"
-                                          "mikey@getfreebird.com"))
 
       ;; we don't save sent mail with gmail, so just use fastmail as default
       (setq mu4e-sent-folder "/mjh-mjhoy.com/INBOX.Sent Items")
