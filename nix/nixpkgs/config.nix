@@ -252,7 +252,6 @@
 
         # useful tools
         ag
-        awscli
         cloc
         cmake
         ctags
