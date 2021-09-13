@@ -41,7 +41,6 @@
   "Create an anonymous interactive function"
   `(lambda () (interactive) ,@forms))
 
-;; only use authinfo.gpg
-(setq auth-sources '("~/.authinfo.gpg" "~/.netrc"))
+(setq auth-sources '("~/.authinfo" "~/.authinfo.gpg" "~/.netrc"))
 
 (provide 'init-basic)
