@@ -36,3 +36,5 @@
 	hideCampaign = true
 [github]
 	user = mjhoy
+[gitlab]
+	user = mjhoy
