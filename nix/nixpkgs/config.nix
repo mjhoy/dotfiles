@@ -221,7 +221,6 @@
         ]) ++ (with epkgs.melpaPackages; [
           company-racer
           flycheck-rust
-          # TODO: disabled because emacs-sqlite fails to build
           forge
           inf-ruby
           ivy-pass
