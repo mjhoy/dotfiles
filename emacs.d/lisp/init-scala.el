@@ -1,6 +1,7 @@
 (require 'scala-mode)
 (require 'sbt-mode)
 (require 'init-lsp)
+(require 'lsp-metals)
 
 ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
 (setq sbt:program-options '("-Dsbt.supershell=false"))

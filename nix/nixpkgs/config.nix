@@ -188,6 +188,7 @@
           haml-mode
           ibuffer-vc
           js2-mode
+          lsp-metals
           lsp-mode
           lsp-ui
           markdown-mode
