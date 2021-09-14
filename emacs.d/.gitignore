@@ -16,3 +16,4 @@ transient
 .lsp-session*
 .cache
 lisp/init-private.el
+.dap-breakpoints
