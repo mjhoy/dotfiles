@@ -178,6 +178,7 @@
           counsel
           counsel-projectile
           company
+          csharp-mode
           dap-mode
           diminish
           dracula-theme
