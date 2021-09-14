@@ -86,6 +86,7 @@
 (require 'init-elm)
 (require 'init-scala)
 (require 'init-c)
+(require 'init-csharp)
 (require 'init-yaml)
 (require 'init-gdk)
 (require 'init-php)
