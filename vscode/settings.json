@@ -70,5 +70,6 @@
     "**/.ammonite": true
   },
   "FSharp.suggestGitignore": false,
-  "omnisharp.useGlobalMono": "never"
+  "omnisharp.useGlobalMono": "never",
+  "go.toolsManagement.autoUpdate": true
 }
