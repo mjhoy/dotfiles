@@ -65,6 +65,8 @@ function seecert () {
   (openssl s_client -showcerts -servername $1 -connect $1:443 <<< "Q" | openssl x509 -text)
 }
 
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 # ghcup
 [ -f "~/.ghcup/env" ] && source "~/.ghcup/env"
 
