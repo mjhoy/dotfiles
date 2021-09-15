@@ -2,6 +2,9 @@
   name = Michael Hoy
   email = mjh@mjhoy.com
 
+[init]
+  defaultBranch = main
+
 [alias]
   s   = status -sb
   b   = branch
