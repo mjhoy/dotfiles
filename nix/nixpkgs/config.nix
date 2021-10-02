@@ -187,6 +187,7 @@
           flycheck
           geiser
           haml-mode
+          haskell-mode
           ibuffer-vc
           js2-mode
           lsp-metals
@@ -225,6 +226,7 @@
           forge
           inf-ruby
           ivy-pass
+          lsp-haskell
           magit
           ox-reveal
           psc-ide
