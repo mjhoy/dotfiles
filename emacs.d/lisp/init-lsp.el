@@ -13,9 +13,4 @@
 (setq lsp-ui-sideline-show-hover nil)
 (setq lsp-ui-sideline-show-code-actions nil)
 
-(defun mjhoy/setup-lsp-mode ()
-  "My setup for lsp-mode."
-  (dap-mode)
-  (dap-ui-mode))
-
 (provide 'init-lsp)
