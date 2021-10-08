@@ -3,6 +3,6 @@
     # To update:
     # Go to https://github.com/nix-community/emacs-overlay, and grab a commit hash.
     # Swap it in below.
-    url = https://github.com/nix-community/emacs-overlay/archive/95fee6e5b164a4c0f1e33d9fe30bb717fc74a66c.tar.gz;
+    url = https://github.com/nix-community/emacs-overlay/archive/5ee2f08137100840c1db4d017420fc05c440e97e.tar.gz;
   }))
 ]
