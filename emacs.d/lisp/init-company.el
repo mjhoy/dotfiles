@@ -1,6 +1,13 @@
 (require 'init-basic)
+(require 'init-yas)
 (require 'company)
 
+(defun mjhoy/setup-company-mode ()
+  "My setup for company mode."
+  (yas-minor-mode-on) ; Appears to be used for completion.
+  )
+
+(add-hook 'company-mode-hook #'mjhoy/setup-company-mode)
 (add-hook 'after-init-hook 'global-company-mode)
 (global-set-key (kbd "M-SPC") 'company-complete)
 (setq company-idle-delay 0.5)
