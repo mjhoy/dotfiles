@@ -204,7 +204,7 @@
           posframe
           projectile
           proof-general
-          # protobuf-mode # https://github.com/nix-community/emacs-overlay/issues/26
+          protobuf-mode
           racer
           rjsx-mode
           robe
