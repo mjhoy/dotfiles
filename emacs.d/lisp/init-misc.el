@@ -10,6 +10,9 @@
 (global-set-key (kbd "C-c m n") 'bm-next)
 (global-set-key (kbd "C-c m p") 'bm-previous)
 
+;; emacs-macport settings
+(setq mac-option-modifier 'meta)
+(setq mac-command-modifier 'super)
 
 ;; Apple specific functions
 (if (eq system-type 'darwin)
