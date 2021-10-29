@@ -233,7 +233,7 @@
           purescript-mode
           restclient
         ]);
-      in (pkgs.emacsPackagesNgGen super.emacs).emacsWithPackages myPackages;
+      in (pkgs.emacsPackagesNgGen super.emacsMacport).emacsWithPackages myPackages;
 
 
     # ---------------------
