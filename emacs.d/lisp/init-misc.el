@@ -29,6 +29,9 @@
       ;; OSX copy/paste
       (global-set-key (kbd "s-v") 'yank)
       (global-set-key (kbd "s-c") 'kill-ring-save)
+
+      ;; Frame title
+      (setq frame-title-format '("" "%b @ Emacs"))
       ))
 
 (defun mjhoy/diff-current-buffer-with-file ()
