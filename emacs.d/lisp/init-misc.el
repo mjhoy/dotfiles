@@ -10,8 +10,6 @@
 (global-set-key (kbd "C-c m n") 'bm-next)
 (global-set-key (kbd "C-c m p") 'bm-previous)
 
-;; emacs-macport settings
-
 ;; Apple specific functions
 (if macos
     (progn
@@ -24,8 +22,13 @@
 ;; Macport specific stuff
 (if macport
     (progn
+      ;; Meta/super keys
       (setq mac-option-modifier 'meta)
       (setq mac-command-modifier 'super)
+
+      ;; OSX copy/paste
+      (global-set-key (kbd "s-v") 'yank)
+      (global-set-key (kbd "s-c") 'kill-ring-save)
       ))
 
 (defun mjhoy/diff-current-buffer-with-file ()
