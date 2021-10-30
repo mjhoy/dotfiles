@@ -15,7 +15,7 @@
 (setq mac-command-modifier 'super)
 
 ;; Apple specific functions
-(if (eq system-type 'darwin)
+(if macos
     (progn
       ;; (replaces 'describe-no-warranty)
       (global-set-key (kbd "C-h C-w") 'mjhoy/lookup-apple-dictionary)
