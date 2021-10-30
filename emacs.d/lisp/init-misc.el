@@ -11,8 +11,6 @@
 (global-set-key (kbd "C-c m p") 'bm-previous)
 
 ;; emacs-macport settings
-(setq mac-option-modifier 'meta)
-(setq mac-command-modifier 'super)
 
 ;; Apple specific functions
 (if macos
@@ -22,6 +20,13 @@
 
       ;; replaces 'view-emacs-debugging
       (global-set-key (kbd "C-h C-d") 'mjhoy/lookup-dash)))
+
+;; Macport specific stuff
+(if macport
+    (progn
+      (setq mac-option-modifier 'meta)
+      (setq mac-command-modifier 'super)
+      ))
 
 (defun mjhoy/diff-current-buffer-with-file ()
   (interactive)
