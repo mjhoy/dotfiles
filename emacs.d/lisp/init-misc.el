@@ -10,18 +10,29 @@
 (global-set-key (kbd "C-c m n") 'bm-next)
 (global-set-key (kbd "C-c m p") 'bm-previous)
 
-;; emacs-macport settings
-(setq mac-option-modifier 'meta)
-(setq mac-command-modifier 'super)
-
 ;; Apple specific functions
-(if (eq system-type 'darwin)
+(if macos
     (progn
       ;; (replaces 'describe-no-warranty)
       (global-set-key (kbd "C-h C-w") 'mjhoy/lookup-apple-dictionary)
 
       ;; replaces 'view-emacs-debugging
       (global-set-key (kbd "C-h C-d") 'mjhoy/lookup-dash)))
+
+;; Macport specific stuff
+(if macport
+    (progn
+      ;; Meta/super keys
+      (setq mac-option-modifier 'meta)
+      (setq mac-command-modifier 'super)
+
+      ;; OSX copy/paste
+      (global-set-key (kbd "s-v") 'yank)
+      (global-set-key (kbd "s-c") 'kill-ring-save)
+
+      ;; Frame title
+      (setq frame-title-format '("" "%b @ Emacs"))
+      ))
 
 (defun mjhoy/diff-current-buffer-with-file ()
   (interactive)

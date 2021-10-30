@@ -46,7 +46,11 @@ Differs from text-scale-adjust by applying to all windows & frames.
 ;; (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend)
 
 (tool-bar-mode 0)
-(menu-bar-mode 0)
+
+;; Disabling menu-bar-mode on the macports emacs seems to just break
+;; its fullscreen-mode.
+(unless macport
+  (menu-bar-mode 0))
 
 (setq display-time-24hr-format t)
 
