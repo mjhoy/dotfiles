@@ -1,77 +1,32 @@
 * nix stuff
 
-I use [[http://nixos.org/nix/][nix]] in two places: running NixOS on a little acer chromebook,
-and the nix package manager on my mac.
+I used to use [[http://nixos.org/nix/][nix]] in two places: running NixOS on a little acer
+chromebook, and the nix package manager on my mac.
 
-The NixOS setup lives in [[./nixos][nixos]]. Common configuration is in [[./nixpkgs][nixpkgs]] in
-=config.nix=. (nixpkgs is symlinked to ~/.nixpkgs in the install
-script of this repository.) This defines a set of packages I want to
-be in my environment called =devEnv=. For instance, on my Mac, I can
-run
+Now, I just run it on my mac. But I'm getting it installed on a
+desktop linux machine too. Just need to get the kernel to talk to the
+Wifi card...
 
-#+begin_src sh
-nix-env -iA nixpkgs.devEnv
-#+end_src
+- The NixOS setup lives in [[./nixos][nixos]]. This is outdated.
+- Common configuration is in [[./nixpkgs][nixpkgs]] in =config.nix=. This defines a
+  set of packages I want to be in my environment called =devEnv=.
 
-to have a haskell environment set up, plus a few other things
-installed.
-
-(TODO: convert this to a =linuxEnv= and a =macEnv= which are composed
-of os-specific packages, plus a common set.)
-
-** python
-
-To set up a python environment for a project, this is what I do:
-
-#+begin_src sh
-nix-shell -p python37 # start a nix environment with python3.7
-python -m venv env # create a python virtual environment in env/
-exit # exit the nix shell
-source env/bin/active # active the python environment
-pip install -r requirements.txt # install dependencies, etc
-#+end_src
-
-** os x workflow
+** mac workflow
 
 *** (re)installing the environment defined in =config.nix=:
 
 #+begin_src sh
-nix-env -iA nixpkgs.devEnv
+./scripts/build-nix-env
 #+end_src
 
 *** upgrading
 
-I am still on OSX 10.9, which is no longer supported on nixpkgs
-(master). I am subscribed now to a particular commit of nixpkgs before
-10.9 support was removed:
-
-#+BEGIN_SRC sh
-nix-channel --remove nixpkgs
-nix-channel --add https://github.com/LnL7/nixpkgs/archive/darwin-10.9.tar.gz nixpkgs
-nix-channel --update nixpkgs
-#+END_SRC
-
-*** upgrading (old workflow!)
-
-I have a cloned repository of nixpkgs in =~src/nixpkgs= and I work on
-the =nixpkgs-unstable= branch:
+I have =nixpkgs= checked out as a submodule in this repo. I have a
+script that will update this, try to build my enviornment, and tag my
+fork if it is successful:
 
 #+begin_src sh
-git clone git@github.com:NixOS/nixpkgs.git ~/src/nixpkgs
-cd ~/src/nixpkgs
-git remote add channels git@github.com:NixOS/nixpkgs-channels.git
-git remote add mjhoy    git@github.com:mjhoy/nixpkgs.git
-git checkout -b nixpkgs-unstable channels/nixpkgs-unstable
-
-ln -s ~/src/nixpkgs ~/.nix-defexpr/nixpkgs
-#+end_src
-
-Now to update I pull from remote,
-
-#+begin_src sh
-cd ~/src/nixpkgs
-git pull channels nixpkgs-unstable
-nix-env -iA nixpkgs.devEnv
+./scripts/bump-nixpkgs
 #+end_src
 
 *** collecting garbage
@@ -101,14 +56,6 @@ nix-env -iA nixpkgs.python
 #+begin_src sh :export both
 nix-env -q
 #+end_src
-
-#+RESULTS:
-| all             |
-| cacert-20140715 |
-| nix-1.10        |
-| python-2.7.10   |
-
-(By the way, don't delete the =cacert= package.)
 
 *** querying packages
 
