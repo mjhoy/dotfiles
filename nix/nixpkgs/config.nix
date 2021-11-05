@@ -59,11 +59,6 @@
       ];
     };
 
-    # TODO: submit bug
-    libpsl = super.libpsl.overrideAttrs (oldAttrs: {
-      doCheck = false;
-    });
-
     # An example nix package that builds GNU's `hello'. See the
     # `example-pkg-hello' directory for how this is set up. Taken from
     # the Nix manual:
