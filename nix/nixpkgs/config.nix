@@ -68,46 +68,6 @@
     # $ nix-build "<nixpkgs>" -A example-pkg-hello
     example-pkg-hello = callPackage ~/.dotfiles/nix/pkgs/example-pkg-hello {};
 
-
-    # ----------------
-    # Haskell packages
-    # ----------------
-    #
-    # Overrides to the nix Haskell package set.
-    haskellPackages = super.haskellPackages.override {
-      overrides = self: super: with haskell.lib; {
-        # ----------------------------------
-        # -- A little note to future self --
-        # ----------------------------------
-        #
-        # Haskell packages will commonly fail with dependency or test
-        # failures. Two functions help out here: `doJailbreak` and
-        # `dontCheck`. `doJailbreak` essentially says, ignore all
-        # dependency version constraints and try to compile
-        # anyway. `dontCheck` does not run tests (of course it still
-        # fails if compilation fails).
-        #
-        # If that doesn't work, and the package itself must be fixed,
-        # the steps are:
-        #
-        # 1. Fork the package, download locally.
-        # 2. Use cabal2nix --shell to generate a shell.nix file.
-        # 3. nix-shell shell.nix. Try to get compiling again using just
-        #    `cabal build`.
-        # 4. Push up PR with fix.
-        # 5. Meanwhile let's override the `src` in the original derivation.
-        #    Use `nix-prefetch-git` to get the necessary info, e.g.:
-        #
-        #    $ nix-prefetch-git https://github.com/mjhoy/psc-package.git 039a42ba780a4f8e342e578177f584d13a6288a7
-        #
-        #    Now use the output from this in an override:
-        #    psc-package = super.psc-package.overrideAttrs (oldAttrs: { src = fetchgit { ... } })
-
-        # https://github.com/NixOS/nixpkgs/pull/57587
-        hakyll = haskell.lib.markUnbroken super.hakyll;
-      };
-    };
-
     nodejsEnv = with pkgs; buildEnv {
       name = "nodeEnv";
       paths = [
@@ -124,16 +84,6 @@
     };
 
     aspellEnv = aspellWithDicts(ps: [ ps.en ps.es ]);
-
-    # ----------------
-    # Haskell programs
-    # ----------------
-
-    phocid = with haskellPackages; haskell.lib.doJailbreak (callPackage (fetchgit {
-      url = "https://github.com/mjhoy/phocid";
-      rev = "b10747693c3d67115f0ca18cdaa5f048449ea15e";
-      sha256 = "1yr0fhm85mbc6nvc6hqgz6s5ib29c7y45ksacami3b24zrq67709";
-    }) { });
 
     # ----------------------
     # Emacs & emacs packages
@@ -223,7 +173,6 @@
       name = "devEnv";
       paths = [
         libmikey
-        # myHaskellEnv
         myPython3Env
         cabal2nix
 
@@ -268,89 +217,6 @@
         # aspellEnv
       ];
     };
-
-    # haskell environment
-    myHaskellEnv = haskellPackages.ghcWithHoogle (p: with p; [
-      cabal-install
-      hlint
-      QuickCheck
-      hspec
-      hasktags
-
-      # useful libraries...
-      # MonadCatchIO-transformers # Dependency problem
-      # composite-base
-      # composite-aeson
-      servant
-      servant-server
-      Crypto
-      # HaXml
-      HandsomeSoup
-      MonadRandom
-      Unixutils
-      Cabal_3_0_0_0
-      aeson
-      aeson-better-errors
-      array
-      base64-bytestring
-      blaze-html
-      bower-json
-      boxes
-      brittany
-      bytestring
-      cheapskate
-      containers
-      data-ordlist
-      edit-distance
-      extra
-      filepath
-      hakyll
-      hscurses
-      hsexif
-      hspec
-      hspec-core
-      hxt
-      io-streams
-      language-javascript
-      lens
-      monad-logger
-      mtl
-      optparse-applicative
-      pandoc
-      parsec
-      pattern-arrows
-      pipes
-      pipes-http
-      postgresql-simple
-      process
-      dhall
-      protolude
-      readable
-      regex-applicative
-      regex-base
-      regex-compat
-      regex-posix
-      regex-tdfa
-      resource-pool
-      safe
-      scotty
-      shakespeare
-      singletons
-      # issue building postgres-libpq
-      # snaplet-postgresql-simple
-      sourcemap
-      split
-      text
-      time
-      transformers
-      turtle
-      unordered-containers
-      uuid
-      vector
-      wai-websockets
-      websockets
-      wreq
-    ]);
 
     myPython3Env = python3.withPackages (p: with p; [
       virtualenv
