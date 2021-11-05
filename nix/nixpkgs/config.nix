@@ -206,15 +206,5 @@
       boto3
       matplotlib
     ]);
-
-    # build emacs from source
-    emacs-master = pkgs.stdenv.lib.overrideDerivation super.emacs (oldAttrs: {
-      name = "emacs-master";
-      src = ~/src/emacs;
-      buildInputs = oldAttrs.buildInputs ++ [
-        pkgs.autoconf pkgs.automake
-      ];
-      doCheck = false;
-    });
   };
 }
