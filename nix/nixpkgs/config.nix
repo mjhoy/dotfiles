@@ -19,14 +19,8 @@
     linuxOnly = buildEnv {
       name = "linuxOnly";
       paths = [
-
         # c
         clang
-
-        # node
-        nodejs-8_x
-        yarn
-        purescript
 
         # other
         mdk
@@ -67,13 +61,6 @@
     # to build, for instance:
     # $ nix-build "<nixpkgs>" -A example-pkg-hello
     example-pkg-hello = callPackage ~/.dotfiles/nix/pkgs/example-pkg-hello {};
-
-    nodejsEnv = with pkgs; buildEnv {
-      name = "nodeEnv";
-      paths = [
-        nodejs-8_x
-      ];
-    };
 
     scala = super.scala.override {
       jre = jre8;
