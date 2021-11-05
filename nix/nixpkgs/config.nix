@@ -59,17 +59,6 @@
       ];
     };
 
-    rEnv = super.rWrapper.override {
-      packages = with self.rPackages; [
-        ggplot2
-        data_table
-        plyr
-        lubridate
-        ascii
-        # plotly
-      ];
-    };
-
     # TODO: submit bug
     libpsl = super.libpsl.overrideAttrs (oldAttrs: {
       doCheck = false;
