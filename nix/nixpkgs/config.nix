@@ -163,8 +163,6 @@
         myPython3Env
         cabal2nix
 
-        # diagrams-builder
-
         # useful tools
         ag
         cloc
@@ -187,7 +185,6 @@
         offlineimap
         parallel
         pass
-        # phocid
         protobuf
         psc-package
         ripgrep
@@ -199,9 +196,6 @@
         # scala
         scala
         sbt
-
-        # aspell dictionaries
-        # aspellEnv
       ];
     };
 
