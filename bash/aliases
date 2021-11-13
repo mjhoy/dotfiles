@@ -1,3 +1,5 @@
+# -*- mode: sh; -*-
+
 # ls with common options:
 # -l -> long format
 # -h -> human readable file sizes
