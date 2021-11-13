@@ -21,6 +21,4 @@ alias ec="emacsclient -c"
 # see: http://alpmestan.com/2013/06/27/ghc-core-by-example-episode-1/
 alias ghcdc='ghc -O2 -ddump-simpl -dsuppress-idinfo -dsuppress-coercions -dsuppress-type-applications -dsuppress-uniques -dsuppress-module-prefixes'
 
-nix?(){ nix-env -qa \* -P | fgrep -i "$1"; }
-
 alias nix-haskell-shell='nix-shell -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [QuickCheck cabal-install])"'
