@@ -46,13 +46,13 @@
   services.xserver = {
     enable = true;
     videoDrivers = [ "nvidia" ];
+
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
-  };
 
-  # Configure keymap in X11
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "caps:swapescape";
+    layout = "us";
+    xkbOptions = "caps:swapescape"; # TODO: this doesn't work. https://github.com/mjhoy/dotfiles/issues/66
+  };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
