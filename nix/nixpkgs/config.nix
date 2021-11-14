@@ -78,6 +78,9 @@
 
     myEmacs =
       let
+        myEmacsBuild = if stdenv.isDarwin
+                       then super.emacsMacport
+                       else super.emacs;
         myPackages = epkgs: (with epkgs.elpaPackages; [
           ace-window
           cl-lib
@@ -146,7 +149,7 @@
           purescript-mode
           restclient
         ]);
-      in (pkgs.emacsPackagesNgGen super.emacs).emacsWithPackages myPackages;
+      in (pkgs.emacsPackagesNgGen myEmacsBuild).emacsWithPackages myPackages;
 
 
     # ---------------------
