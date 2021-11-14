@@ -1,0 +1,163 @@
+* starting anew
+
+**Note**: this is all an old project and most of it is likely out of
+date. Keeping around for historical purposes. Maybe I'll revive it
+sometime.
+
+** why?
+
+I would like to automate getting my OS set up. I would like my OS to
+be [[http://nixos.org/][NixOS]].
+
+/But you run a Mac/ (you say), /what's more automatic than that?/
+
+Well, yes, and let's use the Mac for editing video and photographs. It
+does that quite well. But for installing lots of little things that
+have complicated dependencies outside of what OSX provides -- e.g.,
+software for website development -- it's better left to a real package
+management solution. I think Nix is it.
+
+/But what about homebrew?/
+
+Homebrew works O.K., until you install something else that uses
+/usr/local, or you update the system, or something else breaks. It
+doesn't provide truly isolated build environments.
+
+/But what about Macports?/
+
+It might be a little better, but you run into the same kind of
+problems. Nix treats packages like true functions: they produce a
+determined result based on their inputs.
+
+/OK, so why not use Nix on OSX?/
+
+I could use nixpkgs for OSX, but it seems like to really get my
+development environment running, why not go for NixOS?
+
+/So you'll buy a linux laptop or something?/
+
+Nope, I'll run it as a virtual machine, in VirtualBox!
+
+** Installing NixOS as a guest in Virtual Box
+
+The instructions are on the Nix wiki here:
+
+https://nixos.org/wiki/Installing_NixOS_in_a_VirtualBox_guest
+
+Let's see if we can't automate that using ~packer~ and ~vagrant~.
+
+First things first: [[https://www.virtualbox.org/][install virtualbox]], [[http://www.packer.io/downloads.html][install packer]], and [[https://www.vagrantup.com/downloads.html][install vagrant]].
+
+*** Installing packer
+
+#+BEGIN_SRC sh :exports both
+  set -e
+  PACKER=packer_0.8.6_darwin_amd64
+  mkdir -p ~/Downloads/packer-tmp
+  cd ~/Downloads/packer-tmp
+  curl -OL https://dl.bintray.com/mitchellh/packer/$PACKER.zip
+  unzip $PACKER.zip
+  mv ./packer* ~/bin/
+  cd ~
+  rm -rf ~/Downloads/packer-tmp
+  ~/bin/packer --version
+#+END_SRC
+
+*** Installing vagrant
+
+#+BEGIN_SRC sh :exports both
+  set -e
+  VAGRANT=vagrant_1.7.4
+  mkdir -p ~/Downloads/vagrant-tmp
+  cd ~/Downloads/vagrant-tmp
+  curl -OL https://dl.bintray.com/mitchellh/vagrant/$VAGRANT.dmg
+  open $VAGRANT.dmg
+  echo "now you must install vagrant..."
+#+END_SRC
+
+#+RESULTS:
+: now you must install vagrant...
+
+*** Generating a NixOS template
+
+Now we will create our vagrant .box file. This essentially automates
+the steps in the NixOS manual for getting it set up.
+
+The [[./nixos-template.json]] file contains instructions on setting it
+up. I adapted it from github user ~oxdi~'s build scripts here:
+
+[[https://github.com/oxdi/nixos]]
+
+There's more information about the packer template file here:
+
+- [[https://www.packer.io/docs/templates/introduction.html][templates/introduction]] General introduction
+- [[https://www.packer.io/docs/builders/virtualbox-iso.html][builders/virtualbox-iso]] Specific information about the "builder" we're using,
+  which is the "virtualbox-iso" type
+- [[https://www.packer.io/docs/templates/communicator.html][templates/communicator]] Information about template "communicators",
+  and we're using the SSH communicator
+
+Run the following command to create the VM:
+
+#+BEGIN_SRC sh :exports both
+  packer build nixos-template.json
+#+END_SRC
+
+This will do the following things:
+
+1. Download a Linux x86/64 NixOS .iso,
+2. boot the image in VirtualBox,
+3. type in commands (see the ~boot_command~ property in the template
+   json file) that will install NixOS:
+   1. set up the filesystem,
+   2. download our configuration.nix and guest.nix files; these will
+      provide the initial NixOS configuration (along with a
+      generated hardware-configuration.nix file)
+   3. run ~nixos-install~
+4. reboot the new OS and run a post-install script:
+   1. switch to the nixos-unstable channel
+   2. update the system
+   3. run the nix garbage collector
+   4. download my user configuration (this repository)
+   5. set up my ssh keys
+   6. symlink the ~nix/nixos/common~ directory to ~/etc/nixos/common~
+
+It's mostly automated but you'll need to interact with the
+installation for one thing: after ~nixos-install~ finishes running (in
+step 3 above), the VM will ask for a root password. Set this to
+"rootpw" (for now). Packer will use this password after rebooting to
+connect to the VM.
+
+Now you should a directory ~output~ in this one. Inside are two files,
+a .ovf and .vmdk. Open the .ovf in VirtualBox to import and copy from
+the new base machine you've just created.
+
+*** Setting up the OS
+
+**** basic security steps
+
+1. Set user (mjhoy) password
+2. Reset the root password (!!)
+3. Set ~services.openssh.permitRootLogin = "yes";~ to something more
+   secure. Such as "no". See [[https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/networking/ssh/sshd.nix][sshd.nix]].
+4. Did you do #1 yet? Reset the root password!!
+
+**** /etc/nixos/common
+
+stuff in here provides additional functionality. Uncomment the lines
+in ~/etc/nixos/configuration.nix~ of stuff to install. For instance,
+~x11.nix~ installs xfce and xmonad.
+
+Now run:
+
+#+BEGIN_SRC sh
+  nixos-rebuild switch
+#+END_SRC
+
+*** Upgrading the OS
+
+#+BEGIN_SRC sh
+  nixos-channel --update nixos
+  nixos-rebuild switch
+#+END_SRC
+
+**** Rolling back
