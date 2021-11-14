@@ -1,5 +1,9 @@
 * starting anew
 
+**Note**: this is all an old project and most of it is likely out of
+date. Keeping around for historical purposes. Maybe I'll revive it
+sometime.
+
 ** why?
 
 I would like to automate getting my OS set up. I would like my OS to
