@@ -1,0 +1,7 @@
+* nixos
+
+Configuration for NixOS installs.
+
+- common :: Common modules.
+- linto :: My "linux tower" config.
+- virtualbox-guest :: An older project for running NixOS in a vm.
