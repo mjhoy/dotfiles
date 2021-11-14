@@ -47,7 +47,6 @@
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
 
-
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -67,10 +66,6 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.jane = {
-  #   isNormalUser = true;
-  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  # };
   users.users.mjhoy = {
     isNormalUser = true;
     uid = 1000;
@@ -83,10 +78,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   ];
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-  #   firefox
-  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -116,6 +107,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.05"; # Did you read the comment?
-
 }
 
