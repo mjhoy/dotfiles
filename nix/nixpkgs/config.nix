@@ -102,6 +102,7 @@
           ess
           flycheck
           geiser
+          go-mode
           haml-mode
           haskell-mode
           ibuffer-vc

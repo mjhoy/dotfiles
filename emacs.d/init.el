@@ -91,6 +91,7 @@
 (require 'init-haskell)
 (require 'init-c)
 (require 'init-csharp)
+(require 'init-go)
 (require 'init-yaml)
 (require 'init-gdk)
 (require 'init-php)
