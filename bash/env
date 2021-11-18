@@ -9,6 +9,12 @@ export INFOPATH=~/.nix-profile/share/info:$INFOPATH
 # Nix seems to find my manuals, on OSX anyway. Not sure how.
 # export MANPATH=~/.nix-profile/share/man:$MANPATH
 
+# Go
+if command -v go &> /dev/null; then
+   export GOPATH="$(go env GOPATH)"
+   export PATH="${PATH}:${GOPATH}/bin"
+fi
+
 SSH_ENV="$HOME/.ssh/environment"
 
 # So iTerm works correctly. (otherwise, `ps` does strange things, e.g.)
