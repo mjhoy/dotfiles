@@ -73,3 +73,9 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Go
+if command -v go &> /dev/null; then
+    export GOPATH="$(go env GOPATH)"
+    export PATH="${PATH}:${GOPATH}/bin"
+fi
