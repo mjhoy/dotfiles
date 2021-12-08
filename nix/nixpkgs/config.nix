@@ -128,6 +128,7 @@
           rust-mode
           sbt-mode
           scala-mode
+          terraform-mode
           tide
           web-mode
           winring
