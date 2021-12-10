@@ -167,8 +167,6 @@
       name = "devEnv";
       paths = [
         libmikey
-        myPython3Env
-        cabal2nix
 
         # useful tools
         ag
@@ -177,7 +175,6 @@
         ctags
         gdb
         git
-        ghcid
         graphviz
         htop
         imagemagick
