@@ -92,6 +92,7 @@
 (require 'init-c)
 (require 'init-csharp)
 (require 'init-go)
+(require 'init-swift)
 (require 'init-yaml)
 (require 'init-gdk)
 (require 'init-php)
