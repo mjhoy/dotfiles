@@ -128,6 +128,7 @@
           rust-mode
           sbt-mode
           scala-mode
+          swift-mode
           terraform-mode
           tide
           web-mode
@@ -145,6 +146,7 @@
           inf-ruby
           ivy-pass
           lsp-haskell
+          lsp-sourcekit
           magit
           ox-reveal
           psc-ide
