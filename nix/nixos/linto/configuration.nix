@@ -34,10 +34,8 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  # networking.interfaces.enp6s0.useDHCP = true;
+  networking.interfaces.enp6s0.useDHCP = true;
   # networking.interfaces.wlp5s0.useDHCP = true;
-  # networking.networkmanager.enable = true;
-  # networking.networkmanager.wifi.backend = "iwd";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -97,8 +95,6 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
-  # networking.wireless.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
