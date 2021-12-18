@@ -79,5 +79,9 @@ fi
 
 # source "bash_local" if it exists
 if [ -f ~/.bash_local ]; then
-   . ~/.bash_local
+    . ~/.bash_local
+fi
+
+if [ -d ~/.npm-global ]; then
+    export PATH=~/.npm-global/bin:$PATH
 fi
