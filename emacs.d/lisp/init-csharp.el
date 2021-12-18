@@ -1,6 +1,10 @@
 (require 'init-lsp)
 (require 'lsp-csharp)
 
+;; If we've installed omnisharp via nix, use that.
+(if (file-exists-p "/home/mjhoy/.nix-profile/bin/omnisharp")
+    (setq lsp-csharp-server-path "/home/mjhoy/.nix-profile/bin/omnisharp"))
+
 (defun mjhoy/setup-csharp-mode ()
   "My setup for csharp-mode."
   (lsp)
