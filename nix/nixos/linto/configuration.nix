@@ -17,6 +17,14 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "linto";
+
+  boot.initrd.luks.devices = {
+    root = {
+      device = "/dev/nvme0n1p6";
+      preLVM = true;
+    };
+  };
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
