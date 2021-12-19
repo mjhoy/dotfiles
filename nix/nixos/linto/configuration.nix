@@ -75,7 +75,7 @@
     uid = 1000;
     home = "/home/mjhoy";
     description = "Michael Hoy";
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "docker" ];
   };
 
   # List packages installed in system profile. To search, run:
@@ -95,6 +95,9 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
+  # Enable docker.
+  virtualisation.docker.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
