@@ -23,6 +23,7 @@
         clang
 
         # other
+        aspellEnv
         bmon
         coreutils
         docker_compose
