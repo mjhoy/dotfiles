@@ -23,11 +23,17 @@
         clang
 
         # other
-        mdk
-        pinentry
-        vnstat
-        docker_compose
         bmon
+        coreutils
+        docker_compose
+        dotnet-sdk_5
+        mariadb-client
+        mdk
+        nodejs-14_x
+        omnisharp-roslyn
+        pinentry
+        unzip
+        vnstat
       ];
     };
 
@@ -41,7 +47,7 @@
       paths = [
         firefox
         slack
-        gimp
+        zoom-us
       ];
     };
 
