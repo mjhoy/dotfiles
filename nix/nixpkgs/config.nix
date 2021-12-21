@@ -85,6 +85,7 @@
           ace-window
           cl-lib
           rainbow-mode
+          org
         ]) ++ (with epkgs.melpaStablePackages; [
           ag
           apache-mode
@@ -120,7 +121,6 @@
           php-mode
           posframe
           projectile
-          proof-general
           protobuf-mode
           racer
           rjsx-mode
@@ -137,8 +137,8 @@
           yaml-mode
           yard-mode
           yasnippet
-        ]) ++ (with epkgs.orgPackages; [
-          org-plus-contrib
+        ]) ++ (with epkgs.nongnuPackages; [
+          org-contrib
         ]) ++ (with epkgs.melpaPackages; [
           company-racer
           flycheck-rust
@@ -149,6 +149,7 @@
           lsp-sourcekit
           magit
           ox-reveal
+          proof-general
           psc-ide
           purescript-mode
           restclient
