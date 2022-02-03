@@ -109,7 +109,7 @@
           elm-mode
           ess
           flycheck
-          geiser
+          # geiser
           go-mode
           haml-mode
           haskell-mode
