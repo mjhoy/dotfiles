@@ -85,7 +85,7 @@
 
     myEmacs =
       let
-        myEmacsBuild = if stdenv.isDarwin
+        myEmacsBuild = if (stdenv.isDarwin && !stdenv.isAarch64)
                        then super.emacsMacport
                        else super.emacs;
         myPackages = epkgs: (with epkgs.elpaPackages; [
@@ -157,7 +157,6 @@
           magit
           ox-reveal
           proof-general
-          psc-ide
           purescript-mode
           restclient
         ]);
@@ -198,7 +197,6 @@
         parallel
         pass
         protobuf
-        psc-package
         ripgrep
         tmux
         tree
