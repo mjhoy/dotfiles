@@ -85,7 +85,7 @@
 
     myEmacs =
       let
-        myEmacsBuild = if stdenv.isDarwin
+        myEmacsBuild = if (stdenv.isDarwin && !stdenv.isAarch64)
                        then super.emacsMacport
                        else super.emacs;
         myPackages = epkgs: (with epkgs.elpaPackages; [
