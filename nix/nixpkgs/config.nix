@@ -157,7 +157,6 @@
           magit
           ox-reveal
           proof-general
-          psc-ide
           purescript-mode
           restclient
         ]);
@@ -198,7 +197,6 @@
         parallel
         pass
         protobuf
-        psc-package
         ripgrep
         tmux
         tree
