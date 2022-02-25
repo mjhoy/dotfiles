@@ -12,6 +12,7 @@ path=(
   "$HOME/.rbenv/bin"
   "$HOME/.yarn/bin"
   "$HOME/bin"
+  "/opt/homebrew/bin"
   "/usr/local/bin"
   "/usr/local/sbin"
   "/usr/local/mysql/bin"
@@ -79,3 +80,6 @@ if command -v go &> /dev/null; then
     export GOPATH="$(go env GOPATH)"
     export PATH="${PATH}:${GOPATH}/bin"
 fi
+
+# Intel brew
+alias ibrew='arch -x86_64 /usr/local/bin/brew'
