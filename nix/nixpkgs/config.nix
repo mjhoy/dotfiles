@@ -127,6 +127,7 @@
           password-store
           php-mode
           posframe
+          prettier
           projectile
           protobuf-mode
           racer
