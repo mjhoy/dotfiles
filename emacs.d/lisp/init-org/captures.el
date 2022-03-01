@@ -57,8 +57,8 @@ see %a\n")
          plain (file mjhoy/current-journal-file)
          "* %<%H:%M>\n%U\n\n%?\n")
         ("p" "Call log"
-         plain (file mjhoy/current-journal-file)
-         "* %<%H:%M> [CALL]\n%U\n\n%?\n")
+         plain (file+datetree (lambda () (concat org-directory "calls.org")))
+         "**** %<%H:%M> [CALL] %?\n%U\n\n\n")
         ("r" "Dream"
          plain (file+datetree (lambda () (concat org-directory "dream.org")))
          "%?\n")
