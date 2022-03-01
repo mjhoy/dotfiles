@@ -48,7 +48,7 @@
 (add-to-list 'org-structure-template-alist
              '("purs" . "src purescript"))
 (add-to-list 'org-structure-template-alist
-             '("sh" . "sh"))
+             '("sh" . "src sh"))
 (add-to-list 'org-structure-template-alist
              '("theorem" . "theorem"))
 (add-to-list 'org-structure-template-alist
