@@ -23,7 +23,6 @@
         clang
 
         # other
-        aspellEnv
         bmon
         coreutils
         docker_compose
@@ -178,6 +177,7 @@
 
         # useful tools
         ag
+        aspellEnv
         cloc
         cmake
         ctags
