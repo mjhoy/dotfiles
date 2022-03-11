@@ -9,8 +9,8 @@
 
 (eval-after-load 'ruby-test-mode
   '(progn
-     (define-key ruby-test-mode-map (kbd "C-c C-t") 'ruby-test-run)
-     (define-key ruby-test-mode-map (kbd "C-c M-t") 'ruby-test-run-at-point)))
+     (define-key ruby-test-mode-map (kbd "C-c M-t") 'ruby-test-run)
+     (define-key ruby-test-mode-map (kbd "C-c C-t") 'ruby-test-run-at-point)))
 
 ;; robe: to use, make sure that
 ;;   gem 'pry', group: :development

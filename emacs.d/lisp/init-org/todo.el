@@ -8,8 +8,8 @@
 
 (setq org-todo-keyword-faces
       (quote (("TODO" :foreground "red" :weight bold)
-              ("REVIEW" :foreground "green" :weight bold)
-              ("NEXT" :foreground "blue" :weight bold)
+              ("NEXT" :foreground "green" :weight bold)
+              ("REVIEW" :foreground "blue" :weight bold)
               ("DEPLOY" :foreground "medium sea green" :weight bold)
               ("DONE" :foreground "forest green" :weight bold)
               ("WAIT" :foreground "orange" :weight bold)
