@@ -25,7 +25,7 @@
               ("/mjh-mjhoy.com/INBOX" . ?i)
               ("/michael.john.hoy-gmail.com/INBOX" . ?g)
               ("/mjh-mjhoy.com/INBOX.Archive" . ?a)
-              ("/mjh-mjhoy.com/INBOX.massbird" . ?b)
+              ("/mjh-mjhoy.com/INBOX.massbird" . ?m)
               ("/mjh-mjhoy.com/INBOX.Drafts" . ?d)
               ("/mjh-mjhoy.com/INBOX.Sent Items" . ?s)
               ("/mjh-mjhoy.com/INBOX.Trash" . ?t)
