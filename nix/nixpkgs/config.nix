@@ -160,7 +160,7 @@
           purescript-mode
           restclient
         ]);
-      in (pkgs.emacsPackagesNgGen myEmacsBuild).emacsWithPackages myPackages;
+      in (pkgs.emacsPackagesFor myEmacsBuild).emacsWithPackages myPackages;
 
 
     # ---------------------
@@ -176,7 +176,6 @@
         libmikey
 
         # useful tools
-        ag
         aspellEnv
         cloc
         cmake
@@ -199,6 +198,7 @@
         pass
         protobuf
         ripgrep
+        silver-searcher
         tmux
         tree
         watch
