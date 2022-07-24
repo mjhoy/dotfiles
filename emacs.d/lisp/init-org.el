@@ -75,7 +75,6 @@
 
 (add-hook 'org-mode-hook 'mjhoy/org-mode-hook)
 
-(require 'init-org/contacts)
 (require 'init-org/agenda)
 (require 'init-org/shortcuts)
 (require 'init-org/todo)

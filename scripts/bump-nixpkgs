@@ -7,7 +7,7 @@
 LOCAL_REMOTE=mjhoy
 LOCAL_BRANCH=mjh-mbp
 UPDATE_REMOTE=origin
-UPDATE_BRANCH=nixpkgs-21.11-darwin
+UPDATE_BRANCH=nixpkgs-22.05-darwin
 
 set -eoux pipefail
 
@@ -28,10 +28,10 @@ git checkout $UPDATE_BRANCH
 git pull $UPDATE_REMOTE
 
 echo "Building devEnv"
-nix build --no-link nixpkgs.devEnv
+nix-build --no-link -A devEnv
 
 echo "Building nix"
-nix build --no-link nixpkgs.nix
+nix-build --no-link -A nix
 
 git checkout $LOCAL_BRANCH
 git reset --hard $UPDATE_BRANCH
