@@ -84,9 +84,7 @@
 
     myEmacs =
       let
-        myEmacsBuild = if (stdenv.isDarwin && !stdenv.isAarch64)
-                       then super.emacsMacport
-                       else super.emacs; # https://github.com/NixOS/nixpkgs/issues/127902
+        myEmacsBuild = super.emacs;
         myPackages = epkgs: (with epkgs.elpaPackages; [
           ace-window
           cl-lib
