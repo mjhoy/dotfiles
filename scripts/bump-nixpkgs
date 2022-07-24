@@ -28,10 +28,10 @@ git checkout $UPDATE_BRANCH
 git pull $UPDATE_REMOTE
 
 echo "Building devEnv"
-nix-build --no-link -A devEnv
+nix-build --no-link -A devEnv '<nixpkgs>'
 
 echo "Building nix"
-nix-build --no-link -A nix
+nix-build --no-link -A nix '<nixpkgs>'
 
 git checkout $LOCAL_BRANCH
 git reset --hard $UPDATE_BRANCH
