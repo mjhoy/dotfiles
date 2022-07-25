@@ -45,9 +45,9 @@
 
 ;; Prevent an odd TRAMP bug. Hangs at "Sending password" otherwise.
 (add-hook 'after-init-hook
-	  '(lambda ()
-	     (if (member "." load-path)
-		 (delete "." load-path))))
+	  #'(lambda ()
+	      (if (member "." load-path)
+		  (delete "." load-path))))
 
 (require 'init-basic)
 (require 'init-local)
