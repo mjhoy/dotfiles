@@ -7,8 +7,8 @@
                                         ; some reason
 
 (eval-after-load 'php-mode
-  '(add-hook 'php-mode-hook
-             '(lambda ()
-                (yas-minor-mode))))
+  #'(add-hook 'php-mode-hook
+              '(lambda ()
+                 (yas-minor-mode))))
 
 (provide 'init-yas)
