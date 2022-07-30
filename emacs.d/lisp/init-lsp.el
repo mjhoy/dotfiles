@@ -14,4 +14,9 @@
 (setq lsp-ui-sideline-show-hover nil)
 (setq lsp-ui-sideline-show-code-actions nil)
 
+;; Debugging issues:
+;; (setq lsp-log-io t)
+;;
+;; then, M-x lsp-workspace-show-log
+
 (provide 'init-lsp)
