@@ -12,17 +12,11 @@
      (define-key ruby-test-mode-map (kbd "C-c M-t") 'ruby-test-run)
      (define-key ruby-test-mode-map (kbd "C-c C-t") 'ruby-test-run-at-point)))
 
-;; robe: to use, make sure that
-;;   gem 'pry', group: :development
-;;   gem 'pry-doc', group: :development
-;; are in the current Gemfile.
-(eval-after-load 'company
-  '(push 'company-robe company-backends))
-
 (defun mjhoy/setup-ruby-mode ()
   "My setup for ruby-mode."
-  (robe-mode)
-  (yard-mode))
+  (yard-mode)
+  (lsp)
+  )
 
 (defun mjhoy/setup-inf-ruby-mode ()
   "My setup for inf-ruby-mode."

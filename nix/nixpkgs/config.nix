@@ -129,7 +129,6 @@
           protobuf-mode
           racer
           rjsx-mode
-          robe
           rust-mode
           sbt-mode
           scala-mode
