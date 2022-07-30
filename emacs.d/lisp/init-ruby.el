@@ -4,8 +4,8 @@
 
 (load "ruby-test-mode/ruby-test-mode")
 
-;; disable -b
-(setq ruby-test-rspec-options '())
+;; disable -b (no full backtraces, which are annoying.)
+(setq ruby-test-rspec-options '("-b"))
 
 (eval-after-load 'ruby-test-mode
   '(progn
