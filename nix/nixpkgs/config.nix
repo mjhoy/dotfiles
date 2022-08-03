@@ -156,6 +156,7 @@
           proof-general
           purescript-mode
           restclient
+          ruby-test-mode
         ]);
       in (pkgs.emacsPackagesFor myEmacsBuild).emacsWithPackages myPackages;
 
