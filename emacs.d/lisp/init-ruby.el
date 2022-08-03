@@ -2,7 +2,9 @@
 (add-to-list 'auto-mode-alist '("Gemfile\\'"    . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec\\'" . ruby-mode))
 
-(load "ruby-test-mode/ruby-test-mode")
+(require 'ruby-test-mode)
+
+(require 'lsp-solargraph)
 
 ;; disable -b (no full backtraces, which are annoying.)
 (setq ruby-test-rspec-options '("-b"))
