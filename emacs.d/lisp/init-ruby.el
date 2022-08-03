@@ -4,6 +4,8 @@
 
 (load "ruby-test-mode/ruby-test-mode")
 
+(require 'lsp-solargraph)
+
 ;; disable -b (no full backtraces, which are annoying.)
 (setq ruby-test-rspec-options '("-b"))
 
