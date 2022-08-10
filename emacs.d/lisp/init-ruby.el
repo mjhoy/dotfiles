@@ -7,7 +7,7 @@
 (require 'lsp-solargraph)
 
 ;; disable -b (no full backtraces, which are annoying.)
-(setq ruby-test-rspec-options '("-b"))
+(setq ruby-test-rspec-options '())
 
 (eval-after-load 'ruby-test-mode
   '(progn
