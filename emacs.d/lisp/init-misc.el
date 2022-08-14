@@ -10,14 +10,18 @@
 (global-set-key (kbd "C-c m n") 'bm-next)
 (global-set-key (kbd "C-c m p") 'bm-previous)
 
-;; Apple specific functions
+;; Mac specific functions and config
 (if macos
     (progn
       ;; (replaces 'describe-no-warranty)
       (global-set-key (kbd "C-h C-w") 'mjhoy/lookup-apple-dictionary)
 
       ;; replaces 'view-emacs-debugging
-      (global-set-key (kbd "C-h C-d") 'mjhoy/lookup-dash)))
+      (global-set-key (kbd "C-h C-d") 'mjhoy/lookup-dash)
+
+      ;; Darwin's ls does not support the --dired option.
+      (setq dired-use-ls-dired nil)
+      ))
 
 ;; Macport specific stuff
 (if macport
