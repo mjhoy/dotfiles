@@ -21,6 +21,12 @@
 
       ;; Darwin's ls does not support the --dired option.
       (setq dired-use-ls-dired nil)
+
+      ;; Option key is meta
+      (setq ns-alternate-modifier 'meta)
+
+      ;; Command key is super
+      (setq ns-command-modifier 'super)
       ))
 
 ;; Macport specific stuff
