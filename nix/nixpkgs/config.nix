@@ -144,6 +144,7 @@
         ]) ++ (with epkgs.nongnuPackages; [
           org-contrib
         ]) ++ (with epkgs.melpaPackages; [
+          color-theme-sanityinc-tomorrow
           company-racer
           flycheck-rust
           forge
