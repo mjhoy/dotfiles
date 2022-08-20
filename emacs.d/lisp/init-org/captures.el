@@ -32,6 +32,11 @@ see: %a\n")
 (C-c C-w to refile to fiction/non-fiction)
 see %a
 entered on %U\n")
+        ("B" "Blog post draft" entry (file (lambda () (concat org-directory "blog-drafts.org")))
+         "* %?
+
+see %a
+entered on %U\n")
         ("q" "Clock (quick)" plain (clock)
          "%a%?\n")
         ("s" "Emacs tool sharpening"
