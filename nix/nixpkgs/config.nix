@@ -161,6 +161,13 @@
         ]);
       in (pkgs.emacsPackagesFor myEmacsBuild).emacsWithPackages myPackages;
 
+    myREnv = super.rWrapper.override {
+      packages = with self.rPackages; [
+        ggplot2
+        lubridate
+        plyr
+      ];
+    };
 
     # ---------------------
     # Developer environment
@@ -190,6 +197,7 @@
         lynx
         mu
         myEmacs
+        myREnv
         nasm
         nix-prefetch-git
         offlineimap
