@@ -199,6 +199,7 @@
         myEmacs
         myREnv
         nasm
+        niv
         nix-prefetch-git
         offlineimap
         parallel
