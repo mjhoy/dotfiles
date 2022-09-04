@@ -10,8 +10,3 @@
 [submodule "org-magit"]
 	path = emacs.d/site-lisp/org-magit
 	url = git@github.com:mjhoy/org-magit
-[submodule "nixpkgs"]
-	path = nixpkgs
-	url = git@github.com:mjhoy/nixpkgs-channels
-	branch = mjh-mbp
-	shallow = true

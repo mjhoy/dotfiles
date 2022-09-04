@@ -191,6 +191,7 @@
         mu
         myEmacs
         nasm
+        niv
         nix-prefetch-git
         offlineimap
         parallel
