@@ -8,19 +8,17 @@ Most of my work happens in Emacs. Config for programming languages, and
 org-mode stuff lives in `emacs.d/`. I don't use vim so much these days and
 have a minimal config, in `vim/`.
 
-I've started using vscode for scala, typescript, and rust code. My settings
-are in `vscode/settings.json`.
-
 ## Nix
 
 As much as possible, I like to install software with `nix`.
 
-The `nixpkgs/` nixpkgs submodule is the specific commit I'm using nix from.
-Currently it is tracking the `nixpkgs-20.03-darwin` branch. To update this, I
-run the `scripts/bump-nixpkgs` script. I try to do this once a week.
+I configure a global environment, `devEnv`, defined in
+`nix/nixpkgs/config.nix`. The simple script `scripts/build-nix-env`
+attempts to build and install this.
 
-My main config is at `nix/nixpkgs/config.nix`. This defines a nix attribute,
-`devEnv`, which sets up my standard environment.
+`nixpkgs/default.nix` is just a pointer to a pinned version of
+nixpkgs, defined at `nix/sources.json`. This can be updated by running
+`niv update nixpkgs` in the project root.
 
 ## Other stuff
 
@@ -65,8 +63,8 @@ nix-channel --list # note the channels listed
 nix-channel --remove <channel> # whatever channels were listed
 ```
 
-If everything is properly set up, nix should use the nixpkgs checked
-out under dotfiles/nixpkgs.
+If everything is properly set up, nix should use the nixpkgs pinned at
+`nixpkgs/default.nix`.
 
 ## License
 

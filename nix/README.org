@@ -21,12 +21,10 @@ Wifi card...
 
 *** upgrading
 
-I have =nixpkgs= checked out as a submodule in this repo. I have a
-script that will update this, try to build my enviornment, and tag my
-fork if it is successful:
+Just run the following in the project root:
 
 #+begin_src sh
-./scripts/bump-nixpkgs
+niv update nixpkgs
 #+end_src
 
 *** collecting garbage
