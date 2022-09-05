@@ -8,9 +8,6 @@ Most of my work happens in Emacs. Config for programming languages, and
 org-mode stuff lives in `emacs.d/`. I don't use vim so much these days and
 have a minimal config, in `vim/`.
 
-I've started using vscode for scala, typescript, and rust code. My settings
-are in `vscode/settings.json`.
-
 ## Nix
 
 As much as possible, I like to install software with `nix`.
