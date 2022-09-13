@@ -118,7 +118,6 @@
           markdown-mode
           material-theme
           multiple-cursors
-          nix-mode
           org-mime
           org-tree-slide
           password-store
@@ -153,6 +152,7 @@
           lsp-haskell
           lsp-sourcekit
           magit
+          nix-mode
           ox-reveal
           proof-general
           purescript-mode
