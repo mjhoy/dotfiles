@@ -89,6 +89,9 @@ Differs from text-scale-adjust by applying to all windows & frames.
 (show-paren-mode t)
 (setq ring-bell-function 'ignore)
 
+;; i don't care about the load average
+(setq display-time-default-load-average nil)
+
 ;; use <f13> as a fullscreen key; OS X captures F11
 (global-set-key (kbd "<f13>") 'toggle-frame-fullscreen)
 
