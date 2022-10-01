@@ -1,9 +1,7 @@
 ;; see: http://anirudhsasikumar.net/blog/2005.01.21.html
 (define-minor-mode sensitive-mode
   "Disable backup creation and auto saving."
-  nil
-  " Sensitive"
-  nil
+  :lighter " Sensitive"
   (if (symbol-value sensitive-mode)
       (progn
         (set (make-local-variable 'backup-inhibited) t)
