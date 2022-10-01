@@ -1,7 +1,5 @@
 (require 'scala-mode)
 (require 'sbt-mode)
-(require 'init-lsp)
-(require 'lsp-metals)
 
 ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
 (setq sbt:program-options '("-Dsbt.supershell=false"))
@@ -10,8 +8,8 @@
 
 (defun mjhoy/setup-scala-mode ()
   "My setup for scala-mode."
-  (lsp)
-  (add-hook 'before-save-hook 'lsp-format-buffer)
+  ;; No-op. For now, we're not loading lsp and lsp-metals due to:
+  ;; https://github.com/emacs-lsp/lsp-metals/issues/81
   )
 
 (add-hook 'scala-mode-hook 'mjhoy/setup-scala-mode)
