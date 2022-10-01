@@ -19,7 +19,7 @@
 
 (setq org-directory "~/org/")
 
-(setq org-default-notes-file (concat org-directory "belch.org"))
+(setq org-default-notes-file (concat org-directory "inbox.org"))
 
 (setq org-imenu-depth 5)
 
