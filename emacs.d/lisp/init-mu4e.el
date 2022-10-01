@@ -23,6 +23,7 @@
       (setq mu4e-maildir-shortcuts
             '(
               ("/mjh-mjhoy.com/INBOX" . ?i)
+              ("/mjh-mjhoy.com/INBOX.upcoming" . ?u)
               ("/michael.john.hoy-gmail.com/INBOX" . ?g)
               ("/mjh-mjhoy.com/INBOX.Archive" . ?a)
               ("/mjh-mjhoy.com/INBOX.massbird" . ?m)
