@@ -16,7 +16,7 @@
 :END:
 
 see: %a\n")
-        ("n" "Note"
+        ("i" "Inbox"
          entry (file (lambda () (concat org-directory "inbox.org")))
          "* %?
 %U\n%a\n")
