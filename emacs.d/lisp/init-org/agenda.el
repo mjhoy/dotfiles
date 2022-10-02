@@ -7,6 +7,9 @@
              "finance.org"              ; personal finances
              )))
 
+(setq org-refile-targets
+      `((,(concat org-directory "projects.org") :level . 1)))
+
 (setq org-agenda-dim-blocked-tasks nil)
 
 (setq org-agenda-sticky t)
