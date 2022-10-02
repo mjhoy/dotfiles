@@ -64,7 +64,7 @@
 (define-abbrev org-mode-abbrev-table "\l" "\lambda")
 (define-abbrev org-mode-abbrev-table "\lra" "\leftrightarrow")
 
-;; e.g., archive/organizer.org_2018_archive
+;; e.g., archive/inbox.org_2022_archive
 (setq org-archive-location
       (format "archive/%%s_%s_archive::" (format-time-string "%Y")))
 
