@@ -3,7 +3,7 @@
        (function (lambda (f) (concat org-directory f)))
        (list "inbox.org"                ; anything not yet organized
              "dates.org"                ; upcoming dates
-             "projects.org"             ; personal project notes
+             "projects.org"             ; stuff i'm working on
              "finance.org"              ; personal finances
              )))
 
