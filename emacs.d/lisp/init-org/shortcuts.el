@@ -9,7 +9,7 @@
 (global-set-key (kbd "C-c o a") (openo "archive" t))
 (global-set-key (kbd "C-c o p") (openo "programming_notes/" t))
 (global-set-key (kbd "C-c o r") (openo "reading_notes.org"))
-(global-set-key (kbd "C-c o b") (openo "belch.org"))
+(global-set-key (kbd "C-c o i") (openo "inbox.org"))
 (global-set-key (kbd "C-c o d") (openo "dates.org"))
 (global-set-key (kbd "C-c o j") (openo "projects.org"))
 (global-set-key (kbd "C-c o f") (openo "finance.org"))

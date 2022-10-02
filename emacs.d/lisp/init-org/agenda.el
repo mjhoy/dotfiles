@@ -2,7 +2,7 @@
       (mapcar
        (function (lambda (f) (concat org-directory f)))
        (list "organizer.org"            ; main work/life todos
-             "belch.org"                ; all notes go here
+             "inbox.org"                ; anything not yet organized
              "dates.org"                ; upcoming dates
              "projects.org"             ; personal project notes
              "finance.org"              ; personal finances

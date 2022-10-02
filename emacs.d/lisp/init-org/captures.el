@@ -16,8 +16,8 @@
 :END:
 
 see: %a\n")
-        ("n" "Note"
-         entry (file (lambda () (concat org-directory "belch.org")))
+        ("i" "Inbox"
+         entry (file (lambda () (concat org-directory "inbox.org")))
          "* %?
 %U\n%a\n")
         ("c" "Clock" item (clock)
