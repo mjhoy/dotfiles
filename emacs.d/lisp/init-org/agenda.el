@@ -1,6 +1,6 @@
 (setq org-agenda-files
       (mapcar
-       (function (lambda (f) (concat org-directory f)))
+       (function (lambda (f) (file-truename (concat org-directory f))))
        (list "inbox.org"                ; anything not yet organized
              "dates.org"                ; upcoming dates
              "projects.org"             ; stuff i'm working on
@@ -9,6 +9,20 @@
 
 (setq org-refile-targets
       `((,(concat org-directory "projects.org") :level . 1)))
+
+;; auto-save org buffers after refiling
+(defun mjhoy/save-org-agenda-buffers ()
+  "Save `org-agenda-files' buffers without user confirmation."
+  (interactive)
+  (message "Saving org-agenda-files buffers...")
+  (save-some-buffers t (lambda ()
+                         (when (member (buffer-file-name) org-agenda-files)
+                           t)))
+  )
+
+(advice-add 'org-refile :after
+            (lambda (&rest _)
+              (mjhoy/save-org-agenda-buffers)))
 
 ;; the "Project" view. adapted from the agenda setup here:
 ;; https://www.labri.fr/perso/nrougier/GTD/index.html#org8c6ecc6
