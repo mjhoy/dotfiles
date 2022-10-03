@@ -5,7 +5,6 @@
 (defmacro openo (&rest forms)
   `(fni (mjhoy/open-org-notebook ,@forms)))
 
-(global-set-key (kbd "C-c o o") (openo "organizer.org"))
 (global-set-key (kbd "C-c o a") (openo "archive" t))
 (global-set-key (kbd "C-c o p") (openo "programming_notes/" t))
 (global-set-key (kbd "C-c o r") (openo "reading_notes.org"))
