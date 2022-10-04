@@ -2,6 +2,7 @@
       (mapcar
        (function (lambda (f) (file-truename (concat org-directory f))))
        (list "inbox.org"                ; anything not yet organized
+             "agenda.org"               ; scheduled/deadlines
              "dates.org"                ; upcoming dates
              "projects.org"             ; stuff i'm working on
              "finance.org"              ; personal finances
