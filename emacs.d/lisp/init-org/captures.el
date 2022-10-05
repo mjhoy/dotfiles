@@ -22,36 +22,6 @@ see: %a\n")
 %U\n%a\n")
         ("c" "Clock" item (clock)
          "%?\n%U\n%a")
-        ("C" "Contact" entry (file (lambda () (concat org-directory "contacts.org")))
-         "* %(org-contacts-template-name)
-:PROPERTIES:
-:EMAIL: %(org-contacts-template-email)
-:END:\n")
-        ("b" "Book" entry (file (lambda () (concat org-directory "lists/books.org")))
-         "* %?
-(C-c C-w to refile to fiction/non-fiction)
-see %a
-entered on %U\n")
-        ("B" "Blog post draft" entry (file (lambda () (concat org-directory "blog-drafts.org")))
-         "* %?
-
-see %a
-entered on %U\n")
-        ("q" "Clock (quick)" plain (clock)
-         "%a%?\n")
-        ("s" "Emacs tool sharpening"
-         entry (file+olp (lambda () (concat org-directory "programming_notes.org"))
-                         "Emacs"
-                         "Sharpening list")
-         "* %?
-see %a
-entered on %U\n")
-        ("S" "General tool sharpening"
-         entry (file+olp (lambda () (concat org-directory "programming_notes.org"))
-                         "General sharpening")
-         "* %?
-see %a
-entered on %U\n")
         ("e" "Event"
          entry (file+headline (lambda () (concat org-directory "agenda.org")) "Future")
          "* %?
@@ -61,12 +31,6 @@ see %a\n")
         ("j" "Journal"
          plain (file mjhoy/current-journal-file)
          "* %<%H:%M>\n%U\n\n%?\n")
-        ("p" "Call log"
-         plain (file+datetree (lambda () (concat org-directory "calls.org")))
-         "**** %<%H:%M> [CALL] %?\n%U\n\n\n")
-        ("r" "Dream"
-         plain (file+datetree (lambda () (concat org-directory "dream.org")))
-         "%?\n")
         ))
 
 (provide 'init-org/captures)
