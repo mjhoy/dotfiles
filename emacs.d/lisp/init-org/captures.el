@@ -52,10 +52,10 @@ entered on %U\n")
          "* %?
 see %a
 entered on %U\n")
-        ("d" "Date"
-         entry (file+datetree+prompt (lambda () (concat org-directory "dates.org")))
+        ("e" "Event"
+         entry (file+headline (lambda () (concat org-directory "agenda.org")) "Future")
          "* %?
-%t
+SCHEDULED: <%<%Y-%m-%d %a %H:00>>
 
 see %a\n")
         ("j" "Journal"
@@ -67,9 +67,6 @@ see %a\n")
         ("r" "Dream"
          plain (file+datetree (lambda () (concat org-directory "dream.org")))
          "%?\n")
-        ("e" "Engineering journal"
-         plain (file+datetree (lambda () (concat org-directory "engineering_journal.org")))
-         "**** %<%H:%M>\n%U\n\n%?\n")
         ))
 
 (provide 'init-org/captures)
