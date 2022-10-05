@@ -32,7 +32,7 @@
                   ((org-agenda-skip-function
                     '(org-agenda-skip-entry-if 'deadline))
                    (org-deadline-warning-days 0)))
-          (todo "NEXT"
+          (todo "NEXT|REVIEW|DEPLOY|WAIT|HOLD"
                 ((org-agenda-skip-function
                   '(org-agenda-skip-entry-if 'deadline))
                  (org-agenda-prefix-format "  %i %-12:c [%e] ")
