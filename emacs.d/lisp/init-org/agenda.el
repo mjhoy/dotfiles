@@ -11,6 +11,8 @@
 (setq org-refile-targets
       `((,(concat org-directory "projects.org") :level . 1)))
 
+(setq org-agenda-span 'day)
+
 ;; auto-save org buffers after refiling
 (defun mjhoy/save-org-agenda-buffers ()
   "Save `org-agenda-files' buffers without user confirmation."
