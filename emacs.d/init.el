@@ -104,7 +104,7 @@
 (require 'init-protobuf)
 (require 'init-term)
 (require 'init-folding)
-(require 'init-ace)
+(require 'init-avy)
 (require 'init-ledger)
 (require 'init-dotfile-shortcuts)
 (require 'init-presentation)

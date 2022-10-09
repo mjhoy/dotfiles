@@ -5,4 +5,4 @@
 (global-set-key (kbd "C-c ;") 'avy-goto-char-2)
 (global-set-key (kbd "C-c '") 'avy-goto-line)
 
-(provide 'init-ace)
+(provide 'init-avy)
