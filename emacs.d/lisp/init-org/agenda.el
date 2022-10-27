@@ -57,6 +57,7 @@
 
 (setq org-agenda-sticky t)
 
-(setq org-habit-show-all-today t)
+(setq org-habit-show-all-today nil)
+(setq org-habit-show-habits-only-for-today nil)
 
 (provide 'init-org/agenda)
