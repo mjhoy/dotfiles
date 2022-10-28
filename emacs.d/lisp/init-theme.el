@@ -31,7 +31,6 @@ If THEME is `original', disable all custom themes."
     (setq mjhoy/current-theme theme)
     (load-theme theme t)))
 
-(if macport
-    (mjhoy/switch-theme 'material))
+(mjhoy/switch-theme 'sanityinc-tomorrow-night)
 
 (provide 'init-theme)
