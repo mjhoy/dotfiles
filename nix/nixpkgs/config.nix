@@ -152,6 +152,7 @@
           lsp-sourcekit
           magit
           nix-mode
+          orgit
           ox-reveal
           proof-general
           purescript-mode
