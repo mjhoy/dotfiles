@@ -29,7 +29,7 @@ There are some random projects in `src/`, and random notes in `notes/`.
 ### Check out
 
 ```sh
-git clone --recursive https://github.com/mjhoy/dotfiles.git
+git clone https://github.com/mjhoy/dotfiles.git
 ```
 
 And then:

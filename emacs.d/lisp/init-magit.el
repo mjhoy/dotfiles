@@ -1,7 +1,6 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 
 (require 'init-org)
-(require 'org-magit)
 (require 'init-projectile)
 (require 'forge)
 
@@ -23,7 +22,7 @@
 to the current org clock, if one exists."
   (let* ((repo (magit-toplevel))
          (rev  (magit-git-string "rev-list" "HEAD" "--abbrev-commit" "-n" "1"))
-         (link (org-magit-make-link repo "::commit@" rev))
+         (link (format "orgit-rev:%s::%s" repo rev))
          (summary (magit-git-string "log" "HEAD" "--format=%B" "-n" "1"))
          (dir  (file-name-nondirectory (directory-file-name repo))))
     (if (org-clock-is-active)

@@ -1,7 +1,4 @@
-.PHONY: update-submodules install install-linux
-
-update-submodules:
-	git submodule update --init
+.PHONY: install install-linux
 
 install:
 	sh scripts/install-dotfiles.sh
