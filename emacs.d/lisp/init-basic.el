@@ -29,6 +29,9 @@
 
 (global-set-key (kbd "C-x f") 'find-file)
 
+;; default is 60, let's bump this
+(setq kill-ring-max 500)
+
 ;; enable narrowing
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
