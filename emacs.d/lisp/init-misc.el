@@ -10,6 +10,10 @@
 (global-set-key (kbd "C-c m n") 'bm-next)
 (global-set-key (kbd "C-c m p") 'bm-previous)
 
+;; these would be triggered unintentionally by the trackpad.
+(global-unset-key [(control wheel-up)])
+(global-unset-key [(control wheel-down)])
+
 ;; Mac specific functions and config
 (if macos
     (progn
