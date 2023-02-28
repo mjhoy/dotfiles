@@ -8,6 +8,9 @@
 (setq magit-revert-buffers 'silent)
 (setq magit-revision-show-gravatars nil)
 
+;; Don't show closed PRs.
+(setq forge-topic-list-limit '(60 . 0))
+
 (global-set-key (kbd "C-c g") 'magit-status)
 
 ;; Hide the "Recent commits" section in status.
