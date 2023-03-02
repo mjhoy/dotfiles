@@ -35,9 +35,9 @@
                   ((org-agenda-skip-function
                     '(org-agenda-skip-entry-if 'deadline))
                    (org-deadline-warning-days 0)))
-          (todo "NEXT|REVIEW|DEPLOY|WAIT|HOLD"
+          (todo "TODO|NEXT|REVIEW|DEPLOY|WAIT|HOLD"
                 ((org-agenda-skip-function
-                  '(org-agenda-skip-entry-if 'deadline))
+                  '(org-agenda-skip-entry-if 'deadline 'scheduled))
                  (org-agenda-prefix-format "  %i %-12:c [%e] ")
                  (org-agenda-overriding-header "\nTasks\n")))
           (agenda nil
@@ -45,8 +45,14 @@
                    (org-agenda-format-date "")
                    (org-deadline-warning-days 7)
                    (org-agenda-skip-function
-                    '(org-agenda-skip-entry-if 'notregexp "\\* NEXT"))
+                    '(org-agenda-skip-entry-if 'nottodo '("TODO" "NEXT")))
                    (org-agenda-overriding-header "\nDeadlines")))
+          (agenda nil
+                  ((org-agenda-entry-types '(:scheduled))
+                   (org-deadline-warning-days 7)
+                   (org-agenda-skip-function
+                    '(org-agenda-skip-entry-if 'nottodo '("TODO" "NEXT")))
+                   (org-agenda-overriding-header "\nScheduled")))
           (tags-todo "inbox"
                      ((org-agenda-prefix-format "  %?-12t% s")
                       (org-agenda-overriding-header "\nInbox\n")))
