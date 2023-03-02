@@ -45,7 +45,7 @@
                    (org-agenda-format-date "")
                    (org-deadline-warning-days 7)
                    (org-agenda-skip-function
-                    '(org-agenda-skip-entry-if 'notregexp "\\* NEXT"))
+                    '(org-agenda-skip-entry-if 'nottodo '("TODO" "NEXT")))
                    (org-agenda-overriding-header "\nDeadlines")))
           (tags-todo "inbox"
                      ((org-agenda-prefix-format "  %?-12t% s")
