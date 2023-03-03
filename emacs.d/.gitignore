@@ -17,3 +17,5 @@ transient
 lisp/init-private.el
 .dap-breakpoints
 /*forge-database*.sql
+/eln-cache/
+/emacsql/
