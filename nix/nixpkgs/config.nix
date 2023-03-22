@@ -146,6 +146,7 @@
           company-racer
           flycheck-rust
           forge
+          gptel
           inf-ruby
           ivy-pass
           lsp-haskell

@@ -103,6 +103,7 @@
 (require 'init-coq)
 (require 'init-protobuf)
 (require 'init-term)
+(require 'init-gpt)
 (require 'init-folding)
 (require 'init-avy)
 (require 'init-ledger)
