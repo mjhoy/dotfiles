@@ -7,6 +7,7 @@
       (require 'copilot)
       (add-hook 'prog-mode-hook 'copilot-mode)
       (add-hook 'git-commit-mode-hook 'copilot-mode)
+      (add-hook 'org-mode-hook 'copilot-mode)
 
       (with-eval-after-load 'company
         ;; disable inline previews
