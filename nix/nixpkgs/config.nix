@@ -103,6 +103,7 @@
           dap-mode
           diminish
           dracula-theme
+          editorconfig
           elm-mode
           ess
           flycheck
