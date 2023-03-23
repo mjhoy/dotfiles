@@ -1,10 +1,12 @@
 (require 'init-basic)
 (require 'init-yas)
 (require 'company)
+(require 'company-box)
 
 (defun mjhoy/setup-company-mode ()
   "My setup for company mode."
   (yas-minor-mode-on) ; Appears to be used for completion.
+  (company-box-mode)
   )
 
 (add-hook 'company-mode-hook #'mjhoy/setup-company-mode)
