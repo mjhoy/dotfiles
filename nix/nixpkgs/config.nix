@@ -98,7 +98,6 @@
           cargo
           counsel
           counsel-projectile
-          company
           csharp-mode
           dap-mode
           diminish
@@ -144,6 +143,8 @@
           org-contrib
         ]) ++ (with epkgs.melpaPackages; [
           color-theme-sanityinc-tomorrow
+          company
+          company-box
           company-racer
           flycheck-rust
           forge
