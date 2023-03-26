@@ -6,6 +6,8 @@
   '(diminish 'auto-revert-mode))
 (eval-after-load "company"
   '(diminish 'company-mode))
+(eval-after-load "company-box"
+  '(diminish 'company-box-mode))
 (eval-after-load "yasnippet"
   '(diminish 'yas-minor-mode " ✂"))
 (eval-after-load "golden-ratio"
