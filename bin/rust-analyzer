@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# https://github.com/rust-lang/rustup/issues/2411
+set -euo pipefail
+exec rustup run "$(rustup show active-toolchain | cut -d' ' -f1)" rust-analyzer "$@"
