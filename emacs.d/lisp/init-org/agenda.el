@@ -53,7 +53,7 @@
                    (org-agenda-skip-function
                     '(org-agenda-skip-entry-if 'nottodo '("TODO" "NEXT")))
                    (org-agenda-overriding-header "\nScheduled")))
-          (tags-todo "inbox"
+          (tags "inbox"
                      ((org-agenda-prefix-format "  %?-12t% s")
                       (org-agenda-overriding-header "\nInbox\n")))
           (tags "CLOSED>=\"<today>\""
