@@ -2,15 +2,15 @@
 (require 'init-basic)
 (require 'erc-truncate)
 
-(defun mjhoy/freenode-erc ()
-  "Connect to freenode with my account
+(defun mjhoy/libera-erc ()
+  "Connect to libera.chat with my account
 
 Requires ~/.authinfo.gpg to contain a line like so,
 
-machine irc.freenode.net login LOGIN password PASSWORD
+machine irc.libera.chat login LOGIN password PASSWORD
 "
   (interactive)
-  (let* ((server      "irc.freenode.net")
+  (let* ((server      "irc.libera.chat")
          (port        "6697")
          (credentials (auth-source-search :host server
                                           :max-tokens 1))
@@ -29,7 +29,7 @@ machine irc.freenode.net login LOGIN password PASSWORD
              :port port
              :nick "mjhoy")))
 
-(global-set-key (kbd "C-c i c") 'mjhoy/freenode-erc)
+(global-set-key (kbd "C-c i c") 'mjhoy/libera-erc)
 
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
 
