@@ -9,7 +9,7 @@
 
 (setq org-capture-templates
       '(("t" "Todo"
-         entry (file (lambda () (concat org-directory "inbox.org")))
+         entry (file+headline (lambda () (concat org-directory "projects.org")) "general")
          "* TODO %?
 :LOGBOOK:
 - State \"TODO\"       from \"\"           %U
