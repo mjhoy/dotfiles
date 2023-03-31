@@ -4,3 +4,6 @@
 [submodule "emacs.d/site-lisp/copilot"]
 	path = emacs.d/site-lisp/copilot
 	url = https://github.com/zerolfx/copilot.el.git
+[submodule "emacs.d/site-lisp/org-ai"]
+	path = emacs.d/site-lisp/org-ai
+	url = git@github.com:rksm/org-ai.git

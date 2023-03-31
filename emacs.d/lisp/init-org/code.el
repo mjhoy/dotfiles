@@ -53,5 +53,7 @@
              '("theorem" . "theorem"))
 (add-to-list 'org-structure-template-alist
              '("def" . "definition"))
+(add-to-list 'org-structure-template-alist
+             '("ai" . "ai"))
 
 (provide 'init-org/code)
