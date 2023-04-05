@@ -102,6 +102,7 @@
           dap-mode
           diminish
           dracula-theme
+          edit-indirect
           editorconfig
           elm-mode
           ess
