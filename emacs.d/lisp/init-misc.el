@@ -65,6 +65,11 @@
          (concat (buffer-file-name) ":" (number-to-string (line-number-at-pos)))))
     (message path-with-line-number)))
 
+(defun mjhoy/current-iso-datetime ()
+  "Insert the current time in ISO 8601 format."
+  (interactive)
+  (insert (format-time-string "%Y-%m-%dT%H:%M:%S%z")))
+
 (define-key global-map (kbd "M-l") 'mjhoy/show-current-line-position)
 
 (global-set-key (kbd "C-x C-l") 'mjhoy/expand-line)
