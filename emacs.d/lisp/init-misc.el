@@ -66,6 +66,7 @@
     (message path-with-line-number)))
 
 (defun mjhoy/current-iso-datetime ()
+  "Insert the current time in ISO 8601 format."
   (interactive)
   (insert (format-time-string "%Y-%m-%dT%H:%M:%S%z")))
 
