@@ -14,6 +14,8 @@
 (setq lsp-ui-sideline-show-hover nil)
 (setq lsp-ui-sideline-show-code-actions nil)
 
+(add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\tmp")
+
 ;; Debugging issues:
 ;; (setq lsp-log-io t)
 ;;
