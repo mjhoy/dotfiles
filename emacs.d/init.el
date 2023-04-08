@@ -5,23 +5,18 @@
 (setq user-full-name "Michael Hoy"
       user-mail-address "mjh@mjhoy.com")
 
-;; are we running on nix?
-(setq nixos (file-directory-p "/etc/nixos"))
+(defvar nixos (file-directory-p "/etc/nixos")
+  "Are we running on nixos?")
 
-;; are we running on macos?
-(if (string-equal system-type "darwin") (setq macos t) (setq macos nil))
+(defvar macos (string-equal system-type "darwin")
+  "Are we running on macos?")
 
-;; are we running macports emacs?
-(if (fboundp 'mac-file-alias-p) (setq macport t) (setq macport nil))
+(defvar macport (fboundp 'mac-file-alias-p)
+  "Are we running macports Emacs?")
 
 ;; see: https://debbugs.gnu.org/cgi/bugreport.cgi?bug=25778
 (if (and (getenv "DISPLAY") (executable-find "xdg-open"))
     (setq browse-url-browser-function 'browse-url-xdg-open))
-
-;; we want to use a newer version of tramp to fix this bug:
-;; https://lists.gnu.org/archive/html/bug-gnu-emacs/2015-01/msg00985.html
-(add-to-list 'load-path
-             (expand-file-name "tramp-git/lisp" user-emacs-directory))
 
 (add-to-list 'load-path
              (expand-file-name "lisp" user-emacs-directory))
