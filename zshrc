@@ -83,3 +83,6 @@ fi
 
 # Intel brew
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
+
+# my ledger file
+export LEDGER_FILE="$HOME/org/bookkeeping/2023.dat"

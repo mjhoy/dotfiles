@@ -152,6 +152,7 @@
           gptel
           inf-ruby
           ivy-pass
+          ledger-mode
           lsp-haskell
           lsp-sourcekit
           magit
@@ -193,6 +194,8 @@
         gdb
         git
         graphviz
+        hledger
+        hledger-web
         htop
         imagemagick
         jq
