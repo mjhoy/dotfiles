@@ -5,7 +5,26 @@
 (if (locate-file "copilot.el" load-path)
     (progn
       (require 'copilot)
-      (add-hook 'prog-mode-hook 'copilot-mode)
+
+      (defvar mjhoy/auto-copilot-mode-enabled t
+        "Whether or not copilot mode is enabled automatically")
+
+      (defun mjhoy/enable-auto-copilot-mode ()
+        "Enable automatic copilot mode"
+        (interactive)
+        (setq mjhoy/auto-copilot-mode-enabled t))
+
+      (defun mjhoy/disable-auto-copilot-mode ()
+        "Disable automatic copilot mode"
+        (interactive)
+        (setq mjhoy/auto-copilot-mode-enabled nil))
+
+      (defun mjhoy/maybe-init-copilot-mode ()
+        "Potentially initialize copilot mode"
+        (when mjhoy/auto-copilot-mode-enabled
+          (copilot-mode 1)))
+
+      (add-hook 'prog-mode-hook 'mjhoy/maybe-init-copilot-mode)
 
       (with-eval-after-load 'company
         ;; disable inline previews
