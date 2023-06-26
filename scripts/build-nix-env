@@ -7,7 +7,7 @@
 set -eoux pipefail
 
 echo "Building devEnv"
-nix-build --no-link -A devEnv '<nixpkgs>'
+nix-build --no-link --show-trace -A devEnv '<nixpkgs>'
 
 echo "Building nix"
 nix-build --no-link -A nix '<nixpkgs>'

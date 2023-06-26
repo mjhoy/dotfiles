@@ -133,7 +133,6 @@
           scala-mode
           swift-mode
           terraform-mode
-          tide
           web-mode
           winring
           yafolding
