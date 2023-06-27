@@ -28,6 +28,10 @@ see: %a\n")
 SCHEDULED: <%<%Y-%m-%d %a %H:00>>
 
 see %a\n")
+        ("b" "Blog draft"
+         entry (file (lambda () (concat org-directory "blog-drafts.org")))
+         "* draft: %?
+\n")
         ("j" "Journal"
          plain (file mjhoy/current-journal-file)
          "* %<%H:%M>\n%U\n\n%?\n")
