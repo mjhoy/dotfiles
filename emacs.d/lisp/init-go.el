@@ -1,10 +1,8 @@
-(require 'init-lsp)
-
 (defun mjhoy/setup-go-mode ()
   "My setup for go-mode."
-  (lsp)
+  (eglot-ensure)
   (yas-minor-mode)
-  (add-hook 'before-save-hook #'lsp-format-buffer nil t)
+  (add-hook 'before-save-hook #'eglot-format-buffer nil t)
   (setq-local tab-width 4)
   )
 

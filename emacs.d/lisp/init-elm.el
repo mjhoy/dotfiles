@@ -5,7 +5,7 @@
 
 (defun mjhoy/setup-elm ()
   "My setup for elm-mode."
-  (lsp)
+  (eglot-ensure)
   )
 
 (add-hook 'elm-mode-hook 'mjhoy/setup-elm)
