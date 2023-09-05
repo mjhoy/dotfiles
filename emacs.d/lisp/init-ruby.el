@@ -4,8 +4,6 @@
 
 (require 'ruby-test-mode)
 
-(require 'lsp-ruby-lsp)
-
 ;; disable -b (no full backtraces, which are annoying.)
 (setq ruby-test-rspec-options '())
 
@@ -17,7 +15,7 @@
 (defun mjhoy/setup-ruby-mode ()
   "My setup for ruby-mode."
   (yard-mode)
-  (lsp)
+  (eglot-ensure)
   )
 
 (defun mjhoy/setup-inf-ruby-mode ()

@@ -1,5 +1,4 @@
 (require 'init-web-mode)
-(require 'init-lsp)
 
 (add-to-list 'auto-mode-alist '("\\.svelte\\'" . web-mode))
 
@@ -29,7 +28,7 @@ always setting the cursor back to the top of the file.
        (is-svelte-file (string-match "\\.SVELTE\\'" buffer-file-name)))
     (if is-svelte-file
         (progn
-          (lsp)
+          ;; For eglot support, see https://github.com/joaotavora/eglot/pull/919/files.
 
           ;; Add the hacky cursor save/restore hooks.
           (add-hook 'before-save-hook 'mjhoy/hacky-svelte-save-point -100 t)

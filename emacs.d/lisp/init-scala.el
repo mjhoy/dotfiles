@@ -8,8 +8,7 @@
 
 (defun mjhoy/setup-scala-mode ()
   "My setup for scala-mode."
-  ;; No-op. For now, we're not loading lsp and lsp-metals due to:
-  ;; https://github.com/emacs-lsp/lsp-metals/issues/81
+  (eglot-ensure)
   )
 
 (add-hook 'scala-mode-hook 'mjhoy/setup-scala-mode)

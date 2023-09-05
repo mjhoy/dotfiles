@@ -88,6 +88,7 @@
         myPackages = epkgs: (with epkgs.elpaPackages; [
           ace-window
           cl-lib
+          eglot
           rainbow-mode
           org
         ]) ++ (with epkgs.melpaStablePackages; [
@@ -113,8 +114,6 @@
           haskell-mode
           ibuffer-vc
           js2-mode
-          lsp-mode
-          lsp-ui
           markdown-mode
           material-theme
           multiple-cursors
@@ -152,8 +151,6 @@
           inf-ruby
           ivy-pass
           ledger-mode
-          lsp-haskell
-          lsp-sourcekit
           magit
           nix-mode
           orgit

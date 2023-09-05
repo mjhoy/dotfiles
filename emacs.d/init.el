@@ -71,7 +71,6 @@
 (require 'init-sql)
 (require 'init-flycheck)
 (require 'init-flyspell)
-(require 'init-lsp)
 (require 'init-ivy)
 (require 'init-magit)
 (require 'init-treemacs)
