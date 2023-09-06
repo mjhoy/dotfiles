@@ -187,7 +187,6 @@
         cloc
         cmake
         ctags
-        gdb
         git
         graphviz
         hledger
