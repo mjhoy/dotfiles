@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Run offline imap, just check the inbox, record that I checked the inbox.
+
+set -e
+
+DATE=`date +%s`
+
+# OFFLINEIMAP=/usr/local/bin/offlineimap
+OFFLINEIMAP=offlineimap
+
+echo $DATE >> ~/.check-inbox-data
+
+# Check all of fastmail
+$OFFLINEIMAP -a mjh
