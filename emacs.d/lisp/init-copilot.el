@@ -6,7 +6,7 @@
     (progn
       (require 'copilot)
 
-      (defvar mjhoy/auto-copilot-mode-enabled t
+      (defvar mjhoy/auto-copilot-mode-enabled nil
         "Whether or not copilot mode is enabled automatically")
 
       (defun mjhoy/enable-auto-copilot-mode ()
