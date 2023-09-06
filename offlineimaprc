@@ -19,7 +19,7 @@ localfolders = ~/.mail/mjh-mjhoy.com
 maxconnextions = 1
 type = IMAP
 ssl = yes
-sslcacertfile = /usr/local/etc/openssl@1.1/cert.pem
+sslcacertfile = OS-DEFAULT
 remotehost = mail.messagingengine.com
 # https://www.fastmail.help/hc/en-us/articles/360058752874-Configuring-the-IMAP-path-prefix
 remoteport = 992
