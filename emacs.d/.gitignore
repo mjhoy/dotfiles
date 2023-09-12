@@ -19,3 +19,4 @@ lisp/init-private.el
 /*forge-database*.sql
 /eln-cache/
 /emacsql/
+/org-persist/
