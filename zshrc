@@ -12,6 +12,7 @@ path=(
   "$HOME/.rbenv/bin"
   "$HOME/.yarn/bin"
   "$HOME/bin"
+  "$HOME/Library/Application Support/Coursier/bin"
   "/opt/homebrew/bin"
   "/usr/local/bin"
   "/usr/local/sbin"
@@ -86,3 +87,9 @@ alias ibrew='arch -x86_64 /usr/local/bin/brew'
 
 # my ledger file
 export LEDGER_FILE="$HOME/org/bookkeeping/2023.dat"
+
+# kinda hacky; backfill JAVA_HOME from nix-installed java path
+if whence -p java &> /dev/null
+then
+    export JAVA_HOME=$(readlink -f $(dirname $(readlink $(whence java)))/../)
+fi
