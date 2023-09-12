@@ -15,6 +15,8 @@
   (locate-file "mu4e.el" load-path)
   "Whether mu4e exists on this system")
 
+(setq mu4e-modeline-support nil)
+
 (if mjhoy/mu4e-exists-p
     (progn
       ;; mu4e exists on this system
