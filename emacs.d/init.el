@@ -74,6 +74,7 @@
 (require 'init-ivy)
 (require 'init-magit)
 (require 'init-treemacs)
+(require 'init-eglot)
 (require 'init-scheme)
 (require 'init-ruby)
 (require 'init-python)
