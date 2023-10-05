@@ -26,6 +26,7 @@
             '(
               ("/mjh-mjhoy.com/INBOX" . ?i)
               ("/mjh-mjhoy.com/upcoming" . ?u)
+              ("/mjh-mjhoy.com/Jobbies" . ?j)
               ("/michael.john.hoy-gmail.com/INBOX" . ?g)
               ("/mjh-mjhoy.com/Archive" . ?a)
               ("/mjh-mjhoy.com/massbird" . ?m)
