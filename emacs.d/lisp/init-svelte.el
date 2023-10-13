@@ -1,4 +1,7 @@
 (require 'init-web-mode)
+(require 'init-eglot)
+
+(add-to-list 'eglot-server-programs '(web-mode . ("svelteserver" "--stdio")))
 
 (add-to-list 'auto-mode-alist '("\\.svelte\\'" . web-mode))
 
@@ -29,6 +32,8 @@ always setting the cursor back to the top of the file.
     (if is-svelte-file
         (progn
           ;; For eglot support, see https://github.com/joaotavora/eglot/pull/919/files.
+          (eglot-ensure)
+          (prettier-mode 1)
 
           ;; Add the hacky cursor save/restore hooks.
           (add-hook 'before-save-hook 'mjhoy/hacky-svelte-save-point -100 t)
