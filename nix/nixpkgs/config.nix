@@ -84,7 +84,7 @@
 
     myEmacs =
       let
-        myEmacsBuild = super.emacs;
+        myEmacsBuild = super.emacs29;
         myPackages = epkgs: (with epkgs.elpaPackages; [
           ace-window
           cl-lib
@@ -99,7 +99,6 @@
           cargo
           counsel
           counsel-projectile
-          csharp-mode
           dap-mode
           diminish
           dracula-theme
