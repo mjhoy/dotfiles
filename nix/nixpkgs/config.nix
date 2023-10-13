@@ -99,7 +99,6 @@
           cargo
           counsel
           counsel-projectile
-          csharp-mode
           dap-mode
           diminish
           dracula-theme
