@@ -15,7 +15,6 @@
 (defun mjhoy/setup-ruby-mode ()
   "My setup for ruby-mode."
   (yard-mode)
-  (eglot-ensure)
   )
 
 (defun mjhoy/setup-inf-ruby-mode ()
