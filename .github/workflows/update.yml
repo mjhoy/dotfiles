@@ -1,8 +1,10 @@
-name: "Build"
+name: "Update"
 on:
-  push:
+  schedule:
+    # Every monday at 9 UTC
+    - cron: '0 9 * * 1'
 jobs:
-  build:
+  update:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v4
@@ -18,4 +20,7 @@ jobs:
         name: mjhoy
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
         extraPullNames: nix-community
-    - run: nix-build --no-link -A devEnv '<nixpkgs>'
+    - run: ./scripts/build-nix-env
+    - run: ./scripts/update-nixpkgs
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
