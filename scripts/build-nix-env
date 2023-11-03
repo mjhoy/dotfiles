@@ -13,5 +13,5 @@ echo "Building nix"
 nix-build --no-link -A nix '<nixpkgs>'
 
 echo "Installing"
-nix-env -iA nixpkgs.devEnv
-nix-env -iA nixpkgs.nix
+nix-env -A nixpkgs -i devEnv
+nix-env -A nixpkgs -i nix
