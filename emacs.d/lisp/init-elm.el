@@ -1,3 +1,5 @@
+; elm-mode depends on haskell-mode, load that config first.
+(require 'init-haskell)
 (require 'elm-mode)
 
 (setq elm-format-on-save t)
