@@ -1,3 +1,6 @@
+; TODO: remove when haskell-mode is updated.
+; https://github.com/haskell/haskell-mode/pull/1828
+(require 'flymake-proc)
 (require 'haskell-mode)
 
 (defun mjhoy/setup-haskell-mode ()
