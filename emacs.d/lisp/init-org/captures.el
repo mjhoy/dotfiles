@@ -23,11 +23,11 @@ see: %a\n")
         ("c" "Clock" item (clock)
          "%?\n%U\n%a")
         ("e" "Event"
-         entry (file+headline (lambda () (concat org-directory "agenda.org")) "Future")
+         entry (file+olp+datetree (lambda () (concat org-directory "agenda.org")) "Events")
          "* %?
-SCHEDULED: <%<%Y-%m-%d %a %H:00>>
+<%<%Y-%m-%d %a %H:00>>
 
-see %a\n")
+see %a\n" :time-prompt t)
         ("b" "Blog draft"
          entry (file (lambda () (concat org-directory "blog-drafts.org")))
          "* draft: %?

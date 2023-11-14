@@ -27,10 +27,15 @@
             (lambda (&rest _)
               (mjhoy/save-org-agenda-buffers)))
 
-;; the "Project" view. adapted from the agenda setup here:
-;; https://www.labri.fr/perso/nrougier/GTD/index.html#org8c6ecc6
 (setq org-agenda-custom-commands
-      '(("j" "Projects"
+      '(
+        ;; List all done or canceled tasks.
+        ;; TODO: is there a way to organize this by date completed/canceled?
+        ("c" "Completed tasks"
+         ((todo "DONE|CANCELED")))
+        ;; the "Project" view. adapted from the agenda setup here:
+        ;; https://www.labri.fr/perso/nrougier/GTD/index.html#org8c6ecc6
+        ("j" "Projects"
          ((agenda ""
                   ((org-agenda-skip-function
                     '(org-agenda-skip-entry-if 'deadline))
@@ -54,8 +59,8 @@
                     '(org-agenda-skip-entry-if 'nottodo '("TODO" "NEXT")))
                    (org-agenda-overriding-header "\nScheduled")))
           (tags "inbox"
-                     ((org-agenda-prefix-format "  %?-12t% s")
-                      (org-agenda-overriding-header "\nInbox\n")))
+                ((org-agenda-prefix-format "  %?-12t% s")
+                 (org-agenda-overriding-header "\nInbox\n")))
           (tags "CLOSED>=\"<today>\""
                 ((org-agenda-overriding-header "\nCompleted today\n")))))))
 
