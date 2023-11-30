@@ -9,6 +9,7 @@
 (defun mjhoy/setup-scala-mode ()
   "My setup for scala-mode."
   (eglot-ensure)
+  (add-hook 'before-save-hook #'eglot-format-buffer nil t)
   )
 
 (add-hook 'scala-mode-hook 'mjhoy/setup-scala-mode)
