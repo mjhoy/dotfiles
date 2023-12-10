@@ -35,6 +35,9 @@ see %a\n" :time-prompt t)
         ("j" "Journal"
          plain (file mjhoy/current-journal-file)
          "* %<%H:%M>\n%U\n\n%?\n")
+        ("w" "Week in review"
+         plain (file mjhoy/current-journal-file)
+         "* %<%H:%M> Week in review (%<%U>)\n%U\n%?\n** Programming\n** People\n** Unemployment\n** Climbing\n** House\n")
         ))
 
 (provide 'init-org/captures)
