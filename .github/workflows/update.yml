@@ -1,8 +1,8 @@
 name: "Update"
 on:
   schedule:
-    # Every monday at 9 UTC
-    - cron: '0 9 * * 1'
+    # First day of the month at 9 UTC
+    - cron: '0 9 1 * *'
 jobs:
   update:
     runs-on: macos-latest
