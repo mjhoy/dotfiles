@@ -86,7 +86,7 @@ fi
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
 
 # my ledger file
-export LEDGER_FILE="$HOME/org/bookkeeping/2023.dat"
+export LEDGER_FILE="$HOME/proj/bookkeeping/2023.dat"
 
 # kinda hacky; backfill JAVA_HOME from nix-installed java path
 if whence -p java &> /dev/null
