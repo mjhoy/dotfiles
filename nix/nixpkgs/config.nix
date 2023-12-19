@@ -89,8 +89,9 @@
           ace-window
           cl-lib
           eglot
-          rainbow-mode
+          modus-themes
           org
+          rainbow-mode
         ]) ++ (with epkgs.melpaStablePackages; [
           ag
           apache-mode
