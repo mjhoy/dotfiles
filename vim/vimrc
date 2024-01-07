@@ -5,11 +5,6 @@
 " This option goes first because it may have side-effects.
 set nocompatible
 
-" Pathogen
-" --------
-" Loads all plugins in ~/.vim/bundle
-execute pathogen#infect()
-
 " Common-sense stuff
 " ------------------
 
