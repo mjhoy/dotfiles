@@ -13,4 +13,9 @@
 
 (add-hook 'gptel-mode-hook 'mjhoy/gptel-mode-hook)
 
+(add-to-list 'gptel-directives '(scala . "You are a large \
+language model and a Scala expert, using Scala 2 and not Scala \
+3. Provide code and only additional context when necessary."
+                                       ))
+
 (provide 'init-gpt)
