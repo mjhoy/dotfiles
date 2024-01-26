@@ -70,6 +70,7 @@
 (require 'init-yas)
 (require 'init-sql)
 (require 'init-flycheck)
+(require 'init-flymake)
 (require 'init-flyspell)
 (require 'init-ivy)
 (require 'init-magit)
