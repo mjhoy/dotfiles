@@ -3,7 +3,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.ts\\'" .  web-mode))
 
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" .  jtsx-tsx-mode))
+
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . jtsx-tsx-mode))
 
 ;; enable typescript-tslint checker
 (flycheck-add-mode 'typescript-tslint 'web-mode)
