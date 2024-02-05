@@ -31,6 +31,6 @@ If THEME is `original', disable all custom themes."
     (setq mjhoy/current-theme theme)
     (load-theme theme t)))
 
-(mjhoy/switch-theme 'sanityinc-tomorrow-night)
+(mjhoy/switch-theme 'modus-vivendi-tinted)
 
 (provide 'init-theme)
