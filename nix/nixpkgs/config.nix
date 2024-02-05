@@ -155,6 +155,7 @@
           gptel
           inf-ruby
           ivy-pass
+          jq-mode
           ledger-mode
           magit
           nix-mode
@@ -163,6 +164,7 @@
           proof-general
           purescript-mode
           restclient
+          restclient-jq
           ruby-test-mode
         ]);
       in (pkgs.emacsPackagesFor myEmacsBuild).emacsWithPackages myPackages;
