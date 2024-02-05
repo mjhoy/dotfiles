@@ -9,6 +9,9 @@
 (defun mjhoy/gptel-mode-hook ()
   "My hook function for gptel-mode setup."
   (visual-line-mode)
+  (auto-fill-mode 0)
+  (setq gptel--num-messages-to-send 8)
+  (setq gptel-model "gpt-4")
   )
 
 (add-hook 'gptel-mode-hook 'mjhoy/gptel-mode-hook)
