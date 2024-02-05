@@ -1,5 +1,9 @@
 (require 'web-mode)
 (require 'init-flycheck)
+(require 'init-eglot)
+
+(add-to-list 'eglot-server-programs
+             '((typescript-mode) "typescript-language-server" "--stdio"))
 
 (add-to-list 'auto-mode-alist '("\\.ts\\'" .  web-mode))
 
