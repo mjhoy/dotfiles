@@ -76,11 +76,6 @@
       jre = jdk11;
     };
 
-    java = super.java.override {
-      jre = jkd11;
-      jdk = jdk11;
-    };
-
     aspellEnv = aspellWithDicts(ps: [ ps.en ps.es ]);
 
     # ----------------------
