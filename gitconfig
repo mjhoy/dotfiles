@@ -11,6 +11,9 @@
 [rebase]
   autosquash = true
 
+[diff]
+  algorithm = histogram
+
 [alias]
   s   = status -sb
   b   = branch
