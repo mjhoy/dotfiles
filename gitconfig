@@ -8,6 +8,9 @@
 [merge]
   conflictstyle = zdiff3
 
+[rebase]
+  autosquash = true
+
 [alias]
   s   = status -sb
   b   = branch
