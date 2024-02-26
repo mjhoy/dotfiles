@@ -5,6 +5,18 @@
 [init]
   defaultBranch = main
 
+[merge]
+  conflictstyle = zdiff3
+
+[rebase]
+  autosquash = true
+
+[diff]
+  algorithm = histogram
+
+[fetch]
+  prune = true
+
 [alias]
   s   = status -sb
   b   = branch
