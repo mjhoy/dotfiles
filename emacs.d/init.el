@@ -109,5 +109,6 @@
 (require 'init-dotfile-shortcuts)
 (require 'init-presentation)
 (require 'init-pass)
+(require 'init-linear)
 (require 'init-misc)
 (require 'init-private nil 'noerror)
