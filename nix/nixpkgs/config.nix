@@ -69,11 +69,11 @@
     example-pkg-hello = callPackage ~/.dotfiles/nix/pkgs/example-pkg-hello {};
 
     scala = super.scala.override {
-      jre = jdk11;
+      jre = jdk17;
     };
 
     sbt = super.sbt.override {
-      jre = jdk11;
+      jre = jdk17;
     };
 
     aspellEnv = aspellWithDicts(ps: [ ps.en ps.es ]);
@@ -217,7 +217,7 @@
         wget
 
         # scala
-        jdk11
+        jdk17
         scala
         sbt
       ];
