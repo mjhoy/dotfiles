@@ -9,9 +9,13 @@
 (eval-after-load "company-box"
   '(diminish 'company-box-mode))
 (eval-after-load "yasnippet"
-  '(diminish 'yas-minor-mode " ✂"))
+  '(diminish 'yas-minor-mode))
 (eval-after-load "golden-ratio"
   '(diminish 'golden-ratio-mode " φ"))
+(eval-after-load "cargo"
+  '(diminish 'cargo-minor-mode))
+(eval-after-load "eldoc"
+  '(diminish 'eldoc-mode))
 (eval-after-load "copilot"
   '(diminish 'copilot-mode " ✈"))
 (eval-after-load "init-ivy"
