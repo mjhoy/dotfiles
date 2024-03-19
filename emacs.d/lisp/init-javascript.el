@@ -4,4 +4,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
+(add-hook 'js-json-mode-hook
+          (lambda ()
+            (make-local-variable 'indent-tabs-mode)
+            (setq indent-tabs-mode nil)))
+
 (provide 'init-javascript)
