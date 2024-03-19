@@ -8,6 +8,9 @@
        (eglot-code-actions nil nil "source.organizeImports" t))
 
 (with-eval-after-load 'eglot
-  (define-key eglot-mode-map (kbd "C-c C-r") 'eglot-rename))
+  (progn
+    (define-key eglot-mode-map (kbd "C-c C-r") 'eglot-rename)
+    (define-key eglot-mode-map (kbd "C-c C-a") 'eglot-code-actions)
+    ))
 
 (provide 'init-eglot)
