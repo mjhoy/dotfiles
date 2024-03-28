@@ -76,6 +76,30 @@
       jre = jdk17;
     };
 
+    # https://github.com/NixOS/nixpkgs/pull/296012/files
+    metals = super.metals.overrideAttrs (final: prev: {
+      version = "1.2.2";
+      deps = stdenv.mkDerivation {
+        name = "${prev.pname}-deps-1.2.2";
+        buildCommand = ''
+          export COURSIER_CACHE=$(pwd)
+          ${super.pkgs.coursier}/bin/cs fetch org.scalameta:metals_2.13:1.2.2 \
+            -r bintray:scalacenter/releases \
+            -r sonatype:snapshots > deps
+          mkdir -p $out/share/java
+          cp $(< deps) $out/share/java/
+        '';
+        outputHashMode = "recursive";
+        outputHashAlgo = "sha256";
+        outputHash = "sha256-xk2ionn/lBV8AR7n7OR03UuRCoP1/K6KuohhpRwFock=";
+      };
+      buildInputs = [ final.deps ];
+    });
+
+    scala-cli = super.scala-cli.override {
+      jre = jdk17;
+    };
+
     aspellEnv = aspellWithDicts(ps: [ ps.en ps.es ]);
 
     # ----------------------
@@ -218,8 +242,10 @@
 
         # scala
         jdk17
-        scala
+        metals
         sbt
+        scala
+        scala-cli
       ];
     };
 
