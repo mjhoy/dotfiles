@@ -39,6 +39,9 @@
 ;; line truncation
 (setq-default truncate-lines t)
 
+;; a reasonable fill-column length
+(setq-default fill-column 80)
+
 ;; interactive lambda macro
 (defmacro fni (&rest forms)
   "Create an anonymous interactive function"
