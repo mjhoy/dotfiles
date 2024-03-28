@@ -1,5 +1,5 @@
 (if macos
-    (set-face-attribute 'default nil :font "Monaspace Neon")
+    (set-face-attribute 'default nil :font "Intel One Mono")
   (set-face-attribute 'default nil :family "Ubuntu Mono"))
 (set-face-attribute 'default nil :height 130)
 (set-face-attribute 'default nil :weight 'normal)
