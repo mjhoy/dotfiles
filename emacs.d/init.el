@@ -50,6 +50,7 @@
 (require 'init-diminish)
 (require 'init-ui)
 (require 'init-theme)
+(require 'init-treesitter)
 (require 'init-hl-line)
 (require 'init-multiple-cursors)
 (require 'init-prog)

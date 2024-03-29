@@ -138,6 +138,7 @@
           haskell-mode
           ibuffer-vc
           js2-mode
+          jtsx
           markdown-mode
           material-theme
           multiple-cursors

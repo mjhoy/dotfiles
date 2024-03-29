@@ -5,9 +5,16 @@
 (add-to-list 'eglot-server-programs
              '((typescript-mode) "typescript-language-server" "--stdio"))
 
-(add-to-list 'auto-mode-alist '("\\.ts\\'" .  web-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" .  tsx-ts-mode))
 
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
+
+(defun mjhoy/setup-tsx-ts-mode ()
+  "My setup for tsx-ts-mode."
+  (eglot-ensure)
+  )
+
+(add-hook 'tsx-ts-mode-hook 'mjhoy/setup-tsx-ts-mode)
 
 ;; enable typescript-tslint checker
 (flycheck-add-mode 'typescript-tslint 'web-mode)
