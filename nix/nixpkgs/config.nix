@@ -109,7 +109,9 @@
     myEmacs =
       let
         myEmacsBuild = super.emacs29;
-        myPackages = epkgs: (with epkgs.elpaPackages; [
+        myPackages = epkgs: (with epkgs; [
+          mu4e
+        ]) ++ (with epkgs.elpaPackages; [
           ace-window
           cl-lib
           eglot
