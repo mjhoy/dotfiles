@@ -230,6 +230,7 @@
         myEmacs
         myREnv
         nasm
+        ngrok
         niv
         nix-prefetch-git
         offlineimap
