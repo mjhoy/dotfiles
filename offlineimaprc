@@ -20,9 +20,9 @@ maxconnextions = 1
 type = IMAP
 ssl = yes
 sslcacertfile = OS-DEFAULT
-remotehost = mail.messagingengine.com
+remotehost = imap.fastmail.com
 # https://www.fastmail.help/hc/en-us/articles/360058752874-Configuring-the-IMAP-path-prefix
-remoteport = 992
+remoteport = 993
 remoteuser = mjh@fastmail.fm
 # remotepass = remote-pass-here
 remotepasseval = get_password(path="Email/mjh@fastmail.fm-app/mail.messagingengine.com")
