@@ -1,4 +1,5 @@
 (require 'eglot)
+(require 'init-lsp-booster)
 
 (add-to-list 'eglot-ignored-server-capabilities
              :inlayHintProvider)
@@ -12,5 +13,7 @@
     (define-key eglot-mode-map (kbd "C-c C-r") 'eglot-rename)
     (define-key eglot-mode-map (kbd "C-c C-a") 'eglot-code-actions)
     ))
+
+(eglot-booster-mode)
 
 (provide 'init-eglot)
