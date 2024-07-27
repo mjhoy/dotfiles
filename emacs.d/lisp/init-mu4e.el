@@ -29,9 +29,9 @@
 (setq message-send-mail-function 'smtpmail-send-it
       starttls-use-gnutls t
       smtpmail-starttls-credentials
-      '(("mail.messagingengine.com" 587 nil nil))
-      smtpmail-default-smtp-server "mail.messagingengine.com"
-      smtpmail-smtp-server "mail.messagingengine.com"
+      '(("smtp.fastmail.com" 587 nil nil))
+      smtpmail-default-smtp-server "smtp.fastmail.com"
+      smtpmail-smtp-server "smtp.fastmail.com"
       smtpmail-auth-credentials
       (expand-file-name "~/.authinfo.gpg")
       smtpmail-smtp-service 587)
@@ -41,11 +41,6 @@
 (setq mu4e-drafts-folder "/mjh-mjhoy.com/Drafts")
 (setq mu4e-sent-folder "/mjh-mjhoy.com/Sent Items")
 (setq mu4e-trash-folder "/mjh-mjhoy.com/Trash")
-(setq smtpmail-starttls-credentials
-      '(("mail.messagingengine.com" 587 nil nil))
-      smtpmail-default-smtp-server "mail.messagingengine.com"
-      smtpmail-smtp-server "mail.messagingengine.com"
-      )
 (setq user-mail-address "mjh@mjhoy.com")
 
 (setq mu4e-compose-complete-ignore-address-regexp "\\(no-?reply\\|reply.github.com\\|basecamphq.com\\)")
