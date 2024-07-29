@@ -16,4 +16,6 @@
 
 (eglot-booster-mode)
 
+(setq-default eglot-workspace-configuration '((haskell (formattingProvider . "fourmolu"))))
+
 (provide 'init-eglot)
