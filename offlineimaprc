@@ -25,7 +25,7 @@ remotehost = imap.fastmail.com
 remoteport = 993
 remoteuser = mjh@fastmail.fm
 # remotepass = remote-pass-here
-remotepasseval = get_password(path="Email/mjh@fastmail.fm-app/mail.messagingengine.com")
+remotepasseval = get_password(path="Email/mjh@fastmail.fm-app/imap.fastmail.com")
 folderfilter = lambda folder: folder not in ['Junk Mail',
                                              ]
 
