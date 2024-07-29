@@ -6,6 +6,7 @@
 (defun mjhoy/setup-haskell-mode ()
   "My setup for haskell-mode."
   (eglot-ensure)
+  (add-hook 'before-save-hook #'eglot-format-buffer nil t)
   )
 
 (add-hook 'haskell-mode-hook #'mjhoy/setup-haskell-mode)
