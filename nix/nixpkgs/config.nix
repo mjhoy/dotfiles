@@ -176,7 +176,9 @@
           forge
           gptel
           inf-ruby
+          ivy
           ivy-pass
+          ivy-prescient
           jq-mode
           ledger-mode
           magit
