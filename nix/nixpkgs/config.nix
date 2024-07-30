@@ -155,7 +155,6 @@
           rjsx-mode
           rust-mode
           sbt-mode
-          scala-mode
           swift-mode
           terraform-mode
           web-mode
@@ -191,6 +190,7 @@
           restclient
           restclient-jq
           ruby-test-mode
+          scala-ts-mode
         ]);
       in (pkgs.emacsPackagesFor myEmacsBuild).emacsWithPackages myPackages;
 
