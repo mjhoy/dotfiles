@@ -171,6 +171,7 @@
           color-theme-sanityinc-tomorrow
           company
           company-box
+          company-prescient
           company-racer
           flycheck-rust
           forge
