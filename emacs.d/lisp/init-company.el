@@ -2,12 +2,15 @@
 (require 'init-yas)
 (require 'company)
 (require 'company-box)
+(require 'company-prescient)
 
 (defun mjhoy/setup-company-mode ()
   "My setup for company mode."
   (yas-minor-mode-on) ; Appears to be used for completion.
   (company-box-mode)
   )
+
+(company-prescient-mode 1)
 
 (add-hook 'company-mode-hook #'mjhoy/setup-company-mode)
 (add-hook 'after-init-hook 'global-company-mode)

@@ -171,12 +171,15 @@
           color-theme-sanityinc-tomorrow
           company
           company-box
+          company-prescient
           company-racer
           flycheck-rust
           forge
           gptel
           inf-ruby
+          ivy
           ivy-pass
+          ivy-prescient
           jq-mode
           ledger-mode
           magit
