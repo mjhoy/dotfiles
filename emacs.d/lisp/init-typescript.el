@@ -12,6 +12,7 @@
 (defun mjhoy/setup-tsx-ts-mode ()
   "My setup for tsx-ts-mode."
   (eglot-ensure)
+  (add-hook 'before-save-hook #'prettier-prettify nil t)
   )
 
 (add-hook 'tsx-ts-mode-hook 'mjhoy/setup-tsx-ts-mode)

@@ -149,7 +149,6 @@
           password-store
           php-mode
           posframe
-          prettier
           projectile
           protobuf-mode
           racer
@@ -186,6 +185,7 @@
           nix-mode
           orgit
           ox-reveal
+          prettier
           proof-general
           purescript-mode
           restclient
