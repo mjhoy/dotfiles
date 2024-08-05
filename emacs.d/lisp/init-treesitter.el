@@ -8,4 +8,7 @@
 (if (file-directory-p (expand-file-name "~/src/tree-sitter-module/dist"))
     (add-to-list 'treesit-extra-load-path (expand-file-name "~/src/tree-sitter-module/dist")))
 
+;; adjust for richer highlighting
+(setq treesit-font-lock-level 3)
+
 (provide 'init-treesitter)
