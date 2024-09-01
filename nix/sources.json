@@ -1,6 +1,6 @@
 {
     "nixpkgs": {
-        "branch": "nixpkgs-23.11-darwin",
+        "branch": "nixpkgs-24.05-darwin",
         "description": "Nix Packages collection",
         "homepage": "",
         "owner": "NixOS",
