@@ -244,6 +244,7 @@
         cloc
         cmake
         ctags
+        fish
         git
         graphviz
         hledger
