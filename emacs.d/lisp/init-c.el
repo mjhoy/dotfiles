@@ -4,17 +4,10 @@
 (defun mjhoy/c-init ()
   "My setup for c files."
   (setq c-basic-offset 4)
-  (flycheck-mode 1)
+  (eglot-ensure)
   (if (or (file-exists-p "makefile")
           (file-exists-p "Makefile"))
       (set (make-local-variable 'compilation-read-command) nil))
-  (if (file-exists-p "~/.nix-profile/include")
-      (let ((includes-path (expand-file-name "~/.nix-profile/include/")))
-        (setq flycheck-clang-include-path
-              (list includes-path))
-        (setq company-clang-arguments
-              (list (concat "-I" includes-path))))
-    )
   )
 
 (defun mjhoy/my-c-initialization ()
