@@ -20,4 +20,4 @@ jobs:
         name: mjhoy
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
         extraPullNames: nix-community
-    - run: nix-build --no-link -A devEnv '<nixpkgs>'
+    - run: ./scripts/build-nix-env
