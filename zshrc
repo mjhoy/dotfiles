@@ -93,3 +93,12 @@ if whence -p java &> /dev/null
 then
     export JAVA_HOME=$(readlink -f $(dirname $(readlink $(whence java)))/../)
 fi
+
+# switch to fish!
+if command -v fish > /dev/null 2>&1; then                # check that fish is available
+    if [[ $(ps -o command= -p $PPID) != "fish" ]]; then  # running `zsh` from within fish works
+        exec fish
+    fi
+else
+    echo "(tried to start fish shell; not found)"
+fi
