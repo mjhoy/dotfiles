@@ -3,9 +3,6 @@
 # This script checks out the latest nixpkgs and attempts to build my
 # developer environment against it. If all goes well, it will push an
 # update to the mjh-mbp branch.
-#
-# TODO: update the pinned nix version (2.16) after this issue has been
-# resolved: https://github.com/NixOS/nixpkgs/pull/249165
 
 set -eoux pipefail
 
@@ -13,8 +10,8 @@ echo "Building devEnv"
 nix-build --no-link --show-trace '<nixpkgs>' -A devEnv
 
 echo "Building nix"
-nix-build --no-link '<nixpkgs>' -A nixVersions.nix_2_16
+nix-build --no-link '<nixpkgs>' -A nix
 
 echo "Installing"
 nix-env -f '<nixpkgs>' -i devEnv
-nix-env -f '<nixpkgs>' -A nixVersions.nix_2_16 -i
+nix-env -f '<nixpkgs>' -A nix -i
