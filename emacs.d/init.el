@@ -102,7 +102,6 @@
 (require 'init-web-mode)
 (require 'init-xml)
 (require 'init-css)
-(require 'init-protobuf)
 (require 'init-term)
 (require 'init-gpt)
 (require 'init-folding)
