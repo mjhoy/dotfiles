@@ -74,7 +74,6 @@
 (require 'init-flyspell)
 (require 'init-ivy)
 (require 'init-magit)
-(require 'init-treemacs)
 (require 'init-lsp-booster)
 (require 'init-eglot)
 (require 'init-scheme)
