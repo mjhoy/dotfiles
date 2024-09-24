@@ -57,7 +57,6 @@
 (require 'init-markdown)
 (require 'init-tramp)
 (require 'init-org)
-(require 'init-org-ai)
 (require 'init-erc)
 (require 'init-windmove)
 (require 'init-winring)
