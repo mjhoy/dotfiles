@@ -2,16 +2,6 @@
 (add-to-list 'auto-mode-alist '("Gemfile\\'"    . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec\\'" . ruby-mode))
 
-(require 'ruby-test-mode)
-
-;; disable -b (no full backtraces, which are annoying.)
-(setq ruby-test-rspec-options '())
-
-(eval-after-load 'ruby-test-mode
-  '(progn
-     (define-key ruby-test-mode-map (kbd "C-c M-t") 'ruby-test-run)
-     (define-key ruby-test-mode-map (kbd "C-c C-t") 'ruby-test-run-at-point)))
-
 (defun mjhoy/setup-ruby-mode ()
   "My setup for ruby-mode."
   (yard-mode)
