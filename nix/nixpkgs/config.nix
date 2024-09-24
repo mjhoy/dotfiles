@@ -102,98 +102,6 @@
 
     aspellEnv = aspellWithDicts(ps: [ ps.en ps.es ]);
 
-    # ----------------------
-    # Emacs & emacs packages
-    # ----------------------
-
-    myEmacs =
-      let
-        myEmacsBuild = super.emacs29;
-        myPackages = epkgs: (with epkgs; [
-          mu4e
-        ]) ++ (with epkgs.elpaPackages; [
-          ace-window
-          cl-lib
-          eglot
-          modus-themes
-          org
-          rainbow-mode
-        ]) ++ (with epkgs.melpaStablePackages; [
-          ag
-          apache-mode
-          avy
-          bm
-          cargo
-          counsel
-          counsel-projectile
-          dap-mode
-          diminish
-          dracula-theme
-          edit-indirect
-          editorconfig
-          elm-mode
-          ess
-          flycheck
-          geiser
-          go-mode
-          haml-mode
-          haskell-mode
-          ibuffer-vc
-          js2-mode
-          jtsx
-          markdown-mode
-          material-theme
-          multiple-cursors
-          org-mime
-          org-tree-slide
-          password-store
-          php-mode
-          posframe
-          projectile
-          protobuf-mode
-          racer
-          rjsx-mode
-          rust-mode
-          sbt-mode
-          swift-mode
-          terraform-mode
-          web-mode
-          winring
-          yafolding
-          yaml-mode
-          yard-mode
-          yasnippet
-        ]) ++ (with epkgs.nongnuPackages; [
-          org-contrib
-        ]) ++ (with epkgs.melpaPackages; [
-          color-theme-sanityinc-tomorrow
-          company
-          company-box
-          company-prescient
-          company-racer
-          flycheck-rust
-          forge
-          gptel
-          inf-ruby
-          ivy
-          ivy-pass
-          ivy-prescient
-          jq-mode
-          ledger-mode
-          magit
-          nix-mode
-          orgit
-          ox-reveal
-          prettier
-          proof-general
-          purescript-mode
-          restclient
-          restclient-jq
-          ruby-test-mode
-          scala-ts-mode
-        ]);
-      in (pkgs.emacsPackagesFor myEmacsBuild).emacsWithPackages myPackages;
-
     myREnv = super.rWrapper.override {
       packages = with self.rPackages; [
         ggplot2
@@ -256,7 +164,7 @@
         libxml2
         lynx
         mu
-        myEmacs
+        emacs29
         myREnv
         nasm
         ngrok

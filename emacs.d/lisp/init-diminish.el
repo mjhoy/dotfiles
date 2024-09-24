@@ -16,8 +16,6 @@
   '(diminish 'cargo-minor-mode))
 (eval-after-load "eldoc"
   '(diminish 'eldoc-mode))
-(eval-after-load "copilot"
-  '(diminish 'copilot-mode " ✈"))
 (eval-after-load "init-ivy"
   '(diminish 'ivy-mode))
 (eval-after-load "auto-dim-other-buffers"

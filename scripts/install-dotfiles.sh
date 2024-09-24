@@ -55,12 +55,6 @@ if [[ -e $HOME/Library/Application\ Support && ! -e $HOME/Library/ApplicationSup
     ln -s $HOME/Library/Application\ Support $HOME/Library/ApplicationSupport
 fi
 
-# ad-hoc installs
-if [[ ! -e $HOME/.config/nixpkgs/overlays.nix ]]; then
-    mkdir -p $HOME/.config/nixpkgs
-    lns $(pwd)/nix/nixpkgs/overlays.nix $HOME/.config/nixpkgs/overlays.nix
-fi
-
 OS=`uname`
 
 if [[ "${OS}" == "Darwin" ]]; then

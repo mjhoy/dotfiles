@@ -11,7 +11,6 @@ smex-items
 emacs.el
 network-security.data
 .mc-lists.el
-transient
 .lsp-session*
 .cache
 lisp/init-private.el
@@ -22,3 +21,12 @@ lisp/init-private.el
 /emacsql/
 /org-persist/
 /multisession/files/emoji
+
+# epkgs repo used by borg
+/epkgs/
+
+# transient caches history etc
+/transient/
+
+# compiled lisp
+*.elc
