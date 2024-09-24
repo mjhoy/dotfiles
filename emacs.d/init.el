@@ -83,7 +83,6 @@
 (require 'init-javascript)
 (require 'init-typescript)
 (require 'init-svelte)
-(require 'init-elm)
 (require 'init-scala)
 (require 'init-haskell)
 (require 'init-c)
