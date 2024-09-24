@@ -81,7 +81,6 @@
 (require 'init-python)
 (require 'init-rust)
 (require 'init-javascript)
-(require 'init-purescript)
 (require 'init-typescript)
 (require 'init-svelte)
 (require 'init-elm)
