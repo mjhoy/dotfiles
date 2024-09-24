@@ -4,14 +4,9 @@
 (setq org-export-backends '(ascii html md latex odt))
 
 (require 'org)
-(require 'org-mime)
 (require 'org-id)
 (require 'org-clock)
 (require 'org-habit)
-
-;; org-reveal
-(setq org-reveal-note-key-char nil)
-(require 'ox-reveal)
 
 (setq org-id-link-to-org-use-id 'use-existing)
 
