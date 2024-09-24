@@ -1,5 +1,4 @@
 (require 'init-flycheck)
-(require 'flycheck-rust)
 
 (defun mjhoy/init-rust-mode ()
   "Set up rust mode"
