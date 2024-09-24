@@ -44,6 +44,11 @@
 	      (if (member "." load-path)
 		  (delete "." load-path))))
 
+;; Borg
+(add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))
+(require 'borg)
+(borg-initialize)
+
 (require 'init-basic)
 (require 'init-local)
 (require 'init-env)
@@ -66,7 +71,8 @@
 (require 'init-dired)
 (require 'init-uniquify)
 (require 'init-company)
-(require 'init-mu4e)
+;; todo: get mu4e loading correctly with borg
+;; (require 'init-mu4e)
 (require 'init-yas)
 (require 'init-sql)
 (require 'init-flycheck)

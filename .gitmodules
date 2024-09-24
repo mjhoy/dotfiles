@@ -1,0 +1,145 @@
+[submodule "bm"]
+	path = emacs.d/lib/bm
+	url = https://github.com/joodland/bm
+[submodule "borg"]
+	path = emacs.d/lib/borg
+	url = git@github.com:emacscollective/borg.git
+[submodule "closql"]
+	path = emacs.d/lib/closql
+	url = git@github.com:emacscollective/closql.git
+[submodule "color-theme-sanityinc-tomorrow"]
+	path = emacs.d/lib/color-theme-sanityinc-tomorrow
+	url = https://github.com/purcell/color-theme-sanityinc-tomorrow
+[submodule "company"]
+	path = emacs.d/lib/company
+	url = https://github.com/company-mode/company-mode
+[submodule "company-box"]
+	path = emacs.d/lib/company-box
+	url = https://github.com/sebastiencs/company-box
+[submodule "compat"]
+	path = emacs.d/lib/compat
+	url = git@github.com:emacs-compat/compat.git
+[submodule "counsel-projectile"]
+	path = emacs.d/lib/counsel-projectile
+	url = https://github.com/ericdanan/counsel-projectile
+[submodule "dash"]
+	path = emacs.d/lib/dash
+	url = git@github.com:magnars/dash.el.git
+[submodule "diminish"]
+	path = emacs.d/lib/diminish
+	url = https://github.com/myrjola/diminish.el
+[submodule "emacsql"]
+	path = emacs.d/lib/emacsql
+	url = git@github.com:skeeto/emacsql.git
+	no-byte-compile = emacsql-pg.el
+[submodule "epkg"]
+	path = emacs.d/lib/epkg
+	url = git@github.com:emacscollective/epkg.git
+[submodule "flycheck"]
+	path = emacs.d/lib/flycheck
+	url = https://github.com/flycheck/flycheck
+[submodule "forge"]
+	path = emacs.d/lib/forge
+	url = https://github.com/magit/forge
+[submodule "frame-local"]
+	path = emacs.d/lib/frame-local
+	url = https://github.com/sebastiencs/frame-local
+[submodule "ghub"]
+	path = emacs.d/lib/ghub
+	url = https://github.com/magit/ghub
+[submodule "gptel"]
+	path = emacs.d/lib/gptel
+	url = https://github.com/karthink/gptel
+[submodule "haskell-mode"]
+	path = emacs.d/lib/haskell-mode
+	url = https://github.com/haskell/haskell-mode
+[submodule "ibuffer-vc"]
+	path = emacs.d/lib/ibuffer-vc
+	url = https://github.com/purcell/ibuffer-vc
+[submodule "ivy"]
+	path = emacs.d/lib/ivy
+	url = https://github.com/abo-abo/swiper
+[submodule "ivy-pass"]
+	path = emacs.d/lib/ivy-pass
+	url = https://github.com/ecraven/ivy-pass
+[submodule "ledger-mode"]
+	path = emacs.d/lib/ledger-mode
+	url = https://github.com/ledger/ledger-mode
+[submodule "llama"]
+	path = emacs.d/lib/llama
+	url = git@github.com:tarsius/llama.git
+[submodule "magit"]
+	path = emacs.d/lib/magit
+	url = git@github.com:magit/magit.git
+[submodule "markdown-mode"]
+	path = emacs.d/lib/markdown-mode
+	url = https://github.com/jrblevin/markdown-mode
+[submodule "modus-themes"]
+	path = emacs.d/lib/modus-themes
+	url = https://github.com/protesilaos/modus-themes
+[submodule "mu4e"]
+	path = emacs.d/lib/mu4e
+	url = https://github.com/djcb/mu
+[submodule "multiple-cursors"]
+	path = emacs.d/lib/multiple-cursors
+	url = https://github.com/magnars/multiple-cursors.el
+[submodule "password-store"]
+	path = emacs.d/lib/password-store
+	url = git@github.com:emacsmirror/password-store.git
+[submodule "php-mode"]
+	path = emacs.d/lib/php-mode
+	url = https://github.com/emacs-php/php-mode
+[submodule "prescient"]
+	path = emacs.d/lib/prescient
+	url = https://github.com/radian-software/prescient.el
+[submodule "projectile"]
+	path = emacs.d/lib/projectile
+	url = https://github.com/bbatsov/projectile
+[submodule "protobuf-mode"]
+	path = emacs.d/lib/protobuf-mode
+	url = git@github.com:emacsmirror/protobuf-mode.git
+[submodule "rainbow-mode"]
+	path = emacs.d/lib/rainbow-mode
+	url = git@github.com:emacsmirror/rainbow-mode.git
+[submodule "rg"]
+	path = emacs.d/lib/rg
+	url = https://github.com/dajva/rg.el
+[submodule "rust-mode"]
+	path = emacs.d/lib/rust-mode
+	url = https://github.com/rust-lang/rust-mode
+[submodule "sbt-mode"]
+	path = emacs.d/lib/sbt-mode
+	url = https://github.com/hvesalai/emacs-sbt-mode
+[submodule "scala-ts-mode"]
+	path = emacs.d/lib/scala-ts-mode
+	url = https://github.com/KaranAhlawat/scala-ts-mode
+[submodule "transient"]
+	path = emacs.d/lib/transient
+	url = git@github.com:magit/transient.git
+[submodule "treemacs"]
+	path = emacs.d/lib/treemacs
+	url = https://github.com/Alexander-Miller/treemacs
+[submodule "treepy"]
+	path = emacs.d/lib/treepy
+	url = https://github.com/volrath/treepy.el
+[submodule "web-mode"]
+	path = emacs.d/lib/web-mode
+	url = https://github.com/fxbois/web-mode
+[submodule "wgrep"]
+	path = emacs.d/lib/wgrep
+	url = https://github.com/mhayashi1120/Emacs-wgrep
+[submodule "winring"]
+	path = emacs.d/lib/winring
+	url = https://gitlab.com/warsaw/winring
+[submodule "with-editor"]
+	path = emacs.d/lib/with-editor
+	url = git@github.com:magit/with-editor.git
+[submodule "yafolding"]
+	path = emacs.d/lib/yafolding
+	url = https://github.com/emacsorphanage/yafolding
+[submodule "yaml"]
+	path = emacs.d/lib/yaml
+	url = https://github.com/zkry/yaml.el
+[submodule "yasnippet"]
+	path = emacs.d/lib/yasnippet
+	url = https://github.com/joaotavora/yasnippet
