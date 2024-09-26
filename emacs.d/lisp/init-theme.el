@@ -1,11 +1,6 @@
 (defvar mjhoy/current-theme nil
   "The current custom theme.")
 
-(add-to-list 'custom-theme-load-path
-             (expand-file-name "site-lisp/matsys-theme" user-emacs-directory))
-(add-to-list 'custom-theme-load-path
-             (expand-file-name "site-lisp/davy-theme" user-emacs-directory))
-
 (defun mjhoy/switch-theme (theme)
   "Disable currently loaded theme in mjhoy/current-theme,
 enable THEME and set as mjhoy/current-theme. This allows quick
@@ -31,6 +26,6 @@ If THEME is `original', disable all custom themes."
     (setq mjhoy/current-theme theme)
     (load-theme theme t)))
 
-(mjhoy/switch-theme 'modus-vivendi-tinted)
+(mjhoy/switch-theme 'sanityinc-tomorrow-night)
 
 (provide 'init-theme)
