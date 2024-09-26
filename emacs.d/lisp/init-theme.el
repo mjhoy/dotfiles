@@ -1,11 +1,6 @@
 (defvar mjhoy/current-theme nil
   "The current custom theme.")
 
-(add-to-list 'custom-theme-load-path
-             (expand-file-name "site-lisp/matsys-theme" user-emacs-directory))
-(add-to-list 'custom-theme-load-path
-             (expand-file-name "site-lisp/davy-theme" user-emacs-directory))
-
 (defun mjhoy/switch-theme (theme)
   "Disable currently loaded theme in mjhoy/current-theme,
 enable THEME and set as mjhoy/current-theme. This allows quick
