@@ -28,9 +28,6 @@
 [submodule "consult"]
 	path = emacs.d/lib/consult
 	url = https://github.com/minad/consult
-[submodule "counsel-projectile"]
-	path = emacs.d/lib/counsel-projectile
-	url = https://github.com/ericdanan/counsel-projectile
 [submodule "dash"]
 	path = emacs.d/lib/dash
 	url = git@github.com:magnars/dash.el.git

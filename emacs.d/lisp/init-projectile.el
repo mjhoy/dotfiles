@@ -1,10 +1,8 @@
-(require 'counsel-projectile)
+(require 'projectile)
 
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 (projectile-global-mode)
-
-(counsel-projectile-mode)
 
 (defun mjhoy/projectile-is-drupal ()
   "Returns t if the current project is a drupal project, nil otherwise."
