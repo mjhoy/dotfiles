@@ -1,3 +1,9 @@
+[submodule "ace-window"]
+	path = emacs.d/lib/ace-window
+	url = https://github.com/abo-abo/ace-window
+[submodule "avy"]
+	path = emacs.d/lib/avy
+	url = https://github.com/abo-abo/avy
 [submodule "bm"]
 	path = emacs.d/lib/bm
 	url = https://github.com/joodland/bm
