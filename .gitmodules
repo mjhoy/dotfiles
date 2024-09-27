@@ -25,6 +25,9 @@
 [submodule "compat"]
 	path = emacs.d/lib/compat
 	url = git@github.com:emacs-compat/compat.git
+[submodule "consult"]
+	path = emacs.d/lib/consult
+	url = https://github.com/minad/consult
 [submodule "counsel-projectile"]
 	path = emacs.d/lib/counsel-projectile
 	url = https://github.com/ericdanan/counsel-projectile

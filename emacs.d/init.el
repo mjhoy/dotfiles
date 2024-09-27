@@ -82,6 +82,7 @@
 (require 'init-vertico)
 (require 'init-marginalia)
 (require 'init-orderless)
+(require 'init-consult)
 (require 'init-magit)
 (require 'init-lsp-booster)
 (require 'init-eglot)
