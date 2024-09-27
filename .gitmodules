@@ -92,6 +92,9 @@
 [submodule "multiple-cursors"]
 	path = emacs.d/lib/multiple-cursors
 	url = https://github.com/magnars/multiple-cursors.el
+[submodule "orderless"]
+	path = emacs.d/lib/orderless
+	url = https://github.com/oantolin/orderless
 [submodule "password-store"]
 	path = emacs.d/lib/password-store
 	url = git@github.com:emacsmirror/password-store.git

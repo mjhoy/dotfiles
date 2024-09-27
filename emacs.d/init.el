@@ -81,6 +81,7 @@
 (require 'init-ivy)
 (require 'init-vertico)
 (require 'init-marginalia)
+(require 'init-orderless)
 (require 'init-magit)
 (require 'init-lsp-booster)
 (require 'init-eglot)
