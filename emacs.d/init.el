@@ -66,7 +66,7 @@
 (require 'init-windmove)
 (require 'init-winring)
 (require 'init-compilation)
-(require 'init-projectile)
+(require 'init-project)
 (require 'init-ibuffer)
 (require 'init-dired)
 (require 'init-uniquify)

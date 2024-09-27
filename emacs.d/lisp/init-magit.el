@@ -1,7 +1,7 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 
+(require 'magit)
 (require 'init-org)
-(require 'init-projectile)
 (require 'forge)
 
 (setq magit-push-always-verify nil)
@@ -41,9 +41,6 @@ to the current org clock, if one exists."
   (add-hook 'with-editor-post-finish-hook #'mjhoy/log-current-commit-to-org-clock nil t))
 
 (add-hook 'git-commit-mode-hook #'mjhoy/git-commit-hook)
-
-(defun mjhoy--run-projectile-invalidate-cache (&rest _args)
-  (projectile-invalidate-cache nil))
 
 (advice-add 'magit-checkout
             :after #'mjhoy--run-projectile-invalidate-cache)

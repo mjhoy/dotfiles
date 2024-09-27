@@ -152,6 +152,7 @@
         cloc
         cmake
         ctags
+        fd
         fish
         git
         graphviz
