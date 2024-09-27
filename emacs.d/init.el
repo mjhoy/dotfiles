@@ -79,6 +79,7 @@
 (require 'init-flymake)
 (require 'init-flyspell)
 (require 'init-ivy)
+(require 'init-vertico)
 (require 'init-magit)
 (require 'init-lsp-booster)
 (require 'init-eglot)
