@@ -41,6 +41,9 @@
 	path = emacs.d/lib/emacsql
 	url = git@github.com:skeeto/emacsql.git
 	no-byte-compile = emacsql-pg.el
+[submodule "embark"]
+	path = emacs.d/lib/embark
+	url = https://github.com/oantolin/embark
 [submodule "epkg"]
 	path = emacs.d/lib/epkg
 	url = git@github.com:emacscollective/epkg.git
