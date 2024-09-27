@@ -77,6 +77,9 @@
 [submodule "magit"]
 	path = emacs.d/lib/magit
 	url = git@github.com:magit/magit.git
+[submodule "marginalia"]
+	path = emacs.d/lib/marginalia
+	url = https://github.com/minad/marginalia
 [submodule "markdown-mode"]
 	path = emacs.d/lib/markdown-mode
 	url = https://github.com/jrblevin/markdown-mode
