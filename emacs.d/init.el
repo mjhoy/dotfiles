@@ -78,7 +78,6 @@
 (require 'init-flycheck)
 (require 'init-flymake)
 (require 'init-flyspell)
-(require 'init-ivy)
 (require 'init-vertico)
 (require 'init-marginalia)
 (require 'init-orderless)

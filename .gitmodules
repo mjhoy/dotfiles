@@ -65,12 +65,6 @@
 [submodule "ibuffer-vc"]
 	path = emacs.d/lib/ibuffer-vc
 	url = https://github.com/purcell/ibuffer-vc
-[submodule "ivy"]
-	path = emacs.d/lib/ivy
-	url = https://github.com/abo-abo/swiper
-[submodule "ivy-pass"]
-	path = emacs.d/lib/ivy-pass
-	url = https://github.com/ecraven/ivy-pass
 [submodule "ledger-mode"]
 	path = emacs.d/lib/ledger-mode
 	url = https://github.com/ledger/ledger-mode
