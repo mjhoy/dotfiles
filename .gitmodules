@@ -16,18 +16,15 @@
 [submodule "color-theme-sanityinc-tomorrow"]
 	path = emacs.d/lib/color-theme-sanityinc-tomorrow
 	url = https://github.com/purcell/color-theme-sanityinc-tomorrow
-[submodule "company"]
-	path = emacs.d/lib/company
-	url = https://github.com/company-mode/company-mode
-[submodule "company-box"]
-	path = emacs.d/lib/company-box
-	url = https://github.com/sebastiencs/company-box
 [submodule "compat"]
 	path = emacs.d/lib/compat
 	url = git@github.com:emacs-compat/compat.git
 [submodule "consult"]
 	path = emacs.d/lib/consult
 	url = https://github.com/minad/consult
+[submodule "corfu"]
+	path = emacs.d/lib/corfu
+	url = https://github.com/minad/corfu
 [submodule "dash"]
 	path = emacs.d/lib/dash
 	url = git@github.com:magnars/dash.el.git

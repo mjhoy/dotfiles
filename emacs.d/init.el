@@ -70,7 +70,6 @@
 (require 'init-ibuffer)
 (require 'init-dired)
 (require 'init-uniquify)
-(require 'init-company)
 ;; todo: get mu4e loading correctly with borg
 ;; (require 'init-mu4e)
 (require 'init-yas)
@@ -83,6 +82,7 @@
 (require 'init-orderless)
 (require 'init-embark)
 (require 'init-consult)
+(require 'init-corfu)
 (require 'init-magit)
 (require 'init-lsp-booster)
 (require 'init-eglot)

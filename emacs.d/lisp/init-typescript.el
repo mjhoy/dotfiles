@@ -21,7 +21,4 @@
 ;; enable typescript-tslint checker
 (flycheck-add-mode 'typescript-tslint 'web-mode)
 
-;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
-
 (provide 'init-typescript)
