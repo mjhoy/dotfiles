@@ -22,6 +22,9 @@ lisp/init-private.el
 /org-persist/
 /multisession/files/emoji
 
+# local projects
+/projects
+
 # epkgs repo used by borg
 /epkgs/
 

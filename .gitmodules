@@ -16,18 +16,15 @@
 [submodule "color-theme-sanityinc-tomorrow"]
 	path = emacs.d/lib/color-theme-sanityinc-tomorrow
 	url = https://github.com/purcell/color-theme-sanityinc-tomorrow
-[submodule "company"]
-	path = emacs.d/lib/company
-	url = https://github.com/company-mode/company-mode
-[submodule "company-box"]
-	path = emacs.d/lib/company-box
-	url = https://github.com/sebastiencs/company-box
 [submodule "compat"]
 	path = emacs.d/lib/compat
 	url = git@github.com:emacs-compat/compat.git
-[submodule "counsel-projectile"]
-	path = emacs.d/lib/counsel-projectile
-	url = https://github.com/ericdanan/counsel-projectile
+[submodule "consult"]
+	path = emacs.d/lib/consult
+	url = https://github.com/minad/consult
+[submodule "corfu"]
+	path = emacs.d/lib/corfu
+	url = https://github.com/minad/corfu
 [submodule "dash"]
 	path = emacs.d/lib/dash
 	url = git@github.com:magnars/dash.el.git
@@ -38,6 +35,9 @@
 	path = emacs.d/lib/emacsql
 	url = git@github.com:skeeto/emacsql.git
 	no-byte-compile = emacsql-pg.el
+[submodule "embark"]
+	path = emacs.d/lib/embark
+	url = https://github.com/oantolin/embark
 [submodule "epkg"]
 	path = emacs.d/lib/epkg
 	url = git@github.com:emacscollective/epkg.git
@@ -62,12 +62,6 @@
 [submodule "ibuffer-vc"]
 	path = emacs.d/lib/ibuffer-vc
 	url = https://github.com/purcell/ibuffer-vc
-[submodule "ivy"]
-	path = emacs.d/lib/ivy
-	url = https://github.com/abo-abo/swiper
-[submodule "ivy-pass"]
-	path = emacs.d/lib/ivy-pass
-	url = https://github.com/ecraven/ivy-pass
 [submodule "ledger-mode"]
 	path = emacs.d/lib/ledger-mode
 	url = https://github.com/ledger/ledger-mode
@@ -77,6 +71,9 @@
 [submodule "magit"]
 	path = emacs.d/lib/magit
 	url = git@github.com:magit/magit.git
+[submodule "marginalia"]
+	path = emacs.d/lib/marginalia
+	url = https://github.com/minad/marginalia
 [submodule "markdown-mode"]
 	path = emacs.d/lib/markdown-mode
 	url = https://github.com/jrblevin/markdown-mode
@@ -89,6 +86,9 @@
 [submodule "multiple-cursors"]
 	path = emacs.d/lib/multiple-cursors
 	url = https://github.com/magnars/multiple-cursors.el
+[submodule "orderless"]
+	path = emacs.d/lib/orderless
+	url = https://github.com/oantolin/orderless
 [submodule "password-store"]
 	path = emacs.d/lib/password-store
 	url = git@github.com:emacsmirror/password-store.git
@@ -98,9 +98,6 @@
 [submodule "prescient"]
 	path = emacs.d/lib/prescient
 	url = https://github.com/radian-software/prescient.el
-[submodule "projectile"]
-	path = emacs.d/lib/projectile
-	url = https://github.com/bbatsov/projectile
 [submodule "protobuf-mode"]
 	path = emacs.d/lib/protobuf-mode
 	url = git@github.com:emacsmirror/protobuf-mode.git
@@ -128,6 +125,9 @@
 [submodule "treepy"]
 	path = emacs.d/lib/treepy
 	url = https://github.com/volrath/treepy.el
+[submodule "vertico"]
+	path = emacs.d/lib/vertico
+	url = https://github.com/minad/vertico
 [submodule "web-mode"]
 	path = emacs.d/lib/web-mode
 	url = https://github.com/fxbois/web-mode
