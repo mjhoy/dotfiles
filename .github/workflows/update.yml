@@ -1,5 +1,6 @@
 name: "Update"
 on:
+  workflow_dispatch:
   schedule:
     # First day of the month at 9 UTC
     - cron: '0 9 1 * *'
