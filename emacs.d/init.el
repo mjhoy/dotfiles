@@ -67,6 +67,7 @@
 (require 'init-winring)
 (require 'init-compilation)
 (require 'init-project)
+(require 'init-which-key)
 (require 'init-ibuffer)
 (require 'init-dired)
 (require 'init-uniquify)
