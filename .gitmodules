@@ -134,6 +134,9 @@
 [submodule "wgrep"]
 	path = emacs.d/lib/wgrep
 	url = https://github.com/mhayashi1120/Emacs-wgrep
+[submodule "which-key"]
+	path = emacs.d/lib/which-key
+	url = git@github.com:justbur/emacs-which-key.git
 [submodule "winring"]
 	path = emacs.d/lib/winring
 	url = https://gitlab.com/warsaw/winring
