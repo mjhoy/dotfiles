@@ -1,5 +1,6 @@
 name: "Update"
 on:
+  workflow_dispatch:
   schedule:
     # First day of the month at 9 UTC
     - cron: '0 9 1 * *'
@@ -21,6 +22,9 @@ jobs:
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
         extraPullNames: nix-community
     - run: ./scripts/build-nix-env
-    - run: ./scripts/update-nixpkgs
+    - run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        ./scripts/update-nixpkgs
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
