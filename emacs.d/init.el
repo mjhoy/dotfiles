@@ -84,6 +84,7 @@
 (require 'init-embark)
 (require 'init-consult)
 (require 'init-corfu)
+(require 'init-cape)
 (require 'init-magit)
 (require 'init-lsp-booster)
 (require 'init-eglot)
