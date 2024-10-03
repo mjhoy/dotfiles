@@ -14,6 +14,8 @@
   '(diminish 'eldoc-mode))
 (eval-after-load "init-ivy"
   '(diminish 'ivy-mode))
+(eval-after-load "init-which-key"
+  '(diminish 'which-key-mode))
 (eval-after-load "auto-dim-other-buffers"
   '(diminish 'auto-dim-other-buffers-mode))
 (diminish 'abbrev-mode)
