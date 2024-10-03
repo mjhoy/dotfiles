@@ -10,6 +10,9 @@
 [submodule "borg"]
 	path = emacs.d/lib/borg
 	url = git@github.com:emacscollective/borg.git
+[submodule "cape"]
+	path = emacs.d/lib/cape
+	url = https://github.com/minad/cape
 [submodule "closql"]
 	path = emacs.d/lib/closql
 	url = git@github.com:emacscollective/closql.git
