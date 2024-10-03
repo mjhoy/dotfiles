@@ -4,11 +4,14 @@
 (global-set-key (kbd "C-x b") 'consult-buffer)
 ;; Original: goto-line
 (global-set-key (kbd "M-g g") 'consult-goto-line)
+;; Original: yank-pop
+(global-set-key (kbd "M-y") 'consult-yank-pop)
 
 ;; Searching in projects
 (global-set-key (kbd "C-c p s s") 'consult-ripgrep)
 (global-set-key (kbd "C-c p s l") 'consult-line-multi)
 (global-set-key (kbd "C-c p s i") 'consult-imenu-multi)
+(global-set-key (kbd "C-c p o") 'consult-outline)
 
 (global-set-key (kbd "C-c p f") 'consult-fd)
 (global-set-key (kbd "C-c p b") 'consult-project-buffer)
