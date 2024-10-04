@@ -65,6 +65,7 @@
 (require 'init-erc)
 (require 'init-windmove)
 (require 'init-winring)
+(require 'init-vundo)
 (require 'init-compilation)
 (require 'init-project)
 (require 'init-which-key)

@@ -128,6 +128,9 @@
 [submodule "vertico"]
 	path = emacs.d/lib/vertico
 	url = https://github.com/minad/vertico
+[submodule "vundo"]
+	path = emacs.d/lib/vundo
+	url = https://github.com/casouri/vundo
 [submodule "web-mode"]
 	path = emacs.d/lib/web-mode
 	url = https://github.com/fxbois/web-mode
