@@ -22,7 +22,7 @@ function update() {
         git add $sm_path
         git commit -m "bump ${name} ${date}"
         git push origin $update_branch -u
-        gh pr create --title "bump ${name} ${date}" --body "Compare: ${diff_url}"
+        gh pr create --draft --title "bump ${name} ${date}" --body "Compare: ${diff_url}"
         git checkout $top_branch
     fi
 }
