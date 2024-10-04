@@ -135,6 +135,14 @@
       };
     };
 
+    myEmacs =
+      let
+        myEmacsBuild = super.emacs29;
+        myPackages = epkgs: (with epkgs; [
+          mu4e
+        ]);
+      in (pkgs.emacsPackagesFor myEmacsBuild).emacsWithPackages myPackages;
+
     # ---------------------
     # Developer environment
     # ---------------------
@@ -165,7 +173,7 @@
         libxml2
         lynx
         mu
-        emacs29
+        myEmacs
         myREnv
         nasm
         ngrok

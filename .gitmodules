@@ -83,9 +83,6 @@
 [submodule "modus-themes"]
 	path = emacs.d/lib/modus-themes
 	url = https://github.com/protesilaos/modus-themes
-[submodule "mu4e"]
-	path = emacs.d/lib/mu4e
-	url = https://github.com/djcb/mu
 [submodule "multiple-cursors"]
 	path = emacs.d/lib/multiple-cursors
 	url = https://github.com/magnars/multiple-cursors.el
