@@ -71,8 +71,7 @@
 (require 'init-ibuffer)
 (require 'init-dired)
 (require 'init-uniquify)
-;; todo: get mu4e loading correctly with borg
-;; (require 'init-mu4e)
+(require 'init-mu4e)
 (require 'init-yas)
 (require 'init-sql)
 (require 'init-flycheck)
