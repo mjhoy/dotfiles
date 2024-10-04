@@ -3,6 +3,7 @@ on:
   push:
     branches: [main]
   pull_request:
+    types: [ready_for_review, opened, syncronize, reopened]
 jobs:
   build:
     runs-on: macos-latest
