@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -eoux pipefail
+
+function update() {
+    branch=$(git rev-parse --abbrev-ref HEAD)
+    git fetch origin
+    local_sha=$(git rev-parse ${branch})
+    remote_sha=$(git rev-parse origin/${branch})
+    if [ ! "$local_sha" == "$remote_sha" ]; then
+        cd $toplevel
+        date=$(date "+%Y-%m-%d")
+        top_branch=$(git rev-parse --abbrev-ref HEAD)
+        update_branch=update-${name}-${date}
+        git checkout -b $update_branch
+        submodule_git_url=$(git config --file=.gitmodules submodule.${name}.url)
+        submodule_http_url=${submodule_git_url/git@/https://}
+        submodule_http_url=${submodule_http_url/.com:/.com/}
+        submodule_http_url=${submodule_http_url/.git//}
+        diff_url=${submodule_http_url}/compare/${local_sha}...${remote_sha}
+        git submodule update --remote -- $sm_path
+        git add $sm_path
+        git commit -m "bump ${name} ${date}"
+        git push origin $update_branch -u
+        gh pr create --title "bump ${name} ${date}" --body "Compare: ${diff_url}"
+        git checkout $top_branch
+    fi
+}
+
+export -f update
+
+git submodule foreach 'update'
