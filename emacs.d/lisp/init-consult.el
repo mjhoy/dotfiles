@@ -11,11 +11,13 @@
 (global-set-key (kbd "C-c p s s") 'consult-ripgrep)
 (global-set-key (kbd "C-c p s l") 'consult-line-multi)
 (global-set-key (kbd "C-c p s i") 'consult-imenu-multi)
-(global-set-key (kbd "C-c p o") 'consult-outline)
-
 (global-set-key (kbd "C-c p f") 'consult-fd)
 (global-set-key (kbd "C-c p b") 'consult-project-buffer)
-(global-set-key (kbd "C-c s") 'consult-line)
-(global-set-key (kbd "C-c e") 'consult-flymake)
+
+;; Searching in files
+(global-set-key (kbd "C-c s o") 'consult-outline)
+(global-set-key (kbd "C-c s s") 'consult-line)
+(global-set-key (kbd "C-c s i") 'consult-imenu)
+(global-set-key (kbd "C-c s e") 'consult-flymake)
 
 (provide 'init-consult)
