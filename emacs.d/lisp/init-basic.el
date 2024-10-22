@@ -9,6 +9,11 @@
 
 (setq backup-by-copying t)
 
+;; disable backups
+(setq make-backup-files nil)
+(setq backup-inhibited nil)
+(setq create-lockfiles nil)
+
 ;; save bookmarks immediately
 (setq bookmark-save-flag 1)
 
