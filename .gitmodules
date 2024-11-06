@@ -119,9 +119,6 @@
 [submodule "transient"]
 	path = emacs.d/lib/transient
 	url = git@github.com:magit/transient.git
-[submodule "treemacs"]
-	path = emacs.d/lib/treemacs
-	url = https://github.com/Alexander-Miller/treemacs
 [submodule "treepy"]
 	path = emacs.d/lib/treepy
 	url = https://github.com/volrath/treepy.el
