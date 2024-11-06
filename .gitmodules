@@ -68,6 +68,9 @@
 [submodule "ledger-mode"]
 	path = emacs.d/lib/ledger-mode
 	url = https://github.com/ledger/ledger-mode
+[submodule "linear"]
+	path = emacs.d/lib/linear
+	url = git@github.com:mjhoy/linear-emacs.git
 [submodule "llama"]
 	path = emacs.d/lib/llama
 	url = git@github.com:tarsius/llama.git
