@@ -14,7 +14,7 @@ language model and a Scala expert, using Scala 2 and not Scala \
 3. Provide code and only additional context when necessary."
                                        ))
 
-(setq gptel-model "gpt-4o-mini")
+(setq gptel-model 'gpt-4o-mini)
 
 (global-set-key (kbd "C-c k") #'gptel-send)
 
