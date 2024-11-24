@@ -5,6 +5,7 @@ typeset -U PATH path # path entries are unique
 path=(
   "$HOME/.nix-profile/bin"
   "$HOME/.local/bin"
+  "$HOME/.docker/bin"
   "$HOME/.cargo/bin"
   "$HOME/.cabal/bin"
   "$HOME/.ghcup/bin"
