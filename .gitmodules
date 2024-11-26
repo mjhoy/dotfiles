@@ -101,6 +101,9 @@
 [submodule "prescient"]
 	path = emacs.d/lib/prescient
 	url = https://github.com/radian-software/prescient.el
+[submodule "prettier-js"]
+	path = emacs.d/lib/prettier-js
+	url = https://github.com/prettier/prettier-emacs
 [submodule "protobuf-mode"]
 	path = emacs.d/lib/protobuf-mode
 	url = git@github.com:emacsmirror/protobuf-mode.git

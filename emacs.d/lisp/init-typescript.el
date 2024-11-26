@@ -1,9 +1,7 @@
 (require 'web-mode)
 (require 'init-flycheck)
 (require 'init-eglot)
-
-(add-to-list 'eglot-server-programs
-             '((typescript-mode) "typescript-language-server" "--stdio"))
+(require 'prettier-js)
 
 (add-to-list 'auto-mode-alist '("\\.ts\\'" .  tsx-ts-mode))
 
@@ -12,7 +10,7 @@
 (defun mjhoy/setup-typescript-ts-mode ()
   "My setup for tsx-ts-mode and typescript-ts-mode."
   (eglot-ensure)
-  (add-hook 'before-save-hook #'prettier-prettify nil t)
+  (prettier-js-mode)
   )
 
 (add-hook 'tsx-ts-mode-hook 'mjhoy/setup-typescript-ts-mode)
