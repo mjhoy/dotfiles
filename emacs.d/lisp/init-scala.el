@@ -12,7 +12,7 @@
   "My setup for scala-ts-mode."
   (eglot-ensure)
   (add-hook 'before-save-hook #'eglot-format-buffer nil t)
-  (add-hook 'before-save-hook #'mjhoy/eglot-organize-imports 5 t)
+  ;; (add-hook 'before-save-hook #'mjhoy/eglot-organize-imports 5 t)
   )
 
 (add-hook 'scala-ts-mode-hook 'mjhoy/setup-scala-ts-mode)
