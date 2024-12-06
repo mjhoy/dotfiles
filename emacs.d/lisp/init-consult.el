@@ -11,7 +11,8 @@
 (global-set-key (kbd "C-c p s s") 'consult-ripgrep)
 (global-set-key (kbd "C-c p s l") 'consult-line-multi)
 (global-set-key (kbd "C-c p s i") 'consult-imenu-multi)
-(global-set-key (kbd "C-c p f") 'consult-fd)
+(global-set-key (kbd "C-c p f") 'project-find-file)
+(global-set-key (kbd "C-c p d") 'consult-find)
 (global-set-key (kbd "C-c p b") 'consult-project-buffer)
 
 ;; Searching in files
