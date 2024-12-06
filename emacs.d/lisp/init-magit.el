@@ -13,13 +13,6 @@
 
 (global-set-key (kbd "C-c g") 'magit-status)
 
-;; Hide the "Recent commits" section in status.
-;; https://github.com/magit/magit/issues/3230
-(magit-add-section-hook 'magit-status-sections-hook
-                        'magit-insert-unpushed-to-upstream
-                        'magit-insert-unpushed-to-upstream-or-recent
-                        'replace)
-
 (defun mjhoy/log-current-commit-to-org-clock ()
   "Get the current repository's HEAD commit, and add it as a link
 to the current org clock, if one exists."
@@ -41,10 +34,5 @@ to the current org clock, if one exists."
   (add-hook 'with-editor-post-finish-hook #'mjhoy/log-current-commit-to-org-clock nil t))
 
 (add-hook 'git-commit-mode-hook #'mjhoy/git-commit-hook)
-
-(advice-add 'magit-checkout
-            :after #'mjhoy--run-projectile-invalidate-cache)
-(advice-add 'magit-branch-and-checkout
-            :after #'mjhoy--run-projectile-invalidate-cache)
 
 (provide 'init-magit)
