@@ -44,6 +44,9 @@
 [submodule "epkg"]
 	path = emacs.d/lib/epkg
 	url = git@github.com:emacscollective/epkg.git
+[submodule "fish-mode"]
+	path = emacs.d/lib/fish-mode
+	url = https://github.com/wwwjfy/emacs-fish
 [submodule "flycheck"]
 	path = emacs.d/lib/flycheck
 	url = https://github.com/flycheck/flycheck
