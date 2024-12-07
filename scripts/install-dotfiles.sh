@@ -50,6 +50,14 @@ if [[ ! -e $HOME/.dotfiles ]]; then
     lns $(pwd) $HOME/.dotfiles
 fi
 
+if [[ ! -e $HOME/.config/fish ]]; then
+    mkdir -p $HOME/.config/fish
+fi
+
+if [[ ! -e $HOME/.config/fish/config.fish ]]; then
+    lns $(pwd)/fish/config.fish $HOME/.config/fish/config.fish
+fi
+
 # Add a ApplicationSupport directory without a space for mac os.
 if [[ -e $HOME/Library/Application\ Support && ! -e $HOME/Library/ApplicationSupport ]]; then
     ln -s $HOME/Library/Application\ Support $HOME/Library/ApplicationSupport
