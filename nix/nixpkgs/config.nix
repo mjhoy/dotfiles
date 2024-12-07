@@ -146,16 +146,16 @@
         ];
         myEmacsBuild = super.emacs29.overrideAttrs (old : {
           pname = "emacs";
-          version = "30.0.91";
+          version = "30.0.92";
           variant = "mainline";
-          rev = "30.0.91";
+          rev = "30.0.92";
           src = fetchFromGitHub {
              owner = "emacs-mirror";
              repo = "emacs";
-             rev = "9a1c76bf7ff49d886cc8e1a3f360d71e62544802";
-             sha256 = "sha256-X5J34BUY42JgA1s76eVeGA9WNtesU2c+JyndIHFbONQ=";
+             rev = "30.0.92";
+             sha256 = "sha256-V2TXLemSCIPTpg6RDChv4va7pHfVcqSMw/EWqvlRQ1o=";
           };
-          hash = "sha256-X5J34BUY42JgA1s76eVeGA9WNtesU2c+JyndIHFbONQ=";
+          hash = "sha256-V2TXLemSCIPTpg6RDChv4va7pHfVcqSMw/EWqvlRQ1o=";
           preConfigure = "./autogen.sh";
           patches = [
             (substituteAll
