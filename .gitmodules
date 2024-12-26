@@ -31,6 +31,9 @@
 [submodule "dash"]
 	path = emacs.d/lib/dash
 	url = git@github.com:magnars/dash.el.git
+[submodule "diff-hl"]
+	path = emacs.d/lib/diff-hl
+	url = https://github.com/dgutov/diff-hl
 [submodule "diminish"]
 	path = emacs.d/lib/diminish
 	url = https://github.com/myrjola/diminish.el
