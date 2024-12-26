@@ -125,6 +125,9 @@
 [submodule "scala-ts-mode"]
 	path = emacs.d/lib/scala-ts-mode
 	url = https://github.com/KaranAhlawat/scala-ts-mode
+[submodule "standard-themes"]
+	path = emacs.d/lib/standard-themes
+	url = https://github.com/protesilaos/standard-themes
 [submodule "transient"]
 	path = emacs.d/lib/transient
 	url = git@github.com:magit/transient.git
