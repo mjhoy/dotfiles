@@ -228,6 +228,7 @@
         protobuf
         ripgrep
         silver-searcher
+        texinfo
         tmux
         tree
         watch
