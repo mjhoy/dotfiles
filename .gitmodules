@@ -37,6 +37,9 @@
 [submodule "diminish"]
 	path = emacs.d/lib/diminish
 	url = https://github.com/myrjola/diminish.el
+[submodule "ef-themes"]
+	path = emacs.d/lib/ef-themes
+	url = https://git.sr.ht/~protesilaos/ef-themes
 [submodule "emacsql"]
 	path = emacs.d/lib/emacsql
 	url = git@github.com:skeeto/emacsql.git
