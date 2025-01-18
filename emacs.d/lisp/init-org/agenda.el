@@ -40,11 +40,11 @@
                   ((org-agenda-skip-function
                     '(org-agenda-skip-entry-if 'deadline))
                    (org-deadline-warning-days 0)))
-          (todo "TODO|NEXT|REVIEW|DEPLOY|WAIT|HOLD"
+          (todo "NEXT|REVIEW|DEPLOY"
                 ((org-agenda-skip-function
                   '(org-agenda-skip-entry-if 'deadline 'scheduled))
                  (org-agenda-prefix-format "  %i %-12:c [%e] ")
-                 (org-agenda-overriding-header "\nTasks\n")))
+                 (org-agenda-overriding-header "\nNext\n")))
           (agenda nil
                   ((org-agenda-entry-types '(:deadline))
                    (org-agenda-format-date "")
