@@ -22,11 +22,16 @@ function update() {
         git add $sm_path
         git commit -m "bump ${name} ${date}"
         git push origin $update_branch -u
-        gh pr create --draft --title "bump ${name} ${date}" --body "Compare: ${diff_url}"
+        gh pr create --draft --title "bump ${name} ${date}" --body "Compare: ${diff_url}" -B $top_branch
         git checkout $top_branch
     fi
 }
 
 export -f update
+
+date=$(date "+%Y-%m-%d")
+main_update_branch=update-emacs-packages-${date}
+git checkout -b $main_update_branch
+git push origin $main_update_branch -u
 
 git submodule foreach 'update'
