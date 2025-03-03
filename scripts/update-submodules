@@ -5,6 +5,8 @@ set -eoux pipefail
 # The following won't get auto-updated.
 SKIP_SUBMODULES="yaml markdown-mode"
 
+export SKIP_SUBMODULES
+
 function update() {
     if [[ " $SKIP_SUBMODULES " =~ " $name " ]]; then
         echo "skipping $name as set in SKIP_SUBMODULES"
