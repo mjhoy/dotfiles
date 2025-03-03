@@ -2,7 +2,14 @@
 
 set -eoux pipefail
 
+# The following won't get auto-updated.
+SKIP_SUBMODULES="yaml markdown-mode"
+
 function update() {
+    if [[ " $SKIP_SUBMODULES " =~ " $name " ]]; then
+        echo "skipping $name as set in SKIP_SUBMODULES"
+        return 0
+    fi
     branch=$(git rev-parse --abbrev-ref HEAD)
     git fetch origin
     local_sha=$(git rev-parse ${branch})
