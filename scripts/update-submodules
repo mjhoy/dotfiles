@@ -2,7 +2,34 @@
 
 set -eoux pipefail
 
+# The following won't get auto-updated.
+SKIP_SUBMODULES="yaml markdown-mode"
+
+export SKIP_SUBMODULES
+
+DRY_RUN=false
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --dry-run)
+      DRY_RUN=true
+      shift
+      ;;
+    *)
+      echo "Unknown option: $1"
+      echo "Usage: $0 [--dry-run]"
+      exit 1
+      ;;
+  esac
+done
+
+echo $DRY_RUN
+
 function update() {
+    if [[ " $SKIP_SUBMODULES " =~ " $name " ]]; then
+        echo "skipping $name as set in SKIP_SUBMODULES"
+        return 0
+    fi
     branch=$(git rev-parse --abbrev-ref HEAD)
     git fetch origin
     local_sha=$(git rev-parse ${branch})
@@ -21,8 +48,14 @@ function update() {
         git submodule update --remote -- $sm_path
         git add $sm_path
         git commit -m "bump ${name} ${date}"
-        git push origin $update_branch -u
-        gh pr create --draft --title "bump ${name} ${date}" --body "Compare: ${diff_url}" -B $top_branch
+
+        if $DRY_RUN; then
+            echo "[dry run] git push origin $update_branch -u"
+            echo "[dry run] gh pr create --draft --title \"bump ${name} ${date}\" --body \"Compare: ${diff_url}\" -B $top_branch"
+        else
+            git push origin $update_branch -u
+            gh pr create --draft --title "bump ${name} ${date}" --body "Compare: ${diff_url}" -B $top_branch
+        fi
         git checkout $top_branch
     fi
 }
