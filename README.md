@@ -59,8 +59,15 @@ One last step is to remove whatever channel was set up with in the
 installation. I run:
 
 ```sh
+# you may also need to do this using `sudo` for root channels
 nix-channel --list # note the channels listed
 nix-channel --remove <channel> # whatever channels were listed
+```
+
+Finally, a symlink should be set up in ~/.nix-defexpr like so:
+
+```
+~/.nix-defexpr/nixpkgs -> {dotfiles repo}/nixpkgs
 ```
 
 If everything is properly set up, nix should use the nixpkgs pinned at
