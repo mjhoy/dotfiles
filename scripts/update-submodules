@@ -49,7 +49,7 @@ function update() {
         git add $sm_path
         git commit -m "bump ${name} ${date}"
 
-        if $DRY_RUN; then
+        if [[ $DRY_RUN == "true" ]]; then
             echo "[dry run] git push origin $update_branch -u"
             echo "[dry run] gh pr create --draft --title \"bump ${name} ${date}\" --body \"Compare: ${diff_url}\" -B $top_branch"
         else
