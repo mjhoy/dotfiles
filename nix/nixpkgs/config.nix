@@ -135,49 +135,6 @@
       };
     };
 
-    emacs30 =
-      let
-        # https://github.com/NixOS/nixpkgs/blob/b585a1d35ee8f3d76a89d819026f292319fe19c2/pkgs/applications/editors/emacs/make-emacs.nix#L133-L138
-        libGccJitLibraryPaths = [
-          "${lib.getLib libgccjit}/lib/gcc"
-          "${lib.getLib stdenv.cc.libc}/lib"
-        ] ++ lib.optionals (stdenv.cc?cc.lib.libgcc) [
-          "${lib.getLib stdenv.cc.cc.lib.libgcc}/lib"
-        ];
-        myEmacsBuild = super.emacs29.overrideAttrs (old : {
-          pname = "emacs";
-          version = "30.0.92";
-          variant = "mainline";
-          rev = "30.0.92";
-          src = fetchFromGitHub {
-             owner = "emacs-mirror";
-             repo = "emacs";
-             rev = "30.0.92";
-             sha256 = "sha256-V2TXLemSCIPTpg6RDChv4va7pHfVcqSMw/EWqvlRQ1o=";
-          };
-          hash = "sha256-V2TXLemSCIPTpg6RDChv4va7pHfVcqSMw/EWqvlRQ1o=";
-          preConfigure = "./autogen.sh";
-          patches = [
-            (substituteAll
-              {
-                # Taken from https://github.com/NixOS/nixpkgs/blob/b585a1d35ee8f3d76a89d819026f292319fe19c2/pkgs/applications/editors/emacs/native-comp-driver-options-30.patch
-                # and https://github.com/NixOS/nixpkgs/blob/b585a1d35ee8f3d76a89d819026f292319fe19c2/pkgs/applications/editors/emacs/make-emacs.nix#L163-L172
-                src = ./emacs-native-comp-driver-options-30.patch;
-                backendPath = (lib.concatStringsSep " "
-                  (builtins.map (x: ''"-B${x}"'') ([
-                    # Paths necessary so the JIT compiler finds its libraries:
-                    "${lib.getLib libgccjit}/lib"
-                  ] ++ libGccJitLibraryPaths ++ [
-                    # Executable paths necessary for compilation (ld, as):
-                    "${lib.getBin stdenv.cc.cc}/bin"
-                    "${lib.getBin stdenv.cc.bintools}/bin"
-                    "${lib.getBin stdenv.cc.bintools.bintools}/bin"
-                ])));
-              })
-          ];
-        });
-      in myEmacsBuild;
-
     myEmacs =
       let
         myEmacsBuild = emacs30;
