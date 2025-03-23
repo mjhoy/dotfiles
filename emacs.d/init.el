@@ -86,7 +86,6 @@
 (require 'init-corfu)
 (require 'init-cape)
 (require 'init-magit)
-(require 'init-lsp-booster)
 (require 'init-eglot)
 (require 'init-scheme)
 (require 'init-ruby)
