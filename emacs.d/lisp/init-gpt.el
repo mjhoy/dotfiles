@@ -16,6 +16,28 @@ language model and a Scala expert, using Scala 2 and not Scala \
 
 (setq gptel-model 'gpt-4o-mini)
 
-(global-set-key (kbd "C-c k") #'gptel-send)
+(defvar mjhoy/gptel-models
+  '((gpt-4o-mini . nil)                 ; nil uses default backend
+    (gemma3:27b . ollama)
+    (deepseek-r1:32b . ollama))
+  "List of models and their backends for gptel to use.
+
+For ollama models, you can install via `ollama run <model>`.
+")
+
+(defun mjhoy/switch-gptel-model ()
+  "Ask which model to use with gptel."
+  (interactive)
+  (let* ((choice (completing-read "Select model: "
+                                  (mapcar #'car mjhoy/gptel-models)))
+         (model (intern choice))
+         (backend (alist-get model mjhoy/gptel-models)))
+    (setq gptel-model model)
+    (if (eq backend 'ollama)
+        (setq gptel-backend
+                   (gptel-make-ollama "Ollama"
+                     :host "localhost:11434"
+                     :stream t
+                     :models (list model))))))
 
 (provide 'init-gpt)
