@@ -15,6 +15,14 @@
 (global-set-key (kbd "C-c p d") 'consult-find)
 (global-set-key (kbd "C-c p b") 'consult-project-buffer)
 
+;; Command-key shortcuts
+(global-set-key (kbd "C-s-p") 'project-switch-project)
+(global-set-key (kbd "C-s-o") 'project-find-file)
+(global-set-key (kbd "C-s-b") 'consult-buffer)
+(global-set-key (kbd "C-s-i") 'consult-outline)
+(global-set-key (kbd "C-s-s") 'consult-line)
+(global-set-key (kbd "C-s-g") 'consult-ripgrep)
+
 ;; Searching in files
 (global-set-key (kbd "C-c s o") 'consult-outline)
 (global-set-key (kbd "C-c s s") 'consult-line)
