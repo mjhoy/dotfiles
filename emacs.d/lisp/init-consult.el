@@ -7,6 +7,10 @@
 ;; Original: yank-pop
 (global-set-key (kbd "M-y") 'consult-yank-pop)
 
+(consult-customize
+ consult-line
+ :initial (thing-at-point 'symbol))
+
 ;; Searching in projects
 (global-set-key (kbd "C-c p s s") 'consult-ripgrep)
 (global-set-key (kbd "C-c p s l") 'consult-line-multi)
