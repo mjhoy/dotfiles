@@ -85,7 +85,9 @@ Differs from text-scale-adjust by applying to all windows & frames.
 ;; right option key use as mac normal option (so i can type é easily)
 (setq ns-right-alternate-modifier 'none)
 
-(setq scroll-conservatively 10000)
+(setq scroll-conservatively 10000
+      scroll-margin 10)
+
 (show-paren-mode t)
 (setq ring-bell-function 'ignore)
 
