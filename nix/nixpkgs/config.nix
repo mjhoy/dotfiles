@@ -112,7 +112,8 @@
 
     myEmacs =
       let
-        myEmacsBuild = emacs30;
+        # Tracking: https://github.com/NixOS/nixpkgs/issues/395169
+        myEmacsBuild = emacs30.override { withNativeCompilation = false; };
         myPackages = epkgs: (with epkgs; [
           mu4e
         ]);
