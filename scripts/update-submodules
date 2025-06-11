@@ -3,7 +3,7 @@
 set -eoux pipefail
 
 # The following won't get auto-updated.
-SKIP_SUBMODULES="yaml markdown-mode"
+SKIP_SUBMODULES="yaml markdown-mode php-mode"
 
 export SKIP_SUBMODULES
 
