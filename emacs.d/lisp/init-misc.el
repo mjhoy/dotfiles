@@ -70,6 +70,11 @@
   (interactive)
   (insert (format-time-string "%Y-%m-%dT%H:%M:%S%z")))
 
+(defun mjhoy/insert-uuid ()
+  "Insert a UUID at point."
+  (interactive)
+  (insert (org-id-uuid)))
+
 (define-key global-map (kbd "M-l") 'mjhoy/show-current-line-position)
 
 (global-set-key (kbd "C-x C-l") 'mjhoy/expand-line)
