@@ -52,6 +52,19 @@
   (interactive)
   (diff-buffer-with-file (current-buffer)))
 
+(defun mjhoy/toggle-require-final-newline ()
+  "Toggle whether emacs should require the final newline (defaults to true)."
+  (interactive)
+  (if require-final-newline
+      (progn
+        (setq-local require-final-newline nil)
+        (message "require-final-newline set to false"))
+    (progn
+      (setq-local require-final-newline t)
+        (message "require-final-newline set to true"))
+      )
+  )
+
 ;; expand line
 (defun mjhoy/expand-line ()
   (interactive)
