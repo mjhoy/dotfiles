@@ -2,8 +2,8 @@ name: "Update submodules"
 on:
   workflow_dispatch:
   schedule:
-    # 12 UTC Wednesdays
-    - cron: '0 12 * * WED'
+    # 12 UTC on the 1st and 15th
+    - cron: '0 12 1,15 * *'
 jobs:
   update:
     runs-on: macos-latest
