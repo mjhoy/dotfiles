@@ -26,6 +26,8 @@ If THEME is `original', disable all custom themes."
     (setq mjhoy/current-theme theme)
     (load-theme theme t)))
 
-(mjhoy/switch-theme 'sanityinc-tomorrow-night)
+(if (string= (system-name) "plumbeous")
+    (mjhoy/switch-theme 'ef-winter)
+  (mjhoy/switch-theme 'sanityinc-tomorrow-night))
 
 (provide 'init-theme)
