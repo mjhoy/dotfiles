@@ -76,14 +76,14 @@
       jre = jdk17;
     };
 
-    # https://github.com/NixOS/nixpkgs/pull/406997
+    # https://github.com/NixOS/nixpkgs/pull/414534
     metals = super.metals.overrideAttrs (final: prev: {
-      version = "1.5.3";
+      version = "1.6.0";
       deps = stdenv.mkDerivation {
-        name = "${prev.pname}-deps-1.5.3";
+        name = "${prev.pname}-deps-1.6.0";
         buildCommand = ''
           export COURSIER_CACHE=$(pwd)
-          ${super.pkgs.coursier}/bin/cs fetch org.scalameta:metals_2.13:1.5.3 \
+          ${super.pkgs.coursier}/bin/cs fetch org.scalameta:metals_2.13:1.6.0 \
             -r bintray:scalacenter/releases \
             -r sonatype:snapshots > deps
           mkdir -p $out/share/java
@@ -91,7 +91,7 @@
         '';
         outputHashMode = "recursive";
         outputHashAlgo = "sha256";
-        outputHash = "sha256-jxrAtlD+s3yjcDWYLoN7mr8RozutItCv8dt28/UoVjk=";
+        outputHash = "sha256-+6u/nnaoCBEQCwhvPs1WQzMnppz7KEWWd1TlzbKYpAU="; 
       };
       buildInputs = [ final.deps ];
     });
