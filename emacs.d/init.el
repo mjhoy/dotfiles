@@ -86,6 +86,7 @@
 (require 'init-corfu)
 (require 'init-cape)
 (require 'init-magit)
+(require 'init-diff-hl)
 (require 'init-eglot)
 (require 'init-scheme)
 (require 'init-ruby)
