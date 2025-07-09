@@ -15,4 +15,8 @@
 
 (setq-default eglot-workspace-configuration '((haskell (formattingProvider . "fourmolu"))))
 
+(add-to-list 'eglot-server-programs
+             '((hl7-mode) "/Users/michaelhoy/proj/pipet/target/release/pipet"))
+(setq eglot-connect-timeout 10)
+
 (provide 'init-eglot)

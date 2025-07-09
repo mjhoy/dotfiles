@@ -119,3 +119,6 @@
 (require 'init-linear)
 (require 'init-misc)
 (require 'init-private nil 'noerror)
+
+
+(require 'hl7-mode)
