@@ -16,7 +16,7 @@
 (setq-default eglot-workspace-configuration '((haskell (formattingProvider . "fourmolu"))))
 
 (add-to-list 'eglot-server-programs
-             '((hl7-mode) "/Users/michaelhoy/proj/zounds/target/scala-3.6.4/zounds"))
+             '((hl7-mode) "/Users/mjhoy/proj/zounds/target/scala-3.6.4/zounds"))
 (setq eglot-connect-timeout 10)
 
 (provide 'init-eglot)
