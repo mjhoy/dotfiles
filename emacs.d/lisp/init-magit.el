@@ -11,6 +11,10 @@
 ;; Don't show closed PRs.
 (setq forge-topic-list-limit '(60 . 0))
 
+;; Only show open topics in status buffers (e.g., no merged PRs).
+(setq forge-status-buffer-default-topic-filters
+      (forge--topics-spec :type 'topic :active nil :state 'open :order 'newest))
+
 (global-set-key (kbd "C-c g") 'magit-status)
 
 (defun mjhoy/log-current-commit-to-org-clock ()

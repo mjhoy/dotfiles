@@ -54,4 +54,18 @@
 
 (setq auth-sources '("~/.authinfo" "~/.authinfo.gpg" "~/.netrc"))
 
+;; A smarter keyboard-quit: https://emacsredux.com/blog/2025/06/01/let-s-make-keyboard-quit-smarter/
+(defun mjhoy/keyboard-quit-dwim ()
+  "A smarter version of the built-in `keyboard-quit'.
+
+When the minibuffer is open, close it, even if it's not in focus."
+  (interactive)
+  (if (active-minibuffer-window)
+      (if (minibufferp)
+          (minibuffer-keyboard-quit)
+        (abort-recursive-edit))
+    (keyboard-quit)))
+
+(global-set-key [remap keyboard-quit] #'mjhoy/keyboard-quit-dwim)
+
 (provide 'init-basic)
