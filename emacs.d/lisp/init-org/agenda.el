@@ -9,7 +9,8 @@
              )))
 
 (setopt org-refile-targets
-      `((,(concat org-directory "projects.org") :level . 1)))
+        `((,(concat org-directory "projects.org") :level . 1)
+          (,(concat org-directory "blog-drafts.org") :level . 1)))
 
 (setopt org-agenda-span 'day)
 
