@@ -1,4 +1,4 @@
-(setq python-shell-interpreter
+(setopt python-shell-interpreter
       (concat (expand-file-name "~/")
               "bin/python-nix"))
 

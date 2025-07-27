@@ -1,6 +1,6 @@
 (require 'dired)
 
-(setq dired-listing-switches "-laGh")
+(setopt dired-listing-switches "-laGh")
 
 (defun dired-get-size ()
   "Get (recursive) size total of all marked entries"

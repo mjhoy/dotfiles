@@ -8,7 +8,7 @@
   )
 
 (add-hook 'ruby-mode-hook 'mjhoy/setup-ruby-mode)
-(setq ruby-insert-encoding-magic-comment nil)
+(setopt ruby-insert-encoding-magic-comment nil)
 
 (defun mjhoy/rails-compile-assets (branch)
   "Compile rails assets for the root magit directory.

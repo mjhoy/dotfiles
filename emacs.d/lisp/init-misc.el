@@ -3,7 +3,7 @@
 (require 'init-basic)
 
 (require 're-builder)
-(setq reb-re-syntax 'string)
+(setopt reb-re-syntax 'string)
 
 (require 'bm)
 (global-set-key (kbd "C-c m m") 'bm-toggle)
@@ -24,28 +24,28 @@
       (global-set-key (kbd "C-h C-d") 'mjhoy/lookup-dash)
 
       ;; Darwin's ls does not support the --dired option.
-      (setq dired-use-ls-dired nil)
+      (setopt dired-use-ls-dired nil)
 
       ;; Option key is meta
-      (setq ns-alternate-modifier 'meta)
+      (setopt ns-alternate-modifier 'meta)
 
       ;; Command key is super
-      (setq ns-command-modifier 'super)
+      (setopt ns-command-modifier 'super)
       ))
 
 ;; Macport specific stuff
 (if macport
     (progn
       ;; Meta/super keys
-      (setq mac-option-modifier 'meta)
-      (setq mac-command-modifier 'super)
+      (setopt mac-option-modifier 'meta)
+      (setopt mac-command-modifier 'super)
 
       ;; OSX copy/paste
       (global-set-key (kbd "s-v") 'yank)
       (global-set-key (kbd "s-c") 'kill-ring-save)
 
       ;; Frame title
-      (setq frame-title-format '("" "%b @ Emacs"))
+      (setopt frame-title-format '("" "%b @ Emacs"))
       ))
 
 (defun mjhoy/diff-current-buffer-with-file ()
@@ -101,9 +101,9 @@
 (global-set-key (kbd "C-c f s") (fni (find-file "~/.ssh/config")))
 
 ;; ask before quitting
-(setq confirm-kill-emacs #'yes-or-no-p)
+(setopt confirm-kill-emacs #'yes-or-no-p)
 
 ;; don't be annoying
-(setq tags-add-tables nil)
+(setopt tags-add-tables nil)
 
 (provide 'init-misc)

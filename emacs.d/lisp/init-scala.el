@@ -3,7 +3,7 @@
 (require 'init-eglot)
 
 ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
-(setq sbt:program-options '("-Dsbt.supershell=false"))
+(setopt sbt:program-options '("-Dsbt.supershell=false"))
 
 (add-to-list 'eglot-server-programs
              '((scala-ts-mode) "metals" ))

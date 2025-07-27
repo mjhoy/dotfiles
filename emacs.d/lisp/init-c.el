@@ -1,9 +1,9 @@
-(setq c-default-style "linux")
-(setq c-basic-offset 4)
+(setopt c-default-style "linux")
+(setopt c-basic-offset 4)
 
 (defun mjhoy/c-init ()
   "My setup for c files."
-  (setq c-basic-offset 4)
+  (setopt c-basic-offset 4)
   (eglot-ensure)
   (if (or (file-exists-p "makefile")
           (file-exists-p "Makefile"))

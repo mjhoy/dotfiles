@@ -8,7 +8,7 @@
 
 (defun mjhoy/setup-php-mode ()
   "Setup for PHP mode."
-  (setq c-basic-offset 2)
+  (setopt c-basic-offset 2)
   (php-enable-drupal-coding-style)
   )
 

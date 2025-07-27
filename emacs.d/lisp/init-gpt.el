@@ -4,7 +4,7 @@
   "My hook function for gptel-mode setup."
   (visual-line-mode)
   (auto-fill-mode 0)
-  (setq gptel--num-messages-to-send 8)
+  (setopt gptel--num-messages-to-send 8)
   )
 
 (add-hook 'gptel-mode-hook 'mjhoy/gptel-mode-hook)
@@ -14,7 +14,7 @@ language model and a Scala expert, using Scala 2 and not Scala \
 3. Provide code and only additional context when necessary."
                                        ))
 
-(setq gptel-model 'gpt-4o-mini)
+(setopt gptel-model 'gpt-4o-mini)
 
 (defvar mjhoy/gptel-models
   '((gpt-4o-mini . nil)                 ; nil uses default backend
@@ -32,9 +32,9 @@ For ollama models, you can install via `ollama run <model>`.
                                   (mapcar #'car mjhoy/gptel-models)))
          (model (intern choice))
          (backend (alist-get model mjhoy/gptel-models)))
-    (setq gptel-model model)
+    (setopt gptel-model model)
     (if (eq backend 'ollama)
-        (setq gptel-backend
+        (setopt gptel-backend
                    (gptel-make-ollama "Ollama"
                      :host "localhost:11434"
                      :stream t

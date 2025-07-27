@@ -2,30 +2,30 @@
   (expand-file-name "autosaves/"
                     user-emacs-directory))
 
-(setq backup-directory-alist
+(setopt backup-directory-alist
       (list (cons "."
                   (expand-file-name "backups"
                                     user-emacs-directory))))
 
-(setq backup-by-copying t)
+(setopt backup-by-copying t)
 
 ;; disable backups
-(setq make-backup-files nil)
-(setq backup-inhibited nil)
-(setq create-lockfiles nil)
+(setopt make-backup-files nil)
+(setopt backup-inhibited nil)
+(setopt create-lockfiles nil)
 
 ;; save bookmarks immediately
-(setq bookmark-save-flag 1)
+(setopt bookmark-save-flag 1)
 
 (set-language-environment 'utf-8)
-(setq locale-coding-system 'utf-8)
+(setopt locale-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
 (setq-default indent-tabs-mode nil)
-(setq require-final-newline t)
-(setq tags-case-fold-search nil)
+(setopt require-final-newline t)
+(setopt tags-case-fold-search nil)
 
 ;; begone, crazy command
 (global-unset-key (kbd "C-x C-u"))
@@ -35,7 +35,7 @@
 (global-set-key (kbd "C-x f") 'find-file)
 
 ;; default is 60, let's bump this
-(setq kill-ring-max 500)
+(setopt kill-ring-max 500)
 
 ;; enable narrowing
 (put 'narrow-to-region 'disabled nil)
@@ -52,7 +52,7 @@
   "Create an anonymous interactive function"
   `(lambda () (interactive) ,@forms))
 
-(setq auth-sources '("~/.authinfo" "~/.authinfo.gpg" "~/.netrc"))
+(setopt auth-sources '("~/.authinfo" "~/.authinfo.gpg" "~/.netrc"))
 
 ;; A smarter keyboard-quit: https://emacsredux.com/blog/2025/06/01/let-s-make-keyboard-quit-smarter/
 (defun mjhoy/keyboard-quit-dwim ()

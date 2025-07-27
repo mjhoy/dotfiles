@@ -1,4 +1,4 @@
-(setq org-confirm-babel-evaluate nil)
+(setopt org-confirm-babel-evaluate nil)
 
 (require 'org-tempo)
 
@@ -14,21 +14,21 @@
 
 (require 'ob-dot)
 
-(setq org-babel-python-command "load-env-mypython3 python")
+(setopt org-babel-python-command "load-env-mypython3 python")
 
 (require 'ob-scheme)
 
 (require 'ob-diagrams)
 
 ;; fontify our code blocks
-(setq org-src-fontify-natively t)
+(setopt org-src-fontify-natively t)
 
 ;; edit src in the current window
-(setq org-src-window-setup 'current-window)
+(setopt org-src-window-setup 'current-window)
 
 ;; preserve indentation of source blocks
 ;; this makes it possible to generate valid Makefiles
-(setq org-src-preserve-indentation t)
+(setopt org-src-preserve-indentation t)
 
 (defun mjhoy/org-maybe-refresh-images ()
   (when org-inline-image-overlays

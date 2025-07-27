@@ -2,8 +2,8 @@
 
 (package-initialize)
 
-(setq user-full-name "Michael Hoy"
-      user-mail-address "mjh@mjhoy.com")
+(setopt user-full-name "Michael Hoy"
+        user-mail-address "mjh@mjhoy.com")
 
 (defvar nixos (file-directory-p "/etc/nixos")
   "Are we running on nixos?")
@@ -16,7 +16,7 @@
 
 ;; see: https://debbugs.gnu.org/cgi/bugreport.cgi?bug=25778
 (if (and (getenv "DISPLAY") (executable-find "xdg-open"))
-    (setq browse-url-browser-function 'browse-url-xdg-open))
+    (setopt browse-url-browser-function 'browse-url-xdg-open))
 
 (add-to-list 'load-path
              (expand-file-name "lisp" user-emacs-directory))
@@ -28,8 +28,8 @@
 
 ;; save customizations in a different file (so they don't pollute
 ;; init.el.)
-(setq custom-file
-      (concat (expand-file-name user-emacs-directory) "custom.el"))
+(setopt custom-file
+        (concat (expand-file-name user-emacs-directory) "custom.el"))
 (load custom-file 'noerror)
 
 ;; this directory's subdirectories aren't added in osx gui emacs for

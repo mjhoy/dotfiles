@@ -7,6 +7,6 @@
 ;; nixos compatibility
 (add-to-list 'tramp-remote-path "/run/current-system/sw/bin")
 
-(setq tramp-default-method "ssh")
+(setopt tramp-default-method "ssh")
 
 (provide 'init-tramp)

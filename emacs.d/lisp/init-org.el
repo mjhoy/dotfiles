@@ -1,24 +1,24 @@
 (require 'init-basic)
 
 ;; needs to be set before org is loaded.
-(setq org-export-backends '(ascii html md latex odt))
+(setopt org-export-backends '(ascii html md latex odt))
 
 (require 'org)
 (require 'org-id)
 (require 'org-clock)
 (require 'org-habit)
 
-(setq org-id-link-to-org-use-id 'use-existing)
+(setopt org-id-link-to-org-use-id 'use-existing)
 
-(setq org-startup-indented t)
+(setopt org-startup-indented t)
 
-(setq org-directory "~/org/")
+(setopt org-directory "~/org/")
 
-(setq org-default-notes-file (concat org-directory "inbox.org"))
+(setopt org-default-notes-file (concat org-directory "inbox.org"))
 
-(setq org-imenu-depth 5)
+(setopt org-imenu-depth 5)
 
-(setq org-list-allow-alphabetical t)
+(setopt org-list-allow-alphabetical t)
 
 (add-hook 'org-store-link-functions 'org-eww-store-link)
 (defun org-eww-store-link ()
@@ -60,7 +60,7 @@
 (define-abbrev org-mode-abbrev-table "\lra" "\leftrightarrow")
 
 ;; e.g., archive/inbox.org_2022_archive
-(setq org-archive-location
+(setopt org-archive-location
       (format "archive/%%s_%s_archive::" (format-time-string "%Y")))
 
 ;; org-mode hook
