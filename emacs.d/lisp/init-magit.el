@@ -1,18 +1,18 @@
-(setq magit-last-seen-setup-instructions "1.4.0")
+(setopt magit-last-seen-setup-instructions "1.4.0")
 
 (require 'magit)
 (require 'init-org)
 (require 'forge)
 
-(setq magit-push-always-verify nil)
-(setq magit-revert-buffers 'silent)
-(setq magit-revision-show-gravatars nil)
+(setopt magit-push-always-verify nil)
+(setopt magit-revert-buffers 'silent)
+(setopt magit-revision-show-gravatars nil)
 
 ;; Don't show closed PRs.
-(setq forge-topic-list-limit '(60 . 0))
+(setopt forge-topic-list-limit '(60 . 0))
 
 ;; Only show open topics in status buffers (e.g., no merged PRs).
-(setq forge-status-buffer-default-topic-filters
+(setopt forge-status-buffer-default-topic-filters
       (forge--topics-spec :type 'topic :active nil :state 'open :order 'newest))
 
 (global-set-key (kbd "C-c g") 'magit-status)

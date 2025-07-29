@@ -1,6 +1,6 @@
 (require 'vundo)
 
-(setq vundo-glyph-alist vundo-unicode-symbols)
+(setopt vundo-glyph-alist vundo-unicode-symbols)
 
 (global-set-key (kbd "C-c /") #'vundo)
 

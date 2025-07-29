@@ -1,12 +1,12 @@
-(setq org-enforce-todo-dependencies t)
-(setq org-log-done 'time)
-(setq org-log-note-clock-out nil)
+(setopt org-enforce-todo-dependencies t)
+(setopt org-log-done 'time)
+(setopt org-log-note-clock-out nil)
 
-(setq org-todo-keywords
+(setopt org-todo-keywords
       '((sequence "TODO(t!)" "REVIEW(r!)" "NEXT(n!)" "DEPLOY(y!)" "|" "DONE(d!)")
         (sequence "WAIT(w@/!)" "HOLD(h@/!)" "|" "CANCELED(c@!)")))
 
-(setq org-todo-keyword-faces
+(setopt org-todo-keyword-faces
       (quote (("TODO" :foreground "red" :weight bold)
               ("NEXT" :foreground "green" :weight bold)
               ("REVIEW" :foreground "blue" :weight bold)
@@ -17,9 +17,7 @@
               ("CANCELLED" :foreground "forest green" :weight bold)
               )))
 
-(setq org-log-into-drawer "LOGBOOK")
-
-(setq org-use-fast-todo-selection t)
+(setopt org-log-into-drawer "LOGBOOK")
 
 (defun org-summary-todo (n-done n-not-done)
   "Switch entry to DONE when all subentries are done, to TODO otherwise."

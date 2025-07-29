@@ -1,5 +1,5 @@
-(setq scss-compile-at-save nil)
-(setq css-indent-offset 2)
+(setopt scss-compile-at-save nil)
+(setopt css-indent-offset 2)
 
 (defun mjhoy/init-css-mode ()
   (rainbow-mode 1))

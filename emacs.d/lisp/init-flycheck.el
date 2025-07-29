@@ -12,6 +12,6 @@
 
 (setq-default flycheck-emacs-lisp-load-path 'inherit)
 
-(setq flycheck-ruby-rubocop-executable "bin/rubocop")
+(setopt flycheck-ruby-rubocop-executable "bin/rubocop")
 
 (provide 'init-flycheck)

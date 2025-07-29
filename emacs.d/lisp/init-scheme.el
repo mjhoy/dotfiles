@@ -1,4 +1,4 @@
-(setq scheme-program-name "racket")
-(setq geiser-default-implementation 'racket)
+(setopt scheme-program-name "racket")
+(setopt geiser-default-implementation 'racket)
 
 (provide 'init-scheme)

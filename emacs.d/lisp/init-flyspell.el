@@ -1,10 +1,10 @@
 (require 'flyspell)
 
-(setq flyspell-issue-message-flag nil)
+(setopt flyspell-issue-message-flag nil)
 
 ;; assumes aspell and english+spanish+british are installed.
 (let ((langs '("american" "castellano" "british")))
-  (setq my-lang-ring (make-ring (length langs)))
+  (setopt my-lang-ring (make-ring (length langs)))
   (dolist (elem langs) (ring-insert my-lang-ring elem)))
 
 (defun mjhoy/cycle-ispell-languages ()

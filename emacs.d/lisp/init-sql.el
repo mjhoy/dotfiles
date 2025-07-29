@@ -24,6 +24,6 @@
 (unless (locate-file "psql" exec-path)
   (let ((mac-psql "/Applications/Postgres.app/Contents/Versions/9.6/bin/psql"))
     (if (file-exists-p mac-psql)
-        (setq sql-postgres-program mac-psql))))
+        (setopt sql-postgres-program mac-psql))))
 
 (provide 'init-sql)

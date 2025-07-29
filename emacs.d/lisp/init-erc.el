@@ -31,9 +31,9 @@ machine irc.libera.chat login LOGIN password PASSWORD
 
 (global-set-key (kbd "C-c i c") 'mjhoy/libera-erc)
 
-(setq erc-hide-list '("JOIN" "PART" "QUIT"))
+(setopt erc-hide-list '("JOIN" "PART" "QUIT"))
 
-(setq erc-server-reconnect-timeout 4)
+(setopt erc-server-reconnect-timeout 4)
 
 ;; channel shortcuts
 (global-set-key (kbd "C-c i j h") (fni (erc-join-channel "#haskell")))
@@ -46,7 +46,7 @@ machine irc.libera.chat login LOGIN password PASSWORD
 (global-set-key (kbd "C-c i j s") (fni (erc-join-channel "#snapframework")))
 
 ;; minimal distraction: only track when i am mentioned
-(setq erc-format-query-as-channel-p t
+(setopt erc-format-query-as-channel-p t
       erc-track-priority-faces-only 'all
       erc-track-faces-priority-list '(erc-error-face
                                       erc-current-nick-face

@@ -38,7 +38,7 @@ Differs from text-scale-adjust by applying to all windows & frames.
 (global-set-key (kbd "C-c C-=") 'mjhoy/increase-face-height)
 (global-set-key (kbd "C-c C--") 'mjhoy/decrease-face-height)
 
-(setq text-scale-mode-step 1.14)
+(setopt text-scale-mode-step 1.14)
 
 (setq-default cursor-type 'box)
 
@@ -52,7 +52,7 @@ Differs from text-scale-adjust by applying to all windows & frames.
 (unless macport
   (menu-bar-mode 0))
 
-(setq display-time-24hr-format t)
+(setopt display-time-24hr-format t)
 
 (if nixos
     (progn
@@ -77,22 +77,22 @@ Differs from text-scale-adjust by applying to all windows & frames.
                               (interactive)
                               (scroll-up 1)))
   (defun track-mouse (e))
-  (setq mouse-sel-mode t))
+  (setopt mouse-sel-mode t))
 
 ;; solves an issue i have with ace-window
 (setq-default cursor-in-non-selected-windows 'bar)
 
 ;; right option key use as mac normal option (so i can type é easily)
-(setq ns-right-alternate-modifier 'none)
+(setopt ns-right-alternate-modifier 'none)
 
-(setq scroll-conservatively 10000
+(setopt scroll-conservatively 10000
       scroll-margin 10)
 
 (show-paren-mode t)
-(setq ring-bell-function 'ignore)
+(setopt ring-bell-function 'ignore)
 
 ;; i don't care about the load average
-(setq display-time-default-load-average nil)
+(setopt display-time-default-load-average nil)
 
 ;; use <f13> as a fullscreen key; OS X captures F11
 (global-set-key (kbd "<f13>") 'toggle-frame-fullscreen)
