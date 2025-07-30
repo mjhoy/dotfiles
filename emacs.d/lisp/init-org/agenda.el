@@ -53,12 +53,6 @@
                      (org-agenda-skip-function
                       '(org-agenda-skip-entry-if 'nottodo '("TODO" "NEXT")))
                      (org-agenda-overriding-header "\nDeadlines")))
-            (agenda ""
-                    ((org-agenda-entry-types '(:scheduled))
-                     (org-deadline-warning-days 7)
-                     (org-agenda-skip-function
-                      '(org-agenda-skip-entry-if 'nottodo '("TODO" "NEXT")))
-                     (org-agenda-overriding-header "\nScheduled")))
             (tags "inbox"
                   ((org-agenda-prefix-format "  %?-12t% s")
                    (org-agenda-overriding-header "\nInbox\n")))
