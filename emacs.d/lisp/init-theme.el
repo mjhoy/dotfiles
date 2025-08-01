@@ -1,3 +1,5 @@
+(require 'ef-themes)
+
 (defvar mjhoy/current-theme nil
   "The current custom theme.")
 
