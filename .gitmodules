@@ -37,6 +37,9 @@
 [submodule "diminish"]
 	path = emacs.d/lib/diminish
 	url = https://github.com/myrjola/diminish.el
+[submodule "eat"]
+	path = emacs.d/lib/eat
+	url = https://codeberg.org/akib/emacs-eat
 [submodule "ef-themes"]
 	path = emacs.d/lib/ef-themes
 	url = https://git.sr.ht/~protesilaos/ef-themes
@@ -95,6 +98,9 @@
 [submodule "modus-themes"]
 	path = emacs.d/lib/modus-themes
 	url = https://github.com/protesilaos/modus-themes
+[submodule "monet"]
+	path = emacs.d/lib/monet
+	url = https://github.com/stevemolitor/monet.git
 [submodule "multiple-cursors"]
 	path = emacs.d/lib/multiple-cursors
 	url = https://github.com/magnars/multiple-cursors.el
@@ -149,6 +155,9 @@
 [submodule "web-mode"]
 	path = emacs.d/lib/web-mode
 	url = https://github.com/fxbois/web-mode
+[submodule "websocket"]
+	path = emacs.d/lib/websocket
+	url = https://github.com/ahyatt/emacs-websocket
 [submodule "wgrep"]
 	path = emacs.d/lib/wgrep
 	url = https://github.com/mhayashi1120/Emacs-wgrep
