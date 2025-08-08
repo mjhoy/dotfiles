@@ -20,5 +20,7 @@
   '(diminish 'auto-dim-other-buffers-mode))
 (diminish 'abbrev-mode)
 (diminish 'text-scale-mode)
+(eval-after-load "monet"
+  '(diminish 'monet-mode))
 
 (provide 'init-diminish)
