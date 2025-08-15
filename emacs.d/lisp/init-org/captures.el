@@ -8,18 +8,18 @@
 (add-hook 'org-capture-prepare-finalize-hook 'org-id-get-create)
 
 (setopt org-capture-templates
-        '(("T" "Todo (today)"
+        '(("t" "Todo"
            entry (file+headline (lambda () (concat org-directory "projects.org")) "general")
            "* TODO [#B] %^{Todo} %^g
-SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"\"))
 :LOGBOOK:
 - State \"TODO\"       from \"\"           %U
 :END:
 
 see: %a\n")
-          ("t" "Todo"
+          ("y" "Todo (toda[y])"
            entry (file+headline (lambda () (concat org-directory "projects.org")) "general")
            "* TODO [#B] %^{Todo} %^g
+SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"\"))
 :LOGBOOK:
 - State \"TODO\"       from \"\"           %U
 :END:
