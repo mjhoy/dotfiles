@@ -22,6 +22,9 @@
 [submodule "compat"]
 	path = emacs.d/lib/compat
 	url = git@github.com:emacs-compat/compat.git
+[submodule "cond-let"]
+	path = emacs.d/lib/cond-let
+	url = https://github.com/tarsius/cond-let
 [submodule "consult"]
 	path = emacs.d/lib/consult
 	url = https://github.com/minad/consult
