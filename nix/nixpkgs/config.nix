@@ -78,12 +78,12 @@
 
     # https://github.com/NixOS/nixpkgs/pull/430732
     metals = super.metals.overrideAttrs (final: prev: {
-      version = "1.6.1";
+      version = "1.6.3";
       deps = stdenv.mkDerivation {
-        name = "${prev.pname}-deps-1.6.1";
+        name = "${prev.pname}-deps-1.6.3";
         buildCommand = ''
           export COURSIER_CACHE=$(pwd)
-          ${super.pkgs.coursier}/bin/cs fetch org.scalameta:metals_2.13:1.6.1 \
+          ${super.pkgs.coursier}/bin/cs fetch org.scalameta:metals_2.13:1.6.3 \
             -r bintray:scalacenter/releases \
             -r sonatype:snapshots > deps
           mkdir -p $out/share/java
@@ -91,7 +91,7 @@
         '';
         outputHashMode = "recursive";
         outputHashAlgo = "sha256";
-        outputHash = "sha256-OsA+AWNYBmQ9wfUq1O4WKTf4ANCvBErKLUXH6NRfMss=";
+        outputHash = "sha256-H5rIpz547pXID86OUPMtKGNcC5d5kxMMEUvaqDck2yo";
       };
       buildInputs = [ final.deps ];
     });
