@@ -26,4 +26,6 @@
     (if (file-exists-p mac-psql)
         (setopt sql-postgres-program mac-psql))))
 
+(setopt sql-server "127.0.0.1")
+
 (provide 'init-sql)
