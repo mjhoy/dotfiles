@@ -86,7 +86,7 @@ Differs from text-scale-adjust by applying to all windows & frames.
 (setopt ns-right-alternate-modifier 'none)
 
 (setopt scroll-conservatively 10000
-      scroll-margin 10)
+      scroll-margin 0)
 
 (show-paren-mode t)
 (setopt ring-bell-function 'ignore)
