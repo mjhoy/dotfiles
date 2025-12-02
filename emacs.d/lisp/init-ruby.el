@@ -4,7 +4,7 @@
 
 (defun mjhoy/setup-ruby-mode ()
   "My setup for ruby-mode."
-  (yard-mode)
+  ;; (yard-mode) Umm this doesn't seem to work anymore...
   )
 
 (add-hook 'ruby-mode-hook 'mjhoy/setup-ruby-mode)
