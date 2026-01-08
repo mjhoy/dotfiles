@@ -100,6 +100,16 @@
 (global-set-key (kbd "C-c f p") (fni (find-file "~/Dropbox/p.gpg")))
 (global-set-key (kbd "C-c f s") (fni (find-file "~/.ssh/config")))
 
+(defun mjhoy/kill-buffer-path ()
+  "Copy the current buffer's path."
+  (interactive)
+  (if-let ((path (or buffer-file-name
+                     (bound-and-true-p list-buffers-directory))))
+      (progn
+        (kill-new path)
+        (message path))
+    (message "Error: Buffer not visiting a file")))
+
 ;; ask before quitting
 (setopt confirm-kill-emacs #'yes-or-no-p)
 
