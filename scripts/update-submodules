@@ -35,6 +35,10 @@ function update() {
         return 0
     fi
     branch=$(git rev-parse --abbrev-ref HEAD)
+    if [ "$branch" = "HEAD" ]; then
+        echo "branch is HEAD in $sm_path"
+        return 0
+    fi
     git fetch origin
     local_sha=$(git rev-parse ${branch})
     remote_sha=$(git rev-parse origin/${branch})
