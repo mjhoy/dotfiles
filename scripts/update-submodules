@@ -34,9 +34,9 @@ function update() {
         echo "skipping $name as set in SKIP_SUBMODULES"
         return 0
     fi
-    # Note: for reasons somewhat unclear to me, origin/HEAD is
-    # not updated when running `git fetch`; so that for instance if a remote has
-    # changed its default branch, this might still reference the old default.
+    # Note: for reasons somewhat unclear to me, origin/HEAD is not updated when
+    # running `git fetch`; so that for instance if a remote has changed its
+    # default branch, this might still reference the old default.
     # This will update it.
     git remote set-head origin -a
     git fetch origin
@@ -46,18 +46,21 @@ function update() {
     if [ ! "$local_sha" == "$remote_sha" ]; then
         cd $toplevel
 
-        # Collect metadata about the updates
         commit_count=$(cd $sm_path && git rev-list --count ${local_sha}..${remote_sha})
         authors=$(cd $sm_path && git log --format='%an' ${local_sha}..${remote_sha} | sort -u | tr '\n' '|')
         recent_date=$(cd $sm_path && git log -1 --format='%ci' ${remote_sha})
 
+        submodule_git_url=$(git config --file=.gitmodules submodule.${name}.url)
+        submodule_http_url=${submodule_git_url/git@/https://}
+        submodule_http_url=${submodule_http_url/.com:/.com/}
+        submodule_http_url=${submodule_http_url/.git//}
+        diff_url=${submodule_http_url}/compare/${local_sha}...${remote_sha}
+
         # Convert to ET timezone
         recent_date_et=$(TZ=America/New_York date -jf "%Y-%m-%d %H:%M:%S %z" "$recent_date" "+%Y-%m-%d %H:%M:%S %Z" 2>/dev/null || echo "$recent_date")
 
-        # Store metadata for later
-        echo "${name}|${commit_count}|${authors}|${recent_date_et}" >> $METADATA_FILE
+        echo "${name}|${commit_count}|${authors}|${recent_date_et}|${diff_url}" >> $METADATA_FILE
 
-        # Update submodule and commit to the main branch
         git submodule update --remote -- $sm_path
         git add $sm_path
         git commit -m "bump ${name}"
@@ -81,9 +84,7 @@ cat $METADATA_FILE
 if [ -s "$METADATA_FILE" ]; then
     # Build PR description
     pr_body="## Emacs Package Updates\n\n"
-    most_recent_date=""
-
-    while IFS='|' read -r submodule_name commit_count authors_line recent_date; do
+    while IFS='|' read -r submodule_name commit_count authors_line recent_date diff_url; do
         pr_body="${pr_body}### ${submodule_name}\n"
         pr_body="${pr_body}- Commits: ${commit_count}\n"
 
@@ -101,12 +102,7 @@ if [ -s "$METADATA_FILE" ]; then
                 fi
             fi
         done
-        pr_body="${pr_body}\n- Most recent commit: ${recent_date}\n\n"
-
-        # Track overall most recent date
-        if [ -z "$most_recent_date" ] || [[ "$recent_date" > "$most_recent_date" ]]; then
-            most_recent_date="$recent_date"
-        fi
+        pr_body="${pr_body}\n- Most recent commit: ${recent_date}\n- Diff: ${diff_url}\n\n"
     done < "$METADATA_FILE"
 
     # Push branch and create PR
