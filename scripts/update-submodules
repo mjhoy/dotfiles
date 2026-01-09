@@ -34,12 +34,13 @@ function update() {
         echo "skipping $name as set in SKIP_SUBMODULES"
         return 0
     fi
-    branch=$(git rev-parse --abbrev-ref HEAD)
-    if [ "$branch" = "HEAD" ]; then
-        echo "branch is HEAD in $sm_path"
-        return 0
-    fi
+    # Note: for reasons somewhat unclear to me, origin/HEAD is
+    # not updated when running `git fetch`; so that for instance if a remote has
+    # changed its default branch, this might still reference the old default.
+    # This will update it.
+    git remote set-head origin -a
     git fetch origin
+    branch=$(git rev-parse --abbrev-ref HEAD)
     local_sha=$(git rev-parse ${branch})
     remote_sha=$(git rev-parse origin/${branch})
     if [ ! "$local_sha" == "$remote_sha" ]; then
