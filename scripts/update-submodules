@@ -69,6 +69,9 @@ git checkout -b $main_update_branch
 # Process all submodules
 git submodule foreach 'update'
 
+echo "Ran update..."
+cat $METADATA_FILE
+
 # Check if any updates were made
 if [ -s "$METADATA_FILE" ]; then
     # Build PR description
