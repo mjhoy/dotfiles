@@ -47,7 +47,7 @@ function update() {
         cd $toplevel
 
         commit_count=$(cd $sm_path && git rev-list --count ${local_sha}..${remote_sha})
-        authors=$(cd $sm_path && git log --format='%an' ${local_sha}..${remote_sha} | sort -u | tr '\n' '|')
+        authors=$(cd $sm_path && git log --format='%an' ${local_sha}..${remote_sha} | sort -u | tr '\n' ',')
         recent_date=$(cd $sm_path && git log -1 --format='%ci' ${remote_sha})
 
         submodule_git_url=$(git config --file=.gitmodules submodule.${name}.url)
@@ -89,7 +89,7 @@ if [ -s "$METADATA_FILE" ]; then
         pr_body="${pr_body}- Commits: ${commit_count}\n"
 
         # Add authors for this submodule
-        IFS='|' read -ra authors_array <<< "$authors_line"
+        IFS=',' read -ra authors_array <<< "$authors_line"
         pr_body="${pr_body}- Authors: "
         first=true
         for author in "${authors_array[@]}"; do
