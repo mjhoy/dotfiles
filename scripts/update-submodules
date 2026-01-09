@@ -25,38 +25,45 @@ done
 
 echo $DRY_RUN
 
+# Temporary file to store submodule update metadata
+METADATA_FILE=$(mktemp)
+export METADATA_FILE
+
 function update() {
     if [[ " $SKIP_SUBMODULES " =~ " $name " ]]; then
         echo "skipping $name as set in SKIP_SUBMODULES"
         return 0
     fi
-    branch=$(git rev-parse --abbrev-ref HEAD)
+    # Note: for reasons somewhat unclear to me, origin/HEAD is not updated when
+    # running `git fetch`; so that for instance if a remote has changed its
+    # default branch, this might still reference the old default.
+    # This will update it.
+    git remote set-head origin -a
     git fetch origin
+    branch=$(git rev-parse --abbrev-ref HEAD)
     local_sha=$(git rev-parse ${branch})
     remote_sha=$(git rev-parse origin/${branch})
     if [ ! "$local_sha" == "$remote_sha" ]; then
         cd $toplevel
-        date=$(date "+%Y-%m-%d")
-        top_branch=$(git rev-parse --abbrev-ref HEAD)
-        update_branch=update-${name}-${date}
-        git checkout -b $update_branch
+
+        commit_count=$(cd $sm_path && git rev-list --count ${local_sha}..${remote_sha})
+        authors=$(cd $sm_path && git log --format='%an' ${local_sha}..${remote_sha} | sort -u | tr '\n' ',')
+        recent_date=$(cd $sm_path && git log -1 --format='%ci' ${remote_sha})
+
         submodule_git_url=$(git config --file=.gitmodules submodule.${name}.url)
         submodule_http_url=${submodule_git_url/git@/https://}
         submodule_http_url=${submodule_http_url/.com:/.com/}
         submodule_http_url=${submodule_http_url/.git//}
         diff_url=${submodule_http_url}/compare/${local_sha}...${remote_sha}
+
+        # Convert to ET timezone
+        recent_date_et=$(TZ=America/New_York date -jf "%Y-%m-%d %H:%M:%S %z" "$recent_date" "+%Y-%m-%d %H:%M:%S %Z" 2>/dev/null || echo "$recent_date")
+
+        echo "${name}|${commit_count}|${authors}|${recent_date_et}|${diff_url}" >> $METADATA_FILE
+
         git submodule update --remote -- $sm_path
         git add $sm_path
-        git commit -m "bump ${name} ${date}"
-
-        if [[ $DRY_RUN == "true" ]]; then
-            echo "[dry run] git push origin $update_branch -u"
-            echo "[dry run] gh pr create --draft --title \"bump ${name} ${date}\" --body \"Compare: ${diff_url}\" -B $top_branch"
-        else
-            git push origin $update_branch -u
-            gh pr create --draft --title "bump ${name} ${date}" --body "Compare: ${diff_url}" -B $top_branch
-        fi
-        git checkout $top_branch
+        git commit -m "bump ${name}"
     fi
 }
 
@@ -64,7 +71,55 @@ export -f update
 
 date=$(date "+%Y-%m-%d")
 main_update_branch=update-emacs-packages-${date}
+original_branch=$(git rev-parse --abbrev-ref HEAD)
 git checkout -b $main_update_branch
-git push origin $main_update_branch -u
 
+# Process all submodules
 git submodule foreach 'update'
+
+echo "Ran update..."
+cat $METADATA_FILE
+
+# Check if any updates were made
+if [ -s "$METADATA_FILE" ]; then
+    # Build PR description
+    pr_body="## Emacs Package Updates\n\n"
+    while IFS='|' read -r submodule_name commit_count authors_line recent_date diff_url; do
+        pr_body="${pr_body}### ${submodule_name}\n"
+        pr_body="${pr_body}- Commits: ${commit_count}\n"
+
+        # Add authors for this submodule
+        IFS=',' read -ra authors_array <<< "$authors_line"
+        pr_body="${pr_body}- Authors: "
+        first=true
+        for author in "${authors_array[@]}"; do
+            if [ -n "$author" ]; then
+                if [ "$first" = true ]; then
+                    pr_body="${pr_body}${author}"
+                    first=false
+                else
+                    pr_body="${pr_body}, ${author}"
+                fi
+            fi
+        done
+        pr_body="${pr_body}\n- Most recent commit: ${recent_date}\n- Diff: ${diff_url}\n\n"
+    done < "$METADATA_FILE"
+
+    # Push branch and create PR
+    if [[ $DRY_RUN == "true" ]]; then
+        echo "[dry run] git push origin $main_update_branch -u"
+        echo "[dry run] gh pr create --draft --title \"Update emacs packages ${date}\" --body \"${pr_body}\" -B $original_branch"
+        echo -e "\n--- PR Body Preview ---"
+        echo -e "$pr_body"
+    else
+        git push origin $main_update_branch -u
+        echo -e "$pr_body" | gh pr create --draft --title "Update emacs packages ${date}" --body-file - -B $original_branch
+    fi
+else
+    echo "No submodule updates found"
+    git checkout $original_branch
+    git branch -D $main_update_branch
+fi
+
+# Cleanup
+rm -f "$METADATA_FILE"
