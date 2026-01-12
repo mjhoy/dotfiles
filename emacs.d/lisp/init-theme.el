@@ -29,7 +29,7 @@ If THEME is `original', disable all custom themes."
     (load-theme theme t)))
 
 (if (string= (system-name) "plumbeous")
-    (mjhoy/switch-theme 'ef-winter)
+    (mjhoy/switch-theme 'ef-duo-light)
   (mjhoy/switch-theme 'sanityinc-tomorrow-night))
 
 (provide 'init-theme)
