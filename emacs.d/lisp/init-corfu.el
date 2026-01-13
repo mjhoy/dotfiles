@@ -1,3 +1,6 @@
+;; TODO: can borg set this up automatically?
+(add-to-list 'load-path (expand-file-name "lib/corfu/extensions" user-emacs-directory))
+
 (require 'corfu)
 
 (global-corfu-mode)
