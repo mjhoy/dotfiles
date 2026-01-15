@@ -39,10 +39,9 @@ function update() {
     # default branch, this might still reference the old default.
     # This will update it.
     git remote set-head origin -a
-    git fetch origin
-    branch=$(git rev-parse --abbrev-ref HEAD)
-    local_sha=$(git rev-parse ${branch})
-    remote_sha=$(git rev-parse origin/${branch})
+    git fetch origin --unshallow
+    local_sha=$(git rev-parse HEAD)
+    remote_sha=$(git rev-parse origin/HEAD)
     if [ ! "$local_sha" == "$remote_sha" ]; then
         cd $toplevel
 
