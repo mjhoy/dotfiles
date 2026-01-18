@@ -28,8 +28,6 @@ If THEME is `original', disable all custom themes."
     (setq mjhoy/current-theme theme)
     (load-theme theme t)))
 
-(if (string= (system-name) "plumbeous")
-    (mjhoy/switch-theme 'ef-duo-light)
-  (mjhoy/switch-theme 'sanityinc-tomorrow-night))
+(mjhoy/switch-theme 'ef-duo-light)
 
 (provide 'init-theme)
