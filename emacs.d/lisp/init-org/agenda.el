@@ -6,10 +6,12 @@
              "dates.org"                ; upcoming dates
              "projects.org"             ; stuff i'm working on
              "finance.org"              ; personal finances
+             "people.org"               ; 1:1s and people management
              )))
 
 (setopt org-refile-targets
         `((,(concat org-directory "projects.org") :level . 1)
+          (,(concat org-directory "people.org") :maxlevel . 1)
           (,(concat org-directory "blog-drafts.org") :level . 1)))
 
 (setopt org-agenda-span 'day)
@@ -28,8 +30,25 @@
             (lambda (&rest _)
               (mjhoy/save-org-agenda-buffers)))
 
+(defun mjhoy/org-agenda-get-parent-heading ()
+  "Get the parent heading for the current agenda item (used for people TODOs)."
+  (org-with-point-at (org-get-at-bol 'org-marker)
+    (save-excursion
+      (when (org-up-heading-safe)
+        (org-get-heading t t t t)))))
+
 (setopt org-agenda-custom-commands
         '(
+          ;; Recent people meetings and notes
+          ("p" "People & 1:1s"
+           ((tags-todo "CATEGORY=\"people\""
+                       ((org-agenda-overriding-header "\nTodos (All People)\n")
+                        (org-agenda-prefix-format "  %-12(mjhoy/org-agenda-get-parent-heading): ")))
+            (agenda ""
+                    ((org-agenda-span 14)
+                     (org-agenda-start-day "-7d")
+                     (org-agenda-files (list (concat org-directory "people.org")))
+                     (org-agenda-overriding-header "\nRecent & Upcoming Meetings (Last 7 Days + Next 7 Days)\n")))))
           ;; List all done or canceled tasks.
           ;; TODO: is there a way to organize this by date completed/canceled?
           ("c" "Completed tasks"
