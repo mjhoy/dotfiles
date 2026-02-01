@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+# org-query - Query org-mode agenda data from a running Emacs instance
+#
+# Usage:
+#   org-query todos              # All entries with a TODO state
+#   org-query active             # Active entries (TODO, NEXT, REVIEW, DEPLOY)
+#   org-query next               # Only NEXT entries
+#   org-query scheduled          # Only entries with a SCHEDULED date
+#   org-query deadlines          # Only entries with a DEADLINE date
+#   org-query active work        # Active entries with :work: tag
+#   org-query scheduled work,home  # Scheduled entries with :work: or :home: tag
+#
+# Output is JSON, pipe to jq for formatting:
+#   org-query active | jq '.[0:5]'
+#   org-query scheduled work | jq '.[] | "\(.scheduled): \(.heading)"'
+
+set -euo pipefail
+
+usage() {
+    echo "Usage: org-query <command> [tags]"
+    echo ""
+    echo "Commands:"
+    echo "  todos      All entries with a TODO state"
+    echo "  active     Active entries (TODO, NEXT, REVIEW, DEPLOY)"
+    echo "  next       Only NEXT entries"
+    echo "  scheduled  Only entries with a SCHEDULED date"
+    echo "  deadlines  Only entries with a DEADLINE date"
+    echo ""
+    echo "Tags (optional):"
+    echo "  Comma-separated list of tags to filter by (e.g., work,home)"
+    echo "  Entries matching ANY of the tags will be included"
+    echo ""
+    echo "Output is JSON. Pipe to jq for formatting."
+    echo "Entries include: heading, state, file, line, tags, scheduled, deadline"
+    exit 1
+}
+
+if [[ $# -lt 1 ]]; then
+    usage
+fi
+
+query_type=""
+tags=""
+
+case "$1" in
+    todos|active|next|scheduled|deadlines)
+        query_type="$1"
+        ;;
+    -h|--help|help)
+        usage
+        ;;
+    *)
+        echo "Unknown command: $1" >&2
+        usage
+        ;;
+esac
+
+# Optional second argument for tags
+if [[ $# -ge 2 ]]; then
+    tags="$2"
+fi
+
+# Build the elisp call
+if [[ -n "$tags" ]]; then
+    elisp_call="(org-query-json! \"$query_type\" \"$tags\")"
+else
+    elisp_call="(org-query-json! \"$query_type\")"
+fi
+
+# Call emacsclient, get the temp file path, read and clean up
+if ! file=$(emacsclient --eval "$elisp_call" 2>&1); then
+    if echo "$file" | grep -q "can't find socket"; then
+        echo "Error: Emacs server not running. Start it with M-x server-start" >&2
+    else
+        echo "Error: emacsclient failed: $file" >&2
+    fi
+    exit 1
+fi
+
+file=$(echo "$file" | tr -d '"')
+
+if [[ -f "$file" ]]; then
+    cat "$file"
+    rm -f "$file"
+else
+    echo "Error: org-query failed to create output file" >&2
+    echo "Got: $file" >&2
+    exit 1
+fi

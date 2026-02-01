@@ -22,3 +22,5 @@ jobs:
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
         extraPullNames: nix-community
     - run: ./scripts/build-nix-env
+    - name: Run Emacs tests
+      run: ./scripts/run-emacs-tests
