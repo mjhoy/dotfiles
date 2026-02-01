@@ -16,6 +16,8 @@
 (add-hook 'tsx-ts-mode-hook 'mjhoy/setup-typescript-ts-mode)
 (add-hook 'typescript-ts-mode-hook 'mjhoy/setup-typescript-ts-mode)
 
+(setq prettier-js-use-modules-bin t)
+
 ;; enable typescript-tslint checker
 (flycheck-add-mode 'typescript-tslint 'web-mode)
 
