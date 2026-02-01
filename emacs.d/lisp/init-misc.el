@@ -110,6 +110,17 @@
         (message path))
     (message "Error: Buffer not visiting a file")))
 
+(defun mjhoy/kill-buffer-path-relative ()
+  "Copy the current buffer's path relative to the project root."
+  (interactive)
+  (if-let ((path (or buffer-file-name
+                     (bound-and-true-p list-buffers-directory)))
+            (project (project-current)))
+      (let ((relative-path (file-relative-name path (project-root project))))
+        (kill-new relative-path)
+        (message relative-path))
+    (message "Error: Buffer not visiting a file")))
+
 ;; ask before quitting
 (setopt confirm-kill-emacs #'yes-or-no-p)
 
