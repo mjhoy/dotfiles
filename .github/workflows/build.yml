@@ -22,3 +22,8 @@ jobs:
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
         extraPullNames: nix-community
     - run: ./scripts/build-nix-env
+    - name: Run Emacs org-mode tests
+      run: |
+        export PATH="$HOME/.nix-profile/bin:$PATH"
+        emacs --version
+        make test
