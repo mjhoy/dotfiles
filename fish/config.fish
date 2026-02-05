@@ -13,4 +13,4 @@ if test (hostname) = "plumbeous"
     source ~/.config/fish/work.fish
 end
 
-set -g EDITOR vi
+set -gx EDITOR vi
