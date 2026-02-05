@@ -1,18 +1,8 @@
 #!/usr/bin/env bash
-# org-query - Query org-mode agenda data from a running Emacs instance
+# org-query - Get structured org data from a running emacs server
 #
-# Usage:
-#   org-query todos              # All entries with a TODO state
-#   org-query active             # Active entries (TODO, NEXT, REVIEW, DEPLOY)
-#   org-query next               # Only NEXT entries
-#   org-query scheduled          # Only entries with a SCHEDULED date
-#   org-query deadlines          # Only entries with a DEADLINE date
-#   org-query active work        # Active entries with :work: tag
-#   org-query scheduled work,home  # Scheduled entries with :work: or :home: tag
-#
-# Output is JSON, pipe to jq for formatting:
-#   org-query active | jq '.[0:5]'
-#   org-query scheduled work | jq '.[] | "\(.scheduled): \(.heading)"'
+# This is most a wrapper around calling the org-query elisp function
+# via emacsclient.
 
 set -euo pipefail
 
@@ -20,7 +10,7 @@ usage() {
     echo "Usage: org-query <command> [tags]"
     echo ""
     echo "Commands:"
-    echo "  todos      All entries with a TODO state"
+    echo "  todos      All entries"
     echo "  active     Active entries (TODO, NEXT, REVIEW, DEPLOY)"
     echo "  next       Only NEXT entries"
     echo "  scheduled  Only entries with a SCHEDULED date"
@@ -30,8 +20,7 @@ usage() {
     echo "  Comma-separated list of tags to filter by (e.g., work,home)"
     echo "  Entries matching ANY of the tags will be included"
     echo ""
-    echo "Output is JSON. Pipe to jq for formatting."
-    echo "Entries include: heading, state, file, line, tags, scheduled, deadline"
+    echo "Output is JSON."
     exit 1
 }
 
@@ -55,7 +44,6 @@ case "$1" in
         ;;
 esac
 
-# Optional second argument for tags
 if [[ $# -ge 2 ]]; then
     tags="$2"
 fi
@@ -67,7 +55,6 @@ else
     elisp_call="(org-query-json! \"$query_type\")"
 fi
 
-# Call emacsclient, get the temp file path, read and clean up
 if ! file=$(emacsclient --eval "$elisp_call" 2>&1); then
     if echo "$file" | grep -q "can't find socket"; then
         echo "Error: Emacs server not running. Start it with M-x server-start" >&2
@@ -83,7 +70,7 @@ if [[ -f "$file" ]]; then
     cat "$file"
     rm -f "$file"
 else
-    echo "Error: org-query failed to create output file" >&2
+    echo "Error: output not a file path" >&2
     echo "Got: $file" >&2
     exit 1
 fi
