@@ -40,6 +40,9 @@
 [submodule "diminish"]
 	path = emacs.d/lib/diminish
 	url = https://github.com/myrjola/diminish.el
+[submodule "dumb-jump"]
+	path = emacs.d/lib/dumb-jump
+	url = https://github.com/jacktasia/dumb-jump
 [submodule "ef-themes"]
 	path = emacs.d/lib/ef-themes
 	url = https://git.sr.ht/~protesilaos/ef-themes
@@ -110,6 +113,9 @@
 [submodule "php-mode"]
 	path = emacs.d/lib/php-mode
 	url = https://github.com/emacs-php/php-mode
+[submodule "popup"]
+	path = emacs.d/lib/popup
+	url = https://github.com/auto-complete/popup-el
 [submodule "prescient"]
 	path = emacs.d/lib/prescient
 	url = https://github.com/radian-software/prescient.el
@@ -128,6 +134,9 @@
 [submodule "rust-mode"]
 	path = emacs.d/lib/rust-mode
 	url = https://github.com/rust-lang/rust-mode
+[submodule "s"]
+	path = emacs.d/lib/s
+	url = https://github.com/magnars/s.el
 [submodule "sbt-mode"]
 	path = emacs.d/lib/sbt-mode
 	url = https://github.com/hvesalai/emacs-sbt-mode
