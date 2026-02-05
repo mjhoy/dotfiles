@@ -1,0 +1,17 @@
+#+TITLE: Test Projects
+#+TODO: TODO(t!) REVIEW(r!) NEXT(n!) DEPLOY(y!) | DONE(d!)
+#+TODO: WAIT(w@/!) HOLD(h@/!) | CANCELED(c@!)
+
+* Project Alpha                                                        :work:
+** NEXT Write documentation                                       :docs:
+** TODO Add tests                                                  :code:
+** REVIEW Code review needed                                       :code:
+
+* Project Beta                                                     :personal:
+** DEPLOY Ready for deploy
+** WAIT Waiting on feedback
+** HOLD On hold for now
+
+* Completed Project
+** DONE Shipped feature                                            :work:
+** CANCELED No longer needed
