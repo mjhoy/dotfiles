@@ -8,6 +8,9 @@
 (require 'org-clock)
 (require 'org-habit)
 
+;; Personal library to query my org todos.
+(require 'org-query)
+
 (setopt org-id-link-to-org-use-id 'use-existing)
 
 (setopt org-startup-indented t)
