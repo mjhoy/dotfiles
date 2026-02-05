@@ -70,8 +70,8 @@ Prompts for person name with completion and navigates to the specified section."
 
 ** Action Items
 
-see: %a\n"
-           :tree-type week :time-prompt t)
+"
+           :prepend t :time-prompt t)
           ("a" "Todo for person"
            entry (function (lambda () (mjhoy/org-capture-person-heading)))
            "* TODO %^{Todo}
