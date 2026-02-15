@@ -1,0 +1,9 @@
+#+TITLE: Test Agenda
+#+TODO: TODO(t!) REVIEW(r!) NEXT(n!) DEPLOY(y!) | DONE(d!)
+#+TODO: WAIT(w@/!) HOLD(h@/!) | CANCELED(c@!)
+
+* Scheduled
+** TODO Morning standup
+   SCHEDULED: <2026-02-01 Sat>
+** NEXT Prepare presentation
+   DEADLINE: <2026-02-03 Mon>

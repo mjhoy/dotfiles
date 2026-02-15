@@ -1,0 +1,7 @@
+#+TITLE: Test Inbox
+#+TODO: TODO(t!) REVIEW(r!) NEXT(n!) DEPLOY(y!) | DONE(d!)
+#+TODO: WAIT(w@/!) HOLD(h@/!) | CANCELED(c@!)
+
+* TODO Review pull request
+* TODO Check email
+* DONE Already completed task
