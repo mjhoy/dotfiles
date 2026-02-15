@@ -2,7 +2,7 @@
 #
 # This script does the following:
 #
-# 1. Updates `nixpkgs` reference using `niv`
+# 1. Updates `nixpkgs` reference using `nix flake update`
 # 2. Commits changes and opens a github PR
 
 set -eou pipefail
@@ -18,9 +18,9 @@ BRANCH_NAME=update-nixpkgs-$DATE
 
 git checkout -b $BRANCH_NAME
 
-niv update nixpkgs
+nix flake update
 
-git add nix/sources.json
+git add flake.lock
 
 git commit -m "update nixpkgs $DATE"
 

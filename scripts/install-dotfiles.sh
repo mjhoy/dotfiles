@@ -50,6 +50,14 @@ if [[ ! -e $HOME/.dotfiles ]]; then
     lns $(pwd) $HOME/.dotfiles
 fi
 
+if [[ ! -e $HOME/.config/nix ]]; then
+    mkdir -p $HOME/.config/nix
+fi
+
+if [[ ! -e $HOME/.config/nix/nix.conf ]]; then
+    lns $(pwd)/nix/nix.conf $HOME/.config/nix/nix.conf
+fi
+
 if [[ ! -e $HOME/.config/fish ]]; then
     mkdir -p $HOME/.config/fish
 fi
