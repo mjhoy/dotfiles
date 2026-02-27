@@ -21,7 +21,6 @@ dotfiles=( gemrc
            ghci
            tmux.conf
            emacs.d
-           nix/nixpkgs
            offlineimaprc
            offlineimap.py
            eslintrc
