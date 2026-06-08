@@ -18,7 +18,7 @@
 
 (setq prettier-js-use-modules-bin t)
 
-;; enable typescript-tslint checker
-(flycheck-add-mode 'typescript-tslint 'web-mode)
+;; TODO: should we use javascript-eslint?
+;; (flycheck-add-mode 'javascript-eslint 'web-mode)
 
 (provide 'init-typescript)
