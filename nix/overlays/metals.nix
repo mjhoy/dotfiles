@@ -16,4 +16,17 @@ prev.metals.overrideAttrs (finalAttrs: prevAttrs: {
     outputHash = "sha256-XpWOhkvSndfZWFSnFT4yZb+aE97o+7r5hb1t9SqtNB0=";
   };
   buildInputs = [ finalAttrs.deps ];
+
+  # Metals 2 uses javac internals for indexing; without these exports JDK 21 will throw an IllegalAccessError.
+  extraJavaOpts =
+    prevAttrs.extraJavaOpts
+    + " "
+    + builtins.concatStringsSep " " [
+      "--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED"
+      "--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED"
+      "--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED"
+      "--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED"
+      "--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED"
+      "--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED"
+    ];
 })
