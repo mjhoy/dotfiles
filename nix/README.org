@@ -1,30 +1,32 @@
 * nix stuff
 
-I used to use [[http://nixos.org/nix/][nix]] in two places: running NixOS on a little acer
-chromebook, and the nix package manager on my mac.
+I use [[http://nixos.org/nix/][nix]] on my mac to manage packages via a flake.
 
-Now, I just run it on my mac. But I'm getting it installed on a
-desktop linux machine too. Just need to get the kernel to talk to the
-Wifi card...
-
-- The NixOS setup lives in [[./nixos][nixos]]. This is outdated.
-- Common configuration is in [[./nixpkgs][nixpkgs]] in =config.nix=. This defines a
-  set of packages I want to be in my environment called =devEnv=.
+- Package overrides live in [[./overlays][overlays]].
+- The list of packages to install in the profile is in [[./packages.nix][packages.nix]].
+- The NixOS setup in [[./nixos][nixos]] is outdated.
 
 ** mac workflow
 
-*** (re)installing the environment defined in =config.nix=:
+*** installing the environment:
 
 #+begin_src sh
-./scripts/build-nix-env
+nix profile install .#devEnv
+#+end_src
+
+*** rebuilding
+
+#+begin_src sh
+nix profile upgrade '.*'
 #+end_src
 
 *** upgrading
 
-Just run the following in the project root:
+Update nixpkgs to the latest commit on the pinned branch:
 
 #+begin_src sh
-niv update nixpkgs
+nix flake update
+nix profile upgrade '.*'
 #+end_src
 
 *** collecting garbage
@@ -33,7 +35,7 @@ nix artifacts hang around long after you've finished using them, and
 will use a bit of space. to clean:
 
 #+begin_src sh
-nix-env --delete-generations old
+nix profile wipe-history
 nix-collect-garbage
 #+end_src
 
@@ -46,26 +48,17 @@ nix-collect-garbage -d
 *** installing ad-hoc package
 
 #+begin_src sh
-nix-env -iA nixpkgs.python
+nix profile install nixpkgs#python3
 #+end_src
 
 *** seeing what's installed
 
-#+begin_src sh :export both
-nix-env -q
+#+begin_src sh
+nix profile list
 #+end_src
 
 *** querying packages
 
-#+begin_src bash :export both
-nix-env -qa '*' | grep postgresql
+#+begin_src sh
+nix search nixpkgs postgresql
 #+end_src
-
-#+RESULTS:
-| nixpkgs.postgresql90    | postgresql-9.0.23        |
-| nixpkgs.postgresql91    | postgresql-9.1.19        |
-| nixpkgs.postgresql92    | postgresql-9.2.14        |
-| nixpkgs.postgresql93    | postgresql-9.3.10        |
-| nixpkgs.postgresql      | postgresql-9.4.5         |
-| nixpkgs.postgresql_jdbc | postgresql-jdbc-9.3-1100 |
-

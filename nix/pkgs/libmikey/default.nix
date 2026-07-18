@@ -1,7 +1,7 @@
 { stdenv }:
 stdenv.mkDerivation {
   name = "libmikey";
-  src = ~/.dotfiles/src/libmikey;
+  src = ../../../src/libmikey;
   installPhase = ''
     mkdir -p $out/lib
     mkdir -p $out/include/mikey

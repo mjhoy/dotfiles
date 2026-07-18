@@ -1,3 +1,8 @@
+# nix (multi-user daemon install)
+if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+    source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+end
+
 set -g fish_greeting
 
 # Truncate long git branch names in the prompt

@@ -12,13 +12,8 @@ have a minimal config, in `vim/`.
 
 As much as possible, I like to install software with `nix`.
 
-I configure a global environment, `devEnv`, defined in
-`nix/nixpkgs/config.nix`. The simple script `scripts/build-nix-env`
-attempts to build and install this.
-
-`nixpkgs/default.nix` is just a pointer to a pinned version of
-nixpkgs, defined at `nix/sources.json`. This can be updated by running
-`niv update nixpkgs` in the project root.
+I use a flake to define my environment (`flake.nix`). More about how this is set
+up at `nix/README.org`.
 
 ## Other stuff
 
@@ -42,36 +37,18 @@ sets up the symlinks.
 
 ### Nix setup
 
-Follow the instructions here: https://nixos.org/download.html
-
-On newer Mac OSes, you might need to tweak this to be able to get a
-`/nix` directory. Check installation instructions here:
-
-https://nixos.org/manual/nix/stable/#sect-macos-installation
-
-I used the recommended approach:
+To build and install the dev environment:
 
 ```sh
-curl -L https://nixos.org/nix/install | sh -s -- --darwin-use-unencrypted-nix-store-volume
+nix profile install .#devEnv
 ```
 
-One last step is to remove whatever channel was set up with in the
-installation. I run:
+To update nixpkgs and rebuild:
 
 ```sh
-# you may also need to do this using `sudo` for root channels
-nix-channel --list # note the channels listed
-nix-channel --remove <channel> # whatever channels were listed
+nix flake update
+nix profile upgrade '.*'
 ```
-
-Finally, a symlink should be set up in ~/.nix-defexpr like so:
-
-```
-~/.nix-defexpr/nixpkgs -> {dotfiles repo}/nixpkgs
-```
-
-If everything is properly set up, nix should use the nixpkgs pinned at
-`nixpkgs/default.nix`.
 
 ## License
 
