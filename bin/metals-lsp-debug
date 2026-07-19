@@ -1,0 +1,503 @@
+#!/usr/bin/env python3
+r"""Exercise a Metals executable against a real workspace over LSP stdio.
+
+This script starts one Metals process in the workspace and:
+
+- initializes the server and opens the source file
+- sends an in-memory change containing an unclosed string literal
+- requests on-type formatting at the inserted quote
+
+Timestamped stages and the formatting response time are printed as the probe
+runs. Recent progress messages and relevant new Metals output are summarized at
+the end. The --verbose option also prints Metals log messages and LSP
+notification methods as they arrive.
+
+Quick start
+-----------
+Run the script against a source file:
+
+    cd ~/my-sbt-project
+    metals-lsp-debug src/main/scala/Hello.scala
+
+Bits and bobs
+-------------
+
+The source file is never written, but Metals may update its normal .metals
+workspace state. Stop any editor-owned Metals process before running the script.
+
+The --with-javac-exports option adds the exports through JAVA_TOOL_OPTIONS for
+that probe process only.
+
+To select a workspace, insertion line, and Metals executable explicitly:
+
+    metals-lsp-debug \
+      --workspace ~/src/project \
+      --line 42 \
+      src/main/scala/example/Main.scala \
+      -- /path/to/metals
+
+Exit status
+-----------
+- 0: onTypeFormatting returned successfully and no known problem was logged
+- 1: the request timed out, failed, or relevant error output was detected
+- 2: the command-line arguments or input paths are invalid
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import queue
+import subprocess
+import sys
+import threading
+import time
+from pathlib import Path
+from typing import BinaryIO, Callable
+
+
+JAVAC_EXPORTS = (
+    "jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
+    "jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED",
+    "jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED",
+    "jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED",
+    "jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED",
+    "jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED",
+)
+PROBLEM_LOG_MARKERS = (
+    "IllegalAccessError",
+    "compiler crashed",
+    "timed out",
+    " ERROR ",
+)
+RELEVANT_LOG_MARKERS = PROBLEM_LOG_MARKERS + ("mbt-v2:",)
+
+
+class LspProcess:
+    def __init__(
+        self,
+        command: list[str],
+        cwd: Path,
+        env: dict[str, str],
+        observe: Callable[[dict], None],
+    ):
+        self.process = subprocess.Popen(
+            command,
+            cwd=cwd,
+            env=env,
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        assert self.process.stdin is not None
+        assert self.process.stdout is not None
+        assert self.process.stderr is not None
+        self.stdin: BinaryIO = self.process.stdin
+        self.messages: queue.Queue[dict | Exception] = queue.Queue()
+        self.stderr_lines: list[str] = []
+        self.next_id = 1000
+        self.observe = observe
+        self._write_lock = threading.Lock()
+        threading.Thread(
+            target=self._read_stdout,
+            args=(self.process.stdout,),
+            daemon=True,
+        ).start()
+        threading.Thread(
+            target=self._read_stderr,
+            args=(self.process.stderr,),
+            daemon=True,
+        ).start()
+
+    def _read_stdout(self, stream: BinaryIO) -> None:
+        try:
+            while True:
+                headers: dict[str, str] = {}
+                while True:
+                    line = stream.readline()
+                    if not line:
+                        return
+                    if line in (b"\r\n", b"\n"):
+                        break
+                    name, value = line.decode("ascii").split(":", 1)
+                    headers[name.lower()] = value.strip()
+                length = int(headers["content-length"])
+                body = stream.read(length)
+                if len(body) != length:
+                    return
+                self.messages.put(json.loads(body.decode("utf-8")))
+        except Exception as error:
+            self.messages.put(error)
+
+    def _read_stderr(self, stream: BinaryIO) -> None:
+        for raw_line in iter(stream.readline, b""):
+            self.stderr_lines.append(raw_line.decode("utf-8", errors="replace").rstrip())
+
+    def send(self, message: dict) -> None:
+        body = json.dumps(message, separators=(",", ":")).encode("utf-8")
+        framed = f"Content-Length: {len(body)}\r\n\r\n".encode("ascii") + body
+        with self._write_lock:
+            self.stdin.write(framed)
+            self.stdin.flush()
+
+    def notify(self, method: str, params: dict | None = None) -> None:
+        self.send(
+            {
+                "jsonrpc": "2.0",
+                "method": method,
+                "params": params or {},
+            }
+        )
+
+    def request(
+        self,
+        method: str,
+        params: dict | None = None,
+        timeout: float = 15.0,
+    ) -> dict:
+        request_id = self.next_id
+        self.next_id += 1
+        self.send(
+            {
+                "jsonrpc": "2.0",
+                "id": request_id,
+                "method": method,
+                "params": params or {},
+            }
+        )
+        return self._wait_for_response(request_id, timeout)
+
+    def _handle_server_request(self, message: dict) -> bool:
+        if "method" not in message or "id" not in message:
+            return False
+        method = message["method"]
+        if method == "workspace/configuration":
+            items = message.get("params", {}).get("items", [])
+            result = [None] * len(items)
+        else:
+            # Metals commonly asks for capability registration and progress
+            # creation. A null result is the valid acknowledgement for these.
+            result = None
+        self.send({"jsonrpc": "2.0", "id": message["id"], "result": result})
+        return True
+
+    def _receive(self, timeout: float) -> dict | None:
+        try:
+            message = self.messages.get(timeout=min(timeout, 0.25))
+        except queue.Empty:
+            if self.process.poll() is not None:
+                raise RuntimeError(f"Metals exited with status {self.process.returncode}")
+            return None
+        if isinstance(message, Exception):
+            raise RuntimeError(f"could not read Metals output: {message}")
+        if self._handle_server_request(message):
+            return None
+        self.observe(message)
+        return message
+
+    def _wait_for_response(self, request_id: int, timeout: float) -> dict:
+        deadline = time.monotonic() + timeout
+        while (remaining := deadline - time.monotonic()) > 0:
+            message = self._receive(remaining)
+            if message is not None and message.get("id") == request_id:
+                return message
+        raise TimeoutError(f"request {request_id} timed out after {timeout:.1f}s")
+
+    def pump(self, duration: float) -> None:
+        deadline = time.monotonic() + duration
+        while (remaining := deadline - time.monotonic()) > 0:
+            self._receive(remaining)
+
+    def stop(self) -> None:
+        if self.process.poll() is not None:
+            return
+        try:
+            self.request("shutdown", timeout=5.0)
+            self.notify("exit")
+            self.process.wait(timeout=5.0)
+        except Exception:
+            if self.process.poll() is None:
+                self.process.kill()
+            self.process.wait()
+
+
+class Observations:
+    def __init__(self, verbose: bool):
+        self.verbose = verbose
+        self.latest_progress: dict[str, str] = {}
+
+    def __call__(self, message: dict) -> None:
+        method = message.get("method")
+        params = message.get("params", {})
+        if method == "$/progress":
+            token = str(params.get("token"))
+            value = params.get("value", {})
+            description = " ".join(
+                str(value[key])
+                for key in ("title", "message", "percentage")
+                if value.get(key) not in (None, "")
+            )
+            # End notifications often have no description. Keep the last useful
+            # value so the summary does not become a list of blank lines.
+            if description:
+                self.latest_progress[token] = description
+        elif method == "window/logMessage":
+            text = str(params.get("message", ""))
+            if self.verbose:
+                print(f"metals: {text}")
+        elif self.verbose and method:
+            print(f"notification: {method}")
+
+
+def uri(path: Path) -> str:
+    return path.resolve().as_uri()
+
+
+def initialize_params(workspace: Path) -> dict:
+    return {
+        "processId": os.getpid(),
+        "clientInfo": {"name": "metals-lsp-debug", "version": "1"},
+        "rootPath": str(workspace),
+        "rootUri": uri(workspace),
+        "initializationOptions": {},
+        "capabilities": {
+            "workspace": {
+                "configuration": True,
+                "workspaceFolders": True,
+                "didChangeWatchedFiles": {"dynamicRegistration": True},
+            },
+            "textDocument": {
+                "synchronization": {"dynamicRegistration": False, "didSave": True},
+                "formatting": {"dynamicRegistration": False},
+            },
+            "window": {"workDoneProgress": True},
+        },
+        "workspaceFolders": [{"uri": uri(workspace), "name": workspace.name}],
+    }
+
+
+def add_unclosed_string(source: str, requested_line: int) -> tuple[str, int, int]:
+    lines = source.splitlines(keepends=True)
+    line = max(0, min(requested_line, len(lines)))
+    indentation = "        "
+    inserted = f'{indentation}val metalsLspProbe = "\n'
+    lines.insert(line, inserted)
+    return "".join(lines), line, len(inserted) - 1
+
+
+def relevant_log_lines(text: str) -> list[str]:
+    return [
+        line
+        for line in text.splitlines()
+        if any(marker in line for marker in RELEVANT_LOG_MARKERS)
+        # The JVM writes this informational banner to stderr. Metals relays it
+        # with ERROR severity, but it is not an actual server failure.
+        and "Picked up JAVA_TOOL_OPTIONS:" not in line
+    ]
+
+
+def has_problem_log(lines: list[str]) -> bool:
+    return any(marker in line for line in lines for marker in PROBLEM_LOG_MARKERS)
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        usage="%(prog)s [options] FILE [-- METALS_COMMAND...]",
+        description=__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument(
+        "file",
+        type=Path,
+        metavar="FILE",
+        help="Scala file to probe, relative to the workspace unless absolute",
+    )
+    parser.add_argument(
+        "--workspace",
+        type=Path,
+        default=Path.cwd(),
+        help="workspace directory in which to run Metals (default: current directory)",
+    )
+    parser.add_argument(
+        "--line",
+        type=int,
+        default=0,
+        help="zero-based line at which to insert an in-memory unclosed string",
+    )
+    parser.add_argument(
+        "--startup-wait",
+        type=float,
+        default=5.0,
+        help="seconds to pump startup traffic before sending the formatting probe",
+    )
+    parser.add_argument(
+        "--timeout",
+        type=float,
+        default=15.0,
+        help="seconds to wait for each LSP request",
+    )
+    parser.add_argument(
+        "--post-wait",
+        type=float,
+        default=15.0,
+        help="seconds to observe indexing after the formatting response or timeout",
+    )
+    parser.add_argument(
+        "--with-javac-exports",
+        action="store_true",
+        help="append the javac package exports required by JavacMtags to JAVA_TOOL_OPTIONS",
+    )
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="print Metals log messages and LSP notification methods as they arrive",
+    )
+    raw_args = sys.argv[1:]
+    if "--" in raw_args:
+        separator = raw_args.index("--")
+        probe_args = raw_args[:separator]
+        command = raw_args[separator + 1 :]
+        if not command:
+            parser.error("expected a Metals command after --")
+    else:
+        probe_args = raw_args
+        command = ["metals"]
+    args = parser.parse_args(probe_args)
+    args.command = command
+    return args
+
+
+def main() -> int:
+    args = parse_args()
+    workspace = args.workspace.expanduser().resolve()
+    source_path = (
+        args.file if args.file.is_absolute() else workspace / args.file
+    ).resolve()
+    if not workspace.is_dir():
+        print(f"workspace does not exist: {workspace}", file=sys.stderr)
+        return 2
+    if not source_path.is_file():
+        print(f"source file does not exist: {source_path}", file=sys.stderr)
+        return 2
+
+    probe_started = time.monotonic()
+
+    def stage(message: str) -> None:
+        elapsed = time.monotonic() - probe_started
+        print(f"[probe +{elapsed:7.3f}s] {message}", flush=True)
+
+    print("WARNING: shut down Eglot/Metals for this workspace before running the probe.")
+    print(f"workspace: {workspace}")
+    print(f"command:   {' '.join(args.command)}")
+    print(f"source:    {source_path} (disk remains unchanged)")
+
+    env = os.environ.copy()
+    if args.with_javac_exports:
+        additions = " ".join(f"--add-exports={export}" for export in JAVAC_EXPORTS)
+        env["JAVA_TOOL_OPTIONS"] = f"{env.get('JAVA_TOOL_OPTIONS', '')} {additions}".strip()
+        print(f"JAVA_TOOL_OPTIONS additions: {additions}")
+
+    log_path = workspace / ".metals/metals.log"
+    initial_log_size = log_path.stat().st_size if log_path.exists() else 0
+    observations = Observations(args.verbose)
+    stage("starting Metals process")
+    lsp = LspProcess(args.command, workspace, env, observations)
+    probe_ok = False
+    try:
+        stage(f"sending initialize request (timeout: {args.timeout:.1f}s)")
+        response = lsp.request(
+            "initialize", initialize_params(workspace), timeout=args.timeout
+        )
+        if "error" in response:
+            raise RuntimeError(f"initialize failed: {response['error']}")
+        server_info = response.get("result", {}).get("serverInfo", {})
+        print(f"server:    {server_info.get('name', '')} {server_info.get('version', '')}")
+        lsp.notify("initialized")
+        stage("initialize handshake completed")
+
+        source = source_path.read_text(encoding="utf-8")
+        document_uri = uri(source_path)
+        stage(f"opening {source_path.name} with textDocument/didOpen")
+        lsp.notify(
+            "textDocument/didOpen",
+            {
+                "textDocument": {
+                    "uri": document_uri,
+                    "languageId": "scala",
+                    "version": 1,
+                    "text": source,
+                }
+            },
+        )
+        stage(f"observing startup traffic for {args.startup_wait:.1f}s")
+        lsp.pump(args.startup_wait)
+
+        changed, line, character = add_unclosed_string(source, args.line)
+        stage(
+            "sending in-memory textDocument/didChange "
+            f"with an unclosed string at {line}:{character} (disk unchanged)"
+        )
+        lsp.notify(
+            "textDocument/didChange",
+            {
+                "textDocument": {"uri": document_uri, "version": 2},
+                "contentChanges": [{"text": changed}],
+            },
+        )
+        started = time.monotonic()
+        stage(
+            "requesting textDocument/onTypeFormatting "
+            f"(timeout: {args.timeout:.1f}s)"
+        )
+        try:
+            response = lsp.request(
+                "textDocument/onTypeFormatting",
+                {
+                    "textDocument": {"uri": document_uri},
+                    "options": {"tabSize": 8, "insertSpaces": True},
+                    "position": {"line": line, "character": character},
+                    "ch": '"',
+                },
+                timeout=args.timeout,
+            )
+            elapsed = time.monotonic() - started
+            if "error" in response:
+                print(f"onTypeFormatting: ERROR after {elapsed:.3f}s: {response['error']}")
+            else:
+                edits = response.get("result") or []
+                print(f"onTypeFormatting: OK after {elapsed:.3f}s ({len(edits)} edits)")
+                probe_ok = True
+        except TimeoutError as error:
+            print(f"onTypeFormatting: TIMEOUT: {error}")
+
+        stage(f"observing follow-up traffic for {args.post_wait:.1f}s")
+        lsp.pump(args.post_wait)
+    except Exception as error:
+        print(f"probe failed: {error}", file=sys.stderr)
+    finally:
+        stage("shutting down Metals process")
+        lsp.stop()
+        stage("Metals process stopped")
+
+    if observations.latest_progress:
+        print("last progress messages:")
+        for description in observations.latest_progress.values():
+            print(f"  {description}")
+
+    log_bytes = log_path.read_bytes() if log_path.exists() else b""
+    log_offset = initial_log_size if len(log_bytes) >= initial_log_size else 0
+    appended_log = log_bytes[log_offset:].decode("utf-8", errors="replace")
+    relevant = relevant_log_lines("\n".join(lsp.stderr_lines) + "\n" + appended_log)
+    if relevant:
+        print("relevant new Metals output:")
+        for line in relevant[-40:]:
+            print(f"  {line}")
+    else:
+        print("relevant new Metals output: none")
+
+    return 0 if probe_ok and not has_problem_log(relevant) else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
