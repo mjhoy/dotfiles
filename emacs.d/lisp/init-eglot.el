@@ -13,6 +13,8 @@
     (define-key eglot-mode-map (kbd "C-c C-a") 'eglot-code-actions)
     ))
 
-(setq-default eglot-workspace-configuration '((haskell (formattingProvider . "fourmolu"))))
+(setq-default eglot-workspace-configuration
+              '((haskell (formattingProvider . "fourmolu"))
+                (metals (presentationCompilerDiagnostics . :json-false))))
 
 (provide 'init-eglot)
