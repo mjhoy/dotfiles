@@ -40,16 +40,17 @@ Otherwise, truncate it.  Omit the separator unless both values exist."
   (let* ((project (project-current))
          (project-name (when project (project-name project)))
          (branch-name
-          (or
-           (mjhoy/mode-line-vc-branch vc-mode)
-           ;; Untracked files have no `vc-mode'; ask the project repository for its branch.
-           (when project
-             (let* ((root (project-root project))
-                    (backend (vc-responsible-backend root t)))
-               (when backend
-                 (let ((text (vc-call-backend
-                              backend 'mode-line-string root)))
-                   (mjhoy/mode-line-vc-branch text)))))))
+          (when buffer-file-name
+            (or
+             (mjhoy/mode-line-vc-branch vc-mode)
+             ;; Untracked files have no `vc-mode'; ask the project repository for its branch.
+             (when project
+               (let* ((root (project-root project))
+                      (backend (vc-responsible-backend root t)))
+                 (when backend
+                   (let ((text (vc-call-backend
+                                backend 'mode-line-string root)))
+                     (mjhoy/mode-line-vc-branch text))))))))
          (branch
           (when branch-name
             (or (mjhoy/mode-line-linear-id branch-name)
