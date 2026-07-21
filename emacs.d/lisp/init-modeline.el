@@ -2,6 +2,8 @@
 (require 'subr-x)
 (require 'vc)
 
+(declare-function magit-toplevel "magit")
+
 (defun mjhoy/mode-line-vc-branch (text)
   "Extract the branch name from the VC mode-line string TEXT."
   (when (and (stringp text)
@@ -17,6 +19,18 @@
               "\\(?:^\\|[^[:alnum:]]\\)\\([[:alpha:]]\\{2,\\}-[[:digit:]]+\\)"
               text))
     (match-string 1 text)))
+
+(defun mjhoy/mode-line-refresh-vc-state ()
+  "Refresh VC state for open files in the current Magit repository."
+  (when-let ((root (magit-toplevel)))
+    (dolist (buffer (buffer-list))
+      (with-current-buffer buffer
+        (when (and buffer-file-name
+                   (file-in-directory-p buffer-file-name root))
+          (vc-refresh-state))))))
+
+(with-eval-after-load 'magit
+  (add-hook 'magit-post-refresh-hook #'mjhoy/mode-line-refresh-vc-state))
 
 (defun mjhoy/mode-line-project-and-branch ()
   "Display the current project and a shortened Git branch.
