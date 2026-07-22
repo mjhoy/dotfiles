@@ -24,6 +24,7 @@ dotfiles=( gemrc
            offlineimaprc
            offlineimap.py
            eslintrc
+           zprofile
            zshrc
          )
 regex="/?([^/]+)$"

@@ -1,26 +1,7 @@
 # -*- mode: sh -*-
 
-# path setup
-typeset -U PATH path # path entries are unique
-path=(
-  "$HOME/.nix-profile/bin"
-  "$HOME/.local/bin"
-  "$HOME/.docker/bin"
-  "$HOME/.cargo/bin"
-  "$HOME/.cabal/bin"
-  "$HOME/.ghcup/bin"
-  "$HOME/.rbenv/shims"
-  "$HOME/.rbenv/bin"
-  "$HOME/.yarn/bin"
-  "$HOME/bin"
-  "$HOME/Library/Application Support/Coursier/bin"
-  "/opt/homebrew/bin"
-  "/usr/local/bin"
-  "/usr/local/sbin"
-  "/usr/local/mysql/bin"
-  "$path[@]"
-)
-export PATH
+# Load the environment used by login shells.
+source ~/.zprofile
 
 # ssh agent
 SSH_ENV="$HOME/.ssh/environment"
