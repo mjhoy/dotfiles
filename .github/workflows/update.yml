@@ -20,7 +20,7 @@ jobs:
         name: mjhoy
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
         extraPullNames: nix-community
-    - run: nix build .#devEnv
+    - run: nix build --no-link .#devEnv
     - run: |
         git config user.name "github-actions[bot]"
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
