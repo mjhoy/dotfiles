@@ -66,6 +66,23 @@ if [[ ! -e $HOME/.config/fish/config.fish ]]; then
     lns $(pwd)/fish/config.fish $HOME/.config/fish/config.fish
 fi
 
+mkdir -p $HOME/.claude/skills
+if [[ ! -e $HOME/.claude/CLAUDE.md ]]; then
+    lns $(pwd)/agents/instructions.md $HOME/.claude/CLAUDE.md
+fi
+if [[ ! -e $HOME/.claude/settings.json ]]; then
+    lns $(pwd)/agents/claude/settings.json $HOME/.claude/settings.json
+fi
+if [[ ! -e $HOME/.claude/statusline.sh ]]; then
+    lns $(pwd)/agents/claude/statusline.sh $HOME/.claude/statusline.sh
+fi
+for i in agents/skills/* ; do
+    skill=${i##*/}
+    if [[ ! -e $HOME/.claude/skills/$skill ]]; then
+        lns $(pwd)/$i $HOME/.claude/skills/$skill
+    fi
+done
+
 # Add a ApplicationSupport directory without a space for mac os.
 if [[ -e $HOME/Library/Application\ Support && ! -e $HOME/Library/ApplicationSupport ]]; then
     ln -s $HOME/Library/Application\ Support $HOME/Library/ApplicationSupport
