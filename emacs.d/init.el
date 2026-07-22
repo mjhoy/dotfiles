@@ -52,6 +52,7 @@
 (require 'init-basic)
 (require 'init-local)
 (require 'init-env)
+(require 'init-modeline)
 (require 'init-diminish)
 (require 'init-ui)
 (require 'init-theme)
