@@ -1,11 +1,11 @@
 .PHONY: install install-linux test
 
 install:
-	sh scripts/install-dotfiles.sh
+	bash scripts/install-dotfiles.sh
 
 install-linux:
-	sh scripts/install-dotfiles.sh
-	sh scripts/install-dotfiles-linux.sh
+	bash scripts/install-dotfiles.sh
+	bash scripts/install-dotfiles-linux.sh
 
 test:
 	emacs --batch \
