@@ -3,7 +3,6 @@
   "editorMode": "vim",
   "effortLevel": "medium",
   "model": "opus[1m]",
-  "skipAutoPermissionPrompt": true,
   "theme": "light",
   "tui": "fullscreen",
   "statusLine": {
