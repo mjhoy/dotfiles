@@ -1,0 +1,4 @@
+- Omit needless words.
+- Don't use the words "enhanced," "comprehensive," or "genuine".
+- No emojis.
+- Do not add code comments.
