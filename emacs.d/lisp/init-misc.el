@@ -103,8 +103,8 @@
 (defun mjhoy/kill-buffer-path ()
   "Copy the current buffer's path."
   (interactive)
-  (if-let ((path (or buffer-file-name
-                     (bound-and-true-p list-buffers-directory))))
+  (if-let* ((path (or buffer-file-name
+                      (bound-and-true-p list-buffers-directory))))
       (progn
         (kill-new path)
         (message path))
@@ -113,9 +113,9 @@
 (defun mjhoy/kill-buffer-path-relative ()
   "Copy the current buffer's path relative to the project root."
   (interactive)
-  (if-let ((path (or buffer-file-name
-                     (bound-and-true-p list-buffers-directory)))
-            (project (project-current)))
+  (if-let* ((path (or buffer-file-name
+                      (bound-and-true-p list-buffers-directory)))
+             (project (project-current)))
       (let ((relative-path (file-relative-name path (project-root project))))
         (kill-new relative-path)
         (message relative-path))
