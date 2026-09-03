@@ -1,5 +1,7 @@
 # -*- mode: sh -*-
 
+export PNPM_HOME="$HOME/Library/pnpm"
+
 # Environment shared by interactive and non-interactive login shells.
 typeset -U PATH path # path entries are unique
 path=(
@@ -14,6 +16,7 @@ path=(
   "$HOME/.yarn/bin"
   "$HOME/bin"
   "$HOME/Library/Application Support/Coursier/bin"
+  "$PNPM_HOME/bin"
   "/opt/homebrew/bin"
   "/usr/local/bin"
   "/usr/local/sbin"
