@@ -23,6 +23,7 @@ dotfiles=( gemrc
            emacs.d
            offlineimaprc
            offlineimap.py
+           psqlrc
            eslintrc
            zprofile
            zshrc
