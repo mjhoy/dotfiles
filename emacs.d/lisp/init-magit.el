@@ -34,6 +34,25 @@ to the current org clock, if one exists."
           (insert "- ")
           (insert (format "[[%s][%s.git commit %s]] %s" link dir rev summary))))))
 
+;; Specific to my dotfiles repository, ignore untracked files in submodules.
+;; This is just due to how I have emacs packages as submodules and `borg` will
+;; generate some files in them on initialization.
+(defun mjhoy/magit-dotfiles-ignore-untracked-submodules ()
+  (when (and (derived-mode-p 'magit-status-mode)
+             (file-equal-p (magit-toplevel)
+                           (expand-file-name "~/dotfiles/")))
+    (setq-local
+     magit-buffer-diff-args
+     (mapcar
+      (lambda (arg)
+        (if (equal arg "--ignore-submodules=none")
+            "--ignore-submodules=untracked"
+          arg))
+      magit-buffer-diff-args))))
+
+(add-hook 'magit-setup-buffer-hook
+          #'mjhoy/magit-dotfiles-ignore-untracked-submodules)
+
 (defun mjhoy/git-commit-hook ()
   (add-hook 'with-editor-post-finish-hook #'mjhoy/log-current-commit-to-org-clock nil t))
 

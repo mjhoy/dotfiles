@@ -50,6 +50,24 @@ nix flake update
 nix profile upgrade '.*'
 ```
 
+## Emacs
+
+I use `borg` for installing emacs packages, which adds them as submodules.
+These live in `emacs.d/lib`.
+
+To compile, run:
+
+```sh
+make -C emacs.d build
+```
+
+This can add some generated files which will show up in the git status and
+are a bit annoying. You may want to run:
+
+```sh
+git config --local diff.ignoreSubmodules untracked
+```
+
 ## License
 
 MIT. See included LICENSE file.
