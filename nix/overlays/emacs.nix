@@ -1,6 +1,5 @@
-final: prev:
-let
-  build = prev.emacs30.override { withNativeCompilation = false; };
-in (final.emacsPackagesFor build).emacsWithPackages (epkgs: [
+{ pkgs, emacs }:
+
+(pkgs.emacsPackagesFor emacs).emacsWithPackages (epkgs: [
   epkgs.mu4e
 ])
