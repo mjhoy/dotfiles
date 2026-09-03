@@ -1,11 +1,14 @@
 final: prev:
+let
+  metalsVersion = "2.0.0-M18";
+in
 prev.metals.overrideAttrs (finalAttrs: prevAttrs: {
-  version = "2.0.0-M16";
+  version = metalsVersion;
   deps = prev.stdenv.mkDerivation {
-    name = "${prevAttrs.pname}-deps-2.0.0-M16";
+    name = "${prevAttrs.pname}-deps-${metalsVersion}";
     buildCommand = ''
       export COURSIER_CACHE=$(pwd)
-      ${prev.coursier}/bin/cs fetch org.scalameta:metals_2.13:2.0.0-M16 \
+      ${prev.coursier}/bin/cs fetch org.scalameta:metals_2.13:${metalsVersion} \
         -r bintray:scalacenter/releases \
         -r sonatype:snapshots > deps
       mkdir -p $out/share/java
@@ -13,7 +16,7 @@ prev.metals.overrideAttrs (finalAttrs: prevAttrs: {
     '';
     outputHashMode = "recursive";
     outputHashAlgo = "sha256";
-    outputHash = "sha256-XpWOhkvSndfZWFSnFT4yZb+aE97o+7r5hb1t9SqtNB0=";
+    outputHash = "sha256-ru8x1sMSkHelC4ZLSO7BcCbBNOp405ASqohyTOZMvbc=";
   };
   buildInputs = [ finalAttrs.deps ];
 
