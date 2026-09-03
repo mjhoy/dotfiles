@@ -4,7 +4,10 @@ final: prev: {
   scala-cli = prev.scala-cli.override { jre = final.jdk17; };
   metals = import ./metals.nix final prev;
   scalafmt = import ./scalafmt.nix final prev;
-  myEmacs = import ./emacs.nix final prev;
+  myEmacs = import ./emacs.nix {
+    pkgs = final;
+    emacs = prev.emacs30.override { withNativeCompilation = false; };
+  };
   aspellEnv = final.aspellWithDicts (ps: [ ps.en ps.es ]);
   myREnv = prev.rWrapper.override {
     packages = with final.rPackages; [ ggplot2 lubridate plyr ];
