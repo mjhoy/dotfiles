@@ -3,7 +3,7 @@ pkgs: with pkgs; [
 
   # tools
   aspellEnv
-  awscli
+  awscli2
   buf
   cloc
   cmake
