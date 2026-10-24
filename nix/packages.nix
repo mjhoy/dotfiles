@@ -3,6 +3,7 @@ pkgs: with pkgs; [
 
   # tools
   aspellEnv
+  myCacert
   awscli2
   buf
   cloc
