@@ -22,7 +22,7 @@
 
 (defun mjhoy/mode-line-refresh-vc-state ()
   "Refresh VC state for open files in the current Magit repository."
-  (when-let ((root (magit-toplevel)))
+  (when-let* ((root (magit-toplevel)))
     (dolist (buffer (buffer-list))
       (with-current-buffer buffer
         (when (and buffer-file-name
