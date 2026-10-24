@@ -32,6 +32,10 @@ if [[ `uname` == "Darwin" ]]; then
     export NIX_CFLAGS_LINK="-L/usr/lib"
 fi
 
+if [ -n "${NIX_SSL_CERT_FILE:-}" ]; then
+    export AWS_CA_BUNDLE="$NIX_SSL_CERT_FILE"
+fi
+
 if [[ -e $HOME/.dotfiles/nixpkgs ]]; then
    export NIX_PKGS="$HOME/.dotfiles/nixpkgs"
 fi
