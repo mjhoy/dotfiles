@@ -14,11 +14,11 @@ final: prev: {
   };
   libmikey = final.callPackage ../pkgs/libmikey {};
   myCacert = prev.cacert.override {
-    blacklist = [ "Comodo AAA Services root" ]
-      ++ prev.lib.optionals (prev.lib.versionOlder prev.cacert.version "3.131.1") [
-        "emSign ECC Root CA - G3"
-        "emSign Root CA - C1"
-        "emSign ECC Root CA - C3"
-      ];
+    blacklist = [
+      "Comodo AAA Services root"
+      "emSign ECC Root CA - G3"
+      "emSign Root CA - C1"
+      "emSign ECC Root CA - C3"
+    ];
   };
 }
