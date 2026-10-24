@@ -1,3 +1,4 @@
+;; -*- no-byte-compile: t; -*-
 ;;;; init.el / @mjhoy
 
 (package-initialize)

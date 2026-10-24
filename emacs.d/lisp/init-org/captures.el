@@ -73,7 +73,7 @@ Prompts for person name with completion and navigates to the specified section."
 "
            :prepend t :time-prompt t)
           ("a" "Todo for person"
-           entry (function (lambda () (mjhoy/org-capture-person-heading)))
+           entry (function (lambda () (mjhoy/org-capture-people-location "Next")))
            "* TODO %^{Todo}
 :LOGBOOK:
 - State \"TODO\"       from \"\"           %U

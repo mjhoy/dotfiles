@@ -3,7 +3,8 @@ pkgs: with pkgs; [
 
   # tools
   aspellEnv
-  awscli
+  myCacert
+  awscli2
   buf
   cloc
   cmake

@@ -20,14 +20,34 @@
               text))
     (match-string 1 text)))
 
+;; Note: the vc-generation tracking is a a sort of hack-y attempt to implement
+;; lazy buffer refreshing if magit needs a refresh.
+(defvar mjhoy/vc-generation 0
+  "Incremented on each Magit refresh to mark VC state stale.")
+
+(defvar-local mjhoy/vc-seen-generation 0
+  "Value of `mjhoy/vc-generation' when this buffer last refreshed VC state.")
+
+(defun mjhoy/vc-refresh-if-stale (buffer)
+  "Refresh VC state in BUFFER if it is stale."
+  (with-current-buffer buffer
+    (when (and buffer-file-name
+               (< mjhoy/vc-seen-generation mjhoy/vc-generation))
+      (setq mjhoy/vc-seen-generation mjhoy/vc-generation)
+      (vc-refresh-state))))
+
+(defun mjhoy/vc-refresh-visible (&optional frame)
+  "Refresh stale VC state for buffers displayed in FRAME."
+  (dolist (window (window-list frame 'no-minibuf))
+    (mjhoy/vc-refresh-if-stale (window-buffer window))))
+
 (defun mjhoy/mode-line-refresh-vc-state ()
-  "Refresh VC state for open files in the current Magit repository."
-  (when-let ((root (magit-toplevel)))
-    (dolist (buffer (buffer-list))
-      (with-current-buffer buffer
-        (when (and buffer-file-name
-                   (file-in-directory-p buffer-file-name root))
-          (vc-refresh-state))))))
+  "Mark VC state stale and refresh the buffers currently displayed."
+  (setq mjhoy/vc-generation (1+ mjhoy/vc-generation))
+  (dolist (frame (frame-list))
+    (mjhoy/vc-refresh-visible frame)))
+
+(add-hook 'window-buffer-change-functions #'mjhoy/vc-refresh-visible)
 
 (with-eval-after-load 'magit
   (add-hook 'magit-post-refresh-hook #'mjhoy/mode-line-refresh-vc-state))

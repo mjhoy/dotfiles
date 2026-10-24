@@ -2,6 +2,12 @@
 if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
     source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
 end
+if test -e $HOME/.nix-profile/etc/ssl/certs/ca-bundle.crt
+    set --export NIX_SSL_CERT_FILE $HOME/.nix-profile/etc/ssl/certs/ca-bundle.crt
+end
+if test -n "$NIX_SSL_CERT_FILE"
+    set --export AWS_CA_BUNDLE $NIX_SSL_CERT_FILE
+end
 
 set -g fish_greeting
 
