@@ -17,7 +17,7 @@ nix profile install .#devEnv
 *** rebuilding
 
 #+begin_src sh
-nix profile upgrade '.*'
+nix profile upgrade devEnv
 #+end_src
 
 *** upgrading

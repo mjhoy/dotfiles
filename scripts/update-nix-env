@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Rebuild the installed dotfiles environment using the existing flake pins.
+set -euo pipefail
+
+DOTFILES_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
+cd "$DOTFILES_DIR"
+
+# The devEnv profile entry must have been installed from this checkout
+# with `nix profile install .#devEnv`.
+echo "Upgrading devEnv..."
+nix profile upgrade devEnv --no-update-lock-file
+
+echo "Environment updated using the existing flake.lock."
