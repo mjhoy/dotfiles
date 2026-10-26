@@ -1,35 +1,18 @@
 final: prev: {
-  # Zulu builds that drop the emSign roots behind the compromised eMudhra intermediates.
-  # TODO: remove once nixpkgs ships zulu17 >= 17.0.21 and zulu21 >= 21.0.13.
-  fixedZulu =
-    pkg: major: version: url: hash:
-    pkg.overrideAttrs (finalAttrs: old: {
+  # Temurin builds that drop the emSign roots behind the compromised eMudhra intermediates.
+  # Remove once nixpkgs-25.11-darwin ships temurin-bin-17 >= 17.0.21 and temurin-bin-21 >= 21.0.13.
+  fixedTemurin =
+    pkg: version: url: sha256:
+    pkg.overrideAttrs (_: {
       inherit version;
-      src = prev.fetchurl {
-        inherit url hash;
-        curlOpts = "-H Referer:https://www.azul.com/downloads/zulu/";
-      };
-      # Note: Newer Zulu tarballs unpack to Contents/ at the top level and nixpkgs expects zulu-NN.jdk/Contents.
-      installPhase = ''
-        if [ -d Contents ] && [ ! -d zulu-${major}.jdk ]; then
-          mkdir zulu-${major}.jdk
-          mv Contents zulu-${major}.jdk/
-        fi
-      '' + old.installPhase;
-      # passthru.home/bundle in nixpkgs point at the pre-override derivation
-      passthru = old.passthru // {
-        home = finalAttrs.finalPackage;
-        bundle = "${finalAttrs.finalPackage}/Library/Java/JavaVirtualMachines/zulu-${major}.jdk";
-      };
+      src = prev.fetchurl { inherit url sha256; };
     });
-  zulu17 = final.fixedZulu prev.zulu17 "17" "17.0.21"
-    "https://cdn.azul.com/zulu/bin/zulu17.70.111-ca-jdk17.0.21-macosx_aarch64.tar.gz"
-    "sha256-jlFJXTT01aWwI+LlJcZa+z+xOeQFB/y8Pc+UnKE85VA=";
-  zulu21 = final.fixedZulu prev.zulu21 "21" "21.0.13"
-    "https://cdn.azul.com/zulu/bin/zulu21.54.107-ca-jdk21.0.13-macosx_aarch64.tar.gz"
-    "sha256-doL8u8OhZDUtNsCclrKqkYQci7r9uamn9fBNttKQpiQ=";
-  jdk17 = final.zulu17;
-  jdk21 = final.zulu21;
+  jdk17 = final.fixedTemurin prev.temurin-bin-17 "17.0.21"
+    "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.21%2B9/OpenJDK17U-jdk_aarch64_mac_hotspot_17.0.21_9.tar.gz"
+    "78b08c7f5a0598242d5719c022e19479cb4a3aa45c37c19726a757a469ed1c15";
+  jdk21 = final.fixedTemurin prev.temurin-bin-21 "21.0.13"
+    "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13_9.tar.gz"
+    "bf036b35b071bfb2f54f2c0af8ee8d88afa95ee6eb3dce02c0f94cfc2524d04a";
   scala = prev.scala.override { jre = final.jdk17; };
   sbt = prev.sbt.override { jre = final.jdk17; };
   scala-cli = prev.scala-cli.override { jre = final.jdk17; };
