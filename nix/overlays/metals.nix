@@ -2,7 +2,7 @@ final: prev:
 let
   metalsVersion = "2.0.0-M18";
 in
-prev.metals.overrideAttrs (finalAttrs: prevAttrs: {
+(prev.metals.override { jre = final.jdk21; }).overrideAttrs (finalAttrs: prevAttrs: {
   version = metalsVersion;
   deps = prev.stdenv.mkDerivation {
     name = "${prevAttrs.pname}-deps-${metalsVersion}";
