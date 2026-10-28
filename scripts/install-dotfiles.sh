@@ -6,11 +6,22 @@ set -e
 
 function run() {
     echo "$@"
-    $($@)
+    "$@"
 }
 
 function lns() {
-    run "ln -s $1 $2"
+    local source="$1" destination="$2"
+    if [[ -e "$destination" || -L "$destination" ]]; then
+        if [[ ! -L "$destination" || "$(readlink "$destination")" != "$source" ]]; then
+            printf 'Warning: %s exists and is not a symlink to %s.\n' "$destination" "$source" >&2
+            return 0
+        fi
+    else
+        run ln -s "$source" "$destination"
+    fi
+    if [[ ! -e "$source" ]]; then
+        printf 'Warning: source %s is missing; symlink %s is dangling.\n' "$source" "$destination" >&2
+    fi
 }
 
 dotfiles=( gemrc
@@ -33,69 +44,41 @@ for i in "${dotfiles[@]}" ; do
     [[ $i =~ $regex ]]
     filename=${BASH_REMATCH[1]}
     dotfilename="$HOME/.$filename"
-    if [[ ! -e $dotfilename ]]; then
-        cmd="ln -s $(pwd)/$i $dotfilename"
-        run $cmd
-    fi
+    lns "$(pwd)/$i" "$dotfilename"
 done
 
-mkdir -p $HOME/bin
+mkdir -p "$HOME/bin"
 for i in bin/* ; do
-    if [[ ! -e $HOME/$i ]]; then
-        cmd="ln -s $(pwd)/$i $HOME/$i"
-        run $cmd
-    fi
+    lns "$(pwd)/$i" "$HOME/$i"
 done
 
-if [[ ! -e $HOME/.dotfiles ]]; then
-    lns $(pwd) $HOME/.dotfiles
-fi
+lns "$(pwd)" "$HOME/.dotfiles"
 
-if [[ ! -e $HOME/.config/nix ]]; then
-    mkdir -p $HOME/.config/nix
-fi
+mkdir -p "$HOME/.config/nix"
+lns "$(pwd)/nix/nix.conf" "$HOME/.config/nix/nix.conf"
 
-if [[ ! -e $HOME/.config/nix/nix.conf ]]; then
-    lns $(pwd)/nix/nix.conf $HOME/.config/nix/nix.conf
-fi
+mkdir -p "$HOME/.config/fish"
+lns "$(pwd)/fish/config.fish" "$HOME/.config/fish/config.fish"
 
-if [[ ! -e $HOME/.config/fish ]]; then
-    mkdir -p $HOME/.config/fish
-fi
-
-if [[ ! -e $HOME/.config/fish/config.fish ]]; then
-    lns $(pwd)/fish/config.fish $HOME/.config/fish/config.fish
-fi
-
-mkdir -p $HOME/.claude/skills
-if [[ ! -e $HOME/.claude/CLAUDE.md ]]; then
-    lns $(pwd)/agents/instructions.md $HOME/.claude/CLAUDE.md
-fi
-if [[ ! -e $HOME/.claude/settings.json ]]; then
-    lns $(pwd)/agents/claude/settings.json $HOME/.claude/settings.json
-fi
-if [[ ! -e $HOME/.claude/statusline.sh ]]; then
-    lns $(pwd)/agents/claude/statusline.sh $HOME/.claude/statusline.sh
-fi
+mkdir -p "$HOME/.claude/skills"
+lns "$(pwd)/agents/instructions.md" "$HOME/.claude/CLAUDE.md"
+lns "$(pwd)/agents/claude/settings.json" "$HOME/.claude/settings.json"
+lns "$(pwd)/agents/claude/statusline.sh" "$HOME/.claude/statusline.sh"
 for i in agents/skills/* ; do
     skill=${i##*/}
-    if [[ ! -e $HOME/.claude/skills/$skill ]]; then
-        lns $(pwd)/$i $HOME/.claude/skills/$skill
-    fi
+    lns "$(pwd)/$i" "$HOME/.claude/skills/$skill"
 done
 
 # Add a ApplicationSupport directory without a space for mac os.
-if [[ -e $HOME/Library/Application\ Support && ! -e $HOME/Library/ApplicationSupport ]]; then
-    ln -s $HOME/Library/Application\ Support $HOME/Library/ApplicationSupport
+if [[ -e "$HOME/Library/Application Support" ]]; then
+    lns "$HOME/Library/Application Support" "$HOME/Library/ApplicationSupport"
 fi
 
 OS=`uname`
 
 if [[ "${OS}" == "Darwin" ]]; then
     if [[ -d "$HOME/Library/ApplicationSupport/Code/User" ]]; then
-        if [[ ! -e "$HOME/Library/ApplicationSupport/Code/User/settings.json" ]]; then
-            lns $(pwd)/vscode/settings.json $HOME/Library/ApplicationSupport/Code/User/settings.json
-        fi
+        lns "$(pwd)/vscode/settings.json" "$HOME/Library/ApplicationSupport/Code/User/settings.json"
     else
         echo "No VS Code application support folder; skipping settings.json."
     fi
