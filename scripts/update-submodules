@@ -1,4 +1,12 @@
 #!/bin/bash
+#
+# Update Emacs package submodules to their latest remote commit and
+# open a PR in Github with some metadata (number of commits since last
+# update, number of authors, etc).
+#
+# Usage: scripts/update-submodules [--dry-run]
+#
+# --dry-run will skip the opening of the PR to Github.
 
 set -eoux pipefail
 
@@ -23,14 +31,28 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-echo $DRY_RUN
+cd "$(git rev-parse --show-toplevel)"
+
+if [[ -n "$(git status --porcelain --untracked-files=all --ignore-submodules=none)" ]]; then
+    echo "Worktree is dirty (including submodules); commit or stash changes first." >&2
+    exit 1
+fi
+
+original_branch=$(git symbolic-ref --quiet --short HEAD) || {
+    echo "Check out a branch before updating submodules." >&2
+    exit 1
+}
 
 # Temporary file to store submodule update metadata
 METADATA_FILE=$(mktemp)
 export METADATA_FILE
+trap 'rm -f "$METADATA_FILE"' EXIT
 
 function update() {
-    if [[ " $SKIP_SUBMODULES " =~ " $name " ]]; then
+    local name=$1 sm_path=$2 toplevel=$3
+    local local_sha remote_sha commit_count authors recent_date
+    local submodule_git_url submodule_http_url diff_url recent_date_et
+    if [[ " $SKIP_SUBMODULES " == *" $name "* ]]; then
         echo "skipping $name as set in SKIP_SUBMODULES"
         return 0
     fi
@@ -38,18 +60,22 @@ function update() {
     # running `git fetch`; so that for instance if a remote has changed its
     # default branch, this might still reference the old default.
     # This will update it.
+    if [[ "$(git rev-parse --is-shallow-repository)" == true ]]; then
+        git fetch origin --unshallow
+    else
+        git fetch origin
+    fi
     git remote set-head origin -a
-    git fetch origin --unshallow
     local_sha=$(git rev-parse HEAD)
     remote_sha=$(git rev-parse origin/HEAD)
     if [ ! "$local_sha" == "$remote_sha" ]; then
-        cd $toplevel
+        cd "$toplevel"
 
-        commit_count=$(cd $sm_path && git rev-list --count ${local_sha}..${remote_sha})
-        authors=$(cd $sm_path && git log --format='%an' ${local_sha}..${remote_sha} | sort -u | tr '\n' ',')
-        recent_date=$(cd $sm_path && git log -1 --format='%ci' ${remote_sha})
+        commit_count=$(cd "$sm_path" && git rev-list --count "${local_sha}..${remote_sha}")
+        authors=$(cd "$sm_path" && git log --format='%an' "${local_sha}..${remote_sha}" | sort -u | tr '\n' ',')
+        recent_date=$(cd "$sm_path" && git log -1 --format='%ci' "${remote_sha}")
 
-        submodule_git_url=$(git config --file=.gitmodules submodule.${name}.url)
+        submodule_git_url=$(git config --file=.gitmodules "submodule.${name}.url")
         submodule_http_url=${submodule_git_url/git@/https://}
         submodule_http_url=${submodule_http_url/.com:/.com/}
         submodule_http_url=${submodule_http_url/.git//}
@@ -58,10 +84,10 @@ function update() {
         # Convert to ET timezone
         recent_date_et=$(TZ=America/New_York date -jf "%Y-%m-%d %H:%M:%S %z" "$recent_date" "+%Y-%m-%d %H:%M:%S %Z" 2>/dev/null || echo "$recent_date")
 
-        echo "${name}|${commit_count}|${authors}|${recent_date_et}|${diff_url}" >> $METADATA_FILE
+        echo "${name}|${commit_count}|${authors}|${recent_date_et}|${diff_url}" >> "$METADATA_FILE"
 
-        git submodule update --remote -- $sm_path
-        git add $sm_path
+        git -C "$sm_path" checkout --detach "$remote_sha"
+        git add -- "$sm_path"
         git commit -m "bump ${name}"
     fi
 }
@@ -70,14 +96,13 @@ export -f update
 
 date=$(date "+%Y-%m-%d")
 main_update_branch=update-emacs-packages-${date}
-original_branch=$(git rev-parse --abbrev-ref HEAD)
-git checkout -b $main_update_branch
+git checkout -b "$main_update_branch"
 
 # Process all submodules
-git submodule foreach 'update'
+git submodule foreach 'bash -euo pipefail -c '\''update "$1" "$2" "$3"'\'' -- "$name" "$sm_path" "$toplevel"'
 
 echo "Ran update..."
-cat $METADATA_FILE
+cat "$METADATA_FILE"
 
 # Check if any updates were made
 if [ -s "$METADATA_FILE" ]; then
@@ -104,21 +129,18 @@ if [ -s "$METADATA_FILE" ]; then
         pr_body="${pr_body}\n- Most recent commit: ${recent_date}\n- Diff: ${diff_url}\n\n"
     done < "$METADATA_FILE"
 
-    # Push branch and create PR
-    if [[ $DRY_RUN == "true" ]]; then
+    if [[ "$DRY_RUN" == true ]]; then
+        echo "Updates committed locally on $main_update_branch; skipping push and PR creation."
         echo "[dry run] git push origin $main_update_branch -u"
-        echo "[dry run] gh pr create --draft --title \"Update emacs packages ${date}\" --body \"${pr_body}\" -B $original_branch"
-        echo -e "\n--- PR Body Preview ---"
-        echo -e "$pr_body"
+        echo "[dry run] gh pr create --draft --title \"Update emacs packages ${date}\" --body-file - -B \"$original_branch\""
+        printf '\n--- PR Body Preview ---\n'
+        printf '%b' "$pr_body"
     else
-        git push origin $main_update_branch -u
-        echo -e "$pr_body" | gh pr create --draft --title "Update emacs packages ${date}" --body-file - -B $original_branch
+        git push origin "$main_update_branch" -u
+        printf '%b' "$pr_body" | gh pr create --draft --title "Update emacs packages ${date}" --body-file - -B "$original_branch"
     fi
 else
     echo "No submodule updates found"
-    git checkout $original_branch
-    git branch -D $main_update_branch
+    git checkout "$original_branch"
+    git branch -D "$main_update_branch"
 fi
-
-# Cleanup
-rm -f "$METADATA_FILE"
