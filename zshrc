@@ -3,27 +3,30 @@
 # Load the environment used by login shells.
 source ~/.zprofile
 
-# ssh agent
-SSH_ENV="$HOME/.ssh/environment"
+# macOS supplies an SSH agent through the login session.
+if [[ "$OSTYPE" != darwin* ]]; then
+  # ssh agent
+  SSH_ENV="$HOME/.ssh/environment"
 
-function start_agent {
-  echo "Initializing new SSH agent..."
-  /usr/bin/env ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-  echo succeeded
-  chmod 600 "${SSH_ENV}"
-  . "${SSH_ENV}" > /dev/null
-  /usr/bin/env ssh-add;
-}
+  function start_agent {
+    echo "Initializing new SSH agent..."
+    /usr/bin/env ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/env ssh-add;
+  }
 
-# Source SSH settings, if applicable
-if [ -f "${SSH_ENV}" ]; then
-  . "${SSH_ENV}" > /dev/null
-  #ps ${SSH_AGENT_PID} doesn't work under cywgin
-  ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-  start_agent;
-}
-else
-  start_agent;
+  # Source SSH settings, if applicable
+  if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    #ps ${SSH_AGENT_PID} doesn't work under cywgin
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+    start_agent;
+  }
+  else
+    start_agent;
+  fi
 fi
 
 # include Postgres.app in path if it exists.
