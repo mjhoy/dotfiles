@@ -60,8 +60,11 @@ lns "$(pwd)/nix/nix.conf" "$HOME/.config/nix/nix.conf"
 mkdir -p "$HOME/.config/fish"
 lns "$(pwd)/fish/config.fish" "$HOME/.config/fish/config.fish"
 
+mkdir -p "$HOME/.codex"
+lns "$(pwd)/agents/AGENTS.md" "$HOME/.codex/AGENTS.md"
+
 mkdir -p "$HOME/.claude/skills"
-lns "$(pwd)/agents/instructions.md" "$HOME/.claude/CLAUDE.md"
+lns "$(pwd)/agents/AGENTS.md" "$HOME/.claude/CLAUDE.md"
 lns "$(pwd)/agents/claude/settings.json" "$HOME/.claude/settings.json"
 lns "$(pwd)/agents/claude/statusline.sh" "$HOME/.claude/statusline.sh"
 for i in agents/skills/* ; do
