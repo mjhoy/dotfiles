@@ -1,4 +1,4 @@
-(setopt org-confirm-babel-evaluate nil)
+(setopt org-confirm-babel-evaluate t)
 
 (require 'org-tempo)
 
