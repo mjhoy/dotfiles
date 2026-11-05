@@ -1,5 +1,3 @@
-(setopt python-shell-interpreter
-      (concat (expand-file-name "~/")
-              "bin/python-nix"))
+(setopt python-shell-interpreter "python3")
 
 (provide 'init-python)

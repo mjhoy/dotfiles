@@ -14,7 +14,7 @@
 
 (require 'ob-dot)
 
-(setopt org-babel-python-command "load-env-mypython3 python")
+(setopt org-babel-python-command "python3")
 
 (require 'ob-scheme)
 
