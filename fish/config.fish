@@ -9,6 +9,9 @@ if test -n "$NIX_SSL_CERT_FILE"
     set --export AWS_CA_BUNDLE $NIX_SSL_CERT_FILE
 end
 
+set -gx PNPM_HOME "$HOME/Library/pnpm"
+source "$HOME/.dotfiles/shell/path.fish"
+
 set -g fish_greeting
 
 # Truncate long git branch names in the prompt

@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+set -e
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+GENERATED_WARNING='# Generated from shell/path. Do not edit directly.'
+paths=()
+
+while read -r directory; do
+    if [[ -z "$directory" || "$directory" == \#* ]]; then
+        continue
+    fi
+
+    for unsupported_character in '"' "'" '\' '$' '`'; do
+        if [[ "$directory" == *"$unsupported_character"* ]]; then
+            printf 'Unsupported character in path: %s\n' "$unsupported_character" >&2
+            exit 1
+        fi
+    done
+
+    if [[ "$directory" == '~/'* ]]; then
+        directory='$HOME/'"${directory:2}"
+    fi
+
+    paths+=("$directory")
+done < "$ROOT/shell/path"
+
+{
+    printf '%s\n\n' "$GENERATED_WARNING"
+    printf 'path=(\n'
+    for directory in "${paths[@]}"; do
+        printf '    "%s"\n' "$directory"
+    done
+    printf '    "${path[@]}"\n)\n'
+} > "$ROOT/shell/path.zsh"
+
+{
+    printf '%s\n\n' "$GENERATED_WARNING"
+    printf 'set -gx PATH'
+    for directory in "${paths[@]}"; do
+        printf ' \\\n    "%s"' "$directory"
+    done
+    printf ' \\\n    $PATH\n'
+} > "$ROOT/shell/path.fish"
