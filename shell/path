@@ -4,7 +4,6 @@
 ~/.local/bin
 ~/.docker/bin
 ~/.cargo/bin
-~/.cabal/bin
 ~/.ghcup/bin
 ~/.rbenv/shims
 ~/.rbenv/bin
