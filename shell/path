@@ -1,0 +1,18 @@
+# Run `make compile-path` after editing.
+
+~/.nix-profile/bin
+~/.local/bin
+~/.docker/bin
+~/.cargo/bin
+~/.cabal/bin
+~/.ghcup/bin
+~/.rbenv/shims
+~/.rbenv/bin
+~/.yarn/bin
+~/bin
+~/Library/Application Support/Coursier/bin
+~/Library/pnpm/bin
+/opt/homebrew/bin
+/usr/local/bin
+/usr/local/sbin
+/usr/local/mysql/bin
