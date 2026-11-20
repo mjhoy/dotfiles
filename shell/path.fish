@@ -12,7 +12,7 @@ fish_add_path --global --path --prepend --move \
     "$HOME/.yarn/bin" \
     "$HOME/bin" \
     "$HOME/Library/Application Support/Coursier/bin" \
-    "$HOME/Library/pnpm/bin" \
+    "$PNPM_HOME/bin" \
     "/opt/homebrew/bin" \
     "/usr/local/bin" \
     "/usr/local/sbin" \

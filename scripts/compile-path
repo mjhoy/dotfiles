@@ -10,8 +10,10 @@ while read -r directory; do
         continue
     fi
 
+    # The entry with $NAME references removed.
+    without_variables="$(sed -E 's/\$[A-Za-z_][A-Za-z0-9_]*//g' <<< "$directory")"
     for unsupported_character in '"' "'" '\' '$' '`'; do
-        if [[ "$directory" == *"$unsupported_character"* ]]; then
+        if [[ "$without_variables" == *"$unsupported_character"* ]]; then
             printf 'Unsupported character in path: %s\n' "$unsupported_character" >&2
             exit 1
         fi

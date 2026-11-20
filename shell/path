@@ -11,7 +11,7 @@
 ~/.yarn/bin
 ~/bin
 ~/Library/Application Support/Coursier/bin
-~/Library/pnpm/bin
+$PNPM_HOME/bin
 /opt/homebrew/bin
 /usr/local/bin
 /usr/local/sbin
