@@ -1,3 +1,5 @@
+# -*- mode: sh -*-
+
 export PNPM_HOME="$HOME/Library/pnpm"
 
 typeset -U PATH path # path entries are unique
