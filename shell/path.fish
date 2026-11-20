@@ -1,6 +1,6 @@
 # Generated from shell/path. Do not edit directly.
 
-set -gx PATH \
+fish_add_path --global --path --prepend --move \
     "$HOME/.nix-profile/bin" \
     "$HOME/.local/bin" \
     "$HOME/.docker/bin" \
@@ -16,5 +16,4 @@ set -gx PATH \
     "/opt/homebrew/bin" \
     "/usr/local/bin" \
     "/usr/local/sbin" \
-    "/usr/local/mysql/bin" \
-    $PATH
+    "/usr/local/mysql/bin"

@@ -35,9 +35,9 @@ done < "$ROOT/shell/path"
 
 {
     printf '%s\n\n' "$GENERATED_WARNING"
-    printf 'set -gx PATH'
+    printf 'fish_add_path --global --path --prepend --move'
     for directory in "${paths[@]}"; do
         printf ' \\\n    "%s"' "$directory"
     done
-    printf ' \\\n    $PATH\n'
+    printf '\n'
 } > "$ROOT/shell/path.fish"
