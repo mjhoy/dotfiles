@@ -1,4 +1,8 @@
-.PHONY: install install-linux test
+.DEFAULT_GOAL := install
+.PHONY: install install-linux test compile-path
+
+compile-path:
+	bash scripts/compile-path
 
 install:
 	bash scripts/install-dotfiles.sh

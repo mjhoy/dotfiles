@@ -1,0 +1,19 @@
+# Generated from shell/path. Do not edit directly.
+
+fish_add_path --global --path --prepend --move \
+    "$HOME/.nix-profile/bin" \
+    "$HOME/.local/bin" \
+    "$HOME/.docker/bin" \
+    "$HOME/.cargo/bin" \
+    "$HOME/.cabal/bin" \
+    "$HOME/.ghcup/bin" \
+    "$HOME/.rbenv/shims" \
+    "$HOME/.rbenv/bin" \
+    "$HOME/.yarn/bin" \
+    "$HOME/bin" \
+    "$HOME/Library/Application Support/Coursier/bin" \
+    "$PNPM_HOME/bin" \
+    "/opt/homebrew/bin" \
+    "/usr/local/bin" \
+    "/usr/local/sbin" \
+    "/usr/local/mysql/bin"
