@@ -55,6 +55,13 @@ nix flake update
 nix profile upgrade '.*'
 ```
 
+To rebuild the dev environment (for instance, if you are tweaking the config)
+there is a helper script:
+
+```sh
+./scripts/update-nix-env
+```
+
 ## Emacs
 
 I use `borg` for installing emacs packages, which adds them as submodules.
