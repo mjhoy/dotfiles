@@ -2,32 +2,80 @@
 set -e
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-GENERATED_WARNING='# Generated from shell/path. Do not edit directly.'
 paths=()
+env_names=()
+env_values=()
 
-while read -r directory; do
-    if [[ -z "$directory" || "$directory" == \#* ]]; then
-        continue
-    fi
+normalize_value() {
+    local value="$1" label="$2" without_variables unsupported_character
 
     # The entry with $NAME references removed.
-    without_variables="$(sed -E 's/\$[A-Za-z_][A-Za-z0-9_]*//g' <<< "$directory")"
+    without_variables="$(sed -E 's/\$[A-Za-z_][A-Za-z0-9_]*//g' <<< "$value")"
     for unsupported_character in '"' "'" '\' '$' '`'; do
         if [[ "$without_variables" == *"$unsupported_character"* ]]; then
-            printf 'Unsupported character in path: %s\n' "$unsupported_character" >&2
+            printf 'Unsupported character in %s: %s\n' "$label" "$unsupported_character" >&2
             exit 1
         fi
     done
 
-    if [[ "$directory" == '~/'* ]]; then
-        directory='$HOME/'"${directory:2}"
+    if [[ "$value" == '~/'* ]]; then
+        value='$HOME/'"${value:2}"
     fi
 
-    paths+=("$directory")
-done < "$ROOT/shell/path"
+    REPLY="$value"
+}
+
+read_entries() {
+    local source="$1" handler="$2" line
+
+    while IFS= read -r line || [[ -n "$line" ]]; do
+        if [[ -z "$line" || "$line" == \#* ]]; then
+            continue
+        fi
+        "$handler" "$line"
+    done < "$ROOT/shell/$source"
+}
+
+add_env() {
+    if [[ ! "$1" =~ ^([A-Za-z_][A-Za-z0-9_]*)=(.*)$ ]]; then
+        printf 'Expected NAME=value in shell/env: %s\n' "$1" >&2
+        exit 1
+    fi
+
+    local name="${BASH_REMATCH[1]}"
+    normalize_value "${BASH_REMATCH[2]}" "$name"
+    env_names+=("$name")
+    env_values+=("$REPLY")
+}
+
+add_path() {
+    normalize_value "$1" path
+    paths+=("$REPLY")
+}
+
+generated_warning() {
+    printf '# Generated from shell/%s. Do not edit directly.\n\n' "$1"
+}
+
+read_entries env add_env
+read_entries path add_path
 
 {
-    printf '%s\n\n' "$GENERATED_WARNING"
+    generated_warning env
+    for index in "${!env_names[@]}"; do
+        printf 'export %s="%s"\n' "${env_names[index]}" "${env_values[index]}"
+    done
+} > "$ROOT/shell/env.zsh"
+
+{
+    generated_warning env
+    for index in "${!env_names[@]}"; do
+        printf 'set -gx %s "%s"\n' "${env_names[index]}" "${env_values[index]}"
+    done
+} > "$ROOT/shell/env.fish"
+
+{
+    generated_warning path
     printf 'path=(\n'
     for directory in "${paths[@]}"; do
         printf '    "%s"\n' "$directory"
@@ -36,7 +84,7 @@ done < "$ROOT/shell/path"
 } > "$ROOT/shell/path.zsh"
 
 {
-    printf '%s\n\n' "$GENERATED_WARNING"
+    generated_warning path
     printf 'fish_add_path --global --path --prepend --move'
     for directory in "${paths[@]}"; do
         printf ' \\\n    "%s"' "$directory"

@@ -52,13 +52,10 @@ function seecert () {
   (openssl s_client -showcerts -servername $1 -connect $1:443 <<< "Q" | openssl x509 -text)
 }
 
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
-
 # ghcup
 [ -f "~/.ghcup/env" ] && source "~/.ghcup/env"
 
 # nvm
-export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Go
@@ -69,9 +66,6 @@ fi
 
 # Intel brew
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
-
-# my ledger file
-export LEDGER_FILE="$HOME/proj/bookkeeping/2023.dat"
 
 # Set JAVA_HOME to JDK home behind Nix profile symlinks.
 if command -v java >/dev/null; then

@@ -1,6 +1,6 @@
 # -*- mode: sh -*-
 
-export PNPM_HOME="$HOME/Library/pnpm"
+source "$HOME/.dotfiles/shell/env.zsh"
 
 typeset -U PATH path # path entries are unique
 source "$HOME/.dotfiles/shell/path.zsh"

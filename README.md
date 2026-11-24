@@ -35,6 +35,11 @@ make install
 
 sets up the symlinks.
 
+### Shell configuration
+
+Edit `shell/env` for shared Fish and Zsh exports and `shell/path` for shared
+PATH entries. Run `make compile-path` to regenerate both shells' files.
+
 ### Nix setup
 
 To build and install the dev environment:
