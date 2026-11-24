@@ -4,6 +4,7 @@ backups
 elpa
 eshell
 auto-save-list
+/autosaves/
 projectile-bookmarks.eld
 bookmarks
 .org-id-locations

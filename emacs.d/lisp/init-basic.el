@@ -8,11 +8,36 @@
                                     user-emacs-directory))))
 
 (setopt backup-by-copying t)
+(setopt version-control t)
+(setopt kept-new-versions 10)
+(setopt kept-old-versions 2)
+(setopt delete-old-versions t)
+(setopt vc-make-backup-files t)
 
-;; disable backups
-(setopt make-backup-files nil)
-(setopt backup-inhibited nil)
+(make-directory autosaves-directory t)
+(setopt auto-save-file-name-transforms
+        `((".*" ,autosaves-directory t)))
+
 (setopt create-lockfiles nil)
+
+;; Don't back up possibly sensitive files.
+(defconst mjhoy/sensitive-file-regexp
+  "/\\.?\\(authinfo\\|netrc\\)\\'")
+
+(defun mjhoy/sensitive-file-p (file)
+  (string-match-p mjhoy/sensitive-file-regexp file))
+
+(setopt backup-enable-predicate
+        (lambda (file)
+          (and (normal-backup-enable-predicate file)
+               (not (mjhoy/sensitive-file-p file)))))
+
+(defun mjhoy/disable-auto-save-for-sensitive-files ()
+  (when (and buffer-file-name
+             (mjhoy/sensitive-file-p buffer-file-name))
+    (auto-save-mode -1)))
+
+(add-hook 'find-file-hook #'mjhoy/disable-auto-save-for-sensitive-files)
 
 ;; save bookmarks immediately
 (setopt bookmark-save-flag 1)
