@@ -17,15 +17,14 @@ if [[ "$OSTYPE" != darwin* ]]; then
     /usr/bin/env ssh-add;
   }
 
-  # Source SSH settings, if applicable
-  if [ -f "${SSH_ENV}" ]; then
-    . "${SSH_ENV}" > /dev/null
-    #ps ${SSH_AGENT_PID} doesn't work under cywgin
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-    start_agent;
+  function agent_reachable {
+    ssh-add -l > /dev/null 2>&1
+    [ $? -le 1 ]
   }
-  else
-    start_agent;
+
+  if ! agent_reachable; then
+    [ -f "${SSH_ENV}" ] && . "${SSH_ENV}" > /dev/null
+    agent_reachable || start_agent
   fi
 fi
 
