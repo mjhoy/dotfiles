@@ -97,7 +97,6 @@
 (global-set-key (kbd "C-c b r") 'revert-buffer)
 
 ;; quick find files
-(global-set-key (kbd "C-c f p") (fni (find-file "~/Dropbox/p.gpg")))
 (global-set-key (kbd "C-c f s") (fni (find-file "~/.ssh/config")))
 
 (defun mjhoy/kill-buffer-path ()
