@@ -27,14 +27,10 @@
 ;; Personal email setup
 (setopt mu4e-sent-messages-behavior 'sent)
 (setopt message-send-mail-function 'smtpmail-send-it
-      starttls-use-gnutls t
-      smtpmail-starttls-credentials
-      '(("smtp.fastmail.com" 587 nil nil))
       smtpmail-default-smtp-server "smtp.fastmail.com"
       smtpmail-smtp-server "smtp.fastmail.com"
-      smtpmail-auth-credentials
-      (expand-file-name "~/.authinfo.gpg")
-      smtpmail-smtp-service 587)
+      smtpmail-smtp-service 587
+      smtpmail-stream-type 'starttls)
 (setopt message-kill-buffer-on-exit t)
 (setopt mu4e-compose-signature-auto-include nil)
 (setopt mu4e-refile-folder "/mjh-mjhoy.com/Archive")
