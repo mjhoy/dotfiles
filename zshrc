@@ -29,16 +29,6 @@ if [[ "$OSTYPE" != darwin* ]]; then
   fi
 fi
 
-# include Postgres.app in path if it exists.
-if [ -d /Applications/Postgres.app/Contents/Versions/9.6/bin ]; then
-  export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin
-fi
-
-# include VSCode binaries in path if it exists
-if [ -d /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin ]; then
-  export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-fi
-
 # nix
 . ~/.dotfiles/bash/nix
 
@@ -52,25 +42,11 @@ function seecert () {
   (openssl s_client -showcerts -servername $1 -connect $1:443 <<< "Q" | openssl x509 -text)
 }
 
-# ghcup
-[ -f "~/.ghcup/env" ] && source "~/.ghcup/env"
-
 # nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# Go
-if command -v go &> /dev/null; then
-    export GOPATH="$(go env GOPATH)"
-    export PATH="${PATH}:${GOPATH}/bin"
-fi
-
 # Intel brew
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
-
-# Set JAVA_HOME to JDK home behind Nix profile symlinks.
-if command -v java >/dev/null; then
-    export JAVA_HOME="$(dirname "$(dirname "$(realpath "$(command -v java)")")")"
-fi
 
 # switch to fish!
 if command -v fish > /dev/null 2>&1; then                # check that fish is available

@@ -12,6 +12,15 @@ end
 source "$HOME/.dotfiles/shell/env.fish"
 source "$HOME/.dotfiles/shell/path.fish"
 
+if command -q go
+    set --global --export GOPATH (go env GOPATH)
+    fish_add_path --global --path --append $GOPATH/bin
+end
+
+if command -q java
+    set --global --export JAVA_HOME (path dirname (path dirname (realpath (command -v java))))
+end
+
 set -g fish_greeting
 
 # Truncate long git branch names in the prompt
