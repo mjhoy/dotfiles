@@ -3,7 +3,7 @@
 [general]
 accounts = mjh
 ui = ttyui
-# pythonfile defines get_authinfo_password
+# pythonfile defines get_keychain_password
 pythonfile = ~/.offlineimap.py
 fsync = False
 
@@ -25,7 +25,7 @@ remotehost = imap.fastmail.com
 remoteport = 993
 remoteuser = mjh@fastmail.fm
 # remotepass = remote-pass-here
-remotepasseval = get_password(path="Email/mjh@fastmail.fm-app/imap.fastmail.com")
+remotepasseval = get_keychain_password(server="imap.fastmail.com", account="mjh@fastmail.fm")
 folderfilter = lambda folder: folder not in ['Junk Mail',
                                              ]
 
