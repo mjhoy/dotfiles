@@ -13,7 +13,7 @@ machine irc.libera.chat login LOGIN password PASSWORD
   (let* ((server      "irc.libera.chat")
          (port        "6697")
          (credentials (auth-source-search :host server
-                                          :max-tokens 1))
+                                          :max 1))
          (password (funcall (plist-get (car credentials) :secret))))
     (erc-tls :server server
              :port port
